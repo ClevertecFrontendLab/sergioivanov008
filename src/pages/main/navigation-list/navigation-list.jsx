@@ -1,26 +1,30 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { PLACEHOLDER, RATING_TITLE } from '../../../constants/constants';
+import { toggleListView } from '../../../redux/slices/book-list-slice';
 
 import './navigation-list.css';
 
-export const NavigationList = (props) => {
+export const NavigationList = () => {
     const [fullSearchView, setFullSearchView] = useState(false);
+    const listView = useSelector(state => state.bookList.listView);
+    const dispatch = useDispatch();
 
     const changeFullSearchView = () => {
         setFullSearchView(!fullSearchView);
     }
 
     const changeViewTable = () => {
-        props.setListView(true);
+        dispatch(toggleListView(true));
     }
 
     const changeViewList = () => {
-        props.setListView(false);
+        dispatch(toggleListView(false));
     }
 
-    const isActiveTable = props.listView ? 'active' : '';
-    const isActivelist = props.listView ? '' : 'active';
+    const isActiveTable = listView ? 'active' : '';
+    const isActivelist = listView ? '' : 'active';
 
     const navigationListStyle = fullSearchView ? 'navigation-list short' : 'navigation-list';
 

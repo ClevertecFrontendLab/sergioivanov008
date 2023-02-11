@@ -17,19 +17,19 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-    <Provider store={store}>
-        <React.StrictMode>
-          <HashRouter>
-            <Routes>
-              <Route path='/' element={<Layout />}>
-                  <Route path='/' element={<LibraryContent />} />
-                  <Route path='/rules' element={<Rules />} />
-                  <Route path='/oferta' element={<Oferta />} />
-                  <Route path='/books/:category' element={<LibraryContent />} />
-              </Route>
-              <Route path='/book/:category/:id' element={<BookPage />} />
-            </Routes>
-          </HashRouter>
-        </React.StrictMode>
-    </Provider>
+    <React.StrictMode>
+        <Provider store={store}>
+            <HashRouter>
+                <Routes>
+                  <Route path='/' element={<Layout />}>
+                      <Route path='/' element={<LibraryContent />} />
+                      <Route path='/rules' element={<Rules />} />
+                      <Route path='/oferta' element={<Oferta />} />
+                      <Route path='/books/:category' element={<LibraryContent />} />
+                  </Route>
+                  <Route path='/book/:category/:id' element={<BookPage />} />
+                </Routes>
+            </HashRouter>
+        </Provider>
+    </React.StrictMode>
 );
