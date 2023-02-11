@@ -1,0 +1,24 @@
+import { createSlice } from '@reduxjs/toolkit'
+
+export const bookSlice = createSlice({
+  name: 'book',
+  initialState: {
+    book: {
+        'common_name': 'Грокаем алгоритмы. Иллюстрированное пособие для программистов и любопытствующих',
+        'common_author': 'Адитья Бхаргава, 2019',
+        'common_order-btn': 'забронировать',
+        'common_about': 'О книге',
+        'common_full-description-1': 'Алгоритмы — это всего лишь пошаговые алгоритмы решения задач, и большинство таких задач уже были кем-то решены, протестированы и проверены. Можно, конечно, погрузится в глубокую философию гениального Кнута, изучить многостраничные фолианты с доказательствами и обоснованиями, но хотите ли вы тратить на это свое время?',
+        'common_full-description-2': 'Откройте великолепно иллюстрированную книгу и вы сразу поймете, что алгоритмы — это просто. А грокать алгоритмы — это веселое и увлекательное занятие.',
+        'book-rating_name': 'рейтинг',
+        'book-rating_score': 4.3,
+        'book-detail-information': 'Подробная информация'
+    }
+  },
+  reducers: {}
+})
+
+// Action creators are generated for each case reducer function
+export const { xxx } = bookSlice.actions
+
+export default bookSlice.reducer

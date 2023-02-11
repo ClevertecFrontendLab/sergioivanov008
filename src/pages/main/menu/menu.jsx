@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { MENU_ITEM_ALLBOOKS, MENU_ITEM_OFERTA, MENU_ITEM_RULES } from '../../../constants/constants';
-import categories from '../../../mock-data/mock-category.json';
 
 import './menu.css';
 
@@ -10,6 +10,7 @@ export const Menu = (props) => {
     const [openCategory, setOpenCategory] = useState(props.openCategory ? true : false);
     const [allBooksActive, setAllBooksActive] = useState(props.allBooksActive ? true : false);
     const [isShowBurger, setIsShowBurger] = useState(false);
+    const categories = useSelector(state => state.categories.categories)
 
     useEffect(() => {
         setIsShowBurger(props.openBurger);
