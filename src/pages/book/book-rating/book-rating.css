@@ -1,0 +1,42 @@
+.book-rating {
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 62px;
+}
+.book-rating_wrapper {
+    width: 221px;
+    height: 28px;
+}
+.book-rating_name {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    text-transform: capitalize;
+    color: #363636;
+
+    width: 350px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #EBEBEB;
+    margin-bottom: 16px;
+}
+@media (max-width: 1200px) {
+    .book-rating {
+        margin-bottom: 52px;
+    }
+}
+@media (max-width: 700px) {
+    .book-rating {
+        margin-bottom: 30px;
+    }
+    .book-rating_wrapper {
+        width: 271px;
+        height: 34px;
+    }
+}

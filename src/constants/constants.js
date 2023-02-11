@@ -1,0 +1,16 @@
+export const HEADER_TITLE = 'Библиотека';
+export const GREETING_TEXT = 'Привет, Иван!';
+export const COPIRIGHT_CLEVERLAND = '© 2020-2023 Cleverland. ';
+export const COPIRIGHT_TEXT = 'Все права защищены.';
+export const BTN_RATE = 'оценить книгу';
+export const BTN_BOOK = 'забронировать';
+export const MENU_ITEM_ALLBOOKS = 'Витрина книг';
+export const MENU_ITEM_RULES = 'Правила пользования';
+export const MENU_ITEM_OFERTA = 'Договор оферты';
+export const RATING_TITLE = 'По рейтингу';
+export const PLACEHOLDER = 'Поиск книги или автора…';
+export const BOOK_FEEDBACKS = 'отзывы';
+export const COMMON_ABOUT = 'О книге';
+export const COMMON_ORDER_BTN = 'забронировать';
+export const BOOK_RATING_NAME = 'рейтинг';
+export const BOOK_DETAIL_INFORMATION = 'Подробная информация';

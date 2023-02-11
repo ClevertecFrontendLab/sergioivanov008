@@ -1,0 +1,41 @@
+.book-content-name {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    text-transform: capitalize;
+    color: #363636;
+    
+    width: 100%;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #EBEBEB;
+    margin-bottom: 16px;
+}
+.for_review {
+    margin-left: 6px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #A7A7A7;
+}
+@media (max-width: 1200px) {
+    .book-content-name {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+@media (max-width: 700px) {
+    .book-content-name {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+        padding-bottom: 0px;
+
+        margin-bottom: 8px;
+    }
+}

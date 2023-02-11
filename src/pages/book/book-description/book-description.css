@@ -1,0 +1,204 @@
+.book-description {
+    width: 100%;
+    height: 696px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    margin-bottom: 42px;
+}
+.book-description_grid-1 {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+.book-description_grid-2 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+.book-description_grid-3 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+.book-swiper {
+    width: 445px;
+    height: 696px;
+}
+.book-description_common {
+    width: 635px;
+
+    display: flex;
+    flex-direction: column;
+}
+.common_name {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0.1px;
+    color: #363636;
+
+    margin-bottom: 24px;
+}
+.common_author {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    color: #A7A7A7;
+
+    margin-bottom: 32px;
+}
+.common_order-btn {
+    width: 350px;
+    height: 52px;
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    border-radius: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    margin-bottom: 62px;
+
+    cursor: pointer;
+}
+.common_about {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    color: #363636;
+
+    margin-bottom: 32px;
+}
+.common_full-description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #363636;
+}
+.common_full-description.part-two {
+    margin-top: 24px;
+}
+@media (max-width: 1200px) {
+    .book-description {
+        height: 592px;
+        margin-bottom: 52px;
+    }
+    .book-swiper {
+        width: 136px;
+        height: 238px;
+    }
+    .book-description_common {
+        width: 472px;
+    }
+    .common_name {
+        font-size: 24px;
+        line-height: 30px;
+
+        margin-bottom: 30px;
+    }
+    .common_author {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .common_order-btn {
+        width: 306px;
+
+        margin-bottom: 48px;
+    }
+    .common_about {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .book-description_grid-1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+    .book-description_grid-2 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+    .book-description_grid-3 {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+    }
+}
+@media (max-width: 700px) {
+    .book-description {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 288px;
+        grid-template-rows: 316px 262px 278px;
+        margin-bottom: 42px;
+    }
+    .book-swiper {
+        width: 188px;
+        height: 316px;
+    }
+    .book-description_common {
+        width: 288px;
+    }
+    .book-description_grid-1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+
+        margin: 0 auto;
+    }
+    .book-description_grid-2 {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+    .book-description_grid-3 {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+    .common_name {
+        font-size: 18px;
+        line-height: 28px;
+        margin-bottom: 8px;
+    }
+    .common_author {
+        margin-bottom: 42px;
+    }
+    .common_order-btn {
+        width: 288px;
+        height: 40px;
+
+        font-size: 12px;
+        line-height: 18px;
+
+        margin-bottom: 0px;
+    }
+    .common_about {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+
+        margin-bottom: 16px;
+    }
+    .common_full-description {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .common_full-description.part-two {
+        margin-top: 0px;
+    }
+}

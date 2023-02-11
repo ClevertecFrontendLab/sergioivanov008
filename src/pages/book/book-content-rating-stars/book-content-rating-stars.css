@@ -1,0 +1,28 @@
+.book-content-rating-stars {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+
+    width: 100%;
+    height: 100%;
+}
+.book-rating_full {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+
+    width: 100%;
+    height: 100%;
+}
+.book-rating_score {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    color: #363636;
+
+    margin-left: 24px;
+}
