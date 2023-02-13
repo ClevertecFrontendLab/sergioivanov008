@@ -1,0 +1,35 @@
+.loader.show {
+    display: block;
+
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 10;
+
+    background: rgba(54, 54, 54, 0.3);
+    backdrop-filter: blur(10px);
+
+    margin: 0 auto;
+}
+.loader {
+    display: none;
+}
+.loader-image {
+    position: relative;
+    top: calc(50% - 68.75px/2);
+    left: calc(50% - 68.75px/2);
+
+    width: 68.75px;
+    height: 68.75px;
+    background: url(/src/assets/loader/loader.svg) center center no-repeat;
+
+    animation: preloader-rotate 1s infinite linear;
+}
+@keyframes preloader-rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+}

@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
+import { ErrorLoader } from './components/error-loader';
+import { Loader } from './components/loader';
 import { BookPage } from './pages/book';
 import { Layout } from './pages/main/layout';
 import { LibraryContent } from './pages/main/library-content';
@@ -30,6 +32,8 @@ root.render(
                   <Route path='/book/:category/:id' element={<BookPage />} />
                 </Routes>
             </HashRouter>
+            <Loader />
+            <ErrorLoader />
         </Provider>
     </React.StrictMode>
 );

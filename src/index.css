@@ -70,4 +70,9 @@ select {
   font: inherit;
 }
 
+.body_not-scrollable {
+    overflow-y: hidden;
+    margin-right: 17px;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
