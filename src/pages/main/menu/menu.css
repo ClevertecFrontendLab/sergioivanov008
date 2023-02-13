@@ -94,11 +94,11 @@
     color: #A7A7A7;
 }
 
-.menu-burger {
+.header__logo .menu-burger {
     display: block;
     position: absolute;
     top: 40px;
-    left: 0px;
+    left: -1000px;
 
     width: 502px;
     max-height: 90vh;
@@ -109,6 +109,9 @@
 
     background: #F9F9FA;
     z-index: 2;
+}
+.header__logo .menu-burger.show {
+    left: 0px;
 }
 .header__logo .menu {
     position: absolute;

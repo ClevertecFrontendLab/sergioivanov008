@@ -5,6 +5,7 @@ import bookReducer from './slices/book-slice';
 import booksReducer from './slices/books-slice';
 import categoriesReducer from './slices/categories-slice';
 import loadersReducer from './slices/loaders-slice';
+import menuReducer from './slices/menu-slice';
 
 export default configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export default configureStore({
     books: booksReducer,
     book: bookReducer,
     bookList: bookListReducer,
-    loaders: loadersReducer
+    loaders: loadersReducer,
+    menu: menuReducer
   }
 })

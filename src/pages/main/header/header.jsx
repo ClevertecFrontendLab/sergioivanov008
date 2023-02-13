@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import avatarImg from '../../../assets/header/avatar.png';
 import { GREETING_TEXT, HEADER_TITLE } from '../../../constants/constants';
+import { toggleOpenBurger } from '../../../redux/slices/menu-slice';
 import { Menu } from '../menu';
 
 import './header.css';
 
 export const Header = () => {
-    const [openBurger, setOpenBurger] = useState(false);
+    const dispatch = useDispatch();
+
+    const openBurger = useSelector(state => state.menu.openBurger);
 
     const toggleBodyNotScrollable = () => {
         const body = document.querySelector('body');
@@ -17,7 +20,7 @@ export const Header = () => {
     }
 
     const toggleBurger = () => {
-        setOpenBurger(!openBurger);
+        dispatch(toggleOpenBurger(!openBurger));
         toggleBodyNotScrollable();
     }
 
@@ -38,10 +41,6 @@ export const Header = () => {
                     data-test-id='button-burger'
                     role='presentation' />
                 <Menu
-                    toggleBurger={toggleBurger}
-                    openBurger={openBurger}
-                    openCategory={true}
-                    allBooksActive={true}
                     isItBurger={true}
                     dataTestId='burger-navigation' />
             </div>

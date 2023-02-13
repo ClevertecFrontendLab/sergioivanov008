@@ -10,7 +10,7 @@ export const Layout = () => (
 <div className='main-page'>
     <Header />
     <main className='main-content'>
-        <Menu openCategory={true} allBooksActive={true}/>
+        <Menu />
         <Outlet />
     </main>
     <Footer />
