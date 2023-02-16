@@ -1,4 +1,3 @@
-// import { mockBooks } from '../../../mock-data/mock-books';
 import { useSelector } from 'react-redux';
 
 import { BookCard } from '../book-card';
@@ -12,11 +11,10 @@ export const BookList = () => {
 
     return (
         <section className={curView}>
-            {
+            { mockBooks.length > 0 &&
                 mockBooks.map((el) => (
                     <BookCard book={el} key={el.id} />
                     ))
-
             }
         </section>
     );

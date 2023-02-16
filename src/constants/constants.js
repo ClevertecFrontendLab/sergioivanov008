@@ -15,3 +15,5 @@ export const COMMON_ORDER_BTN = 'забронировать';
 export const BOOK_RATING_NAME = 'рейтинг';
 export const BOOK_DETAIL_INFORMATION = 'Подробная информация';
 export const TOAST_MESSAGE = 'Что-то пошло не так. Обновите страницу через некоторое время.';
+export const HOST_URL = 'https://strapi.cleverland.by';
+export const MONTHES = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];

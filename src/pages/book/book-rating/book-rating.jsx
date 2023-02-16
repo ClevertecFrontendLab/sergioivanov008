@@ -1,11 +1,15 @@
+import { useSelector } from 'react-redux';
+
 import { BOOK_RATING_NAME } from '../../../constants/constants';
 import { BookContentName } from '../book-content-name';
 import { BookContentRatingStars } from '../book-content-rating-stars';
 
 import './book-rating.css';
 
-export const BookRating = (props) => {
-    const {rating, isNeedRating} = props;
+export const BookRating = () => {
+    const book = useSelector(state => state.book.book);
+    const {rating} = book;
+    const isNeedRating = rating ? true : false;
 
     return (
     <section className='book-rating'>

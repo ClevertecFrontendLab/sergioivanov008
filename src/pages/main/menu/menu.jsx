@@ -32,7 +32,7 @@ export const Menu = (props) => {
     let menuArrowStyle = openCategory ? 'menu-arrow' : 'menu-arrow close';
 
     menuArrowStyle = allBooksActive ? menuArrowStyle : `${menuArrowStyle} non-active`;
-    
+
     const menuStyle = props.isItBurger ? `menu-burger ${openBurger && 'show'}` : 'menu';
     const bookCategoryListStyle = openCategory ? 'book-category-list' : 'book-category-list hidden';
     const idForBooks = props.isItBurger ? 'burger-books' : 'navigation-books';
@@ -56,15 +56,27 @@ export const Menu = (props) => {
                 <div className={bookCategoryListStyle}>
                     {
                         categories.map((el) => (
+                            // <NavLink
+                            //     to={`/books/${el.category}`}
+                            //     className='book-category'
+                            //     onClick={allBookUnactive}
+                            //     data-test-id={el.category === 'books' ? idForBooks : 'empty'}
+                            //     key={el.id}
+                            // >
+                            //     <div className='book-category-name'>
+                            //         {el.categoryName}
+                            //         <span className='book-category-count'>{el.categoryCount ? el.categoryCount : ''}</span>
+                            //     </div>
+                            // </NavLink>
                             <NavLink
-                                to={`/books/${el.category}`}
+                                to={`/books/${el.path}`}
                                 className='book-category'
                                 onClick={allBookUnactive}
                                 data-test-id={el.category === 'books' ? idForBooks : 'empty'}
                                 key={el.id}
                             >
                                 <div className='book-category-name'>
-                                    {el.categoryName}
+                                    {el.name}
                                     <span className='book-category-count'>{el.categoryCount ? el.categoryCount : ''}</span>
                                 </div>
                             </NavLink>

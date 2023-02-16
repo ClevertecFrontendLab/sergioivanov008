@@ -1,15 +1,20 @@
+import { useSelector } from 'react-redux';
+
 import bookCoverEmpty from '../../../assets/swiper-images/image-empty.png';
-import { COMMON_ABOUT, COMMON_ORDER_BTN } from '../../../constants/constants';
+import { COMMON_ABOUT, COMMON_ORDER_BTN, HOST_URL } from '../../../constants/constants';
 import { CoverSwiper } from '../../../cover-swiper';
 
 import './book-description.css';
 
-export const BookDescription = (props) => {
-    const {title, author, year, coverImages, commonFullDescription1, commonFullDescription2} = props.curBook;
+export const BookDescription = () => {
+    const book = useSelector(state => state.book.book);
+    const {images, title, authors, issueYear, description} = book;
 
-    const arrCoverImages = coverImages.length === 0
+    const arrCoverImages = images.length === 0
         ? [{'img': bookCoverEmpty, 'id': 'tempId0'}]
-        : coverImages.map((el, index) => ({'img': el, 'id': `tempId${index}`}))
+        : images.map((el, index) => ({'img': `${HOST_URL}${el.url}`, 'id': `tempId${index}`}));
+
+    const curAuthors = authors.join(', ').concat(', ');
 
     return (
         <section className='book-description'>
@@ -18,14 +23,13 @@ export const BookDescription = (props) => {
             </section>
             <section className='book-description_common book-description_grid-2'>
                 <div className='common_name'>{title}</div>
-                <div className='common_author'>{`${author}, ${year}`}</div>
+                <div className='common_author'>{`${curAuthors}${issueYear}`}</div>
                 <div className='common_order-btn'>{COMMON_ORDER_BTN}</div>
             </section>
             <section className='book-description_grid-3'>
                 <div className='common_about'>{COMMON_ABOUT}</div>
                 <div>
-                    <div className='common_full-description'>{commonFullDescription1}</div>
-                    <div className='common_full-description part-two'>{commonFullDescription2}</div>
+                    <div className='common_full-description'>{description}</div>
                 </div>
             </section>
         </section>

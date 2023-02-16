@@ -1,18 +1,21 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { BOOK_FEEDBACKS, BTN_RATE } from '../../../constants/constants';
-import mockFeedbacks from '../../../mock-data/mock-feedbacks.json';
 import { BookFeedback } from '../book-feedback';
 
 import './book-review.css';
 
 export const BookReview = () => {
-    const {feedbacks} = mockFeedbacks;
     const [openFeedbacks, setOpenFeedbacks] = useState(true);
 
     const openFeed = () => {
         setOpenFeedbacks(!openFeedbacks);
     }
+
+    const book = useSelector(state => state.book.book);
+    const {comments} = book;
+    const commentsCount = comments.length;
 
     const arrowStyle = openFeedbacks ? 'book-review_header-3' : 'book-review_header-3 hidden';
 
@@ -23,7 +26,7 @@ export const BookReview = () => {
         <div className='book-review_header'>
             <div className='book-review_header-1'>
                 {BOOK_FEEDBACKS}
-                <span className='book-review_header-2'>2</span>
+                <span className='book-review_header-2'>{commentsCount}</span>
             </div>
             <div
                 className={arrowStyle}
@@ -34,7 +37,7 @@ export const BookReview = () => {
 
         <div className={feedbacksStyle}>
             {
-                feedbacks.map((el) => (<BookFeedback feedback={el} key={el.id} />))
+                comments.map((el) => (<BookFeedback feedback={el} key={el.id} />))
             }
         </div>
 

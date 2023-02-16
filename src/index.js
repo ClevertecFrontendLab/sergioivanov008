@@ -1,9 +1,10 @@
-/* eslint-disable import/no-named-as-default */
+//* eslint-disable import/no-named-as-default */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
+import { App } from './components/app';
 import { ErrorLoader } from './components/error-loader';
 import { Loader } from './components/loader';
 import { BookPage } from './pages/book';
@@ -15,13 +16,12 @@ import store from './redux/store'
 
 import './index.css';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <HashRouter>
+            {/* <HashRouter>
                 <Routes>
                   <Route path='/' element={<Layout />}>
                       <Route path='/' element={<LibraryContent />} />
@@ -33,7 +33,8 @@ root.render(
                 </Routes>
             </HashRouter>
             <Loader />
-            <ErrorLoader />
+            <ErrorLoader /> */}
+            <App />
         </Provider>
     </React.StrictMode>
 );

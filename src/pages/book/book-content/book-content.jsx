@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { mockBooks } from '../../../mock-data/mock-books';
 import { BookDescription } from '../book-description';
 import { BookInfo } from '../book-info';
 import { BookListMini } from '../book-list-mini';
@@ -10,19 +10,21 @@ import { BookReview } from '../book-review';
 import './book-content.css';
 
 export const BookContent = () => {
-    const {id} = useParams();
-    const curBook = mockBooks.find((el) => el.id === id);
-    const {rating} = curBook;
+    const canUse = useSelector(state => state.book.canUse);
 
     return (
         <main className='book-content'>
-            <BookListMini curBook={curBook} />
-            <section className='book-content_section'>
-                <BookDescription curBook={curBook} />
-                <BookRating rating={rating} isNeedRating ={true} />
-                <BookInfo />
-                <BookReview />
-            </section>
+            {canUse &&
+                <React.Fragment>
+                    <BookListMini />
+                    <section className='book-content_section'>
+                        <BookDescription />
+                        <BookRating />
+                        <BookInfo />
+                        <BookReview />
+                    </section>
+                </React.Fragment>
+            }
         </main>
     );
 }

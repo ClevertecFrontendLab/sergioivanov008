@@ -146,7 +146,8 @@
         height: 100%;
         display: grid;
         grid-template-columns: 288px;
-        grid-template-rows: 316px 262px 278px;
+        /* grid-template-rows: 316px 262px 278px; */
+        grid-template-rows: repeat(2, 1fr);
         margin-bottom: 42px;
     }
     .book-swiper {
