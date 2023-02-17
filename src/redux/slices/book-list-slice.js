@@ -13,7 +13,6 @@ export const bookListSlice = createSlice({
   }
 })
 
-// Action creators are generated for each case reducer function
 export const { toggleListView } = bookListSlice.actions
 
 export default bookListSlice.reducer

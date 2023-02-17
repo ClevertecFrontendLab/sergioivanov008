@@ -15,7 +15,7 @@ export const BookReview = () => {
 
     const book = useSelector(state => state.book.book);
     const {comments} = book;
-    const commentsCount = comments.length;
+    const commentsCount = comments === null ? '' : comments.length;
 
     const arrowStyle = openFeedbacks ? 'book-review_header-3' : 'book-review_header-3 hidden';
 
@@ -36,7 +36,7 @@ export const BookReview = () => {
         </div>
 
         <div className={feedbacksStyle}>
-            {
+            { comments &&
                 comments.map((el) => (<BookFeedback feedback={el} key={el.id} />))
             }
         </div>

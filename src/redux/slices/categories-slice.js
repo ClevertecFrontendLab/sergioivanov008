@@ -150,9 +150,10 @@ const mockCatgories = [
 export const categoriesSlice = createSlice({
   name: 'categories',
   initialState: {
-    // categories: [],
-    categories: mockCatgories,
+    // categories: mockCatgories,
+    categories: [],
     isLoading: false,
+    isError: false,
     canUse: false
   },
   reducers: {
@@ -167,7 +168,11 @@ export const categoriesSlice = createSlice({
     getCategoriesFailure: (state) => {
         state.categories = [];
         state.isLoading = false;
+        state.isError = true;
         state.canUse = false;
+    },
+    setIsErrorCategories: (state, action) => {
+        state.isError = action.payload;
     },
     setCanUseCategories: (state, action) => {
         state.canUse = action.payload;
@@ -182,6 +187,7 @@ export const {
     getCategoriesFetch,
     getCategoriesSuccess,
     getCategoriesFailure,
+    setIsErrorCategories,
     setCanUseCategories,
     deleteCategories } = categoriesSlice.actions
 

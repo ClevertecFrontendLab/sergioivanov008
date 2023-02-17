@@ -353,9 +353,10 @@ const mockBooks = [
 export const booksSlice = createSlice({
   name: 'books',
   initialState: {
-    books: mockBooks,
-    // books: [],
+    // books: mockBooks,
+    books: [],
     isLoading: false,
+    isError: false,
     canUse: false
   },
   reducers: {
@@ -370,7 +371,11 @@ export const booksSlice = createSlice({
     getBooksFailure: (state) => {
         state.books = [];
         state.isLoading = false;
+        state.isError = true;
         state.canUse = false;
+    },
+    setIsErrorBooks: (state, action) => {
+        state.isError = action.payload;
     },
     setCanUseBooks: (state, action) => {
         state.canUse = action.payload;
@@ -385,6 +390,7 @@ export const {
     getBooksFetch,
     getBooksSuccess,
     getBooksFailure,
+    setIsErrorBooks,
     setCanUseBooks,
     deleteBooks } = booksSlice.actions
 

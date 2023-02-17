@@ -12,6 +12,7 @@ export const Menu = (props) => {
     const allBooksActive = useSelector(state => state.menu.allBooksActive);
     const openBurger = useSelector(state => state.menu.openBurger);
     const categories = useSelector(state => state.categories.categories);
+    const canUse = useSelector(state => state.main.canUseCategoriesAndBooks);
 
     const toggleMenu = () => {
         dispatch(toggleOpenCategory(!openCategory));
@@ -54,7 +55,7 @@ export const Menu = (props) => {
                 </NavLink>
 
                 <div className={bookCategoryListStyle}>
-                    {
+                    { canUse &&
                         categories.map((el) => (
                             // <NavLink
                             //     to={`/books/${el.category}`}

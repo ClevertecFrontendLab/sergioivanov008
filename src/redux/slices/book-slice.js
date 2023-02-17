@@ -1,16 +1,5 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
-
-const mockBookOld = {
-    'common_name': 'Грокаем алгоритмы. Иллюстрированное пособие для программистов и любопытствующих',
-    'common_author': 'Адитья Бхаргава, 2019',
-    'common_order-btn': 'забронировать',
-    'common_about': 'О книге',
-    'common_full-description-1': 'Алгоритмы — это всего лишь пошаговые алгоритмы решения задач, и большинство таких задач уже были кем-то решены, протестированы и проверены. Можно, конечно, погрузится в глубокую философию гениального Кнута, изучить многостраничные фолианты с доказательствами и обоснованиями, но хотите ли вы тратить на это свое время?',
-    'common_full-description-2': 'Откройте великолепно иллюстрированную книгу и вы сразу поймете, что алгоритмы — это просто. А грокать алгоритмы — это веселое и увлекательное занятие.',
-    'book-rating_name': 'рейтинг',
-    'book-rating_score': 4.3,
-    'book-detail-information': 'Подробная информация'
-};
 
 const mockBook = {
     id: 2,
@@ -58,14 +47,37 @@ const mockBook = {
 export const bookSlice = createSlice({
     name: 'book',
     initialState: {
-        // book: mockBookOld,
-        book: mockBook,
-        canUse: true
+        // book: mockBook,
+        book: [],
+        isLoading: false,
+        isError: false,
+        canUse: false
     },
-    reducers: {}
+    reducers: {
+        getBookFetch: (state) => {
+            state.isLoading = true;
+        },
+        getBookSuccess: (state, action) => {
+            state.book = action.payload;
+            state.isLoading = false;
+            state.canUse = true;
+        },
+        getBookFailure: (state) => {
+            state.book = [];
+            state.isLoading = false;
+            state.isError = true;
+            state.canUse = false;
+        },
+        setIsErrorBook: (state, action) => {
+            state.isError = action.payload;
+        }
+    }
 })
 
-// Action creators are generated for each case reducer function
-export const { xxx } = bookSlice.actions
+export const {
+    getBookFetch,
+    getBookSuccess,
+    getBookFailure,
+    setIsErrorBook } = bookSlice.actions
 
 export default bookSlice.reducer
