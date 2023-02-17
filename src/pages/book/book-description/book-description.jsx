@@ -10,7 +10,7 @@ export const BookDescription = () => {
     const book = useSelector(state => state.book.book);
     const {images, title, authors, issueYear, description} = book;
 
-    const arrCoverImages = images.length === 0
+    const arrCoverImages = images === null
         ? [{'img': bookCoverEmpty, 'id': 'tempId0'}]
         : images.map((el, index) => ({'img': `${HOST_URL}${el.url}`, 'id': `tempId${index}`}));
 
