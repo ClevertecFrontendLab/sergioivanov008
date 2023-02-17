@@ -13,11 +13,11 @@ export const Loader = () => {
 
     toggleBodyNotScrollable(isLoaderVisible);
 
-    const loaderStyle = isLoaderVisible ? 'loader show' : 'loader';
-
     return (
-        <div className={loaderStyle} data-test-id='loader'>
-            <div className='loader-image' />
-        </div>
+        isLoaderVisible &&
+            <div className='loader show' data-test-id='loader'>
+                <div className='loader-image' />
+            </div>
+
     );
 }

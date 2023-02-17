@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
@@ -15,13 +15,16 @@ import { Loader } from '../loader';
 import './app.css';
 
 export const App = () => {
+    const isRendered = useRef(false);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCategoriesFetch());
-        dispatch(getBooksFetch());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        if (isRendered.current === false) {
+            isRendered.current = true;
+            dispatch(getCategoriesFetch());
+            dispatch(getBooksFetch());
+        }
+    }, [dispatch, isRendered]);
 
     return (
     <div className='app'>

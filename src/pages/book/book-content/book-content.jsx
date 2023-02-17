@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -12,13 +12,17 @@ import { BookReview } from '../book-review';
 import './book-content.css';
 
 export const BookContent = () => {
+    const isRendered = useRef(false);
     const canUse = useSelector(state => state.book.canUse);
     const dispatch = useDispatch();
     const {id} = useParams();
 
     useEffect(() => {
-        dispatch(getBookFetch(id));
-    }, [dispatch, id]);
+        if (isRendered.current === false) {
+            isRendered.current = true;
+            dispatch(getBookFetch(id));
+        }
+    }, [dispatch, isRendered, id]);
 
     return (
         <main className='book-content'>
