@@ -4,6 +4,7 @@ import { getBook, getBooks, getCategories } from '../../api/api';
 import { getBookFailure, getBookSuccess } from '../slices/book-slice';
 import { getBooksFailure, getBooksSuccess } from '../slices/books-slice';
 import { getCategoriesFailure, getCategoriesSuccess } from '../slices/categories-slice';
+import { toggleLoader } from '../slices/loaders-slice';
 import { toggleCanUseCategoriesAndBooks } from '../slices/main-slice';
 
 
@@ -15,6 +16,7 @@ function* workGetCategoriesFetchSaga() {
     } catch (e) {
         yield put(getCategoriesFailure());
         yield put(toggleCanUseCategoriesAndBooks(false));
+        yield put(toggleLoader(false));
     }
 }
 
@@ -26,6 +28,7 @@ function* workGetBooksFetchSaga() {
     } catch (e) {
         yield put(getBooksFailure());
         yield put(toggleCanUseCategoriesAndBooks(false));
+        yield put(toggleLoader(false));
     }
 }
 
@@ -37,6 +40,7 @@ function* workGetBookFetchSaga(action) {
     } catch (e) {
         yield put(getBookFailure());
         yield put(toggleCanUseCategoriesAndBooks(false));
+        yield put(toggleLoader(false));
     }
 }
 
@@ -53,7 +57,9 @@ function* watchGetBookFetchSaga() {
 }
 
 function* watchCategoriesAndBooksSaga() {
+    yield put(toggleLoader(true));
     yield all([watchGetCategoriesFetchSaga(), watchGetBooksFetchSaga()]);
+    yield put(toggleLoader(false));
 }
 
 export function* rootSaga() {
