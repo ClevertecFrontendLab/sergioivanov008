@@ -21,7 +21,4 @@ export const HOST_URL = 'https://strapi.cleverland.by';
 export const API_URL_GET_BOOK_FETCH = 'https://strapi.cleverland.by/api/books/';
 export const API_URL_CET_CATEGORIES_FETCH = 'https://strapi.cleverland.by/api/categories';
 export const API_URL_GET_BOOKS_FETCH = 'https://strapi.cleverland.by/api/books';
-// export const API_URL_GET_BOOK_FETCH = 'https://jsonplaceholder.typicode.com/posts?_limit=5';
-// export const API_URL_CET_CATEGORIES_FETCH = 'https://jsonplaceholder.typicode.com/posts?_limit=10';
-// export const API_URL_GET_BOOKS_FETCH = 'https://jsonplaceholder.typicode.com/posts?_limit=20';
 export const MONTHES = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];

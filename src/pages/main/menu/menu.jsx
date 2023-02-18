@@ -89,8 +89,6 @@ export const Menu = (props) => {
                             >
                                 <div className='book-category-name'>
                                     {el.name}
-                                    {/* <span className='book-category-count'>{el.categoryCount ? el.categoryCount : ''}</span> */}
-                                    {/* <span className='book-category-count'>{checkCount(categories[0])}</span> */}
                                     <span className='book-category-count'>{checkCount(el.name)}</span>
                                 </div>
                             </NavLink>
