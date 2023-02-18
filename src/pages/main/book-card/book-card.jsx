@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import bookEmptyImg from '../../../assets/book-card/empty-image.png';
-import { BTN_BOOK, HOST_URL } from '../../../constants/constants';
+import { BTN_BOOK, HOST_URL, RATING_NONE } from '../../../constants/constants';
 import { setTempCategory } from '../../../redux/slices/book-slice';
 import { BookContentRatingStars } from '../../book/book-content-rating-stars';
 
@@ -11,7 +11,7 @@ import './book-card.css';
 export const BookCard = (props) => {
     const {issueYear, rating, title, authors, image, categories, id} = props.book;
     const cuttingTitle = title.length > 54 ? `${title.slice(0,50)}...` : title;
-    
+
     const dispatch = useDispatch();
     const setCategories = () => {
         dispatch(setTempCategory(categories[0]));
@@ -27,7 +27,7 @@ export const BookCard = (props) => {
                 }
             </figure>
             <div className='book-stars book-card_grid-2'>
-                <BookContentRatingStars rating={rating} />
+                {rating === null ? RATING_NONE : <BookContentRatingStars rating={rating} />}
             </div>
             <div className='book-name book-card_grid-3'>{cuttingTitle}</div>
             <div className='book-author book-card_grid-4'>{`${authors}, ${issueYear}`}</div>

@@ -9,6 +9,7 @@ export const MENU_ALLBOOKS = 'Все книги';
 export const MENU_ITEM_RULES = 'Правила пользования';
 export const MENU_ITEM_OFERTA = 'Договор оферты';
 export const RATING_TITLE = 'По рейтингу';
+export const RATING_NONE = 'ещё нет оценок';
 export const PLACEHOLDER = 'Поиск книги или автора…';
 export const BOOK_FEEDBACKS = 'отзывы';
 export const COMMON_ABOUT = 'О книге';
