@@ -7,11 +7,11 @@ import { BookContentRatingStars } from '../../book/book-content-rating-stars';
 import './book-card.css';
 
 export const BookCard = (props) => {
-    const {issueYear, rating, title, authors, image, categories, id} = props.book;
+    const {issueYear, rating, title, authors, image, id} = props.book;
     const cuttingTitle = title.length > 54 ? `${title.slice(0,50)}...` : title;
 
     return (
-        <Link to={`/book/${categories}/${id}`} className='book-card' data-test-id='card' >
+        <Link to={`/book/all/${id}`} className='book-card' data-test-id='card' >
             <figure className='book-card_image book-card_grid-1'>
                 {
                     image === null

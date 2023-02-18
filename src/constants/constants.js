@@ -5,6 +5,7 @@ export const COPIRIGHT_TEXT = 'Все права защищены.';
 export const BTN_RATE = 'оценить книгу';
 export const BTN_BOOK = 'забронировать';
 export const MENU_ITEM_ALLBOOKS = 'Витрина книг';
+export const MENU_ALLBOOKS = 'Все книги';
 export const MENU_ITEM_RULES = 'Правила пользования';
 export const MENU_ITEM_OFERTA = 'Договор оферты';
 export const RATING_TITLE = 'По рейтингу';
