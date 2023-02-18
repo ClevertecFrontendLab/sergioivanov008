@@ -14,14 +14,25 @@
     justify-content: space-between;
     align-items: center;
 }
+.menu-all-books.active {
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    border-bottom: 1px solid #F83600;
+}
+.menu-all-books .menu-main-item.active {
+    border-bottom: none;
+}
 .menu-arrow {
     height: 24px;
     width: 24px;
 
-    background: transparent url(/src/assets/menu/menu_arrow-active.svg) center center no-repeat;
-}
-.menu-arrow.non-active {
     background: transparent url(/src/assets/menu/menu_arrow.svg) center center no-repeat;
+}
+.menu-all-books.active .menu-arrow {
+    background: transparent url(/src/assets/menu/menu_arrow-active.svg) center center no-repeat;
 }
 .menu-arrow.close {
     transform: rotate(180deg);

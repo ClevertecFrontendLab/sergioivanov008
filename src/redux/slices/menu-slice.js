@@ -5,16 +5,12 @@ export const menuSlice = createSlice({
   name: 'menu',
   initialState: {
     openCategory: true,
-    allBooksActive: true,
     openBurger: false,
     isActiveBooks: true
   },
   reducers: {
     toggleOpenCategory(state, action) {
         state.openCategory = action.payload;
-    },
-    toggleAllBooksActive(state, action) {
-        state.allBooksActive = action.payload;
     },
     toggleOpenBurger(state, action) {
         state.openBurger = action.payload;
@@ -27,7 +23,6 @@ export const menuSlice = createSlice({
 
 export const {
     toggleOpenCategory,
-    toggleAllBooksActive,
     toggleOpenBurger,
     toggleIsActiveBooks } = menuSlice.actions
 

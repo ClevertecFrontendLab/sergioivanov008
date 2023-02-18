@@ -2,14 +2,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { MENU_ALLBOOKS, MENU_ITEM_ALLBOOKS, MENU_ITEM_OFERTA, MENU_ITEM_RULES } from '../../../constants/constants';
-import { toggleAllBooksActive, toggleIsActiveBooks, toggleOpenBurger, toggleOpenCategory } from '../../../redux/slices/menu-slice';
+import { toggleIsActiveBooks, toggleOpenBurger, toggleOpenCategory } from '../../../redux/slices/menu-slice';
 
 import './menu.css';
 
 export const Menu = (props) => {
     const dispatch = useDispatch();
     const openCategory = useSelector(state => state.menu.openCategory);
-    const allBooksActive = useSelector(state => state.menu.allBooksActive);
     const openBurger = useSelector(state => state.menu.openBurger);
     const categories = useSelector(state => state.categories.categories);
     const canUse = useSelector(state => state.main.canUseCategoriesAndBooks);
@@ -17,27 +16,26 @@ export const Menu = (props) => {
 
     const toggleMenu = () => {
         dispatch(toggleOpenCategory(!openCategory));
-        dispatch(toggleAllBooksActive(true));
+    }
+
+    const toggleMenuActive = () => {
         dispatch(toggleIsActiveBooks(true));
     }
 
     const closeMenu = () => {
         dispatch(toggleOpenCategory(false));
-        dispatch(toggleAllBooksActive(false));
         dispatch(toggleOpenBurger(false));
         dispatch(toggleIsActiveBooks(false));
     }
 
     const allBookUnactive = () => {
-        dispatch(toggleAllBooksActive(false));
         dispatch(toggleOpenBurger(false));
+        dispatch(toggleIsActiveBooks(true));
     }
 
     const isActiveBooksCategory = isActiveBooks ? 'active' : '';
 
-    let menuArrowStyle = openCategory ? 'menu-arrow' : 'menu-arrow close';
-
-    menuArrowStyle = allBooksActive ? menuArrowStyle : `${menuArrowStyle} non-active`;
+    const menuArrowStyle = openCategory ? 'menu-arrow' : 'menu-arrow close';
 
     const menuStyle = props.isItBurger ? `menu-burger ${openBurger && 'show'}` : 'menu';
     const bookCategoryListStyle = openCategory ? 'book-category-list' : 'book-category-list hidden';
@@ -49,11 +47,11 @@ export const Menu = (props) => {
             data-test-id={props.isItBurger ? 'burger-navigation' : 'empty'}
         >
             <div className='menu-item'>
-                <div className='menu-all-books'>
+                <div className={`menu-all-books ${isActiveBooksCategory}`}>
                     <NavLink
                         to='/'
-                        className={`menu-main-item ${isActiveBooksCategory}`}
-                        onClick={toggleMenu}
+                        className='menu-main-item'
+                        onClick={toggleMenuActive}
                         data-test-id={props.isItBurger ? 'burger-showcase' : 'navigation-showcase'}
                     >
                         {MENU_ITEM_ALLBOOKS}
