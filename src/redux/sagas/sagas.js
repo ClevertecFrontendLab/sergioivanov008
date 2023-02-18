@@ -37,6 +37,7 @@ function* workGetBookFetchSaga(action) {
         const book = yield call(getBook, action.payload);
 
         yield put(getBookSuccess(book.data));
+        yield put(toggleLoader(false));
     } catch (e) {
         yield put(getBookFailure());
         yield put(toggleCanUseCategoriesAndBooks(false));
