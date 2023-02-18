@@ -38,7 +38,7 @@ export const App = () => {
                         <Route path='/books/:category' element={<LibraryContent />} />
                     </Route>
                 </Route>
-              <Route path='/book/:category/:id' element={<BookPage />} />
+              <Route path='/books/:category/:id' element={<BookPage />} />
             </Routes>
         </HashRouter>
         <Loader />
