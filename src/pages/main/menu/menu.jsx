@@ -13,6 +13,7 @@ export const Menu = (props) => {
     const categories = useSelector(state => state.categories.categories);
     const canUse = useSelector(state => state.main.canUseCategoriesAndBooks);
     const isActiveBooks = useSelector(state => state.menu.isActiveBooks);
+    const books = useSelector(state => state.books.books);
 
     const toggleMenu = () => {
         dispatch(toggleOpenCategory(!openCategory));
@@ -32,6 +33,8 @@ export const Menu = (props) => {
         dispatch(toggleOpenBurger(false));
         dispatch(toggleIsActiveBooks(true));
     }
+
+    const checkCount = (curCategories) => books.filter((el) => el.categories[0] === curCategories).length;
 
     const isActiveBooksCategory = isActiveBooks ? 'active' : '';
 
@@ -71,7 +74,7 @@ export const Menu = (props) => {
                         >
                             <div className='book-category-name'>
                                 {MENU_ALLBOOKS}
-                                {/* <span className='book-category-count'>{el.categoryCount ? el.categoryCount : ''}</span> */}
+                                <span className='book-category-count'>{books.length}</span>
                             </div>
                         </NavLink>
                         }
@@ -86,7 +89,9 @@ export const Menu = (props) => {
                             >
                                 <div className='book-category-name'>
                                     {el.name}
-                                    <span className='book-category-count'>{el.categoryCount ? el.categoryCount : ''}</span>
+                                    {/* <span className='book-category-count'>{el.categoryCount ? el.categoryCount : ''}</span> */}
+                                    {/* <span className='book-category-count'>{checkCount(categories[0])}</span> */}
+                                    <span className='book-category-count'>{checkCount(el.name)}</span>
                                 </div>
                             </NavLink>
                         ))
