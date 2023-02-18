@@ -26,16 +26,14 @@ export const BookContent = () => {
 
     return (
         <main className='book-content'>
+            <BookListMini />
             {canUse &&
-                <React.Fragment>
-                    <BookListMini />
-                    <section className='book-content_section'>
-                        <BookDescription />
-                        <BookRating />
-                        <BookInfo />
-                        <BookReview />
-                    </section>
-                </React.Fragment>
+                <section className='book-content_section'>
+                    <BookDescription />
+                    <BookRating />
+                    <BookInfo />
+                    <BookReview />
+                </section>
             }
         </main>
     );

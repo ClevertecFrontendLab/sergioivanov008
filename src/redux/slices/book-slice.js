@@ -51,7 +51,8 @@ export const bookSlice = createSlice({
         book: [],
         isLoading: false,
         isError: false,
-        canUse: false
+        canUse: false,
+        tempCategory: 'Бизнес'
     },
     reducers: {
         getBookFetch: (state) => {
@@ -70,6 +71,9 @@ export const bookSlice = createSlice({
         },
         setIsErrorBook: (state, action) => {
             state.isError = action.payload;
+        },
+        setTempCategory: (state, action) => {
+            state.tempCategory = action.payload;
         }
     }
 })
@@ -78,6 +82,7 @@ export const {
     getBookFetch,
     getBookSuccess,
     getBookFailure,
-    setIsErrorBook } = bookSlice.actions
+    setIsErrorBook,
+    setTempCategory } = bookSlice.actions
 
 export default bookSlice.reducer
