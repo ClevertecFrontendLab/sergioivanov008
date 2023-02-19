@@ -1,0 +1,1 @@
+export { Oferta } from './oferta';

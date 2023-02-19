@@ -1,0 +1,37 @@
+.rules {
+    width: 825px;
+}
+.rules-header {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0.1px;
+    color: #363636;
+}
+.rules-paragraph-header {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #363636;
+
+    margin-top: 32px;
+}
+.rules-paragraph-text {
+    margin-left: 30px;
+    margin-top: 16px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #363636;
+}
+@media (max-width: 700px) {
+    .rules-header {
+        font-size: 18px;
+    }
+}

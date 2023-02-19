@@ -1,0 +1,11 @@
+.library-content {
+    width: 825px;
+
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width: 1200px) {
+    .library-content {
+        width: 100%;
+    }
+}

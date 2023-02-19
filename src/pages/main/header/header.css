@@ -1,0 +1,132 @@
+.header {
+   width: 1110px;
+   height: 58px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 62px;
+   font-style: normal;
+   font-weight: 700;
+   font-size: 32px;
+   line-height: 40px;
+   letter-spacing: 0.1px;
+   color: #363636;
+}
+.header__logo {
+   width: 279px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   cursor: pointer;
+
+   position: relative;
+}
+.logo-image {
+    display: block;
+
+    height: 40px;
+    width: 165px;
+
+    background: transparent url(/src/assets/header/logo.png) center center no-repeat;
+}
+.burger-menu {
+    display: none;
+}
+.header__person {
+    width: 825px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.person {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: right;
+}
+.avatar-image {
+    width: 58px;
+    height: 58px;
+    margin-left: 16px;
+}
+.book-page .header {
+    margin-bottom: 42px;
+}
+.cover-element {
+    display: block;
+
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 1;
+}
+.cover-element.hidden {
+    display: none;
+}
+.body_not-scrollable {
+    overflow-y: hidden;
+    margin-right: 17px;
+}
+@media (max-width: 1200px) {
+    .header {
+        width: 640px;
+        height: 40px;
+        margin-bottom: 54px;
+     }
+    .header__logo {
+       width: 32px;
+    }
+    .logo-image {
+        display: none;
+    }
+    .burger-menu {
+        display: block;
+        margin-top: 4px;
+
+        height: 32px;
+        width: 32px;
+
+        background: transparent url(/src/assets/header/burger-logo.svg) center center no-repeat;
+
+        z-index: 2;
+    }
+    .burger-menu.close {
+        background: transparent url(/src/assets/header/burger-logo_close.svg) center center no-repeat;
+    }
+    .header__person {
+        width: 584px;
+    }
+    .person {
+        display: none;
+    }
+}
+@media (max-width: 700px) {
+    .header {
+        width: 288px;
+        height: 28px;
+        margin-bottom: 35px;
+     }
+    .header__logo {
+        width: 24px;
+    }
+    .header__person {
+        width: 240px;
+        padding-top: 3px;
+    }
+    .header-title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+        color: #363636;
+    }
+    .book-page .header {
+        margin-bottom: 30px;
+    }
+}

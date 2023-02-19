@@ -1,0 +1,52 @@
+.book-list-mini_navigation {
+    width: 100%;
+    padding: 20px 0px;
+    margin: 0 auto;
+    background: #F9F9FA;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   margin-bottom: 47px;
+}
+.book-list-mini {
+    width: 1110px;
+
+    display: flex;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.1px;
+
+    color: #A7A7A7;
+}
+.book-list-mini_category {
+    cursor: pointer;
+}
+.book-list-mini_category:hover {
+    color: #f9640a;
+}
+.book-slash {
+    margin: 0px 4px;
+    font-size: 18px;
+}
+@media (max-width: 1200px) {
+    .book-list-mini_navigation {
+        margin-bottom: 64px;
+    }
+    .book-list-mini {
+        width: 640px;
+    }
+}
+@media (max-width: 700px) {
+    .book-list-mini_navigation {
+        margin-bottom: 20px;
+    }
+    .book-list-mini {
+        width: 288px;
+    }
+}

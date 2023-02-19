@@ -1,0 +1,109 @@
+.book-review {
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.book-review_header {
+    width: 350px;
+
+    padding-bottom: 16px;
+    border-bottom: 1px solid #EBEBEB;
+    margin-bottom: 16px;
+
+    display: flex;
+    gap: 29px;
+}
+.book-review_header-1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    text-transform: capitalize;
+    color: #363636;
+}
+.book-review_header-2 {
+    margin-left: 6px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #A7A7A7;
+}
+.book-review_header-3 {
+    height: 24px;
+    width: 24px;
+
+    background: transparent url(/src/assets/book-page/feedback-arrow.svg) center center no-repeat;
+
+    cursor: pointer;
+}
+.book-review_header-3.hidden {
+    transform: rotate(180deg);
+}
+.book-feedback_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 42px;
+
+    width: 730px;
+}
+.book-feedback_wrapper.hidden {
+    display: none;
+}
+.book-review_btn {
+    width: 350px;
+    height: 52px;
+    background: linear-gradient(233.73deg, #F83600 -16.08%, #F9D423 327.37%);
+    border-radius: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    margin-top: 42px;
+
+    cursor: pointer;
+}
+@media (max-width: 1200px) {
+    .book-feedback_wrapper {
+        width: 100%;
+    }
+    .book-review_btn {
+        width: 640px;
+    }
+}
+@media (max-width: 700px) {
+    .book-review_header {
+        width: 100%;
+    }
+    .book-feedback_wrapper {
+        margin-top: 16px;
+    }
+    .book-review_btn {
+        width: 100%;
+        height: 40px;
+
+        font-size: 12px;
+        line-height: 18px;
+
+        margin-top: 20px;
+    }
+}
