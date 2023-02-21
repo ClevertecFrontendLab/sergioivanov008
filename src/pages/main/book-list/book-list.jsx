@@ -42,7 +42,7 @@ export const BookList = () => {
                 curBooks.map((el) => (
                     <BookCard book={el} key={el.id} />
                 )) :
-                MESSAGE_NOT_BOOKS
+                <div data-test-id='empty-category'>{MESSAGE_NOT_BOOKS}</div>
             }
         </section>
     );

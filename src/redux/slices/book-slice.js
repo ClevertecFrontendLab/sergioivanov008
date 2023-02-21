@@ -8,7 +8,7 @@ export const bookSlice = createSlice({
         isLoading: false,
         isError: false,
         canUse: false,
-        tempCategory: 'Бизнес'
+        tempCategory: ''
     },
     reducers: {
         getBookFetch: (state) => {

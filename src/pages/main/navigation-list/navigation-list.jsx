@@ -52,7 +52,7 @@ export const NavigationList = () => {
                     role='presentation' />
             </div>
             <div className='books-sorting'>
-                <div className='sort-rating' onClick={changeSort} role='presentation'>
+                <div className='sort-rating' data-test-id='sort-rating-button' onClick={changeSort} role='presentation'>
                     <div className={`sort-rating_icon ${sortDescend ? '' : 'ascend'}`} />
                     <div className='sort-rating_title'>{RATING_TITLE}</div>
                 </div>
