@@ -74,7 +74,6 @@ export const Menu = (props) => {
                         >
                             <div className='book-category-name'>
                                 {MENU_ALLBOOKS}
-                                <span className='book-category-count'>{books.length}</span>
                             </div>
                         </NavLink>
                         }

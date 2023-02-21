@@ -2,17 +2,21 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const bookListSlice = createSlice({
-  name: 'listView',
+  name: 'bookList',
   initialState: {
-    listView: true
+    listView: true,
+    sortDescend: true
   },
   reducers: {
     toggleListView(state, action) {
         state.listView = action.payload;
-      }
+    },
+    setSortDescend(state, action) {
+        state.sortDescend = action.payload;
+    }
   }
 })
 
-export const { toggleListView } = bookListSlice.actions
+export const { toggleListView, setSortDescend } = bookListSlice.actions
 
 export default bookListSlice.reducer

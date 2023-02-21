@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { PLACEHOLDER, RATING_TITLE } from '../../../constants/constants';
-import { toggleListView } from '../../../redux/slices/book-list-slice';
+import { setSortDescend, toggleListView } from '../../../redux/slices/book-list-slice';
 
 import './navigation-list.css';
 
 export const NavigationList = () => {
     const [fullSearchView, setFullSearchView] = useState(false);
     const listView = useSelector(state => state.bookList.listView);
+    const sortDescend = useSelector(state => state.bookList.sortDescend);
     const dispatch = useDispatch();
 
     const changeFullSearchView = () => {
@@ -21,6 +22,10 @@ export const NavigationList = () => {
 
     const changeViewList = () => {
         dispatch(toggleListView(false));
+    }
+
+    const changeSort = () => {
+        dispatch(setSortDescend(!sortDescend));
     }
 
     const isActiveTable = listView ? 'active' : '';
@@ -47,7 +52,8 @@ export const NavigationList = () => {
                     role='presentation' />
             </div>
             <div className='books-sorting'>
-                <div className='sort-rating'>
+                <div className='sort-rating' onClick={changeSort} role='presentation'>
+                    <div className={`sort-rating_icon ${sortDescend ? '' : 'ascend'}`} />
                     <div className='sort-rating_title'>{RATING_TITLE}</div>
                 </div>
                 <div className='btns-view'>

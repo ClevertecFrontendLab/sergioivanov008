@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { toggleBodyNotScrollable } from '../../functions/toggle-body-not-scrollable';
+import { toggleBodyNotScrollable } from '../../functions/functions';
 
 import './loader.css';
 
