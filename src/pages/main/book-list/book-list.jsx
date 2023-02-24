@@ -57,7 +57,7 @@ export const BookList = () => {
                 actualBooks.map((el) => (
                     <BookCard book={el} key={el.id} />
                 )) :
-                <div data-test-id='empty-category'>
+                <div data-test-id={searchQuery === '' ? 'empty-category' : 'search-result-not-found'}>
                     <span>{searchQuery === '' ? MESSAGE_NOT_BOOKS : MESSAGE_NOT_FOUND_BOOKS}</span>
                 </div>
             }
