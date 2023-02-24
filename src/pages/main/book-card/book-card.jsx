@@ -1,3 +1,5 @@
+/* eslint-disable react/no-danger */
+import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 
 import bookEmptyImg from '../../../assets/book-card/empty-image.png';
@@ -8,8 +10,21 @@ import './book-card.css';
 
 export const BookCard = (props) => {
     const { category } = useParams();
+
     const {issueYear, rating, title, authors, image, id} = props.book;
-    const cuttingTitle = title.length > 54 ? `${title.slice(0,50)}...` : title;
+
+    const searchQuery = useSelector(state => state.bookList.searchQuery);
+
+    let cuttingTitle = title.length > 54 ? `${title.slice(0,50)}...` : title;
+
+    const curRegexp = new RegExp(searchQuery, 'ig');
+    const replacer = (match) => `<span class='highlight-text' data-test-id='highlight-matches'>${match}</span>`;
+    const titleHiglight = searchQuery !== '' &&
+        title.replace(curRegexp, replacer);
+
+    cuttingTitle = searchQuery === ''
+        ? cuttingTitle
+        : <div dangerouslySetInnerHTML={{ __html: titleHiglight}} />;
 
     return (
         <Link to={`/books/${category}/${id}`} className='book-card' data-test-id='card' >
