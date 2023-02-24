@@ -39,3 +39,10 @@ export const sortAscendDescend = (curArr, sort) => {
 
     return sort ? tempArr.reverse() : tempArr;
 }
+
+export const getTitleWithHighlight = (searchQuery, title) => {
+    const curRegexp = new RegExp(searchQuery, 'ig');
+    const replacer = (match) => `<span class='highlight-text' data-test-id='highlight-matches'>${match}</span>`;
+    
+    return searchQuery !== '' && title.replace(curRegexp, replacer);
+}
