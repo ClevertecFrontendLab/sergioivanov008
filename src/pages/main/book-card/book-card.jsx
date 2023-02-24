@@ -16,10 +16,10 @@ export const BookCard = (props) => {
 
     const searchQuery = useSelector(state => state.bookList.searchQuery);
 
-    let cuttingTitle = title.length > 54 ? `${title.slice(0,50)}...` : title;
+    const cuttingTitle = () => title.length > 58 ? `${title.slice(0,54)}...` : title;
 
-    cuttingTitle = searchQuery === ''
-        ? cuttingTitle
+    const bookTitle = () => searchQuery === ''
+        ? cuttingTitle()
         : <div dangerouslySetInnerHTML={{ __html: getTitleWithHighlight(searchQuery, title)}} />;
 
     return (
@@ -34,7 +34,7 @@ export const BookCard = (props) => {
             <div className='book-stars book-card_grid-2'>
                 {rating === null ? RATING_NONE : <BookContentRatingStars rating={rating} />}
             </div>
-            <div className='book-name book-card_grid-3'>{cuttingTitle}</div>
+            <div className='book-name book-card_grid-3'>{bookTitle()}</div>
             <div className='book-author book-card_grid-4'>{`${authors}, ${issueYear}`}</div>
             <div className='book-order book-card_grid-5'>{BTN_BOOK}</div>
         </Link>
