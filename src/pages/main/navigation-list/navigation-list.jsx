@@ -2,15 +2,18 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { PLACEHOLDER, RATING_TITLE } from '../../../constants/constants';
-import { setSortDescend, toggleListView } from '../../../redux/slices/book-list-slice';
+import { setSearchQuery, setSortDescend, toggleListView } from '../../../redux/slices/book-list-slice';
 
 import './navigation-list.css';
 
 export const NavigationList = () => {
-    const [fullSearchView, setFullSearchView] = useState(false);
+    const dispatch = useDispatch();
+
     const listView = useSelector(state => state.bookList.listView);
     const sortDescend = useSelector(state => state.bookList.sortDescend);
-    const dispatch = useDispatch();
+    const searchQuery = useSelector(state => state.bookList.searchQuery);
+
+    const [fullSearchView, setFullSearchView] = useState(false);
 
     const changeFullSearchView = () => {
         setFullSearchView(!fullSearchView);
@@ -28,6 +31,10 @@ export const NavigationList = () => {
         dispatch(setSortDescend(!sortDescend));
     }
 
+    const handlerChange = (event) => {
+        dispatch(setSearchQuery(event.target.value));
+    }
+
     const isActiveTable = listView ? 'active' : '';
     const isActivelist = listView ? '' : 'active';
 
@@ -39,6 +46,8 @@ export const NavigationList = () => {
                 <input
                     className="books-search-input"
                     placeholder={PLACEHOLDER}
+                    value={searchQuery}
+                    onChange={handlerChange}
                     data-test-id='input-search' />
                 <div
                     className='books-search-button'

@@ -24,4 +24,4 @@ export const API_URL_GET_BOOKS_FETCH = 'https://strapi.cleverland.by/api/books';
 export const MONTHES = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 export const CATEGORY_ALL = 'all';
 export const MESSAGE_NOT_BOOKS = 'В этой категории книг ещё нет';
-
+export const MESSAGE_NOT_FOUND_BOOKS = 'По запросу ничего не найдено';

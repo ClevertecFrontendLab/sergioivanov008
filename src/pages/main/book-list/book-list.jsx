@@ -1,48 +1,65 @@
-import { useSelector } from 'react-redux';
+import { useEffect,useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { CATEGORY_ALL, MESSAGE_NOT_BOOKS } from '../../../constants/constants';
+import { CATEGORY_ALL, MESSAGE_NOT_BOOKS, MESSAGE_NOT_FOUND_BOOKS } from '../../../constants/constants';
 import { sortAscendDescend } from '../../../functions/functions';
+import { setActualBooks } from '../../../redux/slices/book-list-slice';
 import { BookCard } from '../book-card';
 
 import './book-list.css';
 
 export const BookList = () => {
     const { category } = useParams();
+    const dispatch = useDispatch();
+
     const books = useSelector(state => state.books.books);
     const canUseBooks = useSelector(state => state.books.canUse);
     const categories = useSelector(state => state.categories.categories);
     const canUseCategories = useSelector(state => state.categories.canUse);
     const listView = useSelector(state => state.bookList.listView);
     const sortDescend = useSelector(state => state.bookList.sortDescend);
+    const actualBooks = useSelector(state => state.bookList.actualBooks);
+    const searchQuery = useSelector(state => state.bookList.searchQuery);
 
-    let curView = '';
-    let curBooks = [...books];
+    const [curView, setCurView] = useState('');
 
-    if (canUseBooks && canUseCategories) {
-        if (category === CATEGORY_ALL) {
-            curBooks = sortAscendDescend(curBooks, sortDescend);
-        } else {
-            const curCategory = categories.find((el) => el.path === category).name;
+    useEffect(() => {
+        if (canUseBooks && canUseCategories) {
+            const tempArr = [...books];
+            let sortArr = [];
 
-            curBooks = curBooks.filter((el) => el.categories[0] === curCategory);
-            curBooks = sortAscendDescend(curBooks, sortDescend);
+            if (category === CATEGORY_ALL) {
+                sortArr = sortAscendDescend(tempArr, sortDescend);
+            } else if (category !== CATEGORY_ALL) {
+                const curCategory = categories.find((el) => el.path === category).name;
+                const filteredBooks = tempArr.filter((el) => el.categories[0] === curCategory);
+
+                sortArr = sortAscendDescend(filteredBooks, sortDescend);
+            }
+            sortArr = sortArr.filter((el) => el.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1);
+
+            dispatch(setActualBooks(sortArr));
         }
-    }
+    }, [canUseBooks, canUseCategories, dispatch, books, category, categories, sortDescend, searchQuery]);
 
-    if (curBooks.length === 0) {
-        curView = 'book-list_none';
-    } else {
-        curView = listView ? 'book-list_table' : 'book-list_list';
-    }
+    useEffect(() => {
+        if (actualBooks.length === 0) {
+            setCurView('book-list_none');
+        } else {
+            setCurView(listView ? 'book-list_table' : 'book-list_list');
+        }
+    }, [actualBooks.length, listView]);
 
     return (
         <section className={curView}>
-            { curBooks.length > 0 ?
-                curBooks.map((el) => (
+            { actualBooks.length > 0 ?
+                actualBooks.map((el) => (
                     <BookCard book={el} key={el.id} />
                 )) :
-                <div data-test-id='empty-category'>{MESSAGE_NOT_BOOKS}</div>
+                <div data-test-id='empty-category'>
+                    <span>{searchQuery === '' ? MESSAGE_NOT_BOOKS : MESSAGE_NOT_FOUND_BOOKS}</span>
+                </div>
             }
         </section>
     );

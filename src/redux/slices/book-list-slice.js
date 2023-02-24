@@ -5,7 +5,9 @@ export const bookListSlice = createSlice({
   name: 'bookList',
   initialState: {
     listView: true,
-    sortDescend: true
+    searchQuery: '',
+    sortDescend: true,
+    actualBooks: []
   },
   reducers: {
     toggleListView(state, action) {
@@ -13,10 +15,20 @@ export const bookListSlice = createSlice({
     },
     setSortDescend(state, action) {
         state.sortDescend = action.payload;
+    },
+    setSearchQuery(state, action) {
+        state.searchQuery = action.payload;
+    },
+    setActualBooks(state, action) {
+        state.actualBooks = action.payload;
     }
   }
-})
+});
 
-export const { toggleListView, setSortDescend } = bookListSlice.actions
+export const {
+    toggleListView,
+    setSortDescend,
+    setSearchQuery,
+    setActualBooks } = bookListSlice.actions;
 
-export default bookListSlice.reducer
+export default bookListSlice.reducer;
