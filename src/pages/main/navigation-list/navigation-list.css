@@ -36,8 +36,6 @@
 }
 .books-search-input:focus {
     outline: #ffffff;
-
-    color: #F83600;
 }
 .books-search-button {
     width: 32px;
