@@ -1,6 +1,3 @@
-import emptyStarImg from '../../../assets/book-card/Icon_star.svg';
-import fullStarImg from '../../../assets/book-card/Star 1.svg';
-
 import './book-content-rating-stars.css';
 
 export const BookContentRatingStars = (props) => {
@@ -14,10 +11,7 @@ export const BookContentRatingStars = (props) => {
     <div className='book-rating_full'>
             <div className='book-content-rating-stars'>
                 {workArr.map((el) => (
-                    <img className='star'
-                        key={el.id}
-                        src={el.value === 1 ? fullStarImg : emptyStarImg}
-                        alt={el.value === 1 ? 'full star' : 'empty star'} />))}
+                    <div className={`star ${el.value === 1 ? 'full' : 'empty'}`} key={el.id} />))}
             </div>
             {isNeedRating ? (
                 <div className='book-rating_score'>

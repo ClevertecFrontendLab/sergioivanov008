@@ -1,5 +1,5 @@
 import feedbackAvatar from '../../../assets/book-page/Ellipse 10.png';
-import { getDateForFeedback } from '../../../functions/get-date-for-feedback';
+import { getDateForFeedback } from '../../../functions/functions';
 import { BookContentRatingStars } from '../book-content-rating-stars';
 
 import './book-feedback.css';

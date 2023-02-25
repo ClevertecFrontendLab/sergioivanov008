@@ -31,11 +31,11 @@
     line-height: 18px;
     letter-spacing: 0.1px;
     color: #A7A7A7;
+
+    caret-color: #F83600;
 }
 .books-search-input:focus {
     outline: #ffffff;
-
-    color: #F83600;
 }
 .books-search-button {
     width: 32px;
@@ -81,12 +81,30 @@
     justify-content: space-between;
     align-items: center;
 
-    background: #FFFFFF url(/src/assets/navigation-list/Icon_Action_sort-by-rating.svg) 16px center no-repeat;
+    background-color: #FFFFFF;
     box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18), 0px 1px 5px rgba(191, 196, 201, 0.24);
     border: 1px solid #FFFFFF;
     border-radius: 599px;
 
     cursor: pointer;
+}
+.sort-rating:hover {
+    background-color: #f9640a;
+    border: 1px solid #f9640a;
+}
+.sort-rating:hover .sort-rating_title {
+    color: #FFFFFF;
+}
+.sort-rating_icon {
+    height: 16px;
+    width: 16px;
+    background: #FFFFFF url(/src/assets/navigation-list/Icon_Action_sort-by-rating.svg) center center no-repeat;
+}
+.sort-rating:hover .sort-rating_icon {
+    background: #f9640a url(/src/assets/navigation-list/Icon_Action_sort-by-rating_active.svg) center center no-repeat;
+}
+.sort-rating_icon.ascend {
+    transform: rotateX(180deg);
 }
 .sort-rating_title {
     font-style: normal;
@@ -95,8 +113,6 @@
     line-height: 18px;
     letter-spacing: 0.1px;
     color: #A7A7A7;
-
-    padding-left: 20px;
 }
 .btns-view {
     width: 92px;
@@ -185,8 +201,12 @@
     .sort-rating {
         width: 32px;
         height: 32px;
-
-        background: #FFFFFF url(/src/assets/navigation-list/Icon_Action_sort-by-rating.svg) 8px center no-repeat;
+        padding: 0px;
+        justify-content: center;
+    }
+    .sort-rating:hover {
+        width: 32px;
+        height: 32px;
     }
     .sort-rating_title {
         display: none;

@@ -34,7 +34,7 @@ export const categoriesSlice = createSlice({
         state.categories = [];
     }
   }
-})
+});
 
 export const {
     getCategoriesFetch,
@@ -42,6 +42,6 @@ export const {
     getCategoriesFailure,
     setIsErrorCategories,
     setCanUseCategories,
-    deleteCategories } = categoriesSlice.actions
+    deleteCategories } = categoriesSlice.actions;
 
-export default categoriesSlice.reducer
+export default categoriesSlice.reducer;

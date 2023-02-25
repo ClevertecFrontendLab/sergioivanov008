@@ -168,6 +168,10 @@
     color: #FFFFFF;
 }
 
+.highlight-text {
+    color: #FF5253;
+}
+
 @media (max-width: 1200px) {
     .book-list_table .book-card {
         margin-right: 35px;

@@ -34,7 +34,7 @@ export const booksSlice = createSlice({
         state.books = [];
     }
   }
-})
+});
 
 export const {
     getBooksFetch,
@@ -42,6 +42,6 @@ export const {
     getBooksFailure,
     setIsErrorBooks,
     setCanUseBooks,
-    deleteBooks } = booksSlice.actions
+    deleteBooks } = booksSlice.actions;
 
-export default booksSlice.reducer
+export default booksSlice.reducer;

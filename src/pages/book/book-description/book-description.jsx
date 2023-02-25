@@ -22,7 +22,7 @@ export const BookDescription = () => {
                 <CoverSwiper images={arrCoverImages} />
             </section>
             <section className='book-description_common book-description_grid-2'>
-                <div className='common_name'>{title}</div>
+                <div className='common_name' data-test-id='book-title'>{title}</div>
                 <div className='common_author'>{`${curAuthors}${issueYear}`}</div>
                 <div className='common_order-btn'>{COMMON_ORDER_BTN}</div>
             </section>

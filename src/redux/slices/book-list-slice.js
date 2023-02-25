@@ -2,17 +2,33 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const bookListSlice = createSlice({
-  name: 'listView',
+  name: 'bookList',
   initialState: {
-    listView: true
+    listView: true,
+    searchQuery: '',
+    sortDescend: true,
+    actualBooks: []
   },
   reducers: {
     toggleListView(state, action) {
         state.listView = action.payload;
-      }
+    },
+    setSortDescend(state, action) {
+        state.sortDescend = action.payload;
+    },
+    setSearchQuery(state, action) {
+        state.searchQuery = action.payload;
+    },
+    setActualBooks(state, action) {
+        state.actualBooks = action.payload;
+    }
   }
-})
+});
 
-export const { toggleListView } = bookListSlice.actions
+export const {
+    toggleListView,
+    setSortDescend,
+    setSearchQuery,
+    setActualBooks } = bookListSlice.actions;
 
-export default bookListSlice.reducer
+export default bookListSlice.reducer;

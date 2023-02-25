@@ -26,3 +26,15 @@
 
     margin-left: 24px;
 }
+.star {
+    display: block;
+
+    height: 100%;
+    width: 100%;
+}
+.star.full {
+    background: transparent url(/src/assets/book-card/rating-star_full.svg) center center no-repeat;
+}
+.star.empty {
+    background: transparent url(/src/assets/book-card/rating-star_empty.svg) center center no-repeat;
+}

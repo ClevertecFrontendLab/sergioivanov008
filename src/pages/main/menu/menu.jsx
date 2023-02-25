@@ -35,22 +35,21 @@ export const Menu = (props) => {
     }
 
     const checkCount = (curCategories) => books.filter((el) => el.categories[0] === curCategories).length;
-
-    const isActiveBooksCategory = isActiveBooks ? 'active' : '';
-
-    const menuArrowStyle = openCategory ? 'menu-arrow' : 'menu-arrow close';
-
-    const menuStyle = props.isItBurger ? `menu-burger ${openBurger && 'show'}` : 'menu';
-    const bookCategoryListStyle = openCategory ? 'book-category-list' : 'book-category-list hidden';
-    const idForBooks = props.isItBurger ? 'burger-books' : 'navigation-books';
+    const isActiveBooksCategory = () => isActiveBooks ? 'active' : '';
+    const menuArrowStyle = () => openCategory ? 'menu-arrow' : 'menu-arrow close';
+    const menuStyle = () => props.isItBurger ? `menu-burger ${openBurger && 'show'}` : 'menu';
+    const bookCategoryListStyle = () => openCategory ? 'book-category-list' : 'book-category-list hidden';
+    const idForBooks = () => props.isItBurger ? 'burger-books' : 'navigation-books';
+    const idForCategory = (category) => props.isItBurger ? `burger-${category}` : `navigation-${category}`;
+    const idForCount = (category) => props.isItBurger ? `burger-book-count-for-${category}` : `navigation-book-count-for-${category}`;
 
     return (
         <nav
-            className={menuStyle}
+            className={menuStyle()}
             data-test-id={props.isItBurger ? 'burger-navigation' : 'empty'}
         >
             <div className='menu-item'>
-                <div className={`menu-all-books ${isActiveBooksCategory}`}>
+                <div className={`menu-all-books ${isActiveBooksCategory()}`}>
                     <NavLink
                         to='/'
                         className='menu-main-item'
@@ -59,22 +58,21 @@ export const Menu = (props) => {
                     >
                         {MENU_ITEM_ALLBOOKS}
                     </NavLink>
-                    <div className={menuArrowStyle}
+                    <div className={menuArrowStyle()}
                             onClick={toggleMenu}
                             role='presentation'/>
                 </div>
 
-                <div className={bookCategoryListStyle}>
+                <div className={bookCategoryListStyle()}>
                     {canUse &&
                         <NavLink
                             to='/books/all'
                             className='book-category'
                             onClick={allBookUnactive}
-                            data-test-id={idForBooks}
+                            data-test-id={idForBooks()}
                         >
                             <div className='book-category-name'>
                                 {MENU_ALLBOOKS}
-                                <span className='book-category-count'>{books.length}</span>
                             </div>
                         </NavLink>
                         }
@@ -84,12 +82,17 @@ export const Menu = (props) => {
                                 to={`/books/${el.path}`}
                                 className='book-category'
                                 onClick={allBookUnactive}
-                                data-test-id={el.category === 'books' ? idForBooks : 'empty'}
                                 key={el.id}
                             >
                                 <div className='book-category-name'>
-                                    {el.name}
-                                    <span className='book-category-count'>{checkCount(el.name)}</span>
+                                    <span data-test-id={idForCategory(el.path)}>
+                                        {el.name}
+                                    </span>
+                                    <span
+                                        data-test-id={idForCount(el.path)}
+                                        className='book-category-count'>
+                                            {checkCount(el.name)}
+                                    </span>
                                 </div>
                             </NavLink>
                         ))
