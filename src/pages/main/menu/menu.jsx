@@ -42,6 +42,8 @@ export const Menu = (props) => {
     const idForBooks = () => props.isItBurger ? 'burger-books' : 'navigation-books';
     const idForCategory = (category) => props.isItBurger ? `burger-${category}` : `navigation-${category}`;
     const idForCount = (category) => props.isItBurger ? `burger-book-count-for-${category}` : `navigation-book-count-for-${category}`;
+    const idForRules = () => props.isItBurger ? 'burger-terms' : 'navigation-terms';
+    const idForOferta = () => props.isItBurger ? 'burger-contract' : 'navigation-contract';
 
     return (
         <nav
@@ -104,7 +106,7 @@ export const Menu = (props) => {
                 to='/rules'
                 className='menu-main-item'
                 onClick={closeMenu}
-                data-test-id={props.isItBurger ? 'burger-terms' : 'navigation-terms'}
+                data-test-id={idForRules()}
             >
                 {MENU_ITEM_RULES}
             </NavLink>
@@ -112,7 +114,7 @@ export const Menu = (props) => {
                 to='/oferta'
                 className='menu-main-item'
                 onClick={closeMenu}
-                data-test-id={props.isItBurger ? 'burger-contract' : 'navigation-contract'}
+                data-test-id={idForOferta()}
             >
                 {MENU_ITEM_OFERTA}
             </NavLink>

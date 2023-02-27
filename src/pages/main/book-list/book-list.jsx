@@ -51,14 +51,17 @@ export const BookList = () => {
         }
     }, [actualBooks.length, listView]);
 
+    const idForEmptyContent = () => searchQuery === '' ? 'empty-category' : 'search-result-not-found';
+    const emptyContentMessage = () => searchQuery === '' ? MESSAGE_NOT_BOOKS : MESSAGE_NOT_FOUND_BOOKS;
+
     return (
         <section className={curView}>
             { actualBooks.length > 0 ?
                 actualBooks.map((el) => (
                     <BookCard book={el} key={el.id} />
                 )) :
-                <div data-test-id={searchQuery === '' ? 'empty-category' : 'search-result-not-found'}>
-                    <span>{searchQuery === '' ? MESSAGE_NOT_BOOKS : MESSAGE_NOT_FOUND_BOOKS}</span>
+                <div data-test-id={idForEmptyContent()}>
+                    <span>{emptyContentMessage()}</span>
                 </div>
             }
         </section>
