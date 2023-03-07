@@ -9,6 +9,7 @@ import { Oferta } from '../../pages/oferta';
 import { Rules } from '../../pages/rules';
 import { getBooksFetch } from '../../redux/slices/books-slice';
 import { getCategoriesFetch } from '../../redux/slices/categories-slice';
+import { Authorization } from '../authorization';
 import { ErrorLoader } from '../error-loader';
 import { Loader } from '../loader';
 
@@ -18,31 +19,34 @@ export const App = () => {
     const isRendered = useRef(false);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        if (isRendered.current === false) {
-            isRendered.current = true;
-            dispatch(getCategoriesFetch());
-            dispatch(getBooksFetch());
-        }
-    }, [dispatch, isRendered]);
+    // useEffect(() => {
+    //     if (isRendered.current === false) {
+    //         isRendered.current = true;
+    //         dispatch(getCategoriesFetch());
+    //         dispatch(getBooksFetch());
+    //     }
+    // }, [dispatch, isRendered]);
 
     return (
     <div className='app'>
         <HashRouter>
             <Routes>
-                <Route path='/' element={<Layout />}>
+                {/* <Route path='/' element={<Authorization />} /> */}
+                <Route path='/' element={<Navigate to='/registration' />} />
+                <Route path='/registration' element={<Authorization />} />
+                {/* <Route path='/' element={<Layout />}>
                     <Route element={<Outlet />}>
                         <Route path='/' element={<Navigate to='/books/all' />} />
                         <Route path='/rules' element={<Rules />} />
                         <Route path='/oferta' element={<Oferta />} />
                         <Route path='/books/:category' element={<LibraryContent />} />
                     </Route>
-                </Route>
-              <Route path='/books/:category/:id' element={<BookPage />} />
+                </Route> */}
+              {/* <Route path='/books/:category/:id' element={<BookPage />} /> */}
             </Routes>
         </HashRouter>
-        <Loader />
-        <ErrorLoader />
+        {/* <Loader />
+        <ErrorLoader /> */}
     </div>
 );
 }
