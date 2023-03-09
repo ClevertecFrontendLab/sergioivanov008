@@ -2,44 +2,27 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { FORM } from '../../constants/constants';
+import { FORM } from '../../../constants/constants';
 
-import './authorization-forms.css';
+import '../authorization-forms.css';
 
-export const Authorization = () => {
+export const ForgotPass = () => {
     const { register, handleSubmit, formState: {errors}, reset, watch, getValues}
         = useForm({mode: 'onChange', criteriaMode: 'all'});
 
     const [topElBorderStyle, setTopElBorderStyle] = useState('input__border');
     const [bottomElBorderStyle, setBottomElBorderStyle] = useState('input__border');
     const [topElHint, setTopElHint] = useState('');
-    const [bottomElHint, setBottomElHint] = useState('');
-    const [isOpenEye, setIsOpenEye] = useState(false);
+    const [bottomElHint, setBottomElHint] = useState('На это email  будет отправлено письмо с инструкциями по восстановлению пароля');
 
     const labelStyle = (value) => `label_input ${watch(value) && 'active'}`;
-    const eyeStyle = () => `password__eye ${isOpenEye && 'open'}`;
-    const passwordType = () => isOpenEye ? 'text' : 'password';
-    const openEye = () => setIsOpenEye(!isOpenEye);
 
     const onSubmit = (data) => {
         console.log(data);
         reset();
     }
 
-    const checkAuthLogin = (v) => {
-        if (v) {
-            setTopElBorderStyle('input__border');
-            setTopElHint('');
-
-            return true;
-        }
-        setTopElHint('<span class="red-hint">Поле не может быть пустым</span>');
-        setTopElBorderStyle('input__border active');
-
-        return false;
-    }
-
-    const checkAuthPassword = (v) => {
+    const checkForgotEmail = (v) => {
         if (v) {
             setBottomElBorderStyle('input__border');
             setBottomElHint('');
@@ -68,37 +51,30 @@ export const Authorization = () => {
 
     return (
         <div className='form__wrapper'>
-            <form className='form__authorization' onSubmit={handleSubmit(onSubmit)} >
+            <form className='form__authorization form-forgot' onSubmit={handleSubmit(onSubmit)} >
                 <div className='form__logo'>{FORM.textLogo}</div>
+                <Link to='/auth' className='link__auth'>
+                    <div className='enter__arrow back'/>
+                    <div className='link__auth_title'>{FORM.titleAuth}</div>
+                </Link>
                 <div className='form__header'>
-                    <div className='form__header_title'>{FORM.titleAuth}</div>
+                    <div className='form__header_title'>{FORM.titleForgotPass}</div>
                 </div>
 
                 <div className='form__data'>
-                    <div className='form__data_login'>
-                        <div className='login__wrapper'>
-                            <input className='input__field' id='authLogin'
-                                {...register('authLogin', {validate:  v => checkAuthLogin(v)})} />
-                            <label htmlFor="authLogin" className={labelStyle('authLogin')}>{FORM.textLogin}</label>
-                        </div>
-                        <div className={topElBorderStyle} />
-                        <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
-                    </div>
                     <div className='form__data_password'>
                         <div className='password__wrapper'>
-                            <input className='input__field' id='authPassword' type={passwordType()}
-                                {...register('authPassword', {validate:  v => checkAuthPassword(v)})} />
-                            <label htmlFor="authPassword" className={labelStyle('authPassword')}>{FORM.textPassword}</label>
-                            <div className={eyeStyle()} onClick={openEye} role='presentation' />
+                            <input className='input__field' id='forgotEmail'
+                                {...register('forgotEmail', {validate:  v => checkForgotEmail(v)})} />
+                            <label htmlFor="forgotEmail" className={labelStyle('forgotEmail')}>Email</label>
                         </div>
                         <div className={bottomElBorderStyle} />
                         <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
-                        <Link to='/forgot-pass' className='forgot__link'>Забыли логин или пароль?</Link>
                     </div>
                 </div>
 
                 <div className='form__submit'>
-                    <button type='submit' className='submit__btn' onClick={checkValues} >{FORM.textEnter}</button>
+                    <button type='submit' className='submit__btn' onClick={checkValues} >восстановить</button>
                     <div className='submit__link'>
                         <div className='submit__link_invite'>Нет учётной записи?</div>
                         <Link to='/registration' className='submit__link_enter'>

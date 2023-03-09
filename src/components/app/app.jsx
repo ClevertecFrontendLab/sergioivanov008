@@ -10,6 +10,8 @@ import { Rules } from '../../pages/rules';
 import { getBooksFetch } from '../../redux/slices/books-slice';
 import { getCategoriesFetch } from '../../redux/slices/categories-slice';
 import { Authorization } from '../authorization';
+import { ForgotPass } from '../authorization/forgot-pass';
+import { Registration } from '../authorization/registration';
 import { ErrorLoader } from '../error-loader';
 import { Loader } from '../loader';
 
@@ -32,8 +34,10 @@ export const App = () => {
         <HashRouter>
             <Routes>
                 {/* <Route path='/' element={<Authorization />} /> */}
-                <Route path='/' element={<Navigate to='/registration' />} />
-                <Route path='/registration' element={<Authorization />} />
+                <Route path='/' element={<Navigate to='/auth' />} />
+                <Route path='/auth' element={<Authorization />} />
+                <Route path='/registration' element={<Registration />} />
+                <Route path='/forgot-pass' element={<ForgotPass />} />
                 {/* <Route path='/' element={<Layout />}>
                     <Route element={<Outlet />}>
                         <Route path='/' element={<Navigate to='/books/all' />} />

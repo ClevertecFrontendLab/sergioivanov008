@@ -1,9 +1,12 @@
 /* eslint-disable react/no-danger */
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import MaskedInput from 'react-text-mask';
 
-import './registration.css';
+import { FORM, REGEXP } from '../../../constants/constants';
+
+import '../authorization-forms.css';
 
 export const Registration = () => {
     const { register, handleSubmit, formState: {errors, isValid}, reset, watch, getValues, setValue}
@@ -20,24 +23,16 @@ export const Registration = () => {
     const [isCheckPassword, setIsCheckPassword] = useState(false);
     const [phoneInput, setPhoneInput] = useState('');
 
-    // console.log('stepNumber: ', stepNumber)
-    // console.log('curData: ', getValues())
-
-    const labelLoginStyle = () => `label_input ${watch('login') && 'active'}`;
-    const labelPasswordStyle = () => `label_input ${watch('password') && 'active'}`;
-    const labelFirstNameStyle = () => `label_input ${watch('firstName') && 'active'}`;
-    const labelLastNameStyle = () => `label_input ${watch('lastName') && 'active'}`;
-    const labelPhoneStyle = () => `label_input ${watch('phone') && 'active'}`;
-    const labelEmailStyle = () => `label_input ${watch('email') && 'active'}`;
+    const labelStyle = (value) => `label_input ${watch(value) && 'active'}`;
     const eyeStyle = () => `password__eye ${isOpenEye && 'open'}`;
     const checkPasswordStyle = () => `check-password ${isCheckPassword && 'ok'}`;
     const passwordType = () => isOpenEye ? 'text' : 'password';
     const openEye = () => setIsOpenEye(!isOpenEye);
 
     const checkLogin = (v) => {
-        const hasLatinLetter = (/[a-zA-Z]+/).test(v);
-        const hasCyrLetter = (/[а-яА-Я]+/).test(v);
-        const hasOnlyDigit = (/\d+/).test(v);
+        const hasLatinLetter = REGEXP.hasLatinLetter.test(v);
+        const hasCyrLetter = REGEXP.hasCyrLetter.test(v);
+        const hasOnlyDigit = REGEXP.hasOnlyDigit.test(v);
 
         if (v) {
             if (hasCyrLetter) {
@@ -56,9 +51,9 @@ export const Registration = () => {
     }
 
     const checkPassword = (v) => {
-        const hasRightLength = (/[a-zA-Zа-яА-Я0-9]{8,}/).test(v);
-        const hasUpperLetter = (/[A-ZА-Я]+/).test(v);
-        const hasOnlyDigit = (/\d+/).test(v);
+        const hasRightLength = REGEXP.hasRightLength.test(v);
+        const hasUpperLetter = REGEXP.hasUpperLetter.test(v);
+        const hasOnlyDigit = REGEXP.hasOnlyDigit.test(v);
 
         if (v) {
             setBottomElHint(`Пароль
@@ -99,7 +94,7 @@ export const Registration = () => {
     }
 
     const checkEmail = (v) => {
-        const isEmailValid = (/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i).test(v);
+        const isEmailValid = REGEXP.isEmailValid.test(v);
 
         if (v) {
             if (isEmailValid) {
@@ -160,23 +155,10 @@ export const Registration = () => {
         setPhoneInput('');
     }
 
-    // const handleFinishStep = () => {
-    //     if (isValid) {
-    //         console.log('valid');
-    //         handleSubmit(onSubmit);
-    //     } else {
-    //         console.log('not valid')
-    //     }
-    // }
-
-    // const onBlurEmail = () => {
-    //     console.log('onBlurEmail')
-    // }
-
     const handlerPhoneChange = (event) => {
         setValue('phone', event.target.value);
         setPhoneInput(event.target.value);
-        const isPhone = /(\+375)\s\((29|33|25|44)\)\s[1-9]\d\d-\d\d-\d\d/.test(event.target.value);
+        const isPhone = REGEXP.isPhone.test(event.target.value);
 
         if (isPhone) {
             setTopElHint('В формате +375 (xx) xxx-xx-xx');
@@ -190,9 +172,9 @@ export const Registration = () => {
     return (
         <div className='form__wrapper'>
             <form className='form__authorization' onSubmit={handleSubmit(onSubmit)} >
-                <div className='form__logo'>Cleverland</div>
+                <div className='form__logo'>{FORM.textLogo}</div>
                 <div className='form__header'>
-                    <div className='form__header_title'>Регистрация</div>
+                    <div className='form__header_title'>{FORM.titleRegistration}</div>
                     <div className='form__header_steps'>{`${stepNumber} шаг из 3`}</div>
                 </div>
 
@@ -202,7 +184,7 @@ export const Registration = () => {
                             <div className='login__wrapper'>
                                 <input className='input__field' id='login'
                                     {...register('login', {validate:  v => checkLogin(v)})} />
-                                <label htmlFor="login" className={labelLoginStyle()}>Придумайте логин для входа</label>
+                                <label htmlFor="login" className={labelStyle('login')}>Придумайте логин для входа</label>
                             </div>
                             <div className={topElBorderStyle} />
                             <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
@@ -211,7 +193,7 @@ export const Registration = () => {
                             <div className='password__wrapper'>
                                 <input className='input__field' id='password' type={passwordType()}
                                     {...register('password', {validate: v => checkPassword(v)})} />
-                                <label htmlFor="password" className={labelPasswordStyle()}>Пароль</label>
+                                <label htmlFor="password" className={labelStyle('password')}>Пароль</label>
                                 <div className={checkPasswordStyle()} />
                                 <div className={eyeStyle()} onClick={openEye} role='presentation' />
                             </div>
@@ -227,7 +209,7 @@ export const Registration = () => {
                             <div className='login__wrapper'>
                                 <input className='input__field' id='firstName'
                                     {...register('firstName', {validate: v => checkFirstName(v)})} />
-                                <label htmlFor="firstName" className={labelFirstNameStyle()}>Имя</label>
+                                <label htmlFor="firstName" className={labelStyle('firstName')}>Имя</label>
                             </div>
                             <div className={topElBorderStyle} />
                             <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
@@ -236,7 +218,7 @@ export const Registration = () => {
                             <div className='password__wrapper'>
                                 <input className='input__field' id='lastName'
                                     {...register('lastName', {validate: v => checkLastName(v)})} />
-                                <label htmlFor="lastName" className={labelLastNameStyle()}>Фамилия</label>
+                                <label htmlFor="lastName" className={labelStyle('lastName')}>Фамилия</label>
                             </div>
                             <div className={bottomElBorderStyle} />
                             <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
@@ -250,9 +232,9 @@ export const Registration = () => {
                             <div className='login__wrapper'>
                                 <MaskedInput className='input__field' id='phone' onChange={handlerPhoneChange}
                                     value={phoneInput}
-                                    mask={['+','3','7','5',' ','(',/\d/,/\d/,')',' ',/\d/,/\d/,/\d/,'-',/\d/,/\d/,'-',/\d/,/\d/,]}
+                                    mask={REGEXP.mask}
                                     guide={true} keepCharPositions={true} />
-                                <label htmlFor="phone" className={labelPhoneStyle()}>Номер телефона</label>
+                                <label htmlFor="phone" className={labelStyle('phone')}>Номер телефона</label>
                             </div>
                             <div className={topElBorderStyle} />
                             <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
@@ -261,7 +243,7 @@ export const Registration = () => {
                             <div className='password__wrapper'>
                                 <input className='input__field' id='email'
                                     {...register('email', {validate: v => checkEmail(v)})} />
-                                <label htmlFor="email" className={labelEmailStyle()}>E-mail</label>
+                                <label htmlFor="email" className={labelStyle('email')}>E-mail</label>
                             </div>
                             <div className={bottomElBorderStyle} />
                             <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
@@ -276,10 +258,10 @@ export const Registration = () => {
                                 {stepNumber === 1 ? 'следующий шаг' : 'последний шаг'}</div>
                         <div className='submit__link'>
                             <div className='submit__link_invite'>Есть учётная запись?</div>
-                            <div className='submit__link_enter'>
+                            <Link to='/auth' className='submit__link_enter'>
                                 <div className='enter__text'>войти</div>
                                 <div className='enter__arrow'/>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 }
@@ -289,10 +271,10 @@ export const Registration = () => {
                         <button type='submit' className='submit__btn' >зарегистрироваться</button>
                         <div className='submit__link'>
                             <div className='submit__link_invite'>Есть учётная запись?</div>
-                            <div className='submit__link_enter'>
+                            <Link to='/auth' className='submit__link_enter'>
                                 <div className='enter__text'>войти</div>
                                 <div className='enter__arrow'/>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 }
