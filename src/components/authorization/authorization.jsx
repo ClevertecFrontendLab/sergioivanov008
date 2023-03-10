@@ -1,14 +1,19 @@
 /* eslint-disable react/no-danger */
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import { FORM } from '../../constants/constants';
+import { setAuthData, startIsLoadingAuth } from '../../redux/slices/api-auth-slice';
 
 import './authorization-forms.css';
 
 export const Authorization = () => {
     const { register, handleSubmit, formState: {errors}, reset, watch, getValues}
         = useForm({mode: 'onChange', criteriaMode: 'all'});
+
+    const dispatch = useDispatch();
 
     const [topElBorderStyle, setTopElBorderStyle] = useState('input__border');
     const [bottomElBorderStyle, setBottomElBorderStyle] = useState('input__border');
@@ -22,11 +27,12 @@ export const Authorization = () => {
     const openEye = () => setIsOpenEye(!isOpenEye);
 
     const onSubmit = (data) => {
-        console.log(data);
+        dispatch(setAuthData(data));
+        dispatch(startIsLoadingAuth(data));
         reset();
     }
 
-    const checkAuthLogin = (v) => {
+    const checkIdentifier = (v) => {
         if (v) {
             setTopElBorderStyle('input__border');
             setTopElHint('');
@@ -39,7 +45,7 @@ export const Authorization = () => {
         return false;
     }
 
-    const checkAuthPassword = (v) => {
+    const checkPassword = (v) => {
         if (v) {
             setBottomElBorderStyle('input__border');
             setBottomElHint('');
@@ -53,14 +59,14 @@ export const Authorization = () => {
     }
 
     const checkValues = () => {
-        const authLoginValues = getValues('authLogin');
-        const authPasswordValues = getValues('authPassword');
+        const authIdentifierValues = getValues('identifier');
+        const authPasswordValues = getValues('password');
 
-        if (!authLoginValues || errors.authLogin) {
+        if (!authIdentifierValues || errors.identifier) {
             setTopElHint('<span class="red-hint">Поле не может быть пустым</span>');
             setTopElBorderStyle('input__border active');
         }
-        if (!authPasswordValues || errors.authPassword) {
+        if (!authPasswordValues || errors.password) {
             setBottomElHint('<span class="red-hint">Поле не может быть пустым</span>');
             setBottomElBorderStyle('input__border active');
         }
@@ -77,18 +83,18 @@ export const Authorization = () => {
                 <div className='form__data'>
                     <div className='form__data_login'>
                         <div className='login__wrapper'>
-                            <input className='input__field' id='authLogin'
-                                {...register('authLogin', {validate:  v => checkAuthLogin(v)})} />
-                            <label htmlFor="authLogin" className={labelStyle('authLogin')}>{FORM.textLogin}</label>
+                            <input className='input__field' id='identifier'
+                                {...register('identifier', {validate:  v => checkIdentifier(v)})} />
+                            <label htmlFor="identifier" className={labelStyle('identifier')}>{FORM.textLogin}</label>
                         </div>
                         <div className={topElBorderStyle} />
                         <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
                     </div>
                     <div className='form__data_password'>
                         <div className='password__wrapper'>
-                            <input className='input__field' id='authPassword' type={passwordType()}
-                                {...register('authPassword', {validate:  v => checkAuthPassword(v)})} />
-                            <label htmlFor="authPassword" className={labelStyle('authPassword')}>{FORM.textPassword}</label>
+                            <input className='input__field' id='password' type={passwordType()}
+                                {...register('password', {validate:  v => checkPassword(v)})} />
+                            <label htmlFor="password" className={labelStyle('password')}>{FORM.textPassword}</label>
                             <div className={eyeStyle()} onClick={openEye} role='presentation' />
                         </div>
                         <div className={bottomElBorderStyle} />

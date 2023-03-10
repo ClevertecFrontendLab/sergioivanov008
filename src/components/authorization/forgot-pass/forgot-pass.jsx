@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+
 import { FORM } from '../../../constants/constants';
 
 import '../authorization-forms.css';
@@ -10,9 +11,7 @@ export const ForgotPass = () => {
     const { register, handleSubmit, formState: {errors}, reset, watch, getValues}
         = useForm({mode: 'onChange', criteriaMode: 'all'});
 
-    const [topElBorderStyle, setTopElBorderStyle] = useState('input__border');
     const [bottomElBorderStyle, setBottomElBorderStyle] = useState('input__border');
-    const [topElHint, setTopElHint] = useState('');
     const [bottomElHint, setBottomElHint] = useState('На это email  будет отправлено письмо с инструкциями по восстановлению пароля');
 
     const labelStyle = (value) => `label_input ${watch(value) && 'active'}`;
@@ -36,14 +35,9 @@ export const ForgotPass = () => {
     }
 
     const checkValues = () => {
-        const authLoginValues = getValues('authLogin');
-        const authPasswordValues = getValues('authPassword');
+        const forgotEmailValues = getValues('forgotEmail');
 
-        if (!authLoginValues || errors.authLogin) {
-            setTopElHint('<span class="red-hint">Поле не может быть пустым</span>');
-            setTopElBorderStyle('input__border active');
-        }
-        if (!authPasswordValues || errors.authPassword) {
+        if (!forgotEmailValues || errors.forgotEmail) {
             setBottomElHint('<span class="red-hint">Поле не может быть пустым</span>');
             setBottomElBorderStyle('input__border active');
         }

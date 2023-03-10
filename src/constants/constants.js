@@ -26,10 +26,6 @@ export const BOOK_DETAIL_WEIGHT = 'Вес';
 export const BOOK_DETAIL_ISBN = 'ISBN';
 export const BOOK_DETAIL_PRODUCER = 'Изготовитель';
 export const TOAST_MESSAGE = 'Что-то пошло не так. Обновите страницу через некоторое время.';
-export const HOST_URL = 'https://strapi.cleverland.by';
-export const API_URL_GET_BOOK_FETCH = 'https://strapi.cleverland.by/api/books/';
-export const API_URL_CET_CATEGORIES_FETCH = 'https://strapi.cleverland.by/api/categories';
-export const API_URL_GET_BOOKS_FETCH = 'https://strapi.cleverland.by/api/books';
 export const MONTHES = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 export const CATEGORY_ALL = 'all';
 export const MESSAGE_NOT_BOOKS = 'В этой категории книг ещё нет';
@@ -49,8 +45,26 @@ export const FORM = {
     textLogin: 'Логин',
     textPassword: 'Пароль',
     textEnter: 'вход',
+    titleRegistratonOk: 'Регистрация успешна',
+    titleRegistratonError: 'Данные не сохранились',
+    textRegistratonOk: 'Регистрация прошла успешно. Зайдите в личный кабинет, используя свои логин и пароль',
+    textRegistratonError400: 'Такой логин или e-mail уже записан в системе. Попробуйте зарегистрироваться по другому логину или e-mail',
+    textRegistratonError: 'Что-то пошло не так и ваша регистрация не завершилась. Попробуйте ещё раз',
+    textErrorBack: 'назад к регистрации',
+    textErrorRepeat: 'повторить',
     titleAuth: 'Вход в личный кабинет',
     titleRegistration: 'Регистрация',
     titleForgotPass: 'Восстановление пароля',
 
 };
+export const API = {
+    host: 'https://strapi.cleverland.by',
+    url_auth: '/api/auth/local',
+    url_registration: '/api/auth/local/register',
+    url_forgotPassword: '/api/auth/forgot-password',
+    url_resetPassword: '/api/auth/reset-password',
+    url_getBookFetch: '/api/books/',
+    url_getCategoriesFetch: '/api/categories',
+    url_getBooksFetch: '/api/books',
+};
+

@@ -1,20 +1,32 @@
 /* eslint-disable react/no-danger */
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MaskedInput from 'react-text-mask';
 
 import { FORM, REGEXP } from '../../../constants/constants';
+import { setRegistrationData, startIsLoadingRegistration } from '../../../redux/slices/api-registration-slice';
+import { RegistrationError } from '../registration-error';
+import { RegistrationError400 } from '../registration-error-400';
+import { RegistrationOk } from '../registration-ok';
 
 import '../authorization-forms.css';
 
 export const Registration = () => {
+    const isFormRegistration = useSelector(state => state.apiRegistration.isFormRegistration);
+    const isRegistrationOk = useSelector(state => state.apiRegistration.isRegistrationOk);
+    const isRegistrationError400 = useSelector(state => state.apiRegistration.isRegistrationError400);
+    const isRegistrationError = useSelector(state => state.apiRegistration.isRegistrationError);
+
+    const dispatch = useDispatch();
+
     const { register, handleSubmit, formState: {errors, isValid}, reset, watch, getValues, setValue}
         = useForm({mode: 'onChange', criteriaMode: 'all'});
 
     const [stepNumber, setStepNumber] = useState(1);
     const [topElBorderStyle, setTopElBorderStyle] =
-        useState(`input__border ${!getValues('login') || errors.login && 'active'}`);
+        useState(`input__border ${!getValues('username') || errors.username && 'active'}`);
     const [bottomElBorderStyle, setBottomElBorderStyle] =
         useState(`input__border ${!getValues('password') || errors.password && 'active'}`);
     const [topElHint, setTopElHint] = useState('Используйте для логина латинский алфавит и цифры');
@@ -29,7 +41,7 @@ export const Registration = () => {
     const passwordType = () => isOpenEye ? 'text' : 'password';
     const openEye = () => setIsOpenEye(!isOpenEye);
 
-    const checkLogin = (v) => {
+    const checkUsername = (v) => {
         const hasLatinLetter = REGEXP.hasLatinLetter.test(v);
         const hasCyrLetter = REGEXP.hasCyrLetter.test(v);
         const hasOnlyDigit = REGEXP.hasOnlyDigit.test(v);
@@ -115,10 +127,10 @@ export const Registration = () => {
             setTopElHint('');
             setBottomElHint('');
         } else {
-            const loginValues = getValues('login');
+            const usernameValues = getValues('username');
             const passwordValues = getValues('password');
 
-            if (!loginValues || errors.login) {
+            if (!usernameValues || errors.username) {
                 setTopElHint('<span class="red-hint">Используйте для логина латинский алфавит и цифры</span>');
                 setTopElBorderStyle('input__border active');
             }
@@ -149,12 +161,6 @@ export const Registration = () => {
         }
     }
 
-    const onSubmit = (data) => {
-        console.log(data);
-        reset();
-        setPhoneInput('');
-    }
-
     const handlerPhoneChange = (event) => {
         setValue('phone', event.target.value);
         setPhoneInput(event.target.value);
@@ -169,117 +175,134 @@ export const Registration = () => {
         }
     }
 
+    const onSubmit = (data) => {
+        dispatch(setRegistrationData(data));
+        dispatch(startIsLoadingRegistration(data));
+        reset();
+        setPhoneInput('');
+        setStepNumber(1);
+        setTopElHint('Используйте для логина латинский алфавит и цифры');
+        setBottomElHint('Пароль не менее 8 символов, с заглавной буквой и цифрой');
+    }
+
     return (
+
         <div className='form__wrapper'>
-            <form className='form__authorization' onSubmit={handleSubmit(onSubmit)} >
-                <div className='form__logo'>{FORM.textLogo}</div>
-                <div className='form__header'>
-                    <div className='form__header_title'>{FORM.titleRegistration}</div>
-                    <div className='form__header_steps'>{`${stepNumber} шаг из 3`}</div>
-                </div>
-
-                {stepNumber === 1 &&
-                    <div className='form__data'>
-                        <div className='form__data_login'>
-                            <div className='login__wrapper'>
-                                <input className='input__field' id='login'
-                                    {...register('login', {validate:  v => checkLogin(v)})} />
-                                <label htmlFor="login" className={labelStyle('login')}>Придумайте логин для входа</label>
-                            </div>
-                            <div className={topElBorderStyle} />
-                            <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
-                        </div>
-                        <div className='form__data_password'>
-                            <div className='password__wrapper'>
-                                <input className='input__field' id='password' type={passwordType()}
-                                    {...register('password', {validate: v => checkPassword(v)})} />
-                                <label htmlFor="password" className={labelStyle('password')}>Пароль</label>
-                                <div className={checkPasswordStyle()} />
-                                <div className={eyeStyle()} onClick={openEye} role='presentation' />
-                            </div>
-                            <div className={bottomElBorderStyle} />
-                            <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
-                        </div>
+            {isFormRegistration &&
+                <form className='form__authorization' onSubmit={handleSubmit(onSubmit)} >
+                    <div className='form__logo'>{FORM.textLogo}</div>
+                    <div className='form__header'>
+                        <div className='form__header_title'>{FORM.titleRegistration}</div>
+                        <div className='form__header_steps'>{`${stepNumber} шаг из 3`}</div>
                     </div>
-                }
 
-                {stepNumber === 2 &&
-                    <div className='form__data'>
-                        <div className='form__data_login'>
-                            <div className='login__wrapper'>
-                                <input className='input__field' id='firstName'
-                                    {...register('firstName', {validate: v => checkFirstName(v)})} />
-                                <label htmlFor="firstName" className={labelStyle('firstName')}>Имя</label>
+                    {stepNumber === 1 &&
+                        <div className='form__data'>
+                            <div className='form__data_login'>
+                                <div className='login__wrapper'>
+                                    <input className='input__field' id='username'
+                                        {...register('username', {validate:  v => checkUsername(v)})} />
+                                    <label htmlFor="username" className={labelStyle('username')}>Придумайте логин для входа</label>
+                                </div>
+                                <div className={topElBorderStyle} />
+                                <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
                             </div>
-                            <div className={topElBorderStyle} />
-                            <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
-                        </div>
-                        <div className='form__data_password'>
-                            <div className='password__wrapper'>
-                                <input className='input__field' id='lastName'
-                                    {...register('lastName', {validate: v => checkLastName(v)})} />
-                                <label htmlFor="lastName" className={labelStyle('lastName')}>Фамилия</label>
+                            <div className='form__data_password'>
+                                <div className='password__wrapper'>
+                                    <input className='input__field' id='password' type={passwordType()}
+                                        {...register('password', {validate: v => checkPassword(v)})} />
+                                    <label htmlFor="password" className={labelStyle('password')}>Пароль</label>
+                                    <div className={checkPasswordStyle()} />
+                                    <div className={eyeStyle()} onClick={openEye} role='presentation' />
+                                </div>
+                                <div className={bottomElBorderStyle} />
+                                <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
                             </div>
-                            <div className={bottomElBorderStyle} />
-                            <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
                         </div>
-                    </div>
-                }
+                    }
 
-                {stepNumber === 3 &&
-                    <div className='form__data'>
-                        <div className='form__data_login'>
-                            <div className='login__wrapper'>
-                                <MaskedInput className='input__field' id='phone' onChange={handlerPhoneChange}
-                                    value={phoneInput}
-                                    mask={REGEXP.mask}
-                                    guide={true} keepCharPositions={true} />
-                                <label htmlFor="phone" className={labelStyle('phone')}>Номер телефона</label>
+                    {stepNumber === 2 &&
+                        <div className='form__data'>
+                            <div className='form__data_login'>
+                                <div className='login__wrapper'>
+                                    <input className='input__field' id='firstName'
+                                        {...register('firstName', {validate: v => checkFirstName(v)})} />
+                                    <label htmlFor="firstName" className={labelStyle('firstName')}>Имя</label>
+                                </div>
+                                <div className={topElBorderStyle} />
+                                <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
                             </div>
-                            <div className={topElBorderStyle} />
-                            <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
-                        </div>
-                        <div className='form__data_password'>
-                            <div className='password__wrapper'>
-                                <input className='input__field' id='email'
-                                    {...register('email', {validate: v => checkEmail(v)})} />
-                                <label htmlFor="email" className={labelStyle('email')}>E-mail</label>
+                            <div className='form__data_password'>
+                                <div className='password__wrapper'>
+                                    <input className='input__field' id='lastName'
+                                        {...register('lastName', {validate: v => checkLastName(v)})} />
+                                    <label htmlFor="lastName" className={labelStyle('lastName')}>Фамилия</label>
+                                </div>
+                                <div className={bottomElBorderStyle} />
+                                <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
                             </div>
-                            <div className={bottomElBorderStyle} />
-                            <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
                         </div>
-                    </div>
-                }
+                    }
 
-                {(stepNumber === 1 || stepNumber === 2) &&
-                    <div className='form__submit'>
-                        <div className='submit__btn' role='presentation'
-                            onClick={stepNumber === 1 ? handlerToStepTwo: handlerToStepThree}>
-                                {stepNumber === 1 ? 'следующий шаг' : 'последний шаг'}</div>
-                        <div className='submit__link'>
-                            <div className='submit__link_invite'>Есть учётная запись?</div>
-                            <Link to='/auth' className='submit__link_enter'>
-                                <div className='enter__text'>войти</div>
-                                <div className='enter__arrow'/>
-                            </Link>
+                    {stepNumber === 3 &&
+                        <div className='form__data'>
+                            <div className='form__data_login'>
+                                <div className='login__wrapper'>
+                                    <MaskedInput className='input__field' id='phone' onChange={handlerPhoneChange}
+                                        value={phoneInput}
+                                        mask={REGEXP.mask}
+                                        guide={true} keepCharPositions={true} />
+                                    <label htmlFor="phone" className={labelStyle('phone')}>Номер телефона</label>
+                                </div>
+                                <div className={topElBorderStyle} />
+                                <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
+                            </div>
+                            <div className='form__data_password'>
+                                <div className='password__wrapper'>
+                                    <input className='input__field' id='email'
+                                        {...register('email', {validate: v => checkEmail(v)})} />
+                                    <label htmlFor="email" className={labelStyle('email')}>E-mail</label>
+                                </div>
+                                <div className={bottomElBorderStyle} />
+                                <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
+                            </div>
                         </div>
-                    </div>
-                }
+                    }
 
-                {stepNumber === 3 &&
-                    <div className='form__submit'>
-                        <button type='submit' className='submit__btn' >зарегистрироваться</button>
-                        <div className='submit__link'>
-                            <div className='submit__link_invite'>Есть учётная запись?</div>
-                            <Link to='/auth' className='submit__link_enter'>
-                                <div className='enter__text'>войти</div>
-                                <div className='enter__arrow'/>
-                            </Link>
+                    {(stepNumber === 1 || stepNumber === 2) &&
+                        <div className='form__submit'>
+                            <div className='submit__btn' role='presentation'
+                                onClick={stepNumber === 1 ? handlerToStepTwo: handlerToStepThree}>
+                                    {stepNumber === 1 ? 'следующий шаг' : 'последний шаг'}</div>
+                            <div className='submit__link'>
+                                <div className='submit__link_invite'>Есть учётная запись?</div>
+                                <Link to='/auth' className='submit__link_enter'>
+                                    <div className='enter__text'>войти</div>
+                                    <div className='enter__arrow'/>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                }
+                    }
 
-            </form>
+                    {stepNumber === 3 &&
+                        <div className='form__submit'>
+                            <button type='submit' className='submit__btn' >зарегистрироваться</button>
+                            <div className='submit__link'>
+                                <div className='submit__link_invite'>Есть учётная запись?</div>
+                                <Link to='/auth' className='submit__link_enter'>
+                                    <div className='enter__text'>войти</div>
+                                    <div className='enter__arrow'/>
+                                </Link>
+                            </div>
+                        </div>
+                    }
+
+                </form>
+            }
+            {isRegistrationOk && <RegistrationOk />}
+            {isRegistrationError400 && <RegistrationError400 />}
+            {isRegistrationError && <RegistrationError />}
         </div>
+
     );
 };

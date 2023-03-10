@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import bookCoverEmpty from '../../../assets/swiper-images/image-empty.png';
-import { COMMON_ABOUT, COMMON_ORDER_BTN, HOST_URL } from '../../../constants/constants';
+import { API,COMMON_ABOUT, COMMON_ORDER_BTN } from '../../../constants/constants';
 import { CoverSwiper } from '../../../cover-swiper';
 
 import './book-description.css';
@@ -12,7 +12,7 @@ export const BookDescription = () => {
 
     const arrCoverImages = images === null
         ? [{'img': bookCoverEmpty, 'id': 'tempId0'}]
-        : images.map((el, index) => ({'img': `${HOST_URL}${el.url}`, 'id': `tempId${index}`}));
+        : images.map((el, index) => ({'img': `${API.host}${el.url}`, 'id': `tempId${index}`}));
 
     const curAuthors = authors.join(', ').concat(', ');
 
