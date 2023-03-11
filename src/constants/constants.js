@@ -55,6 +55,9 @@ export const FORM = {
     titleAuth: 'Вход в личный кабинет',
     titleRegistration: 'Регистрация',
     titleForgotPass: 'Восстановление пароля',
+    textStaticHint: 'На это email  будет отправлено письмо с инструкциями по восстановлению пароля',
+    titleForgotPassOk: 'Письмо выслано',
+    textForgotPassOk: 'Перейдите в вашу почту, чтобы воспользоваться подсказками по восстановлению пароля',
 
 };
 export const API = {

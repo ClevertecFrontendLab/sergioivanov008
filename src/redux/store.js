@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import { rootSaga } from './sagas/sagas';
 import apiAuthReducer from './slices/api-auth-slice';
+import apiForgotPassReducer from './slices/api-forgot-path-slice';
 import apiRegistrationReducer from './slices/api-registration-slice';
 import bookListReducer from './slices/book-list-slice';
 import bookReducer from './slices/book-slice';
@@ -25,6 +26,7 @@ export default configureStore({
     main: mainReducer,
     apiRegistration: apiRegistrationReducer,
     apiAuth: apiAuthReducer,
+    apiForgotPass: apiForgotPassReducer,
   },
   middleware: [saga]
 });

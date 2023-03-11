@@ -1,8 +1,9 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects';
 
-import { getBook, getBooks, getCategories, userAuth, userRegistration } from '../../api/api';
+import { getBook, getBooks, getCategories, userAuth, userForgotPassword, userRegistration } from '../../api/api';
 import { setAuthData, setIsAuth, setIsAuthError, setIsAuthError400, toggleIsLoadingAuth } from '../slices/api-auth-slice';
-import { setIsRegistrationError, setIsRegistrationError400, setRegistrationData, toggleIsLoadingRegistration } from '../slices/api-registration-slice';
+import { setIsForgotPassError, setIsForgotPassOk, toggleIsLoadingForgotPass } from '../slices/api-forgot-path-slice';
+import { setIsRegistrationError, setIsRegistrationError400, setIsRegistrationOk, setRegistrationData, toggleIsLoadingRegistration } from '../slices/api-registration-slice';
 import { getBookFailure, getBookSuccess } from '../slices/book-slice';
 import { getBooksFailure, getBooksSuccess } from '../slices/books-slice';
 import { getCategoriesFailure, getCategoriesSuccess } from '../slices/categories-slice';
@@ -70,9 +71,9 @@ function* workRegistrationUserSaga(action) {
         const response = yield call(userRegistration, action.payload);
 
         yield localStorage.setItem('cleverToken', response.data.jwt);
-        yield put(setIsAuth(true));
         yield put(toggleIsLoadingRegistration(false));
         yield put(setRegistrationData(null));
+        yield put(setIsRegistrationOk());
     } catch (e) {
         yield put(toggleIsLoadingRegistration(false));
         if (e.response.status === 400) {
@@ -111,11 +112,27 @@ function* watchAuthUserSaga() {
     yield takeEvery('apiAuth/startIsLoadingAuth', workAuthUserSaga);
 }
 
+function* workForgotPassSaga(action) {
+    try {
+        yield call(userForgotPassword, action.payload);
+        yield put(toggleIsLoadingForgotPass(false));
+        yield put(setIsForgotPassOk());
+    } catch (e) {
+        yield put(toggleIsLoadingForgotPass(false));
+        yield put(setIsForgotPassError());
+    }
+}
+
+function* watchForgotPassSaga() {
+    yield takeEvery('apiForgotPass/startIsLoadingForgotPass', workForgotPassSaga);
+}
+
 export function* rootSaga() {
     yield all([
         watchCategoriesAndBooksSaga(),
         watchGetBookFetchSaga(),
         watchRegistrationUserSaga(),
-        watchAuthUserSaga()
+        watchAuthUserSaga(),
+        watchForgotPassSaga()
     ]);
 }

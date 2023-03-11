@@ -1,24 +1,32 @@
 /* eslint-disable react/no-danger */
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { FORM, REGEXP } from '../../../constants/constants';
+import { startIsLoadingForgotPass } from '../../../redux/slices/api-forgot-path-slice';
+import { ForgotPassOk } from '../forgot-pass-ok';
 
 import '../authorization-forms.css';
 
 export const ForgotPass = () => {
+    const isFormForgotPass = useSelector(state => state.apiForgotPass.isFormForgotPass);
+    const isFormForgotOk = useSelector(state => state.apiForgotPass.isFormForgotOk);
+    const isForgotPassError = useSelector(state => state.apiForgotPass.isForgotPassError);
+
     const { register, handleSubmit, formState: {errors}, reset, watch, getValues}
         = useForm({mode: 'onChange', criteriaMode: 'all'});
 
+    const dispatch = useDispatch();
+
     const [bottomElBorderStyle, setBottomElBorderStyle] = useState('input__border');
-    const [bottomElHint, setBottomElHint] = useState('На это email  будет отправлено письмо с инструкциями по восстановлению пароля');
+    const [bottomElHint, setBottomElHint] = useState('');
 
     const labelStyle = (value) => `label_input ${watch(value) && 'active'}`;
 
     const onSubmit = (data) => {
-        console.log(data);
-        reset();
+        dispatch(startIsLoadingForgotPass(data));
     }
 
     const checkEmail = (v) => {
@@ -48,40 +56,43 @@ export const ForgotPass = () => {
 
     return (
         <div className='form__wrapper'>
-            <form className='form__authorization form-forgot' onSubmit={handleSubmit(onSubmit)} >
-                <div className='form__logo'>{FORM.textLogo}</div>
-                <Link to='/auth' className='link__auth'>
-                    <div className='enter__arrow back'/>
-                    <div className='link__auth_title'>{FORM.titleAuth}</div>
-                </Link>
-                <div className='form__header'>
-                    <div className='form__header_title'>{FORM.titleForgotPass}</div>
-                </div>
+            {isFormForgotPass &&
+                <form className='form__authorization form-forgot' onSubmit={handleSubmit(onSubmit)} >
+                    <div className='form__logo'>{FORM.textLogo}</div>
+                    <Link to='/auth' className='link__auth'>
+                        <div className='enter__arrow back'/>
+                        <div className='link__auth_title'>{FORM.titleAuth}</div>
+                    </Link>
+                    <div className='form__header'>
+                        <div className='form__header_title'>{FORM.titleForgotPass}</div>
+                    </div>
 
-                <div className='form__data'>
-                    <div className='form__data_password'>
-                        <div className='password__wrapper'>
-                            <input className='input__field' id='email'
-                                {...register('email', {validate:  v => checkEmail(v)})} />
-                            <label htmlFor="email" className={labelStyle('email')}>Email</label>
+                    <div className='form__data'>
+                        <div className='form__data_password'>
+                            <div className='password__wrapper'>
+                                <input className='input__field' id='email'
+                                    {...register('email', {validate:  v => checkEmail(v)})} />
+                                <label htmlFor="email" className={labelStyle('email')}>Email</label>
+                            </div>
+                            <div className={bottomElBorderStyle} />
+                            <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
+                            <div className='input__field_hints static-hint'>{FORM.textStaticHint}</div>
                         </div>
-                        <div className={bottomElBorderStyle} />
-                        <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
                     </div>
-                </div>
 
-                <div className='form__submit'>
-                    <button type='submit' className='submit__btn' onClick={checkValues} >восстановить</button>
-                    <div className='submit__link'>
-                        <div className='submit__link_invite'>Нет учётной записи?</div>
-                        <Link to='/registration' className='submit__link_enter'>
-                            <div className='enter__text'>{FORM.titleRegistration}</div>
-                            <div className='enter__arrow'/>
-                        </Link>
+                    <div className='form__submit'>
+                        <button type='submit' className='submit__btn' onClick={checkValues} >восстановить</button>
+                        <div className='submit__link'>
+                            <div className='submit__link_invite'>Нет учётной записи?</div>
+                            <Link to='/registration' className='submit__link_enter'>
+                                <div className='enter__text'>{FORM.titleRegistration}</div>
+                                <div className='enter__arrow'/>
+                            </Link>
+                        </div>
                     </div>
-                </div>
-
-            </form>
+                </form>
+            }
+            {isFormForgotOk && <ForgotPassOk />}
         </div>
     );
 };

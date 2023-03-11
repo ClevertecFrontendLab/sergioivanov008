@@ -23,6 +23,10 @@
     background: #FFFFFF;
     border-radius: 16px;
 }
+.registration-ok.forgot-pass {
+    padding: 48px 32px;
+    height: 206px;
+}
 .registration-ok__title {
     font-style: normal;
     font-weight: 700;
