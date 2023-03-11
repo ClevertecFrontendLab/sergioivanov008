@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-import { FORM } from '../../../constants/constants';
+import { FORM, REGEXP } from '../../../constants/constants';
 
 import '../authorization-forms.css';
 
@@ -21,23 +21,26 @@ export const ForgotPass = () => {
         reset();
     }
 
-    const checkForgotEmail = (v) => {
+    const checkEmail = (v) => {
+        const isEmailValid = REGEXP.isEmailValid.test(v);
+
         if (v) {
-            setBottomElBorderStyle('input__border');
-            setBottomElHint('');
-
-            return true;
+            if (isEmailValid) {
+                setBottomElHint('');
+                setBottomElBorderStyle('input__border');
+            } else {
+                setBottomElHint('<span class="red-hint">Введите корректный E-mail</span>');
+                setBottomElBorderStyle('input__border active');
+            }
         }
-        setBottomElHint('<span class="red-hint">Поле не может быть пустым</span>');
-        setBottomElBorderStyle('input__border active');
 
-        return false;
+        return isEmailValid;
     }
 
     const checkValues = () => {
-        const forgotEmailValues = getValues('forgotEmail');
+        const forgotEmailValues = getValues('email');
 
-        if (!forgotEmailValues || errors.forgotEmail) {
+        if (!forgotEmailValues || errors.email) {
             setBottomElHint('<span class="red-hint">Поле не может быть пустым</span>');
             setBottomElBorderStyle('input__border active');
         }
@@ -58,9 +61,9 @@ export const ForgotPass = () => {
                 <div className='form__data'>
                     <div className='form__data_password'>
                         <div className='password__wrapper'>
-                            <input className='input__field' id='forgotEmail'
-                                {...register('forgotEmail', {validate:  v => checkForgotEmail(v)})} />
-                            <label htmlFor="forgotEmail" className={labelStyle('forgotEmail')}>Email</label>
+                            <input className='input__field' id='email'
+                                {...register('email', {validate:  v => checkEmail(v)})} />
+                            <label htmlFor="email" className={labelStyle('email')}>Email</label>
                         </div>
                         <div className={bottomElBorderStyle} />
                         <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
