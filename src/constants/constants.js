@@ -67,4 +67,7 @@ export const API = {
     url_getCategoriesFetch: '/api/categories',
     url_getBooksFetch: '/api/books',
 };
-
+export const SMALL_MENU = {
+    textItem_profile: 'Профиль',
+    textItem_exit: 'Выход',
+};

@@ -53,6 +53,15 @@
 
     cursor: pointer;
 }
+.menu-main__line {
+    width: 255px;
+    height: 0px;
+
+    border: 1px solid #BFC4C9;
+
+    margin-top: 52px;
+    margin-bottom: 32px;
+}
 .menu-main-item.active {
     background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
     -webkit-background-clip: text;

@@ -9,6 +9,7 @@ export const apiAuthSlice = createSlice({
     isAuthError400: false,
     isAuthError: false,
     authData: null,
+    isAuth: false,
   },
   reducers: {
     setAuthData(state, action) {
@@ -33,6 +34,9 @@ export const apiAuthSlice = createSlice({
         state.isFormAuth = false;
         state.isAuthError = true;
     },
+    setIsAuth(state, action) {
+        state.isAuth = action.payload;
+    },
   }
 });
 
@@ -42,6 +46,7 @@ export const {
     toggleIsLoadingAuth,
     setIsFormAuth,
     setIsAuthError400,
-    setIsAuthError } = apiAuthSlice.actions;
+    setIsAuthError,
+    setIsAuth } = apiAuthSlice.actions;
 
 export default apiAuthSlice.reducer;

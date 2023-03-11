@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 import avatarImg from '../../../assets/header/avatar.png';
 import { GREETING_TEXT, HEADER_TITLE } from '../../../constants/constants';
-import { toggleOpenBurger } from '../../../redux/slices/menu-slice';
+import { toggleOpenBurger, toggleOpenSmallMenu } from '../../../redux/slices/menu-slice';
 import { Menu } from '../menu';
+import { SmallMenu } from '../small-menu';
 
 import './header.css';
 
@@ -12,6 +13,7 @@ export const Header = () => {
     const dispatch = useDispatch();
 
     const openBurger = useSelector(state => state.menu.openBurger);
+    const openSmallMenu = useSelector(state => state.menu.openSmallMenu);
 
     const toggleBodyNotScrollable = () => {
         const body = document.querySelector('body');
@@ -26,6 +28,10 @@ export const Header = () => {
 
     const burgerMenuStyle = openBurger ? 'burger-menu close' : 'burger-menu';
     const coverElementStyle = openBurger ? 'cover-element' : 'cover-element hidden';
+
+    const handlerSmallMenu = () => {
+        dispatch(toggleOpenSmallMenu(!openSmallMenu));
+    }
 
     return (
         <header className='header'>
@@ -45,8 +51,9 @@ export const Header = () => {
                     dataTestId='burger-navigation' />
             </div>
             <div className='header__person'>
+                {openSmallMenu && <SmallMenu />}
                 <div className='header-title'>{HEADER_TITLE}</div>
-                <div className='person'>
+                <div className='person' onClick={handlerSmallMenu} role='presentation'>
                     <div className='person_greeting'>{GREETING_TEXT}</div>
                     <img className='avatar-image' src={avatarImg} alt="avatar" />
                 </div>

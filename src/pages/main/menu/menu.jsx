@@ -1,13 +1,16 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 
-import { MENU_ALLBOOKS, MENU_ITEM_ALLBOOKS, MENU_ITEM_OFERTA, MENU_ITEM_RULES } from '../../../constants/constants';
+import { MENU_ALLBOOKS, MENU_ITEM_ALLBOOKS, MENU_ITEM_OFERTA, MENU_ITEM_RULES, SMALL_MENU } from '../../../constants/constants';
+import { setIsAuth } from '../../../redux/slices/api-auth-slice';
 import { toggleIsActiveBooks, toggleOpenBurger, toggleOpenCategory } from '../../../redux/slices/menu-slice';
 
 import './menu.css';
 
 export const Menu = (props) => {
     const dispatch = useDispatch();
+
     const openCategory = useSelector(state => state.menu.openCategory);
     const openBurger = useSelector(state => state.menu.openBurger);
     const categories = useSelector(state => state.categories.categories);
@@ -32,6 +35,15 @@ export const Menu = (props) => {
     const allBookUnactive = () => {
         dispatch(toggleOpenBurger(false));
         dispatch(toggleIsActiveBooks(true));
+    }
+
+    const handlerExit = () => {
+        dispatch(toggleOpenBurger(false));
+        dispatch(setIsAuth(false));
+
+        localStorage.removeItem('cleverToken');
+
+        return <Navigate to='/auth' />;
     }
 
     const checkCount = (curCategories) => books.filter((el) => el.categories[0] === curCategories).length;
@@ -118,6 +130,20 @@ export const Menu = (props) => {
             >
                 {MENU_ITEM_OFERTA}
             </NavLink>
+            {openBurger &&
+                <React.Fragment>
+                    <div className='menu-main__line'/>
+                    <div className='menu-main-item'>
+                        {SMALL_MENU.textItem_profile}
+                    </div>
+                    <div
+                        className='menu-main-item'
+                        onClick={handlerExit}
+                        role='presentation'>
+                        {SMALL_MENU.textItem_exit}
+                    </div>
+                </React.Fragment>
+            }
         </nav>
     );
 }

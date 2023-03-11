@@ -38,6 +38,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    position: relative;
 }
 .person {
     display: flex;
@@ -46,6 +48,8 @@
     font-size: 14px;
     line-height: 18px;
     text-align: right;
+
+    cursor: pointer;
 }
 .avatar-image {
     width: 58px;

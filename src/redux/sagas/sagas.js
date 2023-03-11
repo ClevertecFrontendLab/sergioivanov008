@@ -1,7 +1,7 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects';
 
 import { getBook, getBooks, getCategories, userAuth, userRegistration } from '../../api/api';
-import { setAuthData, setIsAuthError, setIsAuthError400, toggleIsLoadingAuth } from '../slices/api-auth-slice';
+import { setAuthData, setIsAuth, setIsAuthError, setIsAuthError400, toggleIsLoadingAuth } from '../slices/api-auth-slice';
 import { setIsRegistrationError, setIsRegistrationError400, setRegistrationData, toggleIsLoadingRegistration } from '../slices/api-registration-slice';
 import { getBookFailure, getBookSuccess } from '../slices/book-slice';
 import { getBooksFailure, getBooksSuccess } from '../slices/books-slice';
@@ -70,6 +70,7 @@ function* workRegistrationUserSaga(action) {
         const response = yield call(userRegistration, action.payload);
 
         yield localStorage.setItem('cleverToken', response.data.jwt);
+        yield put(setIsAuth(true));
         yield put(toggleIsLoadingRegistration(false));
         yield put(setRegistrationData(null));
     } catch (e) {
@@ -92,6 +93,7 @@ function* workAuthUserSaga(action) {
         const response = yield call(userAuth, action.payload);
 
         yield localStorage.setItem('cleverToken', response.data.jwt);
+        yield put(setIsAuth(true));
         yield put(toggleIsLoadingAuth(false));
         yield put(setAuthData(null));
     } catch (e) {

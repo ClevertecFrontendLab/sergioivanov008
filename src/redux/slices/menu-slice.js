@@ -6,6 +6,7 @@ export const menuSlice = createSlice({
   initialState: {
     openCategory: true,
     openBurger: false,
+    openSmallMenu: false,
     isActiveBooks: true
   },
   reducers: {
@@ -14,6 +15,9 @@ export const menuSlice = createSlice({
     },
     toggleOpenBurger(state, action) {
         state.openBurger = action.payload;
+    },
+    toggleOpenSmallMenu(state, action) {
+        state.openSmallMenu = action.payload;
     },
     toggleIsActiveBooks(state, action) {
         state.isActiveBooks = action.payload;
@@ -24,6 +28,7 @@ export const menuSlice = createSlice({
 export const {
     toggleOpenCategory,
     toggleOpenBurger,
+    toggleOpenSmallMenu,
     toggleIsActiveBooks } = menuSlice.actions
 
 export default menuSlice.reducer

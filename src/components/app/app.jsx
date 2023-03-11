@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { HashRouter, Navigate, Outlet,Route, Routes } from 'react-router-dom';
 
 import { BookPage } from '../../pages/book';
@@ -14,32 +15,35 @@ import { Loader } from '../loader';
 
 import './app.css';
 
-export const App = () => (
+export const App = () => {
+    const isAuth = useSelector(state => state.apiAuth.isAuth);
+
+    return (
     <div className='app'>
         <HashRouter>
             <Routes>
+                <Route path='/' element={isAuth ? <Navigate to='/books/all' /> : <Navigate to='/auth' />} />
+                <Route path='/auth' element={isAuth ? <Navigate to='/books/all' /> : <Authorization />} />
+                <Route path='/registration' element={isAuth ? <Navigate to='/books/all' /> : <Registration />} />
+                <Route path='/forgot-pass' element={isAuth ? <Navigate to='/books/all' /> : <ForgotPass />} />
                 <Route element={<PrivateRouter />} >
-                    <Route path='/auth' element={<Navigate to='/' />} />
-                        <Route path='/' element={<Layout />}>
-                            <Route element={<Outlet />}>
-                                <Route path='/' element={<Navigate to='/books/all' />} />
-                                <Route path='/rules' element={<Rules />} />
-                                <Route path='/oferta' element={<Oferta />} />
-                                <Route path='/books/:category' element={<LibraryContent />} />
-                                <Route path='/auth' element={<Navigate to='/books/all' />} />
-                                <Route path='/registration' element={<Navigate to='/books/all' />} />
-                                <Route path='/forgot-pass' element={<Navigate to='/books/all' />} />
-                            </Route>
+                    <Route path='/' element={<Layout />}>
+                        <Route element={<Outlet />}>
+                            <Route path='/' element={<Navigate to='/books/all' />} />
+                            <Route path='/rules' element={<Rules />} />
+                            <Route path='/oferta' element={<Oferta />} />
+                            <Route path='/books/:category' element={<LibraryContent />} />
+                            <Route path='/auth' element={<Navigate to='/books/all' />} />
+                            <Route path='/registration' element={<Navigate to='/books/all' />} />
+                            <Route path='/forgot-pass' element={<Navigate to='/books/all' />} />
                         </Route>
+                    </Route>
                     <Route path='/books/:category/:id' element={<BookPage />} />
                 </Route>
-                <Route path='/' element={<Navigate to='/auth' />} />
-                <Route path='/auth' element={<Authorization />} />
-                <Route path='/registration' element={<Registration />} />
-                <Route path='/forgot-pass' element={<ForgotPass />} />
             </Routes>
         </HashRouter>
         <Loader />
         <ErrorLoader />
     </div>
 );
+}
