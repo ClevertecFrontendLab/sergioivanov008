@@ -36,7 +36,6 @@ export const RecoveryPass = () => {
 
     const labelStyle = (value) => `label_input ${watch(value) && 'active'}`;
     const eyeTopStyle = () => `password__eye ${isOpenTopEye && 'open'}`;
-    const checkPasswordStyle = () => `check-password ${isCheckPassword && 'ok'}`;
     const passwordType = () => isOpenTopEye ? 'text' : 'password';
     const openTopEye = () => setIsOpenTopEye(!isOpenTopEye);
 
@@ -127,12 +126,12 @@ export const RecoveryPass = () => {
                                 <label htmlFor="password" className={labelStyle('password')}>
                                     {FORM.textNewPass}
                                 </label>
-                                <div className={checkPasswordStyle()} />
+                                {isCheckPassword && <div className='check-password ok' data-test-id='checkmark'/>}
                                 {getValues('password') &&
                                     <div className={eyeTopStyle()} onClick={openTopEye} role='presentation'
                                         data-test-id={dataIdForTopEye()} />}
                             </div>
-                            <div className={topElBorderStyle} data-test-id='checkmark' />
+                            <div className={topElBorderStyle} />
                             <div className='input__field_hints' data-test-id='hint'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
                         </div>
 
