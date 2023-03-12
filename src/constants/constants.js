@@ -46,10 +46,13 @@ export const FORM = {
     textPassword: 'Пароль',
     textEnter: 'вход',
     titleRegistratonOk: 'Регистрация успешна',
+    titleRecoveryOk: 'Новые данные сохранены',
     titleRegistratonError: 'Данные не сохранились',
     textRegistratonOk: 'Регистрация прошла успешно. Зайдите в личный кабинет, используя свои логин и пароль',
+    textRecoveryOk: 'Зайдите в личный кабинет, используя свои логин и новый пароль',
     textRegistratonError400: 'Такой логин или e-mail уже записан в системе. Попробуйте зарегистрироваться по другому логину или e-mail',
     textRegistratonError: 'Что-то пошло не так и ваша регистрация не завершилась. Попробуйте ещё раз',
+    textRecoveryError: 'Что-то пошло не так. Попробуйте ещё раз',
     textErrorBack: 'назад к регистрации',
     textErrorRepeat: 'повторить',
     titleAuth: 'Вход в личный кабинет',
@@ -58,6 +61,11 @@ export const FORM = {
     textStaticHint: 'На это email  будет отправлено письмо с инструкциями по восстановлению пароля',
     titleForgotPassOk: 'Письмо выслано',
     textForgotPassOk: 'Перейдите в вашу почту, чтобы воспользоваться подсказками по восстановлению пароля',
+    titleRecoveryPass: 'Восстановление пароля',
+    textBtnRecoveryPass: 'сохранить изменения',
+    textHintRecoveryPass: 'После сохранения войдите в библиотеку, используя новый пароль',
+    textNewPass: 'Новый пароль',
+    textConfirmPass: 'Повторите пароль',
 
 };
 export const API = {

@@ -1,8 +1,9 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects';
 
-import { getBook, getBooks, getCategories, userAuth, userForgotPassword, userRegistration } from '../../api/api';
+import { getBook, getBooks, getCategories, userAuth, userForgotPassword, userRegistration, userResetPassword } from '../../api/api';
 import { setAuthData, setIsAuth, setIsAuthError, setIsAuthError400, toggleIsLoadingAuth } from '../slices/api-auth-slice';
-import { setIsForgotPassError, setIsForgotPassOk, toggleIsLoadingForgotPass } from '../slices/api-forgot-path-slice';
+import { setIsForgotPassError, setIsFormForgotOk, toggleIsLoadingForgotPass } from '../slices/api-forgot-path-slice';
+import { setIsFormRecoveryPassError, setIsFormRecoveryPasstOk, toggleIsLoadingRecoveryPass } from '../slices/api-recovery-pass-slice';
 import { setIsRegistrationError, setIsRegistrationError400, setIsRegistrationOk, setRegistrationData, toggleIsLoadingRegistration } from '../slices/api-registration-slice';
 import { getBookFailure, getBookSuccess } from '../slices/book-slice';
 import { getBooksFailure, getBooksSuccess } from '../slices/books-slice';
@@ -116,7 +117,7 @@ function* workForgotPassSaga(action) {
     try {
         yield call(userForgotPassword, action.payload);
         yield put(toggleIsLoadingForgotPass(false));
-        yield put(setIsForgotPassOk());
+        yield put(setIsFormForgotOk());
     } catch (e) {
         yield put(toggleIsLoadingForgotPass(false));
         yield put(setIsForgotPassError());
@@ -127,12 +128,28 @@ function* watchForgotPassSaga() {
     yield takeEvery('apiForgotPass/startIsLoadingForgotPass', workForgotPassSaga);
 }
 
+function* workRecoveryPassSaga(action) {
+    try {
+        yield call(userResetPassword, action.payload);
+        yield put(toggleIsLoadingRecoveryPass(false));
+        yield put(setIsFormRecoveryPasstOk());
+    } catch (e) {
+        yield put(toggleIsLoadingRecoveryPass(false));
+        yield put(setIsFormRecoveryPassError());
+    }
+}
+
+function* watchRecoveryPassSaga() {
+    yield takeEvery('apiRecoveryPass/startIsLoadingRecoveryPass', workRecoveryPassSaga);
+}
+
 export function* rootSaga() {
     yield all([
         watchCategoriesAndBooksSaga(),
         watchGetBookFetchSaga(),
         watchRegistrationUserSaga(),
         watchAuthUserSaga(),
-        watchForgotPassSaga()
+        watchForgotPassSaga(),
+        watchRecoveryPassSaga()
     ]);
 }

@@ -11,9 +11,10 @@ export const Loader = () => {
     const isLoadingRegistration = useSelector(state => state.apiRegistration.isLoadingRegistration);
     const isLoadingAuth = useSelector(state => state.apiAuth.isLoadingAuth);
     const isLoadingForgotPass = useSelector(state => state.apiForgotPass.isLoadingForgotPass);
+    const isLoadingRecoveryPass = useSelector(state => state.apiRecoveryPass.isLoadingRecoveryPass);
 
     const isLoaderVisible = categoriesIsLoading || booksIsLoading || bookIsLoading ||
-        isLoadingRegistration || isLoadingAuth || isLoadingForgotPass;
+        isLoadingRegistration || isLoadingAuth || isLoadingForgotPass || isLoadingRecoveryPass;
 
     toggleBodyNotScrollable(isLoaderVisible);
 

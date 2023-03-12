@@ -2,23 +2,30 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { FORM, REGEXP } from '../../../constants/constants';
-import { startIsLoadingForgotPass } from '../../../redux/slices/api-forgot-path-slice';
+import { setIsFormRecoveryPass, startIsLoadingForgotPass } from '../../../redux/slices/api-forgot-path-slice';
 import { ForgotPassOk } from '../forgot-pass-ok';
+import { RecoveryPass } from '../recovery-pass';
 
 import '../authorization-forms.css';
 
 export const ForgotPass = () => {
     const isFormForgotPass = useSelector(state => state.apiForgotPass.isFormForgotPass);
     const isFormForgotOk = useSelector(state => state.apiForgotPass.isFormForgotOk);
-    const isForgotPassError = useSelector(state => state.apiForgotPass.isForgotPassError);
+    const isFormRecoveryPass = useSelector(state => state.apiForgotPass.isFormRecoveryPass);
 
-    const { register, handleSubmit, formState: {errors}, reset, watch, getValues}
+    const { register, handleSubmit, formState: {errors}, watch, getValues}
         = useForm({mode: 'onChange', criteriaMode: 'all'});
 
     const dispatch = useDispatch();
+
+    const location = useLocation();
+
+    if (location.search) {
+        dispatch(setIsFormRecoveryPass());
+    }
 
     const [bottomElBorderStyle, setBottomElBorderStyle] = useState('input__border');
     const [bottomElHint, setBottomElHint] = useState('');
@@ -92,6 +99,7 @@ export const ForgotPass = () => {
                     </div>
                 </form>
             }
+            {isFormRecoveryPass && <RecoveryPass />}
             {isFormForgotOk && <ForgotPassOk />}
         </div>
     );

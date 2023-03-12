@@ -292,11 +292,14 @@
     width: 100%;
     height: 92px;
 }
+.form__submit.recovery-pass {
+    height: 100%;
+}
 .submit__btn {
     width: 100%;
     height: 52px;
 
-    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);;
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
     border-radius: 30px;
 
     font-style: normal;
@@ -317,6 +320,9 @@
 
     cursor: pointer;
 }
+.submit__btn.not-valid {
+    background: #EBEBEB;
+}
 .submit__link {
     display: flex;
     align-items: center;
@@ -333,6 +339,9 @@
     letter-spacing: 0.1px;
 
     color: #727272;
+}
+.submit__link_invite.recovery-pass {
+    text-align: start;
 }
 .submit__link_enter {
     display: flex;
