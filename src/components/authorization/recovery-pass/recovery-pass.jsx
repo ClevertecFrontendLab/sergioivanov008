@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { FORM, REGEXP } from '../../../constants/constants';
 import { setRecoveryPassData, startIsLoadingRecoveryPass } from '../../../redux/slices/api-recovery-pass-slice';
 import { RecoveryOk } from '../recovery-ok';
+import { RecoveryPassError } from '../recovery-pass-error';
 
 import '../authorization-forms.css';
 
@@ -163,7 +164,7 @@ export const RecoveryPass = () => {
                 </form>
             }
             {isFormRecoveryPassOk && <RecoveryOk />}
-            {isFormRecoveryPassError && 'response error'}
+            {isFormRecoveryPassError && <RecoveryPassError />}
         </React.Fragment>
     );
 };

@@ -321,6 +321,13 @@
 
     cursor: pointer;
 }
+.link__inside-btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .submit__btn.not-valid {
     background: #EBEBEB;
 }

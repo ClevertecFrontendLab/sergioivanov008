@@ -23,17 +23,17 @@ export const apiRecoveryPassSlice = createSlice({
     setIsFormRecoveryPass(state) {
         state.isFormRecoveryPass = true;
         state.isFormRecoveryPassOk = false;
-        state.isFormRecoveryPass = false;
+        state.isFormRecoveryPassError = false;
     },
     setIsFormRecoveryPasstOk(state) {
         state.isFormRecoveryPass = false;
         state.isFormRecoveryPassOk = true;
-        state.isFormRecoveryPass = false;
+        state.isFormRecoveryPassError = false;
     },
     setIsFormRecoveryPassError(state) {
         state.isFormRecoveryPass = false;
         state.isFormRecoveryPassOk = false;
-        state.isFormRecoveryPass = true;
+        state.isFormRecoveryPassError = true;
     },
   }
 });
