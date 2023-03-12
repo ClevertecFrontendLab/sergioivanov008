@@ -121,7 +121,7 @@ export const Authorization = () => {
                             <label htmlFor="identifier" className={labelStyle('identifier')}>{FORM.textLogin}</label>
                         </div>
                         <div className={topElBorderStyle} />
-                        <div className='input__field_hints' data-test-id='hint'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
+                        <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
                     </div>
                     <div className='form__data_password'>
                         <div className='password__wrapper'>
