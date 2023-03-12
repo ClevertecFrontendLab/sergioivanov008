@@ -187,6 +187,12 @@ export const Registration = () => {
         setBottomElHint('Пароль не менее 8 символов, с заглавной буквой и цифрой');
     }
 
+    const btnIsDisabledStepOne = () => !getValues('username') || errors.username || !getValues('password') || errors.password;
+    const btnIsDisabledStepTwo = () => !getValues('firstName') || errors.firstName || !getValues('lastName') || errors.lastName;
+
+    const submitBtnStepOneStyle = () => `submit__btn ${btnIsDisabledStepOne() && 'not-valid'}`;
+    const submitBtnStepTwoStyle = () => `submit__btn ${btnIsDisabledStepTwo() && 'not-valid'}`;
+    
     return (
 
         <div className='form__wrapper' data-test-id='auth'>
@@ -251,7 +257,7 @@ export const Registration = () => {
                         <div className='form__data'>
                             <div className='form__data_login'>
                                 <div className='login__wrapper'>
-                                    <MaskedInput className='input__field' id='phone' onChange={handlerPhoneChange}
+                                    <MaskedInput className='input__field' id='phone' name='phone' onChange={handlerPhoneChange}
                                         value={phoneInput}
                                         mask={REGEXP.mask}
                                         guide={true} keepCharPositions={true} />
@@ -274,9 +280,12 @@ export const Registration = () => {
 
                     {(stepNumber === 1 || stepNumber === 2) &&
                         <div className='form__submit'>
-                            <div className='submit__btn' role='presentation'
-                                onClick={stepNumber === 1 ? handlerToStepTwo: handlerToStepThree}>
-                                    {stepNumber === 1 ? 'следующий шаг' : 'последний шаг'}</div>
+                            <button type='button'
+                                className={stepNumber === 1 ? submitBtnStepOneStyle() : submitBtnStepTwoStyle()}
+                                onClick={stepNumber === 1 ? handlerToStepTwo: handlerToStepThree}
+                                disabled={stepNumber === 1 ? btnIsDisabledStepOne() : btnIsDisabledStepTwo()}>
+                                    {stepNumber === 1 ? 'следующий шаг' : 'последний шаг'}
+                            </button>
                             <div className='submit__link'>
                                 <div className='submit__link_invite'>Есть учётная запись?</div>
                                 <Link to='/auth' className='submit__link_enter'>
