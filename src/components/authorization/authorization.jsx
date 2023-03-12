@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -14,6 +14,7 @@ import './authorization-forms.css';
 export const Authorization = () => {
     const isFormAuth = useSelector(state => state.apiAuth.isFormAuth);
     const isAuthError = useSelector(state => state.apiAuth.isAuthError);
+    const isAuthError400 = useSelector(state => state.apiAuth.isAuthError400);
 
     const { register, handleSubmit, formState: {errors}, reset, watch, getValues}
         = useForm({mode: 'onChange', criteriaMode: 'all'});
@@ -32,6 +33,14 @@ export const Authorization = () => {
     const openEye = () => setIsOpenEye(!isOpenEye);
 
     const dataIdForEye = () => isOpenEye ? 'eye-opened' : 'eye-closed';
+
+    useEffect(() => {
+        if (isAuthError400) {
+            setTopElBorderStyle('input__border active');
+            setBottomElBorderStyle('input__border active');
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Неверный логин или пароль!</span>');
+        }
+    }, [isAuthError400]);
 
     const onSubmit = (data) => {
         dispatch(setAuthData(data));
@@ -126,9 +135,9 @@ export const Authorization = () => {
                                     data-test-id={dataIdForEye()} />}
                         </div>
                         <div className={bottomElBorderStyle} />
-                        {/* <div className='input__field_hints' data-test-id='hint'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div> */}
                         <div className='input__field_hints' ><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
-                        <Link to='/forgot-pass' className='forgot__link'>Забыли логин или пароль?</Link>
+                        <Link to='/forgot-pass' className='forgot__link'>
+                            {isAuthError400 ? 'Восстановить?' : 'Забыли логин или пароль?'}</Link>
                     </div>
                 </div>
 

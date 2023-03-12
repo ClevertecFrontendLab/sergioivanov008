@@ -27,11 +27,9 @@ export const apiAuthSlice = createSlice({
         state.isAuthError = false;
     },
     setIsAuthError400(state) {
-        state.isFormAuth = false;
         state.isAuthError400 = true;
     },
     setIsAuthError(state) {
-        state.isFormAuth = false;
         state.isAuthError = true;
     },
     setIsAuth(state, action) {
