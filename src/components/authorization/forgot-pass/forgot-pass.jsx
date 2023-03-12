@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 import { FORM, REGEXP } from '../../../constants/constants';
-import { setIsFormRecoveryPass, startIsLoadingForgotPass } from '../../../redux/slices/api-forgot-path-slice';
+import { setIsFormForgotPass, setIsFormRecoveryPass, startIsLoadingForgotPass } from '../../../redux/slices/api-forgot-path-slice';
 import { ForgotPassOk } from '../forgot-pass-ok';
 import { RecoveryPass } from '../recovery-pass';
 
@@ -46,6 +46,8 @@ export const ForgotPass = () => {
 
     const checkEmail = (v) => {
         const isEmailValid = REGEXP.isEmailValid.test(v);
+        
+        dispatch(setIsFormForgotPass());
 
         if (v) {
             if (isEmailValid) {
@@ -90,7 +92,7 @@ export const ForgotPass = () => {
                                 <label htmlFor="email" className={labelStyle('email')}>Email</label>
                             </div>
                             <div className={bottomElBorderStyle} />
-                            <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
+                            <div className='input__field_hints' data-test-id={isForgotPassError ? '' : 'hint'}><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
                             <div className='input__field_hints static-hint'>{FORM.textStaticHint}</div>
                         </div>
                     </div>
