@@ -20,12 +20,12 @@ export const RecoveryPass = () => {
 
     const {search} = useLocation();
 
-    const { register, handleSubmit, formState: {errors, isValid}, reset, watch, getValues}
+    const { register, handleSubmit, formState: {errors, isValid, isDirty}, reset, watch, getValues}
         = useForm({mode: 'onChange', criteriaMode: 'all'});
 
     const [topElBorderStyle, setTopElBorderStyle] =
         useState(`input__border ${!getValues('password') || errors.password && 'active'}`);
-    const [topElHint, setTopElHint] = useState('Пароль не менее 8 символов, с заглавной буквой и цифрой');
+    const [topElHint, setTopElHint] = useState('<span data-test-id="hint">Пароль не менее 8 символов, с заглавной буквой и цифрой</span>');
     const [isOpenTopEye, setIsOpenTopEye] = useState(false);
     const [isCheckPassword, setIsCheckPassword] = useState(false);
 
@@ -48,19 +48,24 @@ export const RecoveryPass = () => {
     const dataIdForTopEye = () => isOpenTopEye ? 'eye-opened' : 'eye-closed';
     const dataIdForBottomEye = () => isOpenBottomEye ? 'eye-opened' : 'eye-closed';
 
-    const checkPassword = (v) => {
+    const checkPassword = () => {
+        const v = getValues('password');
         const hasRightLength = REGEXP.hasRightLength.test(v);
         const hasUpperLetter = REGEXP.hasUpperLetter.test(v);
         const hasOnlyDigit = REGEXP.hasOnlyDigit.test(v);
 
         if (v) {
-            setTopElHint(`Пароль
-            <span class=${!hasRightLength && 'red-hint'}>не менее 8 символов</span>,
+            setTopElHint(`<span data-test-id="hint">Пароль
+            <span class=${!hasRightLength && 'red-hint'} data-test-id="hint">не менее 8 символов</span>,
             <span class=${!hasUpperLetter && 'red-hint'}>с заглавной буквой</span> и
-            <span class=${!hasOnlyDigit && 'red-hint'}>цифрой</span>`);
+            <span class=${!hasOnlyDigit && 'red-hint'}>цифрой</span></span>`);
+        } else {
+            setTopElHint('<span data-test-id="hint">Пароль не менее 8 символов, с заглавной буквой и цифрой</span>');
+            setTopElBorderStyle('input__border')
         }
 
         if (hasRightLength && hasUpperLetter && hasOnlyDigit) {
+            setTopElHint('<span data-test-id="hint">Пароль не менее 8 символов, с заглавной буквой и цифрой</span>');
             setTopElBorderStyle('input__border');
         }
 
@@ -69,16 +74,16 @@ export const RecoveryPass = () => {
         return hasRightLength && hasUpperLetter && hasOnlyDigit;
     }
 
-    const checkConfirmPassword = (v) => {
+    const checkConfirmPassword = () => {
+        const v = getValues('passwordConfirmation');
+
         if (v === getValues('password')) {
             setBottomElHint('');
             setBottomElBorderStyle('input__border');
         } else {
-            setBottomElHint('<span class="red-hint">Пароли не совпадают</span>');
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Пароли не совпадают</span>');
             setBottomElBorderStyle('input__border active');
         }
-
-        return v === getValues('password');
     }
 
     const onSubmit = (data) => {
@@ -94,17 +99,19 @@ export const RecoveryPass = () => {
 
     const onBlurPassword = () => {
         if (!getValues('password')) {
-            setTopElHint('<span class="red-hint">Поле не может быть пустым</span>');
+            setTopElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
             setTopElBorderStyle('input__border active');
         }
     }
 
     const onBlurConfirmPassword = () => {
         if (!getValues('passwordConfirmation')) {
-            setBottomElHint('<span class="red-hint">Поле не может быть пустым</span>');
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
             setBottomElBorderStyle('input__border active');
         }
     }
+
+    const checkTwoPasswords = (v) => v === getValues('password');
 
     return (
         <React.Fragment>
@@ -121,7 +128,7 @@ export const RecoveryPass = () => {
                             <div className='password__wrapper'>
                                 <input className='input__field' id='password' type={passwordType()}
                                     {...register('password', {
-                                        validate: v => checkPassword(v),
+                                        onChange: () => checkPassword(),
                                         onBlur: () => onBlurPassword()})} />
                                 <label htmlFor="password" className={labelStyle('password')}>
                                     {FORM.textNewPass}
@@ -132,14 +139,15 @@ export const RecoveryPass = () => {
                                         data-test-id={dataIdForTopEye()} />}
                             </div>
                             <div className={topElBorderStyle} />
-                            <div className='input__field_hints' data-test-id='hint'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
+                            <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
                         </div>
 
                         <div className='form__data_login'>
                             <div className='password__wrapper'>
                                 <input className='input__field' id='passwordConfirmation' type={passwordConfirmType()}
                                     {...register('passwordConfirmation', {
-                                        validate: v => checkConfirmPassword(v),
+                                        validate: v => checkTwoPasswords(v),
+                                        onChange: () => checkConfirmPassword(),
                                         onBlur: () => onBlurConfirmPassword()})} />
                                 <label htmlFor="passwordConfirmation" className={labelStyle('passwordConfirmation')}>
                                     {FORM.textConfirmPass}
@@ -149,13 +157,15 @@ export const RecoveryPass = () => {
                                         data-test-id={dataIdForBottomEye()} />}
                             </div>
                             <div className={bottomElBorderStyle} />
-                            <div className='input__field_hints' data-test-id='hint'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
+                            <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
                         </div>
 
                     </div>
 
                     <div className='form__submit recovery-pass'>
-                        <button type='submit' className={submitBtnStyle()} >{FORM.textBtnRecoveryPass}</button>
+                        <button type='submit' className={submitBtnStyle()} disabled={!isDirty || !isValid}>
+                            {FORM.textBtnRecoveryPass}
+                        </button>
                         <div className='submit__link'>
                             <div className='submit__link_invite recovery-pass'>{FORM.textHintRecoveryPass}</div>
                         </div>
