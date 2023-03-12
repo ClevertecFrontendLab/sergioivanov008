@@ -78,11 +78,7 @@ export const ForgotPass = () => {
         }
     }
 
-    const emailId = () => {
-        console.log(emailId);
-
-        return isForgotPassError || !getValues('email') ? '' : 'hint'
-    }
+    const emailId = () => isForgotPassError || !getValues('email') ? '' : 'hint';
 
     return (
         <div className='form__wrapper' data-test-id='auth'>
