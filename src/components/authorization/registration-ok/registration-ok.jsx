@@ -9,6 +9,8 @@ export const RegistrationOk = () => (
         <div className='form__logo form-ok'>{FORM.textLogo}</div>
         <div className='registration-ok__title'>{FORM.titleRegistratonOk}</div>
         <div className='registration-ok__text'>{FORM.textRegistratonOk}</div>
-        <Link to='/auth' className='submit__btn' >{FORM.textEnter}</Link>
+        <button type='button' className='submit__btn'>
+            <Link to='/auth' className='link__inside-btn'>{FORM.textEnter}</Link>
+        </button>
     </div>
 );
