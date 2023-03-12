@@ -15,7 +15,7 @@ export const RegistrationError = () => {
     }
 
     return (
-        <div className='registration-ok' >
+        <div className='registration-ok' data-test-id='status-block' >
             <div className='form__logo form-ok'>{FORM.textLogo}</div>
             <div className='registration-ok__title'>{FORM.titleRegistratonError}</div>
             <div className='registration-ok__text'>{FORM.textRegistratonError}</div>

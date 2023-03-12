@@ -139,7 +139,8 @@ export const Menu = (props) => {
                     <div
                         className='menu-main-item'
                         onClick={handlerExit}
-                        role='presentation'>
+                        role='presentation'
+                        data-test-id='exit-button' >
                         {SMALL_MENU.textItem_exit}
                     </div>
                 </React.Fragment>

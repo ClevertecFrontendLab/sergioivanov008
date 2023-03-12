@@ -45,6 +45,9 @@ export const RecoveryPass = () => {
 
     const submitBtnStyle = () => `submit__btn ${!isValid && 'not-valid'}`;
 
+    const dataIdForTopEye = () => isOpenTopEye ? 'eye-opened' : 'eye-closed';
+    const dataIdForBottomEye = () => isOpenBottomEye ? 'eye-opened' : 'eye-closed';
+
     const checkPassword = (v) => {
         const hasRightLength = REGEXP.hasRightLength.test(v);
         const hasUpperLetter = REGEXP.hasUpperLetter.test(v);
@@ -82,7 +85,6 @@ export const RecoveryPass = () => {
         const code = search.slice(6);
         const newData = {...data, code}
 
-        console.log('RecoveryPass, onSubmit, data: ', data, 'newData: ', newData)
         dispatch(setRecoveryPassData(newData));
         dispatch(startIsLoadingRecoveryPass(newData));
         reset();
@@ -107,7 +109,7 @@ export const RecoveryPass = () => {
     return (
         <React.Fragment>
             {isFormRecoveryPass &&
-                <form className='form__authorization' onSubmit={handleSubmit(onSubmit)} >
+                <form className='form__authorization' onSubmit={handleSubmit(onSubmit)} data-test-id='reset-password-form'>
                     <div className='form__logo'>{FORM.textLogo}</div>
                     <div className='form__header'>
                         <div className='form__header_title'>{FORM.titleRecoveryPass}</div>
@@ -125,10 +127,12 @@ export const RecoveryPass = () => {
                                     {FORM.textNewPass}
                                 </label>
                                 <div className={checkPasswordStyle()} />
-                                <div className={eyeTopStyle()} onClick={openTopEye} role='presentation' />
+                                {getValues('password') &&
+                                    <div className={eyeTopStyle()} onClick={openTopEye} role='presentation'
+                                        data-test-id={dataIdForTopEye()} />}
                             </div>
-                            <div className={topElBorderStyle} />
-                            <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
+                            <div className={topElBorderStyle} data-test-id='checkmark' />
+                            <div className='input__field_hints' data-test-id='hint'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
                         </div>
 
                         <div className='form__data_login'>
@@ -140,10 +144,12 @@ export const RecoveryPass = () => {
                                 <label htmlFor="passwordConfirmation" className={labelStyle('passwordConfirmation')}>
                                     {FORM.textConfirmPass}
                                 </label>
-                                <div className={eyeBottomStyle()} onClick={openBottomEye} role='presentation' />
+                                {getValues('passwordConfirmation') &&
+                                    <div className={eyeBottomStyle()} onClick={openBottomEye} role='presentation'
+                                        data-test-id={dataIdForBottomEye()} />}
                             </div>
                             <div className={bottomElBorderStyle} />
-                            <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
+                            <div className='input__field_hints' data-test-id='hint'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
                         </div>
 
                     </div>

@@ -1,15 +1,20 @@
 /* eslint-disable react/no-danger */
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { FORM } from '../../constants/constants';
 import { setAuthData, startIsLoadingAuth } from '../../redux/slices/api-auth-slice';
 
+import { AuthorizationError } from './authorization-error/authorization-error';
+
 import './authorization-forms.css';
 
 export const Authorization = () => {
+    const isFormAuth = useSelector(state => state.apiAuth.isFormAuth);
+    const isAuthError = useSelector(state => state.apiAuth.isAuthError);
+
     const { register, handleSubmit, formState: {errors}, reset, watch, getValues}
         = useForm({mode: 'onChange', criteriaMode: 'all'});
 
@@ -25,6 +30,8 @@ export const Authorization = () => {
     const eyeStyle = () => `password__eye ${isOpenEye && 'open'}`;
     const passwordType = () => isOpenEye ? 'text' : 'password';
     const openEye = () => setIsOpenEye(!isOpenEye);
+
+    const dataIdForEye = () => isOpenEye ? 'eye-opened' : 'eye-closed';
 
     const onSubmit = (data) => {
         dispatch(setAuthData(data));
@@ -72,9 +79,24 @@ export const Authorization = () => {
         }
     }
 
+    const onBlurIdentifier = () => {
+        if (!getValues('identifier')) {
+            setTopElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
+            setTopElBorderStyle('input__border active');
+        }
+    }
+
+    const onBlurPassword = () => {
+        if (!getValues('password')) {
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
+            setBottomElBorderStyle('input__border active');
+        }
+    }
+
     return (
-        <div className='form__wrapper'>
-            <form className='form__authorization' onSubmit={handleSubmit(onSubmit)} >
+        <div className='form__wrapper' data-test-id='auth'>
+            {isFormAuth &&
+            <form className='form__authorization' onSubmit={handleSubmit(onSubmit)} data-test-id='auth-form'>
                 <div className='form__logo'>{FORM.textLogo}</div>
                 <div className='form__header'>
                     <div className='form__header_title'>{FORM.titleAuth}</div>
@@ -84,21 +106,28 @@ export const Authorization = () => {
                     <div className='form__data_login'>
                         <div className='login__wrapper'>
                             <input className='input__field' id='identifier'
-                                {...register('identifier', {validate:  v => checkIdentifier(v)})} />
+                                {...register('identifier', {
+                                    validate:  v => checkIdentifier(v),
+                                    onBlur: () => onBlurIdentifier()})} />
                             <label htmlFor="identifier" className={labelStyle('identifier')}>{FORM.textLogin}</label>
                         </div>
                         <div className={topElBorderStyle} />
-                        <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
+                        <div className='input__field_hints' data-test-id='hint'><div dangerouslySetInnerHTML={{ __html: topElHint}} /></div>
                     </div>
                     <div className='form__data_password'>
                         <div className='password__wrapper'>
                             <input className='input__field' id='password' type={passwordType()}
-                                {...register('password', {validate:  v => checkPassword(v)})} />
+                                {...register('password', {
+                                    validate:  v => checkPassword(v),
+                                    onBlur: () => onBlurPassword()})} />
                             <label htmlFor="password" className={labelStyle('password')}>{FORM.textPassword}</label>
-                            <div className={eyeStyle()} onClick={openEye} role='presentation' />
+                            {getValues('password') &&
+                                <div className={eyeStyle()} onClick={openEye} role='presentation'
+                                    data-test-id={dataIdForEye()} />}
                         </div>
                         <div className={bottomElBorderStyle} />
-                        <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
+                        {/* <div className='input__field_hints' data-test-id='hint'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div> */}
+                        <div className='input__field_hints' ><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
                         <Link to='/forgot-pass' className='forgot__link'>Забыли логин или пароль?</Link>
                     </div>
                 </div>
@@ -114,7 +143,8 @@ export const Authorization = () => {
                     </div>
                 </div>
 
-            </form>
+            </form>}
+            {isAuthError && <AuthorizationError />}
         </div>
     );
 };

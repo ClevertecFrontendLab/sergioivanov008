@@ -13,6 +13,7 @@ export const apiForgotPassSlice = createSlice({
   reducers: {
     startIsLoadingForgotPass(state) {
         state.isLoadingForgotPass = true;
+        state.isForgotPassError = false;
     },
     toggleIsLoadingForgotPass(state, action) {
         state.isLoadingForgotPass = action.payload;
@@ -21,16 +22,16 @@ export const apiForgotPassSlice = createSlice({
         state.isFormForgotPass = true;
         state.isFormForgotOk = false;
         state.isFormRecoveryPass = false;
+        state.isForgotPassError = false;
     },
     setIsFormForgotOk(state) {
-        state.isFormForgotPass = false;
-        state.isFormForgotOk = true;
-        state.isFormRecoveryPass = false;
+        state.isForgotPassError = false;
     },
     setIsFormRecoveryPass(state) {
         state.isFormForgotPass = false;
         state.isFormForgotOk = false;
         state.isFormRecoveryPass = true;
+        state.isForgotPassError = false;
     },
     setIsForgotPassError(state) {
         state.isForgotPassError = true;

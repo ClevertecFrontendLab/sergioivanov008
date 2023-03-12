@@ -231,7 +231,8 @@
     color: #F83600;
 }
 .red-hint {
-    color: #F83600;
+    /* color: #F83600; */
+    color: rgb(244, 44, 79);
 }
 .form__data_password {
     width: 100%;

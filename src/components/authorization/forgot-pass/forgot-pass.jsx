@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
@@ -15,6 +15,7 @@ export const ForgotPass = () => {
     const isFormForgotPass = useSelector(state => state.apiForgotPass.isFormForgotPass);
     const isFormForgotOk = useSelector(state => state.apiForgotPass.isFormForgotOk);
     const isFormRecoveryPass = useSelector(state => state.apiForgotPass.isFormRecoveryPass);
+    const isForgotPassError = useSelector(state => state.apiForgotPass.isForgotPassError);
 
     const { register, handleSubmit, formState: {errors}, watch, getValues}
         = useForm({mode: 'onChange', criteriaMode: 'all'});
@@ -31,6 +32,13 @@ export const ForgotPass = () => {
     const [bottomElHint, setBottomElHint] = useState('');
 
     const labelStyle = (value) => `label_input ${watch(value) && 'active'}`;
+
+    useEffect(() => {
+        if (isForgotPassError) {
+            setBottomElBorderStyle('input__border active');
+            setBottomElHint('<span class="red-hint" data-test-id="hint">error</span>');
+        }
+    }, [isForgotPassError]);
 
     const onSubmit = (data) => {
         dispatch(startIsLoadingForgotPass(data));
@@ -62,9 +70,9 @@ export const ForgotPass = () => {
     }
 
     return (
-        <div className='form__wrapper'>
+        <div className='form__wrapper' data-test-id='auth'>
             {isFormForgotPass &&
-                <form className='form__authorization form-forgot' onSubmit={handleSubmit(onSubmit)} >
+                <form className='form__authorization form-forgot' onSubmit={handleSubmit(onSubmit)} data-test-id='send-email-form'>
                     <div className='form__logo'>{FORM.textLogo}</div>
                     <Link to='/auth' className='link__auth'>
                         <div className='enter__arrow back'/>

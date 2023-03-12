@@ -1,23 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { FORM } from '../../../constants/constants';
-import { startIsLoadingRecoveryPass } from '../../../redux/slices/api-recovery-pass-slice';
+import { startIsLoadingAuth } from '../../../redux/slices/api-auth-slice';
 
 import '../authorization-forms.css';
 
-export const RecoveryError = () => {
-    const recoveryPassData = useSelector(state => state.apiRecoveryPass.recoveryPassData);
+export const AuthorizationError = () => {
+    const authData = useSelector(state => state.apiAuth.authData);
 
     const dispatch = useDispatch();
 
     const handlerErrorRepeat = () => {
-        dispatch(startIsLoadingRecoveryPass(recoveryPassData));
+        dispatch(startIsLoadingAuth(authData));
     }
 
     return (
         <div className='registration-ok' data-test-id='status-block' >
             <div className='form__logo form-ok'>{FORM.textLogo}</div>
-            <div className='registration-ok__title'>{FORM.titleRegistratonError}</div>
+            <div className='registration-ok__title'>{FORM.titleAuthError}</div>
             <div className='registration-ok__text'>{FORM.textRecoveryError}</div>
             <div className='submit__btn' onClick={handlerErrorRepeat} role='presentation'>
                 {FORM.textErrorRepeat}

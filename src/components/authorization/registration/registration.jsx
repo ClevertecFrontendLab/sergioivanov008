@@ -41,6 +41,8 @@ export const Registration = () => {
     const passwordType = () => isOpenEye ? 'text' : 'password';
     const openEye = () => setIsOpenEye(!isOpenEye);
 
+    const dataIdForEye = () => isOpenEye ? 'eye-opened' : 'eye-closed';
+
     const checkUsername = (v) => {
         const hasLatinLetter = REGEXP.hasLatinLetter.test(v);
         const hasCyrLetter = REGEXP.hasCyrLetter.test(v);
@@ -187,9 +189,9 @@ export const Registration = () => {
 
     return (
 
-        <div className='form__wrapper'>
+        <div className='form__wrapper' data-test-id='auth'>
             {isFormRegistration &&
-                <form className='form__authorization' onSubmit={handleSubmit(onSubmit)} >
+                <form className='form__authorization' onSubmit={handleSubmit(onSubmit)} data-test-id='register-form'>
                     <div className='form__logo'>{FORM.textLogo}</div>
                     <div className='form__header'>
                         <div className='form__header_title'>{FORM.titleRegistration}</div>
@@ -213,7 +215,8 @@ export const Registration = () => {
                                         {...register('password', {validate: v => checkPassword(v)})} />
                                     <label htmlFor="password" className={labelStyle('password')}>Пароль</label>
                                     <div className={checkPasswordStyle()} />
-                                    <div className={eyeStyle()} onClick={openEye} role='presentation' />
+                                    <div className={eyeStyle()} onClick={openEye} role='presentation'
+                                        data-test-id={dataIdForEye()} />
                                 </div>
                                 <div className={bottomElBorderStyle} />
                                 <div className='input__field_hints'><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
