@@ -25,6 +25,9 @@ export const apiForgotPassSlice = createSlice({
         state.isForgotPassError = false;
     },
     setIsFormForgotOk(state) {
+        state.isFormForgotPass = false;
+        state.isFormForgotOk = true;
+        state.isFormRecoveryPass = false;
         state.isForgotPassError = false;
     },
     setIsFormRecoveryPass(state) {

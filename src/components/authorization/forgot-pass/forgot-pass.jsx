@@ -54,7 +54,7 @@ export const ForgotPass = () => {
                 setBottomElHint('');
                 setBottomElBorderStyle('input__border');
             } else {
-                setBottomElHint('<span class="red-hint">Введите корректный E-mail</span>');
+                setBottomElHint('<span class="red-hint" data-test-id="hint">Введите корректный e-mail</span>');
                 setBottomElBorderStyle('input__border active');
             }
         }
@@ -66,9 +66,22 @@ export const ForgotPass = () => {
         const forgotEmailValues = getValues('email');
 
         if (!forgotEmailValues || errors.email) {
-            setBottomElHint('<span class="red-hint">Поле не может быть пустым</span>');
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
             setBottomElBorderStyle('input__border active');
         }
+    }
+
+    const onBlurEmail = () => {
+        if (!getValues('email')) {
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
+            setBottomElBorderStyle('input__border active');
+        }
+    }
+
+    const emailId = () => {
+        console.log(emailId);
+
+        return isForgotPassError || !getValues('email') ? '' : 'hint'
     }
 
     return (
@@ -88,11 +101,13 @@ export const ForgotPass = () => {
                         <div className='form__data_password'>
                             <div className='password__wrapper'>
                                 <input className='input__field' id='email'
-                                    {...register('email', {validate:  v => checkEmail(v)})} />
+                                    {...register('email', {
+                                        validate:  v => checkEmail(v),
+                                        onBlur: () => onBlurEmail()})} />
                                 <label htmlFor="email" className={labelStyle('email')}>Email</label>
                             </div>
                             <div className={bottomElBorderStyle} />
-                            <div className='input__field_hints' data-test-id={isForgotPassError ? '' : 'hint'}><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
+                            <div className='input__field_hints red-hint' data-test-id={emailId()}><div dangerouslySetInnerHTML={{ __html: bottomElHint}} /></div>
                             <div className='input__field_hints static-hint'>{FORM.textStaticHint}</div>
                         </div>
                     </div>
