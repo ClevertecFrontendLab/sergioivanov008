@@ -33,8 +33,8 @@ export const apiForgotPassSlice = createSlice({
         state.isFormRecoveryPass = true;
         state.isForgotPassError = false;
     },
-    setIsForgotPassError(state) {
-        state.isForgotPassError = true;
+    setIsForgotPassError(state, action) {
+        state.isForgotPassError = action.payload;
     },
   }
 });

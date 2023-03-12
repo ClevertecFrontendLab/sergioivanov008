@@ -120,7 +120,7 @@ function* workForgotPassSaga(action) {
         yield put(setIsFormForgotOk());
     } catch (e) {
         yield put(toggleIsLoadingForgotPass(false));
-        yield put(setIsForgotPassError());
+        yield put(setIsForgotPassError(true));
     }
 }
 

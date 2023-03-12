@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 import { FORM, REGEXP } from '../../../constants/constants';
-import { setIsFormForgotPass, setIsFormRecoveryPass, startIsLoadingForgotPass } from '../../../redux/slices/api-forgot-path-slice';
+import { setIsForgotPassError, setIsFormRecoveryPass, startIsLoadingForgotPass } from '../../../redux/slices/api-forgot-path-slice';
 import { ForgotPassOk } from '../forgot-pass-ok';
 import { RecoveryPass } from '../recovery-pass';
 
@@ -46,8 +46,8 @@ export const ForgotPass = () => {
 
     const checkEmail = (v) => {
         const isEmailValid = REGEXP.isEmailValid.test(v);
-        
-        dispatch(setIsFormForgotPass());
+
+        dispatch(setIsForgotPassError(false));
 
         if (v) {
             if (isEmailValid) {
