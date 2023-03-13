@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, NavLink } from 'react-router-dom';
 
@@ -130,19 +129,18 @@ export const Menu = (props) => {
             >
                 {MENU_ITEM_OFERTA}
             </NavLink>
-                {openBurger && <div className='menu-main__line'/>}
-                {openBurger && <div className='menu-main-item'>
+                <div className='menu-main__line'/>
+                <div className='menu-main-item'>
                     {SMALL_MENU.textItem_profile}
-                </div>}
-                {openBurger &&
-                    <NavLink
-                        to='/auth'
-                        className='menu-main-item'
-                        onClick={handlerExit}
-                        role='presentation'
-                        data-test-id='exit-button' >
-                        {SMALL_MENU.textItem_exit}
-                    </NavLink>}
+                </div>
+                <div
+                    role='presentation'
+                    to='/auth'
+                    className='menu-main-item'
+                    onClick={handlerExit}
+                    data-test-id={props.isItBurger ? 'exit-button' : 'empty'} >
+                    {SMALL_MENU.textItem_exit}
+                </div>
         </nav>
     );
 }

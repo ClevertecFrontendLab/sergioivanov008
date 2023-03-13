@@ -23,7 +23,7 @@ export const Header = () => {
 
     const toggleBurger = () => {
         dispatch(toggleOpenBurger(!openBurger));
-        // toggleBodyNotScrollable();
+        toggleBodyNotScrollable();
     }
 
     const burgerMenuStyle = openBurger ? 'burger-menu close' : 'burger-menu';
