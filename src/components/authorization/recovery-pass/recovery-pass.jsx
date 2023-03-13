@@ -48,7 +48,7 @@ export const RecoveryPass = () => {
     const dataIdForTopEye = () => isOpenTopEye ? 'eye-opened' : 'eye-closed';
     const dataIdForBottomEye = () => isOpenBottomEye ? 'eye-opened' : 'eye-closed';
 
-    const checkPassword = () => {
+    const onChangePassword = () => {
         const v = getValues('password');
         const hasRightLength = REGEXP.hasRightLength.test(v);
         const hasUpperLetter = REGEXP.hasUpperLetter.test(v);
@@ -70,20 +70,14 @@ export const RecoveryPass = () => {
         }
 
         setIsCheckPassword(hasRightLength && hasUpperLetter && hasOnlyDigit);
-
-        return hasRightLength && hasUpperLetter && hasOnlyDigit;
     }
 
-    const checkConfirmPassword = () => {
-        const v = getValues('passwordConfirmation');
+    const validatePassword = (v) => {
+        const hasRightLength = REGEXP.hasRightLength.test(v);
+        const hasUpperLetter = REGEXP.hasUpperLetter.test(v);
+        const hasOnlyDigit = REGEXP.hasOnlyDigit.test(v);
 
-        if (v === getValues('password')) {
-            setBottomElHint('');
-            setBottomElBorderStyle('input__border');
-        } else {
-            setBottomElHint('<span class="red-hint" data-test-id="hint">Пароли не совпадают</span>');
-            setBottomElBorderStyle('input__border active');
-        }
+        return hasRightLength && hasUpperLetter && hasOnlyDigit;
     }
 
     const onSubmit = (data) => {
@@ -104,14 +98,17 @@ export const RecoveryPass = () => {
         }
     }
 
+    const checkTwoPasswords = (v) => v === getValues('password');
+
     const onBlurConfirmPassword = () => {
         if (!getValues('passwordConfirmation')) {
             setBottomElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
             setBottomElBorderStyle('input__border active');
+        } else if (!checkTwoPasswords()) {
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Пароли не совпадают</span>');
+            setBottomElBorderStyle('input__border active');
         }
     }
-
-    const checkTwoPasswords = (v) => v === getValues('password');
 
     return (
         <React.Fragment>
@@ -128,7 +125,8 @@ export const RecoveryPass = () => {
                             <div className='password__wrapper'>
                                 <input className='input__field' id='password' type={passwordType()}
                                     {...register('password', {
-                                        onChange: () => checkPassword(),
+                                        validate: (v) => validatePassword(v),
+                                        onChange: () => onChangePassword(),
                                         onBlur: () => onBlurPassword()})} />
                                 <label htmlFor="password" className={labelStyle('password')}>
                                     {FORM.textNewPass}
@@ -146,8 +144,6 @@ export const RecoveryPass = () => {
                             <div className='password__wrapper'>
                                 <input className='input__field' id='passwordConfirmation' type={passwordConfirmType()}
                                     {...register('passwordConfirmation', {
-                                        validate: v => checkTwoPasswords(v),
-                                        onChange: () => checkConfirmPassword(),
                                         onBlur: () => onBlurConfirmPassword()})} />
                                 <label htmlFor="passwordConfirmation" className={labelStyle('passwordConfirmation')}>
                                     {FORM.textConfirmPass}
