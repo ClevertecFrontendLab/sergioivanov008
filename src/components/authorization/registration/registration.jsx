@@ -200,7 +200,7 @@ export const Registration = () => {
                 setBottomElHint('');
                 setBottomElBorderStyle('input__border');
             } else {
-                setBottomElHint('<span class="red-hint">Введите корректный E-mail</span>');
+                setBottomElHint('<span class="red-hint">Введите корректный e-mail</span>');
                 setBottomElBorderStyle('input__border active');
             }
         }
@@ -217,10 +217,10 @@ export const Registration = () => {
             setBottomElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
             setBottomElBorderStyle('input__border active');
         } else if (errors.email) {
-            setBottomElHint('<span class="red-hint" data-test-id="hint">Введите корректный E-mail</span>');
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Введите корректный e-mail</span>');
             setBottomElBorderStyle('input__border active');
         } else {
-            setBottomElHint('<span data-test-id="hint">Введите корректный E-mail</span>');
+            setBottomElHint('<span data-test-id="hint">Введите корректный e-mail</span>');
             setBottomElBorderStyle('input__border');
         }
     }
