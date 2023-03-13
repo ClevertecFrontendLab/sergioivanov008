@@ -44,7 +44,7 @@ export const Registration = () => {
 
     const dataIdForEye = () => isOpenEye ? 'eye-opened' : 'eye-closed';
 
-    const checkUsername = () => {
+    const onChangeUsername = () => {
         const v = getValues('username');
         const hasLatinLetter = REGEXP.hasLatinLetter.test(v);
         const hasCyrLetter = REGEXP.hasCyrLetter.test(v);
@@ -86,7 +86,7 @@ export const Registration = () => {
         }
     }
 
-    const checkPassword = () => {
+    const onChangePassword = () => {
         const v = getValues('password');
         const hasRightLength = REGEXP.hasRightLength.test(v);
         const hasUpperLetter = REGEXP.hasUpperLetter.test(v);
@@ -108,6 +108,12 @@ export const Registration = () => {
         }
 
         setIsCheckPassword(hasRightLength && hasUpperLetter && hasOnlyDigit);
+    }
+
+    const validatePassword = (v) => {
+        const hasRightLength = REGEXP.hasRightLength.test(v);
+        const hasUpperLetter = REGEXP.hasUpperLetter.test(v);
+        const hasOnlyDigit = REGEXP.hasOnlyDigit.test(v);
 
         return hasRightLength && hasUpperLetter && hasOnlyDigit;
     }
@@ -116,6 +122,12 @@ export const Registration = () => {
         if (!getValues('password')) {
             setBottomElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
             setBottomElBorderStyle('input__border active');
+        } else if (errors.password) {
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Пароль не менее 8 символов, с заглавной буквой и цифрой</span>');
+            setBottomElBorderStyle('input__border active');
+        } else {
+            setBottomElHint('<span data-test-id="hint">Пароль не менее 8 символов, с заглавной буквой и цифрой</span>');
+            setBottomElBorderStyle('input__border');
         }
     }
 
@@ -245,7 +257,7 @@ export const Registration = () => {
                                     <input className='input__field' id='username'
                                         {...register('username', {
                                             validate: (v) => validateUsername(v),
-                                            onChange: () => checkUsername(),
+                                            onChange: () => onChangeUsername(),
                                             onBlur: () => onBlurUsername()})} />
                                     <label htmlFor="username" className={labelStyle('username')}>Придумайте логин для входа</label>
                                 </div>
@@ -256,8 +268,8 @@ export const Registration = () => {
                                 <div className='password__wrapper'>
                                     <input className='input__field' id='password' type={passwordType()}
                                         {...register('password', {
-                                            validate: () => checkPassword(),
-                                            onChange: () => checkPassword(),
+                                            validate: (v) => validatePassword(v),
+                                            onChange: () => onChangePassword(),
                                             onBlur: () => onBlurPassword()})} />
                                     <label htmlFor="password" className={labelStyle('password')}>Пароль</label>
                                     {isCheckPassword && <div className='check-password ok' data-test-id='checkmark'/>}
