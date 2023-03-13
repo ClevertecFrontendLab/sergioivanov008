@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const menuSlice = createSlice({
   name: 'menu',
   initialState: {
-    openCategory: false,
+    openCategory: true,
     openBurger: false,
     openSmallMenu: false,
     isActiveBooks: true

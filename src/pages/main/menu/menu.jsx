@@ -130,21 +130,19 @@ export const Menu = (props) => {
             >
                 {MENU_ITEM_OFERTA}
             </NavLink>
-            {openBurger &&
-                <React.Fragment>
-                    <div className='menu-main__line'/>
-                    <div className='menu-main-item'>
-                        {SMALL_MENU.textItem_profile}
-                    </div>
-                    <div
+                {openBurger && <div className='menu-main__line'/>}
+                {openBurger && <div className='menu-main-item'>
+                    {SMALL_MENU.textItem_profile}
+                </div>}
+                {openBurger &&
+                    <NavLink
+                        to='/auth'
                         className='menu-main-item'
                         onClick={handlerExit}
                         role='presentation'
                         data-test-id='exit-button' >
                         {SMALL_MENU.textItem_exit}
-                    </div>
-                </React.Fragment>
-            }
+                    </NavLink>}
         </nav>
     );
 }

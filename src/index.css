@@ -12,6 +12,9 @@ body {
   background-color: #ffffff;
   color: #363636;
   letter-spacing: 0.1px;
+
+  /* overflow-x: hidden; */
+  /* overflow-y: hidden; */
 }
 
 *,
@@ -70,9 +73,9 @@ select {
   font: inherit;
 }
 
-.body_not-scrollable {
+/* .body_not-scrollable {
     overflow-y: hidden;
     margin-right: 17px;
-}
+} */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
