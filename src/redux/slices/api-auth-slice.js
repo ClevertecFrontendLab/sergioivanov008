@@ -30,6 +30,7 @@ export const apiAuthSlice = createSlice({
         state.isAuthError400 = true;
     },
     setIsAuthError(state) {
+        state.isFormAuth = false;
         state.isAuthError = true;
     },
     setIsAuth(state, action) {

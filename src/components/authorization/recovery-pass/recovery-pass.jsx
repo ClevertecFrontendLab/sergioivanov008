@@ -20,7 +20,7 @@ export const RecoveryPass = () => {
 
     const {search} = useLocation();
 
-    const { register, handleSubmit, formState: {errors, isValid, isDirty}, reset, watch, getValues}
+    const { register, handleSubmit, formState: {errors}, reset, watch, getValues}
         = useForm({mode: 'onChange', criteriaMode: 'all'});
 
     const [topElBorderStyle, setTopElBorderStyle] =
@@ -42,8 +42,6 @@ export const RecoveryPass = () => {
     const eyeBottomStyle = () => `password__eye ${isOpenBottomEye && 'open'}`;
     const passwordConfirmType = () => isOpenBottomEye ? 'text' : 'password';
     const openBottomEye = () => setIsOpenBottomEye(!isOpenBottomEye);
-
-    const submitBtnStyle = () => `submit__btn ${!isValid && 'not-valid'}`;
 
     const dataIdForTopEye = () => isOpenTopEye ? 'eye-opened' : 'eye-closed';
     const dataIdForBottomEye = () => isOpenBottomEye ? 'eye-opened' : 'eye-closed';
@@ -95,20 +93,42 @@ export const RecoveryPass = () => {
         if (!getValues('password')) {
             setTopElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
             setTopElBorderStyle('input__border active');
+        } else if (errors.password) {
+            setTopElHint('<span class="red-hint" data-test-id="hint">Пароль не менее 8 символов, с заглавной буквой и цифрой</span>');
+            setTopElBorderStyle('input__border active');
+        } else {
+            setTopElHint('<span data-test-id="hint">Пароль не менее 8 символов, с заглавной буквой и цифрой</span>');
+            setTopElBorderStyle('input__border');
         }
     }
 
-    const checkTwoPasswords = (v) => v === getValues('password');
+    const checkTwoPasswords = () => {
+        const isCheck = getValues('password') === getValues('passwordConfirmation');
+
+        return isCheck;
+    };
+
+    const onChangeConfirmPassword = () => {
+        setBottomElHint('<span data-test-id="hint"></span>');
+        setBottomElBorderStyle('input__border');
+    }
 
     const onBlurConfirmPassword = () => {
         if (!getValues('passwordConfirmation')) {
             setBottomElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
             setBottomElBorderStyle('input__border active');
-        } else if (!checkTwoPasswords()) {
-            setBottomElHint('<span class="red-hint" data-test-id="hint">Пароли не совпадают</span>');
-            setBottomElBorderStyle('input__border active');
+        } else if (getValues('password') && getValues('passwordConfirmation')) {
+            if (checkTwoPasswords()) {
+                setBottomElHint('<span data-test-id="hint"></span>');
+                setBottomElBorderStyle('input__border');
+            } else if (!checkTwoPasswords()) {
+                setBottomElHint('<span class="red-hint" data-test-id="hint">Пароли не совпадают</span>');
+                setBottomElBorderStyle('input__border active');
+            }
         }
     }
+
+    const submitBtnStyle = () => `submit__btn ${!checkTwoPasswords() && 'not-valid'}`;
 
     return (
         <React.Fragment>
@@ -144,6 +164,7 @@ export const RecoveryPass = () => {
                             <div className='password__wrapper'>
                                 <input className='input__field' id='passwordConfirmation' type={passwordConfirmType()}
                                     {...register('passwordConfirmation', {
+                                        onChange: () => onChangeConfirmPassword(),
                                         onBlur: () => onBlurConfirmPassword()})} />
                                 <label htmlFor="passwordConfirmation" className={labelStyle('passwordConfirmation')}>
                                     {FORM.textConfirmPass}
@@ -159,7 +180,9 @@ export const RecoveryPass = () => {
                     </div>
 
                     <div className='form__submit recovery-pass'>
-                        <button type='submit' className={submitBtnStyle()} disabled={!isDirty || !isValid}>
+                        <button type='submit'
+                            className={submitBtnStyle()}
+                            disabled={!checkTwoPasswords()}>
                             {FORM.textBtnRecoveryPass}
                         </button>
                         <div className='submit__link'>
