@@ -29,60 +29,94 @@ export const Registration = () => {
         useState(`input__border ${!getValues('username') || errors.username && 'active'}`);
     const [bottomElBorderStyle, setBottomElBorderStyle] =
         useState(`input__border ${!getValues('password') || errors.password && 'active'}`);
-    const [topElHint, setTopElHint] = useState('Используйте для логина латинский алфавит и цифры');
-    const [bottomElHint, setBottomElHint] = useState('Пароль не менее 8 символов, с заглавной буквой и цифрой');
+    const [topElHint, setTopElHint] =
+        useState('<span data-test-id="hint">Используйте для логина латинский алфавит и цифры</span>');
+    const [bottomElHint, setBottomElHint] =
+        useState('<span data-test-id="hint">Пароль не менее 8 символов, с заглавной буквой и цифрой</span>');
     const [isOpenEye, setIsOpenEye] = useState(false);
     const [isCheckPassword, setIsCheckPassword] = useState(false);
     const [phoneInput, setPhoneInput] = useState('');
 
     const labelStyle = (value) => `label_input ${watch(value) && 'active'}`;
     const eyeStyle = () => `password__eye ${isOpenEye && 'open'}`;
-    const checkPasswordStyle = () => `check-password ${isCheckPassword && 'ok'}`;
     const passwordType = () => isOpenEye ? 'text' : 'password';
     const openEye = () => setIsOpenEye(!isOpenEye);
 
     const dataIdForEye = () => isOpenEye ? 'eye-opened' : 'eye-closed';
 
-    const checkUsername = (v) => {
+    const checkUsername = () => {
+        const v = getValues('username');
         const hasLatinLetter = REGEXP.hasLatinLetter.test(v);
         const hasCyrLetter = REGEXP.hasCyrLetter.test(v);
         const hasOnlyDigit = REGEXP.hasOnlyDigit.test(v);
 
         if (v) {
-            if (hasCyrLetter) {
-                setTopElHint('Используйте для логина <span class="red-hint">латинский алфавит и цифры</span>');
-            } else if (hasLatinLetter && !hasCyrLetter && !hasOnlyDigit) {
-                setTopElHint('Используйте для логина латинский алфавит и <span class="red-hint">цифры</span>');
-            } else if (!hasLatinLetter && !hasCyrLetter && hasOnlyDigit) {
-                setTopElHint('Используйте для логина <span class="red-hint">латинский алфавит</span> и цифры');
-            } else if (hasLatinLetter && !hasCyrLetter && hasOnlyDigit) {
-                setTopElBorderStyle('input__border');
-                setTopElHint('Используйте для логина латинский алфавит и цифры');
-            }
+            setTopElHint(`<span data-test-id="hint">Используйте для логина
+            <span class=${!hasLatinLetter && 'red-hint'}> латинский алфавит</span> и
+            <span class=${!hasOnlyDigit && 'red-hint'}> цифры</span></span>`);
+        } else {
+            setTopElHint('<span data-test-id="hint">Используйте для логина латинский алфавит и цифры</span>');
+            setTopElBorderStyle('input__border')
         }
+
+        if (hasLatinLetter && !hasCyrLetter && hasOnlyDigit) {
+            setTopElHint('<span data-test-id="hint">Используйте для логина латинский алфавит и цифры</span>');
+            setTopElBorderStyle('input__border');
+        }
+    }
+
+    const validateUsername = (v) => {
+        const hasLatinLetter = REGEXP.hasLatinLetter.test(v);
+        const hasCyrLetter = REGEXP.hasCyrLetter.test(v);
+        const hasOnlyDigit = REGEXP.hasOnlyDigit.test(v);
 
         return hasLatinLetter && !hasCyrLetter && hasOnlyDigit;
     }
 
-    const checkPassword = (v) => {
+    const onBlurUsername = () => {
+        if (!getValues('username')) {
+            setTopElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
+            setTopElBorderStyle('input__border active');
+        } else if (errors.username) {
+            setTopElHint('<span class="red-hint" data-test-id="hint">Используйте для логина латинский алфавит и цифры</span>');
+            setTopElBorderStyle('input__border active');
+        } else {
+            setTopElHint('<span data-test-id="hint">Используйте для логина латинский алфавит и цифры</span>');
+            setTopElBorderStyle('input__border');
+        }
+    }
+
+    const checkPassword = () => {
+        const v = getValues('password');
         const hasRightLength = REGEXP.hasRightLength.test(v);
         const hasUpperLetter = REGEXP.hasUpperLetter.test(v);
         const hasOnlyDigit = REGEXP.hasOnlyDigit.test(v);
 
         if (v) {
-            setBottomElHint(`Пароль
-            <span class=${!hasRightLength && 'red-hint'}>не менее 8 символов</span>,
+            setBottomElHint(`<span data-test-id="hint">Пароль
+            <span class=${!hasRightLength && 'red-hint'} data-test-id="hint">не менее 8 символов</span>,
             <span class=${!hasUpperLetter && 'red-hint'}>с заглавной буквой</span> и
-            <span class=${!hasOnlyDigit && 'red-hint'}>цифрой</span>`);
+            <span class=${!hasOnlyDigit && 'red-hint'}>цифрой</span></span>`);
+        } else {
+            setBottomElHint('<span data-test-id="hint">Пароль не менее 8 символов, с заглавной буквой и цифрой</span>');
+            setBottomElBorderStyle('input__border')
         }
 
         if (hasRightLength && hasUpperLetter && hasOnlyDigit) {
+            setBottomElHint('<span data-test-id="hint">Пароль не менее 8 символов, с заглавной буквой и цифрой</span>');
             setBottomElBorderStyle('input__border');
         }
 
         setIsCheckPassword(hasRightLength && hasUpperLetter && hasOnlyDigit);
 
         return hasRightLength && hasUpperLetter && hasOnlyDigit;
+    }
+
+    const onBlurPassword = () => {
+        if (!getValues('password')) {
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
+            setBottomElBorderStyle('input__border active');
+        }
     }
 
     const checkFirstName = (v) => {
@@ -192,7 +226,7 @@ export const Registration = () => {
 
     const submitBtnStepOneStyle = () => `submit__btn ${btnIsDisabledStepOne() && 'not-valid'}`;
     const submitBtnStepTwoStyle = () => `submit__btn ${btnIsDisabledStepTwo() && 'not-valid'}`;
-    
+
     return (
 
         <div className='form__wrapper' data-test-id='auth'>
@@ -209,7 +243,10 @@ export const Registration = () => {
                             <div className='form__data_login'>
                                 <div className='login__wrapper'>
                                     <input className='input__field' id='username'
-                                        {...register('username', {validate:  v => checkUsername(v)})} />
+                                        {...register('username', {
+                                            validate: (v) => validateUsername(v),
+                                            onChange: () => checkUsername(),
+                                            onBlur: () => onBlurUsername()})} />
                                     <label htmlFor="username" className={labelStyle('username')}>Придумайте логин для входа</label>
                                 </div>
                                 <div className={topElBorderStyle} />
@@ -218,9 +255,12 @@ export const Registration = () => {
                             <div className='form__data_password'>
                                 <div className='password__wrapper'>
                                     <input className='input__field' id='password' type={passwordType()}
-                                        {...register('password', {validate: v => checkPassword(v)})} />
+                                        {...register('password', {
+                                            validate: () => checkPassword(),
+                                            onChange: () => checkPassword(),
+                                            onBlur: () => onBlurPassword()})} />
                                     <label htmlFor="password" className={labelStyle('password')}>Пароль</label>
-                                    <div className={checkPasswordStyle()} />
+                                    {isCheckPassword && <div className='check-password ok' data-test-id='checkmark'/>}
                                     <div className={eyeStyle()} onClick={openEye} role='presentation'
                                         data-test-id={dataIdForEye()} />
                                 </div>
