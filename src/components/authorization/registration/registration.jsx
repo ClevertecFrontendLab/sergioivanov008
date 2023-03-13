@@ -267,7 +267,7 @@ export const Registration = () => {
 
     const onChangePhone = (event) => {
         const {value} = event.target;
-        
+
         setValue('phone', value);
         setPhoneInput(value);
         const isPhone = REGEXP.isPhone.test(value);
