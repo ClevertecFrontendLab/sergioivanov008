@@ -33,6 +33,7 @@ export const RecoveryPass = () => {
         useState(`input__border ${!getValues('password') || errors.password && 'active'}`);
     const [bottomElHint, setBottomElHint] = useState('');
     const [isOpenBottomEye, setIsOpenBottomEye] = useState(false);
+    const [isAllRight, setIsAllRight] = useState(false);
 
     const labelStyle = (value) => `label_input ${watch(value) && 'active'}`;
     const eyeTopStyle = () => `password__eye ${isOpenTopEye && 'open'}`;
@@ -109,6 +110,7 @@ export const RecoveryPass = () => {
     };
 
     const onChangeConfirmPassword = () => {
+        setIsAllRight(true);
         setBottomElHint('<span data-test-id="hint"></span>');
         setBottomElBorderStyle('input__border');
     }
@@ -118,17 +120,19 @@ export const RecoveryPass = () => {
             setBottomElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
             setBottomElBorderStyle('input__border active');
         } else if (getValues('password') && getValues('passwordConfirmation')) {
-            if (checkTwoPasswords()) {
+            if (getValues('password') === getValues('passwordConfirmation')) {
+                setIsAllRight(true);
                 setBottomElHint('<span data-test-id="hint"></span>');
                 setBottomElBorderStyle('input__border');
             } else if (!checkTwoPasswords()) {
+                setIsAllRight(false);
                 setBottomElHint('<span class="red-hint" data-test-id="hint">Пароли не совпадают</span>');
                 setBottomElBorderStyle('input__border active');
             }
         }
     }
 
-    const submitBtnStyle = () => `submit__btn ${!checkTwoPasswords() && 'not-valid'}`;
+    const submitBtnStyle = () => `submit__btn ${!isAllRight && 'not-valid'}`;
 
     return (
         <React.Fragment>
@@ -182,7 +186,7 @@ export const RecoveryPass = () => {
                     <div className='form__submit recovery-pass'>
                         <button type='submit'
                             className={submitBtnStyle()}
-                            disabled={!checkTwoPasswords()}>
+                            disabled={!isAllRight}>
                             {FORM.textBtnRecoveryPass}
                         </button>
                         <div className='submit__link'>
