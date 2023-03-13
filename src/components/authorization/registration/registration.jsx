@@ -191,7 +191,8 @@ export const Registration = () => {
         }
     }
 
-    const checkEmail = (v) => {
+    const onChangeEmail = () => {
+        const v = getValues('email');
         const isEmailValid = REGEXP.isEmailValid.test(v);
 
         if (v) {
@@ -203,8 +204,25 @@ export const Registration = () => {
                 setBottomElBorderStyle('input__border active');
             }
         }
+    }
+
+    const validateEmail = (v) => {
+        const isEmailValid = REGEXP.isEmailValid.test(v);
 
         return isEmailValid;
+    }
+
+    const onBlurEmail = () => {
+        if (!getValues('email')) {
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
+            setBottomElBorderStyle('input__border active');
+        } else if (errors.email) {
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Введите корректный E-mail</span>');
+            setBottomElBorderStyle('input__border active');
+        } else {
+            setBottomElHint('<span data-test-id="hint">Введите корректный E-mail</span>');
+            setBottomElBorderStyle('input__border');
+        }
     }
 
     const handlerToStepTwo = () => {
@@ -247,16 +265,37 @@ export const Registration = () => {
         }
     }
 
-    const handlerPhoneChange = (event) => {
-        setValue('phone', event.target.value);
-        setPhoneInput(event.target.value);
-        const isPhone = REGEXP.isPhone.test(event.target.value);
+    const onChangePhone = (event) => {
+        const {value} = event.target;
+        
+        setValue('phone', value);
+        setPhoneInput(value);
+        const isPhone = REGEXP.isPhone.test(value);
 
         if (isPhone) {
-            setTopElHint('В формате +375 (xx) xxx-xx-xx');
+            setTopElHint('<span data-test-id="hint">В формате +375 (xx) xxx-xx-xx</span>');
             setTopElBorderStyle('input__border');
         } else {
-            setTopElHint('<span class="red-hint">В формате +375 (xx) xxx-xx-xx</span>');
+            setTopElHint('<span class="red-hint" data-test-id="hint">В формате +375 (xx) xxx-xx-xx</span>');
+            setTopElBorderStyle('input__border active');
+        }
+    }
+
+    const validatePhone = () => {
+        const isPhone = REGEXP.isPhone.test(phoneInput);
+
+        return isPhone;
+    }
+
+    const onBlurPhone = () => {
+        if (!getValues('phone')) {
+            setTopElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
+            setTopElBorderStyle('input__border active');
+        } else if (validatePhone()) {
+            setTopElHint('<span data-test-id="hint">В формате +375 (xx) xxx-xx-xx</span>');
+            setTopElBorderStyle('input__border');
+        } else {
+            setTopElHint('<span class="red-hint" data-test-id="hint">В формате +375 (xx) xxx-xx-xx</span>');
             setTopElBorderStyle('input__border active');
         }
     }
@@ -267,15 +306,19 @@ export const Registration = () => {
         reset();
         setPhoneInput('');
         setStepNumber(1);
-        setTopElHint('Используйте для логина латинский алфавит и цифры');
-        setBottomElHint('Пароль не менее 8 символов, с заглавной буквой и цифрой');
+        setTopElHint('<span data-test-id="hint">Используйте для логина латинский алфавит и цифры</span>');
+        setTopElBorderStyle('input__border');
+        setBottomElHint('<span data-test-id="hint">Пароль не менее 8 символов, с заглавной буквой и цифрой</span>');
+        setBottomElBorderStyle('input__border');
     }
 
     const btnIsDisabledStepOne = () => !getValues('username') || errors.username || !getValues('password') || errors.password;
     const btnIsDisabledStepTwo = () => !getValues('firstName') || errors.firstName || !getValues('lastName') || errors.lastName;
+    const btnIsDisabledStepThree = () => !getValues('phone') || !validatePhone() || !getValues('email') || errors.email;
 
     const submitBtnStepOneStyle = () => `submit__btn ${btnIsDisabledStepOne() && 'not-valid'}`;
     const submitBtnStepTwoStyle = () => `submit__btn ${btnIsDisabledStepTwo() && 'not-valid'}`;
+    const submitBtnStepThreeStyle = () => `submit__btn ${btnIsDisabledStepThree() && 'not-valid'}`;
 
     return (
 
@@ -353,9 +396,12 @@ export const Registration = () => {
                         <div className='form__data'>
                             <div className='form__data_login'>
                                 <div className='login__wrapper'>
-                                    <MaskedInput className='input__field' id='phone' name='phone' onChange={handlerPhoneChange}
+                                    <MaskedInput className='input__field' id='phone' name='phone'
+                                        onChange={onChangePhone}
+                                        onBlur={onBlurPhone}
                                         value={phoneInput}
                                         mask={REGEXP.mask}
+                                        placeholderChar='x'
                                         guide={true} keepCharPositions={true} />
                                     <label htmlFor="phone" className={labelStyle('phone')}>Номер телефона</label>
                                 </div>
@@ -365,7 +411,10 @@ export const Registration = () => {
                             <div className='form__data_password'>
                                 <div className='password__wrapper'>
                                     <input className='input__field' id='email'
-                                        {...register('email', {validate: v => checkEmail(v)})} />
+                                        {...register('email', {
+                                            validate: v => validateEmail(v),
+                                            onChange: () => onChangeEmail(),
+                                            onBlur: () => onBlurEmail()})} />
                                     <label htmlFor="email" className={labelStyle('email')}>E-mail</label>
                                 </div>
                                 <div className={bottomElBorderStyle} />
@@ -394,7 +443,11 @@ export const Registration = () => {
 
                     {stepNumber === 3 &&
                         <div className='form__submit'>
-                            <button type='submit' className='submit__btn' >зарегистрироваться</button>
+                            <button type='submit'
+                                className={submitBtnStepThreeStyle()}
+                                disabled={btnIsDisabledStepThree()}>
+                                    зарегистрироваться
+                            </button>
                             <div className='submit__link'>
                                 <div className='submit__link_invite'>Есть учётная запись?</div>
                                 <Link to='/auth' className='submit__link_enter'>
