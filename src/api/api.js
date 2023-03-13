@@ -1,21 +1,63 @@
 import axios from 'axios';
 
-import { API_URL_CET_CATEGORIES_FETCH, API_URL_GET_BOOK_FETCH,API_URL_GET_BOOKS_FETCH } from '../constants/constants';
+import { API } from '../constants/constants';
+
+const $api = axios.create({
+    withCredentials: true,
+    baseURL: API.host,
+});
+
+const $apiBase = axios.create({
+    withCredentials: true,
+    baseURL: API.host,
+});
+
+$api.interceptors.request.use((config) => {
+    const newConfig = config;
+
+    newConfig.headers.Authorization = `Bearer ${localStorage.getItem('cleverToken')}`;
+
+    return newConfig;
+});
+
+export async function userAuth (data) {
+    const response = await $apiBase.post(API.url_auth, data);
+
+    return response;
+}
+
+export async function userRegistration(data) {
+    const response = await $apiBase.post(API.url_registration, data);
+
+    return response;
+}
+
+export async function userForgotPassword(data) {
+    const response = await $apiBase.post(API.url_forgotPassword, data);
+
+    return response;
+}
+
+export async function userResetPassword(data) {
+    const response = await $apiBase.post(API.url_resetPassword, data);
+
+    return response;
+}
 
 export async function getCategories() {
-    const responce = await axios.get(API_URL_CET_CATEGORIES_FETCH);
+    const responce = await $api.get(API.url_getCategoriesFetch);
 
     return responce;
 }
 
 export async function getBooks() {
-    const responce = await axios.get(API_URL_GET_BOOKS_FETCH);
+    const responce = await $api.get(API.url_getBooksFetch);
 
     return responce;
 }
 
 export async function getBook(id) {
-    const responce = await axios.get(`${API_URL_GET_BOOK_FETCH}${id}`);
+    const responce = await $api.get(`${API.url_getBookFetch}${id}`);
 
     return responce;
 }

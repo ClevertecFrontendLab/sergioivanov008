@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 
 import bookEmptyImg from '../../../assets/book-card/empty-image.png';
-import { BTN_BOOK, HOST_URL, RATING_NONE } from '../../../constants/constants';
+import { API, BTN_BOOK, RATING_NONE } from '../../../constants/constants';
 import { getTitleWithHighlight } from '../../../functions/functions';
 import { BookContentRatingStars } from '../../book/book-content-rating-stars';
 
@@ -28,7 +28,7 @@ export const BookCard = (props) => {
                 {
                     image === null
                         ? <img className='book-img' src={bookEmptyImg} alt="empty cover" />
-                        : <img className='book-img' src={`${HOST_URL}${image.url}`} alt="book cover" />
+                        : <img className='book-img' src={`${API.host}${image.url}`} alt="book cover" />
                 }
             </figure>
             <div className='book-stars book-card_grid-2'>

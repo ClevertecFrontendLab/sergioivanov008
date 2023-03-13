@@ -35,13 +35,13 @@ export const NavigationList = () => {
         dispatch(setSearchQuery(event.target.value));
     }
 
-    const isActiveTable = listView ? 'active' : '';
-    const isActivelist = listView ? '' : 'active';
+    const isActiveTable = () => listView ? 'active' : '';
+    const isActivelist = () => listView ? '' : 'active';
 
-    const navigationListStyle = fullSearchView ? 'navigation-list short' : 'navigation-list';
+    const navigationListStyle = () => fullSearchView ? 'navigation-list short' : 'navigation-list';
 
     return (
-        <section className={navigationListStyle}>
+        <section className={navigationListStyle()}>
             <div className='books-search'>
                 <input
                     className="books-search-input"
@@ -67,14 +67,14 @@ export const NavigationList = () => {
                 </div>
                 <div className='btns-view'>
                     <div
-                        className={`sort-btn btn-table ${isActiveTable}`}
+                        className={`sort-btn btn-table ${isActiveTable()}`}
                         data-test-id='button-menu-view-window'
                         onClick={changeViewTable}
                         role='presentation'>
                         {}
                     </div>
                     <div
-                        className={`sort-btn btn-list ${isActivelist}`}
+                        className={`sort-btn btn-list ${isActivelist()}`}
                         data-test-id='button-menu-view-list'
                         onClick={changeViewList}
                         role='presentation'>

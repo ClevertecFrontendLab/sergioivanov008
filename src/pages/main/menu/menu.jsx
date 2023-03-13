@@ -1,13 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 
-import { MENU_ALLBOOKS, MENU_ITEM_ALLBOOKS, MENU_ITEM_OFERTA, MENU_ITEM_RULES } from '../../../constants/constants';
+import { MENU_ALLBOOKS, MENU_ITEM_ALLBOOKS, MENU_ITEM_OFERTA, MENU_ITEM_RULES, SMALL_MENU } from '../../../constants/constants';
+import { setIsAuth } from '../../../redux/slices/api-auth-slice';
 import { toggleIsActiveBooks, toggleOpenBurger, toggleOpenCategory } from '../../../redux/slices/menu-slice';
 
 import './menu.css';
 
 export const Menu = (props) => {
     const dispatch = useDispatch();
+
     const openCategory = useSelector(state => state.menu.openCategory);
     const openBurger = useSelector(state => state.menu.openBurger);
     const categories = useSelector(state => state.categories.categories);
@@ -34,6 +36,15 @@ export const Menu = (props) => {
         dispatch(toggleIsActiveBooks(true));
     }
 
+    const handlerExit = () => {
+        dispatch(toggleOpenBurger(false));
+        dispatch(setIsAuth(false));
+
+        localStorage.removeItem('cleverToken');
+
+        return <Navigate to='/auth' />;
+    }
+
     const checkCount = (curCategories) => books.filter((el) => el.categories[0] === curCategories).length;
     const isActiveBooksCategory = () => isActiveBooks ? 'active' : '';
     const menuArrowStyle = () => openCategory ? 'menu-arrow' : 'menu-arrow close';
@@ -42,6 +53,8 @@ export const Menu = (props) => {
     const idForBooks = () => props.isItBurger ? 'burger-books' : 'navigation-books';
     const idForCategory = (category) => props.isItBurger ? `burger-${category}` : `navigation-${category}`;
     const idForCount = (category) => props.isItBurger ? `burger-book-count-for-${category}` : `navigation-book-count-for-${category}`;
+    const idForRules = () => props.isItBurger ? 'burger-terms' : 'navigation-terms';
+    const idForOferta = () => props.isItBurger ? 'burger-contract' : 'navigation-contract';
 
     return (
         <nav
@@ -104,7 +117,7 @@ export const Menu = (props) => {
                 to='/rules'
                 className='menu-main-item'
                 onClick={closeMenu}
-                data-test-id={props.isItBurger ? 'burger-terms' : 'navigation-terms'}
+                data-test-id={idForRules()}
             >
                 {MENU_ITEM_RULES}
             </NavLink>
@@ -112,10 +125,22 @@ export const Menu = (props) => {
                 to='/oferta'
                 className='menu-main-item'
                 onClick={closeMenu}
-                data-test-id={props.isItBurger ? 'burger-contract' : 'navigation-contract'}
+                data-test-id={idForOferta()}
             >
                 {MENU_ITEM_OFERTA}
             </NavLink>
+                <div className='menu-main__line'/>
+                <div className='menu-main-item'>
+                    {SMALL_MENU.textItem_profile}
+                </div>
+                <div
+                    role='presentation'
+                    to='/auth'
+                    className='menu-main-item'
+                    onClick={handlerExit}
+                    data-test-id={props.isItBurger ? 'exit-button' : 'empty'} >
+                    {SMALL_MENU.textItem_exit}
+                </div>
         </nav>
     );
 }

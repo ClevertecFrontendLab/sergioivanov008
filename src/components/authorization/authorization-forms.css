@@ -1,0 +1,463 @@
+.form__wrapper {
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.registration-ok {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 95px;
+    gap: 32px;
+    isolation: isolate;
+
+    position: relative;
+    width: 600px;
+    height: 314px;
+
+    background: #FFFFFF;
+    border-radius: 16px;
+}
+.registration-ok.forgot-pass {
+    padding: 48px 32px;
+    height: 206px;
+}
+.registration-ok__title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #363636;
+}
+.registration-ok__text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #363636;
+}
+.form__authorization {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 48px 56px;
+    gap: 32px;
+
+    width: 528px;
+    height: 492px;
+
+    background: #FFFFFF;
+    border-radius: 16px;
+}
+.form__authorization.form-forgot {
+    height: 422px;
+    padding: 96px 56px 48px 56px;
+}
+.link__auth {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px 0px 20px 16px;
+    gap: 16px;
+
+    width: 528px;
+    height: 64px;
+
+    background: #F9F9FA;
+    border-radius: 16px 16px 0px 0px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    cursor: pointer;
+}
+.link__auth:hover .link__auth_title {
+    color: #f9640a;
+}
+.link__auth:hover .enter__arrow.back {
+    background: transparent url(/src/assets/authorization/authorization_arrow-active.svg) center center no-repeat;
+}
+.link__auth_title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+
+    color: #727272;
+}
+.form__logo {
+    position: absolute;
+    bottom: 530px;
+    left: 173px;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0.1px;
+
+    color: #FFFFFF;
+}
+.form__logo.form-ok {
+    bottom: 452px;
+    left: 215px;
+}
+.form__header {
+    width: 100%;
+    height: 56px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.form__header_title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.1px;
+
+    color: #363636;
+}
+.form__header_steps {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.1px;
+
+    color: #363636;
+}
+.form__data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    width: 100%;
+    height: 184px;
+}
+.form__data_login {
+    width: 100%;
+    height: 76px;
+
+    position: relative;
+}
+.password__wrapper {
+    position: relative;
+}
+.input__field {
+    width: 100%;
+    height: 56px;
+    padding: 26px 12px 12px;
+
+    background: #F9F9FA;
+    border-radius: 4px;
+    border: 0;
+}
+.input__field:focus {
+    outline: #F9F9FA;
+}
+.input__field:focus + .label_input {
+    top: 8px;
+}
+.label_input {
+    position: absolute;
+    top: 20px;
+    left: 12px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+
+    color: #A7A7A7;
+}
+.label_input.active {
+    top: 8px;
+}
+.input__border {
+    width: 100%;
+    height: 1px;
+
+    background: #BFC4C9;
+}
+.input__border.active {
+    background: #F83600;
+}
+.input__field_hints {
+    min-height: 16px;
+    padding-left: 12px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+
+    color: #A7A7A7;
+}
+.input__field_hints.active {
+    color: #F83600;
+}
+.red-hint {
+    /* color: #F83600; */
+    color: rgb(244, 44, 79);
+}
+.form__data_password {
+    width: 100%;
+    height: 92px;
+}
+.check-password.ok {
+    display: block;
+    position: absolute;
+    bottom: 16px;
+    left: 348px;
+
+    width: 24px;
+    height: 24px;
+
+    background: transparent url(/src/assets/authorization/ok.svg) center center no-repeat;
+}
+.check-password {
+    display: none;
+}
+.password__eye {
+    position: absolute;
+    bottom: 16px;
+    left: 376px;
+
+    width: 24px;
+    height: 24px;
+
+    background: transparent url(/src/assets/authorization/eye_closed.svg) center center no-repeat;
+
+    cursor: pointer;
+}
+.password__eye.open {
+    background: transparent url(/src/assets/authorization/eye_open.svg) center center no-repeat;
+}
+.forgot__link {
+    padding-left: 12px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+
+    color: #A7A7A7;
+
+    cursor: pointer;
+}
+.forgot__link:hover {
+    color: #f9640a;;
+}
+.form__submit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    width: 100%;
+    height: 92px;
+}
+.form__submit.recovery-pass {
+    height: 100%;
+}
+.submit__btn {
+    width: 100%;
+    height: 52px;
+
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    border-radius: 30px;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+
+    border: none;
+
+    cursor: pointer;
+}
+.link__inside-btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submit__btn.not-valid {
+    background: #EBEBEB;
+}
+.submit__link {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.submit__link_invite {
+    margin-right: 16px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.1px;
+
+    color: #727272;
+}
+.submit__link_invite.recovery-pass {
+    text-align: start;
+}
+.submit__link_enter {
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    cursor: pointer;
+}
+.submit__link_enter:hover .enter__text {
+    color: #f9640a;
+}
+.submit__link_enter:hover .enter__arrow {
+    background: transparent url(/src/assets/authorization/authorization_arrow-active.svg) center center no-repeat;
+}
+.enter__text {
+    margin-right: 12px;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+
+    color: #363636;
+}
+.enter__arrow {
+    width: 24px;
+    height: 24px;
+
+    background: transparent url(/src/assets/authorization/authorization_arrow.svg) center center no-repeat;
+}
+.enter__arrow.back {
+    transform: rotateY(180deg);
+}
+
+@media (max-width: 700px) {
+    .form__authorization {
+        padding: 24px 16px;
+
+        width: 288px;
+        height: 464px;
+    }
+    .form__authorization.form-forgot {
+        height: 458px;
+        padding: 96px 16px 24px 16px;
+    }
+    .form__logo {
+        position: absolute;
+        bottom: 472px;
+        left: 92px;
+
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .form__data {
+        gap: 24px;
+
+        height: 192px;
+    }
+    .form__submit {
+        height: 104px;
+    }
+    .submit__btn {
+        height: 40px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .submit__link_invite {
+        margin-right: 16px;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 20px;
+    }
+    .check-password.ok {
+        left: 188px;
+    }
+    .password__eye {
+        left: 216px;
+    }
+    .link__auth {
+        width: 288px;
+    }
+    .registration-ok {
+        padding: 42px 16px 32px;
+        gap: 24px;
+        isolation: isolate;
+
+        position: relative;
+        width: 288px;
+        height: 250px;
+    }
+    .registration-ok__title {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .registration-ok__text {
+        font-size: 15px;
+        line-height: 20px;
+    }
+    .form__logo.form-ok {
+        bottom: 347px;
+        left: 96px;
+    }
+}

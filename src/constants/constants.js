@@ -16,12 +16,70 @@ export const COMMON_ABOUT = 'О книге';
 export const COMMON_ORDER_BTN = 'забронировать';
 export const BOOK_RATING_NAME = 'рейтинг';
 export const BOOK_DETAIL_INFORMATION = 'Подробная информация';
+export const BOOK_DETAIL_PUBLISH = 'Издательство';
+export const BOOK_DETAIL_ISSUE_YEAR = 'Год издания';
+export const BOOK_DETAIL_PAGES = 'Страниц';
+export const BOOK_DETAIL_COVER = 'Переплёт';
+export const BOOK_DETAIL_FORMAT = 'Формат';
+export const BOOK_DETAIL_CATEGORIES = 'Жанр';
+export const BOOK_DETAIL_WEIGHT = 'Вес';
+export const BOOK_DETAIL_ISBN = 'ISBN';
+export const BOOK_DETAIL_PRODUCER = 'Изготовитель';
 export const TOAST_MESSAGE = 'Что-то пошло не так. Обновите страницу через некоторое время.';
-export const HOST_URL = 'https://strapi.cleverland.by';
-export const API_URL_GET_BOOK_FETCH = 'https://strapi.cleverland.by/api/books/';
-export const API_URL_CET_CATEGORIES_FETCH = 'https://strapi.cleverland.by/api/categories';
-export const API_URL_GET_BOOKS_FETCH = 'https://strapi.cleverland.by/api/books';
 export const MONTHES = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 export const CATEGORY_ALL = 'all';
 export const MESSAGE_NOT_BOOKS = 'В этой категории книг ещё нет';
 export const MESSAGE_NOT_FOUND_BOOKS = 'По запросу ничего не найдено';
+export const REGEXP = {
+    hasLatinLetter: /[a-zA-Z]+/,
+    hasCyrLetter: /[а-яА-Я]+/,
+    hasOnlyDigit: /\d+/,
+    hasRightLength: /[a-zA-Zа-яА-Я0-9]{8,}/,
+    hasUpperLetter: /[A-ZА-Я]+/,
+    isEmailValid: /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
+    isPhone: /(\+375)\s\((29|33|25|44)\)\s\d\d\d-\d\d-\d\d/,
+    mask: ['+','3','7','5',' ','(',/\d/,/\d/,')',' ',/\d/,/\d/,/\d/,'-',/\d/,/\d/,'-',/\d/,/\d/],
+};
+export const FORM = {
+    textLogo: 'Cleverland',
+    textLogin: 'Логин',
+    textPassword: 'Пароль',
+    textEnter: 'вход',
+    titleRegistratonOk: 'Регистрация успешна',
+    titleRecoveryOk: 'Новые данные сохранены',
+    titleRegistratonError: 'Данные не сохранились',
+    titleAuthError: 'Вход не выполнен',
+    textRegistratonOk: 'Регистрация прошла успешно. Зайдите в личный кабинет, используя свои логин и пароль',
+    textRecoveryOk: 'Зайдите в личный кабинет, используя свои логин и новый пароль',
+    textRegistratonError400: 'Такой логин или e-mail уже записан в системе. Попробуйте зарегистрироваться по другому логину или e-mail',
+    textRegistratonError: 'Что-то пошло не так и ваша регистрация не завершилась. Попробуйте ещё раз',
+    textRecoveryError: 'Что-то пошло не так. Попробуйте ещё раз',
+    textErrorBack: 'назад к регистрации',
+    textErrorRepeat: 'повторить',
+    titleAuth: 'Bход в личный кабинет',
+    titleRegistration: 'Регистрация',
+    titleForgotPass: 'Восстановление пароля',
+    textStaticHint: 'На это email  будет отправлено письмо с инструкциями по восстановлению пароля',
+    titleForgotPassOk: 'Письмо выслано',
+    textForgotPassOk: 'Перейдите в вашу почту, чтобы воспользоваться подсказками по восстановлению пароля',
+    titleRecoveryPass: 'Восстановление пароля',
+    textBtnRecoveryPass: 'сохранить изменения',
+    textHintRecoveryPass: 'После сохранения войдите в библиотеку, используя новый пароль',
+    textNewPass: 'Новый пароль',
+    textConfirmPass: 'Повторите пароль',
+
+};
+export const API = {
+    host: 'https://strapi.cleverland.by',
+    url_auth: '/api/auth/local',
+    url_registration: '/api/auth/local/register',
+    url_forgotPassword: '/api/auth/forgot-password',
+    url_resetPassword: '/api/auth/reset-password',
+    url_getBookFetch: '/api/books/',
+    url_getCategoriesFetch: '/api/categories',
+    url_getBooksFetch: '/api/books',
+};
+export const SMALL_MENU = {
+    textItem_profile: 'Профиль',
+    textItem_exit: 'Выход',
+};
