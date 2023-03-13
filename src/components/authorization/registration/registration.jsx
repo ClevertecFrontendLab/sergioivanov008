@@ -131,26 +131,64 @@ export const Registration = () => {
         }
     }
 
-    const checkFirstName = (v) => {
+    const onChangeFirstName = () => {
+        const v = getValues('firstName');
+
         if (v) {
             setTopElBorderStyle('input__border');
-            setTopElHint('');
+            setTopElHint('<span data-test-id="hint"></span>');
+        }
+    }
 
+    const validateFirstName = (v) => {
+        if (v) {
+            return true;
+        }
+
+        return false;
+    };
+
+    const onBlurFirstName = () => {
+        if (!getValues('firstName')) {
+            setTopElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
+            setTopElBorderStyle('input__border active');
+        } else if (errors.firstName) {
+            setTopElHint('<span class="red-hint" data-test-id="hint"></span>');
+            setTopElBorderStyle('input__border active');
+        } else {
+            setTopElHint('<span data-test-id="hint"></span>');
+            setTopElBorderStyle('input__border');
+        }
+    }
+
+    const onChangeLastName = () => {
+        const v = getValues('lastName');
+
+        if (v) {
+            setBottomElBorderStyle('input__border');
+            setBottomElHint('');
+        }
+    }
+
+    const validateLastName = (v) => {
+        if (v) {
             return true;
         }
 
         return false;
     }
 
-    const checkLastName = (v) => {
-        if (v) {
+    const onBlurLastName = () => {
+        if (!getValues('lastName')) {
+            setBottomElHint('<span class="red-hint" data-test-id="hint">Поле не может быть пустым</span>');
+            setBottomElBorderStyle('input__border active');
+        } else if (errors.lastName) {
+            setBottomElHint('<span class="red-hint" data-test-id="hint"></span>');
+            setBottomElBorderStyle('input__border active');
+        } else {
+            setBottomElHint('<span data-test-id="hint"></span>');
             setBottomElBorderStyle('input__border');
-            setBottomElHint('');
-
-            return true;
         }
-
-        return false;
     }
 
     const checkEmail = (v) => {
@@ -287,7 +325,10 @@ export const Registration = () => {
                             <div className='form__data_login'>
                                 <div className='login__wrapper'>
                                     <input className='input__field' id='firstName'
-                                        {...register('firstName', {validate: v => checkFirstName(v)})} />
+                                        {...register('firstName', {
+                                            validate: v => validateFirstName(v),
+                                            onChange: () => onChangeFirstName(),
+                                            onBlur: () => onBlurFirstName()})} />
                                     <label htmlFor="firstName" className={labelStyle('firstName')}>Имя</label>
                                 </div>
                                 <div className={topElBorderStyle} />
@@ -296,7 +337,10 @@ export const Registration = () => {
                             <div className='form__data_password'>
                                 <div className='password__wrapper'>
                                     <input className='input__field' id='lastName'
-                                        {...register('lastName', {validate: v => checkLastName(v)})} />
+                                        {...register('lastName', {
+                                            validate: v => validateLastName(v),
+                                            onChange: () => onChangeLastName(),
+                                            onBlur: () => onBlurLastName()})} />
                                     <label htmlFor="lastName" className={labelStyle('lastName')}>Фамилия</label>
                                 </div>
                                 <div className={bottomElBorderStyle} />
