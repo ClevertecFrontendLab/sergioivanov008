@@ -1,0 +1,40 @@
+.main {
+    padding: 24px;
+    max-width: 752px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.main-card {
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
+    background: var(--character-light-primary-inverse);
+}
+.card-text-1 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: var(--primary-light-9);
+}
+.card-text-2 {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    color: var(--character-light-title-85);
+}
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.action-cards-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+.action-card {
+    width: 240px;
+    text-align: center;
+}

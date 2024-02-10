@@ -1,0 +1,17 @@
+.menu-switch {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 66px;
+    clip-path: polygon(0 0, 100% 15%, 100% 90%, 0% 100%);
+    background-color: var(--character-light-primary-inverse);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ant-layout-sider {
+    color: var(--character-light-secondary-45);
+}

@@ -1,0 +1,38 @@
+.exit {
+    padding: 0px 16px;
+    width: 208px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+.exit-icon {
+    width: 16px;
+    height: 16px;
+    background: transparent url(/public/exit.svg) center center no-repeat;
+}
+.exit-title {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    text-align: center;
+    color: var(--character-light-title-85);
+
+    margin-left: 10px;
+    transition: 0.2s;
+
+    border-radius: 2px;
+    padding: 4px 15px;
+    width: 74px;
+    height: 26px;
+    opacity: 1;
+    transform: scaleX(1);
+}
+.exit.collapse .exit-title {
+    width: 0px;
+    opacity: 0;
+    transform: scaleX(0);
+}

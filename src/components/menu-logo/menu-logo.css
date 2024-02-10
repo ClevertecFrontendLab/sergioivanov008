@@ -1,0 +1,25 @@
+.logo {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 29px;
+    transition: 0.2s;
+}
+.logo.collapse {
+    margin-left: 18px;
+}
+.logo-clever {
+    width: 98px;
+    height: 24px;
+    background: transparent url(/public/Clever.svg) center center no-repeat;
+    opacity: 1;
+    transition: 0.2s;
+}
+.logo-fit {
+    width: 34px;
+    height: 30px;
+    background: transparent url(/public/fit.svg) center center no-repeat;
+}
+.logo.collapse .logo-clever{
+    width: 0px;
+    opacity: 0;
+}
