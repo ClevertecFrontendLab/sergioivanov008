@@ -25,3 +25,6 @@
 .ant-menu-inline.ant-menu-root .ant-menu-submenu-title {
     margin-bottom: 16px;
  }
+ .ant-menu-vertical .ant-menu-item:not(:last-child) {
+    margin-bottom: 16px;
+ }

@@ -1,5 +1,5 @@
 .footer {
-    padding: 144px 24px 0px;
+    padding: 155px 24px 0px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -11,4 +11,7 @@
     line-height: 130%;
     text-align: center;
     color: var(--primary-light-6);
+}
+.footer .ant-card-body {
+    padding: 12px 24px 12px 24px;
 }
