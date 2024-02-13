@@ -3,6 +3,7 @@
     align-items: flex-end;
     margin-left: 29px;
     transition: 0.2s;
+    padding: 17px 0;
 }
 .logo.collapse {
     margin-left: 18px;

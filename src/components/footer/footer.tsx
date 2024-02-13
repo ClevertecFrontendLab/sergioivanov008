@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
 
     return (
         <footer className="footer">
-            <Button type="text">{FOOTER_TEXT.BTN_REVIEW}</Button>
+            <Button type="text" className='btn-3'>{FOOTER_TEXT.BTN_REVIEW}</Button>
             <Card
                 hoverable
                 bordered={false}

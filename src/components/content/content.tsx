@@ -14,7 +14,7 @@ export const Content: React.FC = () => {
                     {CONTENT_TEXT.CARD_1_TEXT_LINE_2}<br/>
                     {CONTENT_TEXT.CARD_1_TEXT_LINE_3}<br/>
                     {CONTENT_TEXT.CARD_1_TEXT_LINE_4}<br/>
-                    {CONTENT_TEXT.CARD_1_TEXT_LINE_5}<br/>
+                    {CONTENT_TEXT.CARD_1_TEXT_LINE_5}
               </p>
             </Card>
             <div className="main-content">
@@ -29,7 +29,7 @@ export const Content: React.FC = () => {
                         bordered={false}
                         className='action-card'
                     >
-                        <Button type="text">
+                        <Button type="text" className='btn-1'>
                             <HeartFilled />
                             Тренировки
                         </Button>
@@ -39,7 +39,7 @@ export const Content: React.FC = () => {
                         bordered={false}
                         className='action-card'
                     >
-                        <Button type="text">
+                        <Button type="text" className='btn-1'>
                             <CalendarOutlined />
                             Календарь
                         </Button>
@@ -49,7 +49,7 @@ export const Content: React.FC = () => {
                         bordered={false}
                         className='action-card'
                     >
-                        <Button type="text">
+                        <Button type="text" className='btn-1'>
                             <IdcardOutlined />
                             Профиль
                         </Button>

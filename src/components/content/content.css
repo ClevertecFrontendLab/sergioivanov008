@@ -1,6 +1,6 @@
 .main {
     padding: 24px;
-    max-width: 752px;
+    max-width: 800px;
 
     display: flex;
     flex-direction: column;
@@ -16,6 +16,7 @@
     font-size: 16px;
     line-height: 130%;
     color: var(--primary-light-9);
+    padding-right: 8px;
 }
 .card-text-2 {
     font-family: var(--font-family);
@@ -23,6 +24,8 @@
     font-size: 20px;
     line-height: 130%;
     color: var(--character-light-title-85);
+    padding-right: 55px;
+    margin-bottom: 9px;
 }
 .main-content {
     display: flex;
@@ -37,4 +40,21 @@
 .action-card {
     width: 240px;
     text-align: center;
+}
+.ant-card-body {
+    padding: 24px 24px 12px 24px;
+}
+.ant-card-head-title {
+    padding: 8px 0;
+}
+.action-card .ant-card-body {
+    padding: 16px 24px 12px 24px;
+}
+.btn-1 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    text-align: center;
+    color: var(--primary-light-6);
 }

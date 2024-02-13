@@ -2,16 +2,24 @@
     padding: 16px 24px;
     width: 100%;
     background: var(--primary-light-1);
+    display: flex;
+    flex-direction: column;
+    gap: 6px
 }
 .header-content {
     display: flex;
     justify-content: space-between;
+    font-family: var(--font-family);
+}
+.header-content h1 {
+    margin: 6px 0 0 0;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 130%;
+    color: var(--character-light-title-85);
 }
 .header-text {
     width: 987px;
 
     font-family: var(--font-family);
-}
-.header-btn {
-    margin-top: 25px;
 }
