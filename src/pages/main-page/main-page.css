@@ -1,7 +1,8 @@
-.ant-layout {
+.app-wrapper {
+    display: flex;
     background: transparent url(/public/Main_page_light.png) center / cover no-repeat;
 }
-.site-layout {
+.app-content {
     padding: 0px 0px 42px 0px;
 }
 .ant-layout-sider {
@@ -10,21 +11,21 @@
 .ant-layout-header {
   background: var(--primary-light-1);
 }
-.ant-layout-sider-children {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 30px;
-}
-.sider-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-}
 .ant-menu-inline.ant-menu-root .ant-menu-item,
 .ant-menu-inline.ant-menu-root .ant-menu-submenu-title {
     margin-bottom: 16px;
- }
- .ant-menu-vertical .ant-menu-item:not(:last-child) {
+}
+.ant-menu-vertical .ant-menu-item:not(:last-child) {
     margin-bottom: 16px;
- }
+}
+@media (max-width: 805px) {
+    .ant-layout-sider {
+        position: absolute;
+        top: 0;
+        left: -64px;
+        z-index: 5;
+        height: 100vh;
+        
+        padding-left: 75px;
+    }
+}

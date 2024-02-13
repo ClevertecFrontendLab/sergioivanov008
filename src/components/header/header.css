@@ -19,8 +19,6 @@
     color: var(--character-light-title-85);
 }
 .header-text {
-    width: 987px;
-
     font-family: var(--font-family);
 }
 @media (max-width: 998px) {

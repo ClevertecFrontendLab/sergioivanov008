@@ -2,6 +2,8 @@ import React from 'react';
 import './menu-logo.css';
 
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { IconClever } from '@components/icon-clever';
+import { IconFit } from '@components/icon-fit';
 
 export const MenuLogo: React.FC = () => {
     const isCollapsed = useAppSelector(state => state.aside.isAsideCollapsed);
@@ -10,8 +12,12 @@ export const MenuLogo: React.FC = () => {
 
     return (
         <div className={elClass}>
-            <div className="logo-clever"></div>
-            <div className="logo-fit"></div>
+            <div className="logo-clever">
+                <IconClever />
+            </div>
+            <div className="logo-fit">
+                <IconFit />
+            </div>
         </div>
     );
 };

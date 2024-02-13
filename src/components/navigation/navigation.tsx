@@ -1,43 +1,48 @@
 import React from 'react';
 import './navigation.css';
 
-import { Menu } from 'antd';
 import { CalendarOutlined, HeartFilled, IdcardOutlined, TrophyFilled } from '@ant-design/icons';
+import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 
-type PropTypes = {
-    collapsed: boolean
-};
+const menuItems = [
+    {
+        id: '001',
+        itemIcon: <CalendarOutlined />,
+        itemText: 'Календарь',
+    },
+    {
+        id: '002',
+        itemIcon: <HeartFilled />,
+        itemText: 'Тренировки',
+    },
+    {
+        id: '003',
+        itemIcon: <TrophyFilled />,
+        itemText: 'Достижения',
+    },
+    {
+        id: '004',
+        itemIcon: <IdcardOutlined />,
+        itemText: 'Профиль',
+    },
+];
 
-export const Navigation: React.FC<PropTypes> = ({collapsed}) => {
+export const Navigation: React.FC = () => {
+    const collapsed = useAppSelector(state => state.aside.isAsideCollapsed);
+    const menuClass = `menu ${collapsed ? 'collapsed' : ''}`;
 
     return (
-        <Menu
-            defaultSelectedKeys={['1']}
-            mode="inline"
-            inlineCollapsed={collapsed}
-            inlineIndent={16}
-            items={[
-                {
-                    key: '1',
-                    icon: <CalendarOutlined/>,
-                    label: "Календарь",
-                },
-                {
-                    key: '2',
-                    icon: <HeartFilled/>,
-                    label: "Тренировки",
-                },
-                {
-                    key: '3',
-                    icon: <TrophyFilled/>,
-                    label: "Достижения",
-                },
-                {
-                    key: '4',
-                    icon: <IdcardOutlined/>,
-                    label: "Профиль",
-                }
-            ]}
-        />
+        <div className={menuClass}>
+            {menuItems.map((el) => (
+                <div className='menu-item' key={el.id}>
+                    <div className="menu-item-icon">
+                        {el.itemIcon}
+                    </div>
+                    <div className="menu-item-text">
+                        {el.itemText}
+                    </div>
+                </div>
+            ))}
+        </div>
     );
 };
