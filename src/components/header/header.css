@@ -17,9 +17,27 @@
     font-size: 38px;
     line-height: 130%;
     color: var(--character-light-title-85);
+    padding-right: 180px;
 }
 .header-text {
     font-family: var(--font-family);
+}
+.header-btn {
+    border-radius: 2px;
+    padding: 4px 15px;
+    width: 129px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    text-align: center;
+    color: var(--character-light-title-85);
 }
 @media (max-width: 998px) {
     .header-content h1 {

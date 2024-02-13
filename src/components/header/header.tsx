@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.css';
-import { Breadcrumb, Button, Typography } from 'antd';
+import { Breadcrumb, Typography } from 'antd';
 import { HEADER_TEXT } from '@constants/constants';
 import { SettingOutlined } from '@ant-design/icons';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
@@ -20,14 +20,13 @@ export const Header: React.FC = () => {
             </Breadcrumb>
             <div className="header-content">
                 <Title className='header-text'>
-                    {HEADER_TEXT.HEADER_TEXT_2}
+                    {HEADER_TEXT.HEADER_TEXT_2_1}
                     <span className={spanClass}>{HEADER_TEXT.HEADER_TEXT_2_2}</span>
-                    {HEADER_TEXT.HEADER_TEXT_2_3}
                 </Title>
-                <Button type="text" className='header-btn'>
+                <div className='header-btn'>
                     <SettingOutlined />
                     {HEADER_TEXT.HEADER_TEXT_3}
-                </Button>
+                </div>
             </div>
         </header>
     );
