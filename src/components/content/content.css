@@ -38,8 +38,15 @@
     gap: 16px;
 }
 .action-card {
-    width: 240px;
     text-align: center;
+    flex: 0 1 33.33%;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+    font-size: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .ant-card-body {
     padding: 24px 24px 12px 24px;
@@ -48,7 +55,7 @@
     padding: 8px 0;
 }
 .action-card .ant-card-body {
-    padding: 16px 24px 12px 24px;
+    padding: 16px 24px 8px 24px;
 }
 .btn-1 {
     font-family: var(--font-family);
@@ -57,4 +64,27 @@
     line-height: 130%;
     text-align: center;
     color: var(--primary-light-6);
+
+    padding: 12px 0px;
+    width: 100%;
+    height: 56px;
+    box-shadow: inset 0 1px 0 0 var(--character-light-dividers);
+    background: var(--character-light-primary-inverse);
+}
+.ant-card-head {
+    padding: 0;
+}
+.btn-title {
+    padding: 9px 26px;
+}
+@media (max-width: 998px) {
+    .card-text-2 {
+        font-size: 19px;
+    }
+    .action-card {
+        text-align: left;
+    }
+    .ant-card-body {
+        padding: 24px 24px 14px 24px;
+    }
 }

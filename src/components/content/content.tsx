@@ -3,8 +3,11 @@ import './content.css';
 import { Button, Card } from 'antd';
 import { CONTENT_TEXT } from '@constants/constants';
 import { CalendarOutlined, HeartFilled, IdcardOutlined } from '@ant-design/icons';
+import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 
 export const Content: React.FC = () => {
+    const collapsed = useAppSelector(state => state.aside.isAsideCollapsed);
+    const spanClass = collapsed ? '' : 'span-block';
 
     return (
         <main className="main">
@@ -24,36 +27,33 @@ export const Content: React.FC = () => {
                   </p>
                 </Card>
                 <div className="action-cards-wrapper">
-                    <Card
-                        title="Расписать тренировки"
-                        bordered={false}
-                        className='action-card'
-                    >
-                        <Button type="text" className='btn-1'>
+                    <div className='ant-card action-card'>
+                        <div className='btn-title'>
+                            Расписать <span className={spanClass}>тренировки</span>
+                        </div>
+                        <Button className='btn-1'>
                             <HeartFilled />
                             Тренировки
                         </Button>
-                    </Card>
-                    <Card
-                        title="Назначить календарь"
-                        bordered={false}
-                        className='action-card'
-                    >
-                        <Button type="text" className='btn-1'>
+                    </div>
+                    <div className='ant-card action-card'>
+                        <div className='btn-title'>
+                            Назначить <span className={spanClass}>календарь</span>
+                        </div>
+                        <Button className='btn-1'>
                             <CalendarOutlined />
                             Календарь
                         </Button>
-                    </Card>
-                    <Card
-                        title="Заполнить профиль"
-                        bordered={false}
-                        className='action-card'
-                    >
-                        <Button type="text" className='btn-1'>
+                    </div>
+                    <div className='ant-card action-card'>
+                        <div className='btn-title'>
+                            Заполнить <span className={spanClass}>профиль</span>
+                        </div>
+                        <Button className='btn-1'>
                             <IdcardOutlined />
                             Профиль
                         </Button>
-                    </Card>
+                    </div>
                 </div>
             </div>
         </main>

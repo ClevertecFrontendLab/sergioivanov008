@@ -1,6 +1,8 @@
 export const HEADER_TEXT = {
     HEADER_TEXT_1: 'Главная',
-    HEADER_TEXT_2: 'Приветствуем тебя в CleverFit — приложении, которое поможет тебе добиться своей мечты!',
+    HEADER_TEXT_2: 'Приветствуем тебя в CleverFit — ',
+    HEADER_TEXT_2_2: ' приложении, ',
+    HEADER_TEXT_2_3: ' которое поможет тебе добиться своей мечты!',
     HEADER_TEXT_3: 'Настройки',
 }
 
