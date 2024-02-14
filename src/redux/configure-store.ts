@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import asideReducer from './slices/aside-slice';
 
 export const store = configureStore({
-    reducer: {},
+    reducer: {
+        aside: asideReducer,
+    },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

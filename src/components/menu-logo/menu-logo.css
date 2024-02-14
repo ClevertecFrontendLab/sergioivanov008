@@ -1,0 +1,48 @@
+.logo {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 29px;
+    transition: 0.2s;
+    padding: 17px 0;
+    width: 208px;
+}
+.logo.collapsed {
+    margin-left: 18px;
+    width: 64px;
+}
+.logo-clever {
+    width: 98px;
+    height: 24px;
+
+    transition: 0.2s;
+    transform: scaleX(1);
+}
+.logo-fit {
+    width: 34px;
+    height: 30px;
+}
+.logo-mobile {
+    display: none;
+}
+.logo.collapsed .logo-clever{
+    width: 0px;
+    transform: scaleX(0);
+}
+@media (max-width: 805px) {
+    .logo {
+        margin-left: 17px;
+        width: 89px;
+    }
+    .logo-clever {
+        display: none;
+    }
+    .logo-fit {
+        display: none;
+    }
+    .logo-mobile {
+        display: block;
+    }
+    .logo.collapsed .logo-mobile {
+        display: none;
+    }
+}

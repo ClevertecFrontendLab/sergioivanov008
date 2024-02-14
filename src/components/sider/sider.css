@@ -1,0 +1,36 @@
+.sider {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 30px;
+    position: relative;
+    width: 208px;
+    transition: 0.2s;
+
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    background: var(--character-light-primary-inverse);
+}
+.sider.collapsed {
+    width: 64px;
+}
+.menu-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+@media (max-width: 805px) {
+    .sider {
+        padding-top: 0;
+        position: absolute;
+        left: 0;
+        z-index: 5;
+        height: 100vh;
+        width: 106px;
+    }
+    .sider.collapsed {
+        left: -64px;
+    }
+    .menu-wrapper {
+        gap: 8px;
+    }
+}
