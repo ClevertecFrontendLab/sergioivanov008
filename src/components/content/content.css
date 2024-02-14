@@ -86,3 +86,27 @@
         padding: 24px 24px 14px 24px;
     }
 }
+@media (max-width: 805px) {
+    .main {
+        padding: 0 16px;
+    }
+    .action-cards-wrapper {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .ant-card-body {
+        padding: 16px 16px 7px 7px;
+    }
+    .card-text-1 {
+        padding: 24px 26px 10px 8px;
+    }
+    .card-text-2 {
+        padding: 0px 26px 0px 8px;
+    }
+    .action-card {
+        text-align: center;
+    }
+    .ant-card.action-card .span-block {
+        display: inline;
+    }
+}

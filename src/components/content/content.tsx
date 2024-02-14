@@ -5,6 +5,30 @@ import { CONTENT_TEXT } from '@constants/constants';
 import { CalendarOutlined, HeartFilled, IdcardOutlined } from '@ant-design/icons';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 
+const cardItems = [
+    {
+        id: '001',
+        itemIcon: <HeartFilled />,
+        itemText: 'Тренировки',
+        itemText_1: 'Расписать',
+        itemText_2: 'тренировки',
+    },
+    {
+        id: '002',
+        itemIcon: <CalendarOutlined />,
+        itemText: 'Календарь',
+        itemText_1: 'Назначить',
+        itemText_2: 'календарь',
+    },
+    {
+        id: '003',
+        itemIcon: <IdcardOutlined />,
+        itemText: 'Профиль',
+        itemText_1: 'Заполнить',
+        itemText_2: 'профиль',
+    },
+];
+
 export const Content: React.FC = () => {
     const collapsed = useAppSelector(state => state.aside.isAsideCollapsed);
     const spanClass = collapsed ? '' : 'span-block';
@@ -27,33 +51,17 @@ export const Content: React.FC = () => {
                   </div>
                 </Card>
                 <div className="action-cards-wrapper">
-                    <div className='ant-card action-card'>
-                        <div className='btn-title'>
-                            Расписать <span className={spanClass}>тренировки</span>
+                    {cardItems.map((el) => (
+                        <div className='ant-card action-card' key={el.id}>
+                            <div className='btn-title'>
+                                {el.itemText_1} <span className={spanClass}>{el.itemText_2}</span>
+                            </div>
+                            <Button className='btn-1'>
+                                {el.itemIcon}
+                                {el.itemText}
+                            </Button>
                         </div>
-                        <Button className='btn-1'>
-                            <HeartFilled />
-                            Тренировки
-                        </Button>
-                    </div>
-                    <div className='ant-card action-card'>
-                        <div className='btn-title'>
-                            Назначить <span className={spanClass}>календарь</span>
-                        </div>
-                        <Button className='btn-1'>
-                            <CalendarOutlined />
-                            Календарь
-                        </Button>
-                    </div>
-                    <div className='ant-card action-card'>
-                        <div className='btn-title'>
-                            Заполнить <span className={spanClass}>профиль</span>
-                        </div>
-                        <Button className='btn-1'>
-                            <IdcardOutlined />
-                            Профиль
-                        </Button>
-                    </div>
+                    ))}
                 </div>
             </div>
         </main>
