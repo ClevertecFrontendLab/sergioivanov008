@@ -15,8 +15,10 @@ export const MenuSwitch: React.FC = () => {
         dispatch(toggleIsAsideCollapsed(!isCollapsed));
     }
 
+    const dataTestId = document.documentElement.clientWidth >= 805 ? 'sider-switch' : 'sider-switch-mobile';
+
     return (
-        <div className='menu-switch' onClick={toggleCollapsed}>
+        <div className='menu-switch' onClick={toggleCollapsed} data-test-id={dataTestId}>
             {menuIcon}
         </div>
     );
