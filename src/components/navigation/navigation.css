@@ -18,6 +18,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.2s;
+    transform: scaleX(1);
+    transform-origin: left;
 }
 .menu-item-text {
     margin-left: 10px;
@@ -37,4 +40,16 @@
 }
 .menu.collapsed .menu-item-text {
     transform: scaleX(0);
+}
+@media (max-width: 805px) {
+    .menu {
+        margin-left: 8px;
+        gap: 8px;
+    }
+    .menu-item-icon {
+        display: none;
+    }
+    .menu-item-text {
+        margin-left: 0px;
+    }
 }

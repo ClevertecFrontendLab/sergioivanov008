@@ -9,7 +9,7 @@ import { MenuSwitch } from '@components/menu-switch';
 
 export const Sider: React.FC = () => {
     const collapsed = useAppSelector(state => state.aside.isAsideCollapsed);
-    const siderClass = `sider ${collapsed ? 'collapse' : ''}`;
+    const siderClass = `sider ${collapsed ? 'collapsed' : ''}`;
 
     return (
         <div className={siderClass}>

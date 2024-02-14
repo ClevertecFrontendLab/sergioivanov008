@@ -13,7 +13,7 @@
 .exit-icon {
     width: 16px;
     height: 16px;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,6 +35,14 @@
     transform: scaleX(1);
     transform-origin: left;
 }
-.exit.collapse .exit-title {
+.exit.collapsed .exit-title {
     transform: scaleX(0);
+}
+@media (max-width: 805px) {
+    .exit-icon {
+        display: none;
+    }
+    .exit-title {
+        margin-left: 0px;
+    }
 }

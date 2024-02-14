@@ -7,7 +7,7 @@ import { IconExit } from '@components/icon-exit';
 export const MenuExit: React.FC = () => {
     const collapsed = useAppSelector(state => state.aside.isAsideCollapsed);
 
-    const elClass = `exit ${collapsed ? 'collapse' : ''}`;
+    const elClass = `exit ${collapsed ? 'collapsed' : ''}`;
 
     return (
         <div className={elClass}>

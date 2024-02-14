@@ -12,19 +12,19 @@ export const Content: React.FC = () => {
     return (
         <main className="main">
             <Card className='main-card'>
-              <p className='card-text-1'>
+              <div className='card-text-1'>
                     {CONTENT_TEXT.CARD_1_TEXT_LINE_1}<br/>
                     {CONTENT_TEXT.CARD_1_TEXT_LINE_2}<br/>
                     {CONTENT_TEXT.CARD_1_TEXT_LINE_3}<br/>
                     {CONTENT_TEXT.CARD_1_TEXT_LINE_4}<br/>
                     {CONTENT_TEXT.CARD_1_TEXT_LINE_5}
-              </p>
+              </div>
             </Card>
             <div className="main-content">
                 <Card className='main-card'>
-                  <p className='card-text-2'>
+                  <div className='card-text-2'>
                         {CONTENT_TEXT.CARD_2_TEXT}
-                  </p>
+                  </div>
                 </Card>
                 <div className="action-cards-wrapper">
                     <div className='ant-card action-card'>

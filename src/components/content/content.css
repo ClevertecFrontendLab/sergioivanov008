@@ -17,6 +17,7 @@
     line-height: 130%;
     color: var(--primary-light-9);
     padding-right: 8px;
+    padding-bottom: 10px;
 }
 .card-text-2 {
     font-family: var(--font-family);
@@ -78,9 +79,6 @@
     padding: 9px 26px;
 }
 @media (max-width: 998px) {
-    .card-text-2 {
-        font-size: 19px;
-    }
     .action-card {
         text-align: left;
     }

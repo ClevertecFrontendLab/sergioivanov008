@@ -15,3 +15,10 @@
 .ant-layout-sider {
     color: var(--character-light-secondary-45);
 }
+@media (max-width: 805px) {
+    .menu-switch {
+        top: 48px;
+        width: 32px;
+        height: 48px;
+    }
+}
