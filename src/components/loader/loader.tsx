@@ -1,4 +1,6 @@
 import React from 'react';
+import Lottie from 'react-lottie-player';
+import lottieJson from '../assets/lottie/lottie-loader.json';
 import './loader.css';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { toggleBodyNotScrollable } from '@utils/utils';
@@ -11,9 +13,12 @@ export const Loader: React.FC = () => {
 
     return (
         <div className={loaderClass}>
-            <div className="loader-element">
-                loading
-            </div>
+            <Lottie
+                loop
+                animationData={lottieJson}
+                play
+                className={'loader-element'}
+            />
         </div>
     );
 };
