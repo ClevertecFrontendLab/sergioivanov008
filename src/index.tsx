@@ -8,6 +8,7 @@ import { MainPage } from './pages';
 
 import 'normalize.css';
 import './index.css';
+import { Loader } from '@components/loader';
 
 const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
@@ -20,6 +21,7 @@ root.render(
                     <Route path='/' element={<MainPage />} />
                 </Routes>
             </HashRouter>
+            <Loader />
         </Provider>
     </React.StrictMode>,
 );

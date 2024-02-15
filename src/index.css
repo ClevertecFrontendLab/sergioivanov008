@@ -89,6 +89,10 @@
     max-width: 1440px;
     margin: 0 auto;
 }
+.body_not-scrollable {
+    overflow-y: hidden;
+    margin-right: 17px;
+}
 /*:root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
