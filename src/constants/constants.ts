@@ -21,3 +21,13 @@ export const FOOTER_TEXT = {
     CARD_TITLE: 'Скачать на телефон',
     CARD_DESC: 'Доступно в PRO-тарифе',
 }
+
+export const ROUTE = {
+    INDEX: '/',
+    MAIN: '/main',
+    AUTH: '/auth',
+    REGISTRATION: '/auth/registration',
+    CONFIRM: '/auth/confirm-email',
+    CHANGE_PASS: '/auth/change-password',
+    WRONG: '/*',
+}

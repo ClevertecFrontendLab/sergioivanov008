@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const loadersSlice = createSlice({
   name: 'loaders',
   initialState: {
-    isLoaderVisible: true,
+    isLoaderVisible: false,
   },
   reducers: {
     toggleIsLoaderVisible(state, action) {
