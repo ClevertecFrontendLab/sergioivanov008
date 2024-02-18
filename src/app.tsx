@@ -14,13 +14,11 @@ export const App: React.FC = () => {
     return (
         <HistoryRouter history={history}>
             <Routes>
-                <Route path={ROUTE.INDEX} element={isAuth ? <Navigate to='/main' /> : <Navigate to='/auth' />} />
-                <Route path={ROUTE.MAIN} element={isAuth ? <MainPage /> : <Navigate to='/auth' />} />
-                <Route path={ROUTE.AUTH} element={<AuthPage />} />
-                <Route path={ROUTE.REGISTRATION} element={<AuthPage />} />
-                <Route path={ROUTE.CONFIRM} element={<AuthPage />} />
-                <Route path={ROUTE.CHANGE_PASS} element={<AuthPage />} />
-                <Route path={ROUTE.WRONG} element={isAuth ? <Navigate to='/main' /> : <Navigate to='/auth' />} />
+                <Route path={ROUTE.INDEX} element={isAuth ? <Navigate to={ROUTE.MAIN} /> : <Navigate to={ROUTE.AUTH} />} />
+                <Route path={ROUTE.MAIN} element={isAuth ? <MainPage /> : <Navigate to={ROUTE.AUTH} />} />
+                <Route path={ROUTE.AUTH} element={<AuthPage isAuth={true} />} />
+                <Route path={ROUTE.REGISTRATION} element={<AuthPage isAuth={false} />} />
+                <Route path={ROUTE.WRONG} element={isAuth ? <Navigate to={ROUTE.MAIN} /> : <Navigate to={ROUTE.AUTH} />} />
             </Routes>
         </HistoryRouter>
     );

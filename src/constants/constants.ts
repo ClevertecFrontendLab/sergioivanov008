@@ -31,3 +31,14 @@ export const ROUTE = {
     CHANGE_PASS: '/auth/change-password',
     WRONG: '/*',
 }
+
+export const FORM_TEXT = {
+    AUTH: 'Вход',
+    REGISTRATION: 'Регистрация',
+    REMEMBER: 'Запомнить меня',
+    FORGOT: 'Забыли пароль?',
+    ENTER: 'Войти',
+    ENTER_GOOGLE: 'Войти через Google',
+    RULE_PASS: 'Пароль не менее 8 символов, с заглавной буквой и цифрой',
+    PLACE_PASS: 'Пароль',
+}
