@@ -7,18 +7,17 @@ import { toggleBodyNotScrollable } from '@utils/utils';
 
 export const Loader: React.FC = () => {
     const isLoaderVisible = useAppSelector(state => state.loaders.isLoaderVisible);
-    const loaderClass = `loader ${isLoaderVisible ? 'show' : ''}`;
 
     toggleBodyNotScrollable(isLoaderVisible);
 
     return (
-        <div className={loaderClass}>
+        isLoaderVisible && (<div className='loader'>
             <Lottie
                 loop
                 animationData={lottieJson}
                 play
                 className={'loader-element'}
             />
-        </div>
+        </div>)
     );
 };

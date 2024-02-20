@@ -30,6 +30,11 @@ export const ROUTE = {
     CONFIRM: '/auth/confirm-email',
     CHANGE_PASS: '/auth/change-password',
     WRONG: '/*',
+    ROUTE_RESULT: '/result/:result',
+    RES: '/result',
+    RES_OK: '/success',
+    RES_ERROR_409: '/error-user-exist',
+    RES_ERROR: '/error',
 }
 
 export const FORM_TEXT = {
@@ -50,3 +55,9 @@ export const REGEXP = {
     hasUpperLetter: /[A-ZА-Я]+/,
     isEmailValid: /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
 }
+
+export const API = {
+    host: 'https://marathon-api.clevertec.ru',
+    url_auth: '/auth/login',
+    url_registration: '/auth/registration',
+};

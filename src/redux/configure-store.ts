@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import asideReducer from './slices/aside-slice';
 import authReducer from './slices/auth-slice';
 import loadersReducer from './slices/loaders-slice';
+import { apiRegistrationReducer } from './slices/api-registration-slice';
 import { createReduxHistoryContext } from 'redux-first-history';
 import { createBrowserHistory } from 'history';
 import createSagaMiddleware from 'redux-saga';
@@ -21,6 +22,7 @@ export const store = configureStore({
         auth: authReducer,
         loaders: loadersReducer,
         router: routerReducer,
+        apiRegistration: apiRegistrationReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(routerMiddleware).concat(saga),
 });

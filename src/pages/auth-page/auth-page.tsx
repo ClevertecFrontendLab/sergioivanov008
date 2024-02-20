@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import './auth-page.css';
-import { useNavigate } from 'react-router-dom';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, GooglePlusOutlined } from '@ant-design/icons';
 import { FORM_TEXT, REGEXP, ROUTE } from '@constants/constants';
@@ -11,11 +10,10 @@ import {
     setIsConfirmPasswordValid, setIsEmailValid,
     setIsPasswordValid, setPassword,
     setRememberMe } from '@redux/slices/auth-slice';
-
-
-type AuthPageProps = {
-    isThisAuthPage: boolean,
-}
+import { toggleIsLoaderVisible } from '@redux/slices/loaders-slice';
+import { AuthPageProps } from '../../types/types';
+import { apiRegistrationActions } from '@redux/slices/api-registration-slice';
+import { push } from 'redux-first-history';
 
 export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     const dispatch = useAppDispatch()
@@ -27,7 +25,6 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     const isConfirmPasswordValid = useAppSelector(state => state.auth.isConfirmPasswordValid);
     const rememberMe = useAppSelector(state => state.auth.rememberMe);
 
-    const navigate = useNavigate();
     const [isAuthorization, setIsAuthorization ] = useState(isThisAuthPage);
     const [isCanSubmit, setIsCanSubmit ] = useState(false);
 
@@ -37,6 +34,16 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
         isConfirmPasswordValid: true,
         isNeedConfirmText: false
     });
+
+    const onFinish = () => {
+        if (isThisAuthPage) {
+            console.log('authorization')
+        } else {
+            const data = { registrationData: {email, password} };
+            dispatch(apiRegistrationActions.startIsLoadingRegistration(data));
+            dispatch(toggleIsLoaderVisible(true));
+        }
+    }
 
     useEffect(() => {
         if (isThisAuthPage) {
@@ -90,20 +97,12 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     }
 
     const btnAuthClick = () => {
-        navigate(ROUTE.AUTH);
+        dispatch(push(ROUTE.AUTH));
         setIsAuthorization(true);
     }
     const btnRegClick = () => {
-        navigate(ROUTE.REGISTRATION);
+        dispatch(push(ROUTE.REGISTRATION));
         setIsAuthorization(false);
-    }
-
-    const onFinish = () => {
-        if (isThisAuthPage) {
-            console.log('authorization')
-        } else {
-            console.log('regisration')
-        }
     }
 
     const btnAuthClass = `form-nav-btn ${isAuthorization ? 'active' : ''}`;
