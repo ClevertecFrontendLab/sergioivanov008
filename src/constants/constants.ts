@@ -40,5 +40,13 @@ export const FORM_TEXT = {
     ENTER: 'Войти',
     ENTER_GOOGLE: 'Войти через Google',
     RULE_PASS: 'Пароль не менее 8 символов, с заглавной буквой и цифрой',
+    RULE_CONFIRM: 'Пароли не совпадают',
     PLACE_PASS: 'Пароль',
+}
+
+export const REGEXP = {
+    hasDigit: /[0-9]+/,
+    hasLetter: /[a-zа-я]+/,
+    hasUpperLetter: /[A-ZА-Я]+/,
+    isEmailValid: /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
 }

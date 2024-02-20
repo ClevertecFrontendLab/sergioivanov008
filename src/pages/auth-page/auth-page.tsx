@@ -1,20 +1,93 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './auth-page.css';
 import { useNavigate } from 'react-router-dom';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, GooglePlusOutlined } from '@ant-design/icons';
-import { FORM_TEXT, ROUTE } from '@constants/constants';
+import { FORM_TEXT, REGEXP, ROUTE } from '@constants/constants';
+import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
+import {
+    setConfirmPassword, setEmail,
+    setIsConfirmPasswordValid, setIsEmailValid,
+    setIsPasswordValid, setPassword,
+    setRememberMe } from '@redux/slices/auth-slice';
+
 
 type AuthPageProps = {
-    isAuth: boolean,
+    isThisAuthPage: boolean,
 }
 
-export const AuthPage: React.FC<AuthPageProps> = ({ isAuth }) => {
+export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
+    const dispatch = useAppDispatch()
+    const email = useAppSelector(state => state.auth.email);
+    const isEmailValid = useAppSelector(state => state.auth.isEmailValid);
+    const password = useAppSelector(state => state.auth.password);
+    const isPasswordValid = useAppSelector(state => state.auth.isPasswordValid);
+    const confirmPassword = useAppSelector(state => state.auth.confirmPassword);
+    const isConfirmPasswordValid = useAppSelector(state => state.auth.isConfirmPasswordValid);
+    const rememberMe = useAppSelector(state => state.auth.rememberMe);
+
     const navigate = useNavigate();
-    const [isAuthorization, setIsAuthorization ] = useState(isAuth);
-    const btnAuthClass = `form-nav-btn ${isAuthorization ? 'active' : ''}`;
-    const btnRegClass = `form-nav-btn ${isAuthorization ? '' : 'active'}`;
+    const [isAuthorization, setIsAuthorization ] = useState(isThisAuthPage);
+    const [isCanSubmit, setIsCanSubmit ] = useState(false);
+
+    const [curValidateStatus, setCurValidateStatus] = useState({
+        isEmailValid: true,
+        isPasswordValid: true,
+        isConfirmPasswordValid: true,
+        isNeedConfirmText: false
+    });
+
+    useEffect(() => {
+        if (isThisAuthPage) {
+            setIsCanSubmit(isEmailValid && isPasswordValid);
+        } else {
+            setIsCanSubmit(isEmailValid && isPasswordValid && isConfirmPasswordValid);
+        }
+    }, [isThisAuthPage, isConfirmPasswordValid, isEmailValid, isPasswordValid]);
+
+    const checkConfirmPassword = (v: string) => {
+        dispatch(setIsConfirmPasswordValid(v === password));
+        setCurValidateStatus({...curValidateStatus, isConfirmPasswordValid: v === password});
+    }
+
+    const checkPassword = (v: string) => {
+        const isLenPassValid = v.length >= 8;
+        const isDigitPassValid = REGEXP.hasDigit.test(v);
+        const isLetterPassValid = REGEXP.hasLetter.test(v);
+        const isUpperLetterPassValid = REGEXP.hasUpperLetter.test(v);
+        const isPasswordValid = isLenPassValid && isDigitPassValid && isLetterPassValid && isUpperLetterPassValid;
+        dispatch(setIsPasswordValid(isPasswordValid));
+        setCurValidateStatus({...curValidateStatus, isPasswordValid: isPasswordValid});
+    }
+
+    const checkEmail = (v: string) => {
+        const isEmailValid = REGEXP.isEmailValid.test(v);
+        dispatch(setIsEmailValid(isEmailValid));
+        setCurValidateStatus({...curValidateStatus, isEmailValid: isEmailValid});
+    }
+
+    const handleConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        dispatch(setConfirmPassword(value));
+        checkConfirmPassword(value);
+    }
+
+    const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        dispatch(setPassword(value));
+        checkPassword(value);
+    }
+
+    const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        dispatch(setEmail(value));
+        checkEmail(value);
+    }
+
+    const handleCheckbox = () => {
+        dispatch(setRememberMe(!rememberMe));
+    }
 
     const btnAuthClick = () => {
         navigate(ROUTE.AUTH);
@@ -26,8 +99,15 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isAuth }) => {
     }
 
     const onFinish = () => {
-        console.log('onFinish()')
+        if (isThisAuthPage) {
+            console.log('authorization')
+        } else {
+            console.log('regisration')
+        }
     }
+
+    const btnAuthClass = `form-nav-btn ${isAuthorization ? 'active' : ''}`;
+    const btnRegClass = `form-nav-btn ${isAuthorization ? '' : 'active'}`;
 
     return (
         <div className='auth-page'>
@@ -57,41 +137,67 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isAuth }) => {
                         <div className="class109">
                             <Form.Item
                                 name="email"
-                                rules={[{ required: true, message: 'Please input your Username!' }]}
+                                validateStatus={curValidateStatus.isEmailValid ? "success" : "error"}
                             >
                                 <Input
                                     className='class110'
                                     addonBefore="e-mail"
+                                    value={email}
+                                    onChange={handleEmail}
                                 />
                             </Form.Item>
                             <Form.Item
                                 name="password"
-                                rules={[{ required: true, message: FORM_TEXT.RULE_PASS }]}
+                                validateStatus={curValidateStatus.isPasswordValid ? "success" : "error"}
+                                help={!isThisAuthPage &&
+                                    <div className={`class113 ${curValidateStatus.isPasswordValid ? '' : 'red'}`}>
+                                        {FORM_TEXT.RULE_PASS}
+                                    </div>}
                             >
                                 <Input.Password
                                     className='class110'
                                     iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                                     placeholder={FORM_TEXT.PLACE_PASS}
+                                    value={password}
+                                    onChange={handlePassword}
                                 />
                             </Form.Item>
                             {!isAuthorization &&
                                 <Form.Item
-                                    name="confirm"
-                                    rules={[{ required: true, message: FORM_TEXT.RULE_PASS }]}
+                                    name="confirmPassword"
                                     style={{marginTop: '14px'}}
+                                    validateStatus={curValidateStatus.isConfirmPasswordValid ? "success" : "error"}
+                                    help={!isThisAuthPage
+                                            && curValidateStatus.isNeedConfirmText
+                                            && !curValidateStatus.isConfirmPasswordValid
+                                                ? ( <div className={`class113 red`}>
+                                                        {FORM_TEXT.RULE_CONFIRM}
+                                                    </div>)
+                                                : ''}
                                 >
                                     <Input.Password
                                         className='class110'
                                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                                         placeholder={FORM_TEXT.PLACE_PASS}
+                                        value={confirmPassword}
+                                        onChange={handleConfirmPassword}
                                     />
                                 </Form.Item>
                             }
                         </div>
                         {isAuthorization &&
                             <div className='class111'>
-                                <Form.Item name="remember" valuePropName="checked" noStyle>
-                                    <Checkbox>{FORM_TEXT.REMEMBER}</Checkbox>
+                                <Form.Item
+                                    name="remember"
+                                    valuePropName="checked"
+                                    noStyle
+                                >
+                                    <Checkbox
+                                        value={rememberMe}
+                                        onChange={handleCheckbox}
+                                    >
+                                        {FORM_TEXT.REMEMBER}
+                                    </Checkbox>
                                 </Form.Item>
                                 <a className="login-form-forgot" href="">
                                     {FORM_TEXT.FORGOT}
@@ -103,6 +209,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isAuth }) => {
                                 type="primary"
                                 htmlType="submit"
                                 className="login-form-button"
+                                disabled={!isCanSubmit}
                             >
                                 {FORM_TEXT.ENTER}
                             </Button>

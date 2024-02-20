@@ -95,6 +95,17 @@
     flex-direction: column;
     gap: 16px;
 }
+.class113 {
+    margin-top: 2px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12.7px;
+    line-height: 130%;
+    color: var(--character-light-secondary-45);
+}
+.class113.red {
+    color: var(--character-light-error);
+}
 .login-form-button {
     height: 40px;
 }
