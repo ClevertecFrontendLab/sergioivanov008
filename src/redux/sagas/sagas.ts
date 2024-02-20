@@ -7,8 +7,11 @@ import { userRegistration } from "../../../src/api/api";
 import { AxiosError } from "axios";
 import { push } from "redux-first-history";
 import { ROUTE } from "@constants/constants";
+import { authActions } from "@redux/slices/auth-slice";
 
 function* workRegistrationUserSaga(action: PayloadAction<{ registrationData: RegistrationData }>) {
+    yield put(authActions.setCanResultPage(true));
+
     try {
         yield call(userRegistration, action.payload.registrationData);
         yield put(apiRegistrationActions.setIsRegistrationOk());

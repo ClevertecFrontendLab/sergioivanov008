@@ -5,15 +5,12 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, GooglePlusOutlined } from '@ant-design/icons';
 import { FORM_TEXT, REGEXP, ROUTE } from '@constants/constants';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
-import {
-    setConfirmPassword, setEmail,
-    setIsConfirmPasswordValid, setIsEmailValid,
-    setIsPasswordValid, setPassword,
-    setRememberMe } from '@redux/slices/auth-slice';
+import { authActions } from '@redux/slices/auth-slice';
 import { toggleIsLoaderVisible } from '@redux/slices/loaders-slice';
 import { AuthPageProps } from '../../types/types';
 import { apiRegistrationActions } from '@redux/slices/api-registration-slice';
 import { push } from 'redux-first-history';
+
 
 export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     const dispatch = useAppDispatch()
@@ -54,7 +51,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     }, [isThisAuthPage, isConfirmPasswordValid, isEmailValid, isPasswordValid]);
 
     const checkConfirmPassword = (v: string) => {
-        dispatch(setIsConfirmPasswordValid(v === password));
+        dispatch(authActions.setIsConfirmPasswordValid(v === password));
         setCurValidateStatus({...curValidateStatus, isConfirmPasswordValid: v === password});
     }
 
@@ -64,36 +61,36 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
         const isLetterPassValid = REGEXP.hasLetter.test(v);
         const isUpperLetterPassValid = REGEXP.hasUpperLetter.test(v);
         const isPasswordValid = isLenPassValid && isDigitPassValid && isLetterPassValid && isUpperLetterPassValid;
-        dispatch(setIsPasswordValid(isPasswordValid));
+        dispatch(authActions.setIsPasswordValid(isPasswordValid));
         setCurValidateStatus({...curValidateStatus, isPasswordValid: isPasswordValid});
     }
 
     const checkEmail = (v: string) => {
         const isEmailValid = REGEXP.isEmailValid.test(v);
-        dispatch(setIsEmailValid(isEmailValid));
+        dispatch(authActions.setIsEmailValid(isEmailValid));
         setCurValidateStatus({...curValidateStatus, isEmailValid: isEmailValid});
     }
 
     const handleConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
-        dispatch(setConfirmPassword(value));
+        dispatch(authActions.setConfirmPassword(value));
         checkConfirmPassword(value);
     }
 
     const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
-        dispatch(setPassword(value));
+        dispatch(authActions.setPassword(value));
         checkPassword(value);
     }
 
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
-        dispatch(setEmail(value));
+        dispatch(authActions.setEmail(value));
         checkEmail(value);
     }
 
     const handleCheckbox = () => {
-        dispatch(setRememberMe(!rememberMe));
+        dispatch(authActions.setRememberMe(!rememberMe));
     }
 
     const btnAuthClick = () => {

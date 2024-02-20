@@ -11,6 +11,7 @@ export const authSlice = createSlice({
     confirmPassword: '',
     isConfirmPasswordValid: false,
     rememberMe: true,
+    canResultPage: false,
   },
   reducers: {
         toggleIsAuth(state, action) {
@@ -45,20 +46,11 @@ export const authSlice = createSlice({
         setRememberMe(state, action) {
             state.rememberMe = action.payload;
         },
+        setCanResultPage(state, action) {
+            state.canResultPage = action.payload;
+        }
     }
 });
 
-export const {
-    toggleIsAuth,
-    resetRegData,
-    setEmail,
-    setIsEmailValid,
-    setPassword,
-    setIsPasswordValid,
-    setConfirmPassword,
-    setIsConfirmPasswordValid,
-    setRememberMe,
-} = authSlice.actions;
-
-export default authSlice.reducer;
+export const { reducer: authReducer, actions: authActions } = authSlice;
 
