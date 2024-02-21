@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import asideReducer from './slices/aside-slice';
 import { authReducer } from './slices/auth-slice';
-import loadersReducer from './slices/loaders-slice';
+import { loadersReducer } from './slices/loaders-slice';
 import { apiRegistrationReducer } from './slices/api-registration-slice';
 import { createReduxHistoryContext } from 'redux-first-history';
 import { createBrowserHistory } from 'history';

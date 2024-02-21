@@ -6,11 +6,10 @@ import { EyeInvisibleOutlined, EyeTwoTone, GooglePlusOutlined } from '@ant-desig
 import { FORM_TEXT, REGEXP, ROUTE } from '@constants/constants';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { authActions } from '@redux/slices/auth-slice';
-import { toggleIsLoaderVisible } from '@redux/slices/loaders-slice';
+import { loadersActions } from '@redux/slices/loaders-slice';
 import { AuthPageProps } from '../../types/types';
 import { apiRegistrationActions } from '@redux/slices/api-registration-slice';
 import { push } from 'redux-first-history';
-
 
 export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     const dispatch = useAppDispatch()
@@ -37,8 +36,9 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
             console.log('authorization')
         } else {
             const data = { registrationData: {email, password} };
-            dispatch(apiRegistrationActions.startIsLoadingRegistration(data));
-            dispatch(toggleIsLoaderVisible(true));
+            dispatch(apiRegistrationActions.startRegistration(data));
+            dispatch(loadersActions.toggleIsLoaderVisible(true));
+            dispatch(authActions.resetRegData());
         }
     }
 

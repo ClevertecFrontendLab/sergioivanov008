@@ -12,9 +12,4 @@ export const loadersSlice = createSlice({
   }
 });
 
-export const {
-    toggleIsLoaderVisible,
-} = loadersSlice.actions;
-
-export default loadersSlice.reducer;
-
+export const { reducer: loadersReducer, actions: loadersActions } = loadersSlice;

@@ -2,7 +2,7 @@ import { apiRegistrationActions } from "@redux/slices/api-registration-slice";
 import { RegistrationData } from "../../types/types";
 import { all, call, put, takeEvery } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { toggleIsLoaderVisible } from "@redux/slices/loaders-slice";
+import { loadersActions } from "@redux/slices/loaders-slice";
 import { userRegistration } from "../../../src/api/api";
 import { AxiosError } from "axios";
 import { push } from "redux-first-history";
@@ -14,27 +14,25 @@ function* workRegistrationUserSaga(action: PayloadAction<{ registrationData: Reg
 
     try {
         yield call(userRegistration, action.payload.registrationData);
-        yield put(apiRegistrationActions.setIsRegistrationOk());
-        yield put(apiRegistrationActions.setRegistrationData(null));
+        yield put(apiRegistrationActions.resetRegistrationData());
         yield put(push(`${ROUTE.RES}${ROUTE.RES_OK}`));
-        yield put(toggleIsLoaderVisible(false));
+        yield put(loadersActions.toggleIsLoaderVisible(false));
     } catch (e: unknown) {
         const error = e as AxiosError;
 
-        yield put(toggleIsLoaderVisible(false));
+        yield put(loadersActions.toggleIsLoaderVisible(false));
 
         if (error?.response?.status === 409) {
-            yield put(apiRegistrationActions.setIsRegistrationError409());
+            yield put(apiRegistrationActions.resetRegistrationData());
             yield put(push(`${ROUTE.RES}${ROUTE.RES_ERROR_409}`));
         } else {
-            yield put(apiRegistrationActions.setIsRegistrationError());
             yield put(push(`${ROUTE.RES}${ROUTE.RES_ERROR}`));
         }
     }
 }
 
 function* watchRegistrationUserSaga() {
-    yield takeEvery(apiRegistrationActions.startIsLoadingRegistration, workRegistrationUserSaga);
+    yield takeEvery(apiRegistrationActions.startRegistration, workRegistrationUserSaga);
 }
 
 export function* rootSaga() {
