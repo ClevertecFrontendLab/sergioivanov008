@@ -1,6 +1,12 @@
 import axios from "axios";
-import { RegistrationData, RegistrationErrorResponse, RegistrationOkResponse } from "../types/types";
-import { API } from "@constants/constants";
+import {
+    LoginErrorResponse,
+    LoginOkResponse,
+    LoginRegistrationData,
+    RegistrationErrorResponse,
+    RegistrationOkResponse
+} from "../types/types";
+import { API, TOKEN } from "@constants/constants";
 
 const $api = axios.create({
     withCredentials: true,
@@ -15,7 +21,7 @@ const $apiBase = axios.create({
 $api.interceptors.request.use((config) => {
     const newConfig = config;
 
-    newConfig.headers.Authorization = `Bearer ${localStorage.getItem('cleverToken')}`;
+    newConfig.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN)}`;
 
     return newConfig;
 });
@@ -23,14 +29,21 @@ $api.interceptors.request.use((config) => {
 $api.interceptors.response.use((config) => {
     const newConfig = config;
 
-    newConfig.headers.Authorization = `Bearer ${localStorage.getItem('cleverToken')}`;
+    newConfig.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN)}`;
 
     return newConfig;
 });
 
-export async function userRegistration(data: RegistrationData): Promise<RegistrationOkResponse | RegistrationErrorResponse> {
+export async function userRegistration(data: LoginRegistrationData): Promise<RegistrationOkResponse | RegistrationErrorResponse> {
     const response = await $apiBase.post(API.url_registration, data);
     const outData = await response.data;
-    
+
+    return outData;
+}
+
+export async function userLogin(data: LoginRegistrationData): Promise<LoginOkResponse | LoginErrorResponse> {
+    const response = await $apiBase.post(API.url_login, data);
+    const outData = await response.data;
+
     return outData;
 }

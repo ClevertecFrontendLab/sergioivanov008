@@ -32,10 +32,11 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     });
 
     const onFinish = () => {
+        const data = { registrationData: {email, password} };
         if (isThisAuthPage) {
-            console.log('authorization')
+            dispatch(authActions.startLogin(data));
+            dispatch(loadersActions.toggleIsLoaderVisible(true));
         } else {
-            const data = { registrationData: {email, password} };
             dispatch(apiRegistrationActions.startRegistration(data));
             dispatch(loadersActions.toggleIsLoaderVisible(true));
             dispatch(authActions.resetRegData());

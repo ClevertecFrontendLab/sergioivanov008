@@ -18,8 +18,8 @@ export const App: React.FC = () => {
             <Routes>
                 <Route path={ROUTE.INDEX} element={isAuth ? <Navigate to={ROUTE.MAIN} /> : <Navigate to={ROUTE.AUTH} />} />
                 <Route path={ROUTE.MAIN} element={isAuth ? <MainPage /> : <Navigate to={ROUTE.AUTH} />} />
-                <Route path={ROUTE.AUTH} element={<AuthPage isThisAuthPage={true} />} />
-                <Route path={ROUTE.REGISTRATION} element={<AuthPage isThisAuthPage={false} />} />
+                <Route path={ROUTE.AUTH} element={isAuth ? <MainPage /> : <AuthPage isThisAuthPage={true} />} />
+                <Route path={ROUTE.REGISTRATION} element={isAuth ? <MainPage /> : <AuthPage isThisAuthPage={false} />} />
                 <Route path={ROUTE.ROUTE_RESULT} element={canResultPage ? <ResultPage /> : <Navigate to={ROUTE.INDEX} />} />
                 <Route path={ROUTE.WRONG} element={isAuth ? <Navigate to={ROUTE.MAIN} /> : <Navigate to={ROUTE.AUTH} />} />
             </Routes>

@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { RegistrationData } from '../../types/types';
+import { LoginRegistrationData } from '../../types/types';
 
 export type StateRegistrationData = {
-    registrationData: RegistrationData,
+    registrationData: LoginRegistrationData,
 };
 
 export type ApiRegistrationState = {
-    registrationData: null | RegistrationData,
+    registrationData: null | LoginRegistrationData,
 };
 
 const initialState: ApiRegistrationState = {

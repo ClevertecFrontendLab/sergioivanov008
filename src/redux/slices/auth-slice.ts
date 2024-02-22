@@ -1,9 +1,22 @@
+import { TOKEN } from '@constants/constants';
 import { createSlice } from '@reduxjs/toolkit'
+import { LoginRegistrationData } from '../../types/types';
 
-export const authSlice = createSlice({
-  name: 'auth',
-  initialState: {
-    isAuth: false,
+export type AuthState = {
+    isAuth: boolean,
+    email: string,
+    isEmailValid: boolean,
+    password: string,
+    isPasswordValid: boolean,
+    confirmPassword: string,
+    isConfirmPasswordValid: boolean,
+    rememberMe: boolean,
+    canResultPage: boolean,
+    loginData: null | LoginRegistrationData,
+};
+
+const initialState: AuthState = {
+    isAuth: localStorage.getItem(TOKEN) !== null,
     email: '',
     isEmailValid: false,
     password: '',
@@ -12,9 +25,14 @@ export const authSlice = createSlice({
     isConfirmPasswordValid: false,
     rememberMe: true,
     canResultPage: false,
-  },
+    loginData: null,
+};
+
+export const authSlice = createSlice({
+  name: 'auth',
+  initialState,
   reducers: {
-        toggleIsAuth(state, action) {
+        setIsAuth(state, action) {
             state.isAuth = action.payload;
         },
         resetRegData(state) {
@@ -48,7 +66,13 @@ export const authSlice = createSlice({
         },
         setCanResultPage(state, action) {
             state.canResultPage = action.payload;
-        }
+        },
+        startLogin(state, action) {
+            state.loginData = action.payload;
+        },
+        resetLoginData(state) {
+            state.loginData = null;
+        },
     }
 });
 

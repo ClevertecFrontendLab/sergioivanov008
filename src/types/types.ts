@@ -2,7 +2,7 @@ export type AuthPageProps = {
     isThisAuthPage: boolean,
 }
 
-export type RegistrationData = {
+export type LoginRegistrationData = {
     email: string,
     password: string
 }
@@ -23,3 +23,15 @@ export interface FormItems {
         btn: JSX.Element,
     }
 }
+
+export type LoginOkResponse = {
+    accessToken: string,
+}
+
+export type LoginErrorResponse = {
+    statusCode: number,
+    error: string,
+    message: string
+}
+
+export type LoginResponses = LoginOkResponse | LoginErrorResponse;

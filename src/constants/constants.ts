@@ -58,6 +58,8 @@ export const REGEXP = {
 
 export const API = {
     host: 'https://marathon-api.clevertec.ru',
-    url_auth: '/auth/login',
+    url_login: '/auth/login',
     url_registration: '/auth/registration',
-};
+}
+
+export const TOKEN = 'cleverFitToken';
