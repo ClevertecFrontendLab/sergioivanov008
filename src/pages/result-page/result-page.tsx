@@ -12,6 +12,7 @@ import { IconError } from '@components/icon-error';
 import { apiRegistrationActions } from '@redux/slices/api-registration-slice';
 import { loadersActions } from '@redux/slices/loaders-slice';
 import { authActions } from '@redux/slices/auth-slice';
+import { IconWarning } from '@components/icon-warning';
 
 export const ResultPage: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -30,7 +31,7 @@ export const ResultPage: React.FC = () => {
                     className='result-btn'
                     type="primary"
                     onClick={() => {
-                        dispatch(authActions.setCanResultPage(true));
+                        dispatch(authActions.setCanResultPage(false));
                         dispatch(push(ROUTE.AUTH));
                     }}
                 >
@@ -46,7 +47,7 @@ export const ResultPage: React.FC = () => {
                     className='result-btn'
                     type="primary"
                     onClick={() => {
-                        dispatch(authActions.setCanResultPage(true));
+                        dispatch(authActions.setCanResultPage(false));
                         dispatch(push(ROUTE.REGISTRATION));
                     }}
                 >
@@ -62,10 +63,26 @@ export const ResultPage: React.FC = () => {
                     className='result-btn'
                     type="primary"
                     onClick={() => {
-                        dispatch(authActions.setCanResultPage(true));
+                        dispatch(authActions.setCanResultPage(false));
                         dispatch(push(ROUTE.REGISTRATION));
                         dispatch(apiRegistrationActions.startRegistration(registrationData));
                         dispatch(loadersActions.toggleIsLoaderVisible(true));
+                    }}
+                >
+                    Повторить
+                </Button>
+        },
+        'error-login': {
+            icon: <div className="result-icon"><IconWarning /></div>,
+            title: <div className="result-text__title">Вход не выполнен</div>,
+            main: <div className="result-text__main">Что-то пошло не так.
+                Попробуйте еще раз</div>,
+            btn: <Button
+                    className='result-btn'
+                    type="primary"
+                    onClick={() => {
+                        dispatch(authActions.setCanResultPage(false));
+                        dispatch(push(ROUTE.AUTH));
                     }}
                 >
                     Повторить

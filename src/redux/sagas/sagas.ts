@@ -49,16 +49,9 @@ function* workLoginUserSaga(action: PayloadAction<{ registrationData: LoginRegis
         yield put(push(`${ROUTE.MAIN}`));
         yield put(loadersActions.toggleIsLoaderVisible(false));
     } catch (e: unknown) {
-        const error = e as AxiosError;
-        
+        yield put(authActions.resetLoginData());
+        yield put(push(`${ROUTE.RES}${ROUTE.RES_ERROR_LOGIN}`));
         yield put(loadersActions.toggleIsLoaderVisible(false));
-
-        // if (error?.response?.status === 409) {
-        //     yield put(apiRegistrationActions.resetRegistrationData());
-        //     yield put(push(`${ROUTE.RES}${ROUTE.RES_ERROR_409}`));
-        // } else {
-        //     yield put(push(`${ROUTE.RES}${ROUTE.RES_ERROR}`));
-        // }
     }
 }
 

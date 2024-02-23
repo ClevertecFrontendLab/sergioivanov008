@@ -35,6 +35,7 @@ export const ROUTE = {
     RES_OK: '/success',
     RES_ERROR_409: '/error-user-exist',
     RES_ERROR: '/error',
+    RES_ERROR_LOGIN: '/error-login',
 }
 
 export const FORM_TEXT = {
