@@ -31,6 +31,12 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
         isNeedConfirmText: false
     });
 
+    const isDiabledForgotPassBtn = isEmailValid ? false : true;
+
+    const handleForgotPass = () => {
+        console.log('handleForgotPass')
+    }
+    
     const onFinish = () => {
         const data = { registrationData: {email, password} };
         if (isThisAuthPage) {
@@ -196,9 +202,15 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                                         {FORM_TEXT.REMEMBER}
                                     </Checkbox>
                                 </Form.Item>
-                                <a className="login-form-forgot" href="">
+                                <Button
+                                    className="login-form-forgot"
+                                    type="text"
+                                    htmlType="button"
+                                    disabled={isDiabledForgotPassBtn}
+                                    onClick={handleForgotPass}
+                                >
                                     {FORM_TEXT.FORGOT}
-                                </a>
+                                </Button>
                             </div>
                         }
                         <div className="class112" style={{marginTop: `${isAuthorization ? '' : '38px'}`}}>
@@ -213,6 +225,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                             <Button
                                 className="login-form-button"
                                 icon={<GooglePlusOutlined />}
+                                style={{fontSize: '16px'}}
                             >
                                 {FORM_TEXT.ENTER_GOOGLE}
                             </Button>
