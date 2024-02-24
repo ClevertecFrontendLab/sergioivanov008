@@ -1,5 +1,8 @@
 import axios from "axios";
 import {
+    ConfirmPassData,
+    ConfirmPassErrorResponse,
+    ConfirmPassOkResponse,
     ForgotPassData,
     ForgotPassErrorResponse,
     ForgotPassOkResponse,
@@ -53,6 +56,13 @@ export async function userLogin(data: LoginRegistrationData): Promise<LoginOkRes
 
 export async function forgotPassword(data: ForgotPassData): Promise<ForgotPassOkResponse | ForgotPassErrorResponse> {
     const response = await $apiBase.post(API.url_check_email, data);
+    const outData = await response.data;
+
+    return outData;
+}
+
+export async function confirmPassword(data: ConfirmPassData): Promise<ConfirmPassOkResponse | ConfirmPassErrorResponse> {
+    const response = await $apiBase.post(API.url_confirm_email, data);
     const outData = await response.data;
 
     return outData;

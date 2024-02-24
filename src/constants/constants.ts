@@ -64,6 +64,7 @@ export const API = {
     url_login: '/auth/login',
     url_registration: '/auth/registration',
     url_check_email: '/auth/check-email',
+    url_confirm_email: '/auth/confirm-email',
 }
 
 export const API_MESSAGES = {

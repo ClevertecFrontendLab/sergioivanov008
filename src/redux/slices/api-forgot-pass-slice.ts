@@ -1,12 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ForgotPassData } from '../../types/types';
+import { ForgotPassData, ForgotPassOkResponse } from '../../types/types';
 
 export type ApiForgotPassState = {
     forgotPassData: null | ForgotPassData,
+    forgotPassOkResponse: null | ForgotPassOkResponse,
+    canConfirmPage: boolean,
 };
 
 const initialState: ApiForgotPassState = {
     forgotPassData: null,
+    forgotPassOkResponse: null,
+    canConfirmPage: false,
 };
 
 export const apiForgotPassSlice = createSlice({
@@ -15,10 +19,17 @@ export const apiForgotPassSlice = createSlice({
   reducers: {
     resetForgotPassData(state) {
         state.forgotPassData = null;
+        state.forgotPassOkResponse = null;
     },
     startForgotPass(state, action) {
         state.forgotPassData = action.payload;
     },
+    setForgotPassOkResponse(state, action) {
+        state.forgotPassOkResponse = action.payload;
+    },
+    setCanConfirmPage(state, action) {
+        state.canConfirmPage = action.payload;
+    }
   }
 });
 

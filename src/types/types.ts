@@ -11,6 +11,11 @@ export type ForgotPassData = {
     email: string,
 }
 
+export type ConfirmPassData = {
+    email: string,
+    code: string,
+}
+
 export type RegistrationOkResponse = Record<string, never>;
 
 export type RegistrationErrorResponse = {
@@ -44,6 +49,17 @@ export type ForgotPassOkResponse = {
 }
 
 export type ForgotPassErrorResponse = {
+    statusCode: number,
+    error: string,
+    message: string,
+}
+
+export type ConfirmPassOkResponse = {
+    email: string,
+    message: string,
+}
+
+export type ConfirmPassErrorResponse = {
     statusCode: number,
     error: string,
     message: string,
