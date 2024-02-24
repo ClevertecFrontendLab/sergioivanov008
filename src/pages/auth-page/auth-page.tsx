@@ -6,10 +6,10 @@ import { EyeInvisibleOutlined, EyeTwoTone, GooglePlusOutlined } from '@ant-desig
 import { FORM_TEXT, REGEXP, ROUTE } from '@constants/constants';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { authActions } from '@redux/slices/auth-slice';
-import { loadersActions } from '@redux/slices/loaders-slice';
 import { AuthPageProps } from '../../types/types';
 import { apiRegistrationActions } from '@redux/slices/api-registration-slice';
 import { push } from 'redux-first-history';
+import { apiForgotPassActions } from '@redux/slices/api-forgot-pass-slice';
 
 export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     const dispatch = useAppDispatch()
@@ -34,17 +34,15 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     const isDiabledForgotPassBtn = isEmailValid ? false : true;
 
     const handleForgotPass = () => {
-        console.log('handleForgotPass')
+        dispatch(apiForgotPassActions.startForgotPass({forgotPassData: {email: email}}));
     }
-    
+
     const onFinish = () => {
         const data = { registrationData: {email, password} };
         if (isThisAuthPage) {
             dispatch(authActions.startLogin(data));
-            dispatch(loadersActions.toggleIsLoaderVisible(true));
         } else {
             dispatch(apiRegistrationActions.startRegistration(data));
-            dispatch(loadersActions.toggleIsLoaderVisible(true));
             dispatch(authActions.resetRegData());
         }
     }

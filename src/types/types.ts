@@ -7,6 +7,10 @@ export type LoginRegistrationData = {
     password: string
 }
 
+export type ForgotPassData = {
+    email: string,
+}
+
 export type RegistrationOkResponse = Record<string, never>;
 
 export type RegistrationErrorResponse = {
@@ -34,4 +38,13 @@ export type LoginErrorResponse = {
     message: string
 }
 
-export type LoginResponses = LoginOkResponse | LoginErrorResponse;
+export type ForgotPassOkResponse = {
+    email: string,
+    message: string,
+}
+
+export type ForgotPassErrorResponse = {
+    statusCode: number,
+    error: string,
+    message: string,
+}

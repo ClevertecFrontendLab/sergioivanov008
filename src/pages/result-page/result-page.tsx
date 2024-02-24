@@ -10,13 +10,15 @@ import { push } from 'redux-first-history';
 import { FormItems } from '../../types/types';
 import { IconError } from '@components/icon-error';
 import { apiRegistrationActions } from '@redux/slices/api-registration-slice';
-import { loadersActions } from '@redux/slices/loaders-slice';
 import { authActions } from '@redux/slices/auth-slice';
 import { IconWarning } from '@components/icon-warning';
+import { apiForgotPassActions } from '@redux/slices/api-forgot-pass-slice';
+import { IconWrong } from '@components/icon-wrong';
 
 export const ResultPage: React.FC = () => {
     const dispatch = useAppDispatch();
     const registrationData = useAppSelector(state => state.apiRegistration.registrationData);
+    const forgotPassData = useAppSelector(state => state.apiForgotPass.forgotPassData);
 
     const params = useParams();
     const curItem = params?.result as string;
@@ -66,7 +68,6 @@ export const ResultPage: React.FC = () => {
                         dispatch(authActions.setCanResultPage(false));
                         dispatch(push(ROUTE.REGISTRATION));
                         dispatch(apiRegistrationActions.startRegistration(registrationData));
-                        dispatch(loadersActions.toggleIsLoaderVisible(true));
                     }}
                 >
                     Повторить
@@ -86,6 +87,39 @@ export const ResultPage: React.FC = () => {
                     }}
                 >
                     Повторить
+                </Button>
+        },
+        'error-check-email-no-exist': {
+            icon: <div className="result-icon"><IconError /></div>,
+            title: <div className="result-text__title">Такой e-mail не зарегистрирован</div>,
+            main: <div className="result-text__main">Мы не нашли в базе вашего e-mail.
+                Попробуйте войти с другим e-mail.</div>,
+            btn: <Button
+                    className='result-btn'
+                    type="primary"
+                    onClick={() => {
+                        dispatch(authActions.setCanResultPage(false));
+                        dispatch(push(ROUTE.AUTH));
+                    }}
+                >
+                    Попробовать снова
+                </Button>
+        },
+        'error-check-email': {
+            icon: <div className="result-icon"><IconWrong /></div>,
+            title: <div className="result-text__title">Что-то пошло не так</div>,
+            main: <div className="result-text__main">Произошла ошибка,
+                попробуйте отправить форму ещё раз.</div>,
+            btn: <Button
+                    className='result-btn'
+                    type="primary"
+                    onClick={() => {
+                        dispatch(authActions.setCanResultPage(false));
+                        dispatch(push(ROUTE.AUTH));
+                        dispatch(apiForgotPassActions.startForgotPass(forgotPassData));
+                    }}
+                >
+                    Назад
                 </Button>
         },
     }

@@ -36,6 +36,8 @@ export const ROUTE = {
     RES_ERROR_409: '/error-user-exist',
     RES_ERROR: '/error',
     RES_ERROR_LOGIN: '/error-login',
+    RES_FORGOT_ERROR_404: '/error-check-email-no-exist',
+    RES_FORGOT_ERROR: '/error-check-email',
 }
 
 export const FORM_TEXT = {
@@ -61,6 +63,11 @@ export const API = {
     host: 'https://marathon-api.clevertec.ru',
     url_login: '/auth/login',
     url_registration: '/auth/registration',
+    url_check_email: '/auth/check-email',
+}
+
+export const API_MESSAGES = {
+    EMAIL_NOT_FOUND: 'Email не найден',
 }
 
 export const TOKEN = 'cleverFitToken';
