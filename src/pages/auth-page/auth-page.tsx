@@ -32,10 +32,20 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
         isNeedConfirmText: false
     });
 
-    const isDiabledForgotPassBtn = isEmailValid ? false : true;
+    const [isDiabledForgotPassBtn, setIsDiabledForgotPassBtn] = useState(false);
+
+    useEffect(() => {
+        if (email.length > 0 && isEmailValid) {
+            setIsDiabledForgotPassBtn(false);
+        }
+    }, [email, isEmailValid]);
 
     const handleForgotPass = () => {
-        dispatch(apiForgotPassActions.startForgotPass({forgotPassData: {email: email}}));
+        if (isEmailValid) {
+            dispatch(apiForgotPassActions.startForgotPass({forgotPassData: {email: email}}));
+        } else {
+            setIsDiabledForgotPassBtn(true);
+        }
     }
 
     const onFinish = () => {
@@ -66,7 +76,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                 setIsCanSubmit(true);
             }
         }
-    }, [isThisAuthPage, isEmailValid, password.length]);
+    }, [isThisAuthPage, isEmailValid, password]);
 
     const checkConfirmPassword = (v: string) => {
         dispatch(authActions.setIsConfirmPasswordValid(v === password));
