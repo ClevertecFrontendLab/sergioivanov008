@@ -41,10 +41,14 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     const onFinish = () => {
         const data = { registrationData: {email, password} };
         if (isThisAuthPage) {
-            dispatch(authActions.startLogin(data));
+            if (isEmailValid && isPasswordValid) {
+                dispatch(authActions.startLogin(data));
+            }
         } else {
-            dispatch(apiRegistrationActions.startRegistration(data));
-            dispatch(authActions.resetRegData());
+            if (isEmailValid && isPasswordValid && isConfirmPasswordValid) {
+                dispatch(apiRegistrationActions.startRegistration(data));
+                dispatch(authActions.resetRegData());
+            }
         }
     }
 
@@ -55,6 +59,14 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
             setIsCanSubmit(isEmailValid && isPasswordValid && isConfirmPasswordValid);
         }
     }, [isThisAuthPage, isConfirmPasswordValid, isEmailValid, isPasswordValid]);
+
+    useEffect(() => {
+        if (isThisAuthPage) {
+            if (isEmailValid && password.length > 0) {
+                setIsCanSubmit(true);
+            }
+        }
+    }, [isThisAuthPage, isEmailValid, password.length]);
 
     const checkConfirmPassword = (v: string) => {
         dispatch(authActions.setIsConfirmPasswordValid(v === password));
