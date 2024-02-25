@@ -1,5 +1,5 @@
 .loader {
-    display: block;
+    display: none;
 
     position: fixed;
     top: 0px;
@@ -11,6 +11,9 @@
 
     background: url(../assets/svgs/background_light.svg);
     backdrop-filter: blur(6px);
+}
+.loader.show {
+    display: block;
 }
 .loader-element {
     position: relative;

@@ -10,16 +10,16 @@ export const Loader: React.FC = () => {
 
     toggleBodyNotScrollable(isLoaderVisible);
 
+    const losderStyle = `loader ${isLoaderVisible ? 'show' : ''}`;
+
     return (
-        isLoaderVisible && (
-            <div className='loader' data-test-id='loader'>
-                <Lottie
-                    loop
-                    animationData={lottieJson}
-                    play
-                    className={'loader-element'}
-                />
-            </div>
-        )
+        <div className={losderStyle} data-test-id='loader'>
+            <Lottie
+                loop
+                animationData={lottieJson}
+                play
+                className={'loader-element'}
+            />
+        </div>
     );
 };
