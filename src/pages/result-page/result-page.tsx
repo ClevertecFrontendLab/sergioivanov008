@@ -37,6 +37,7 @@ export const ResultPage: React.FC = () => {
                         dispatch(authActions.setCanResultPage(false));
                         dispatch(push(ROUTE.AUTH));
                     }}
+                    data-test-id='registration-enter-button'
                 >
                     Войти
                 </Button>
@@ -53,6 +54,7 @@ export const ResultPage: React.FC = () => {
                         dispatch(authActions.setCanResultPage(false));
                         dispatch(push(ROUTE.REGISTRATION));
                     }}
+                    data-test-id='registration-back-button'
                 >
                     Назад к регистрации
                 </Button>
@@ -70,6 +72,7 @@ export const ResultPage: React.FC = () => {
                         dispatch(push(ROUTE.REGISTRATION));
                         dispatch(apiRegistrationActions.startRegistration(registrationData));
                     }}
+                    data-test-id='registration-retry-button'
                 >
                     Повторить
                 </Button>
@@ -86,6 +89,7 @@ export const ResultPage: React.FC = () => {
                         dispatch(authActions.setCanResultPage(false));
                         dispatch(push(ROUTE.AUTH));
                     }}
+                    data-test-id='login-retry-button'
                 >
                     Повторить
                 </Button>
@@ -102,6 +106,7 @@ export const ResultPage: React.FC = () => {
                         dispatch(authActions.setCanResultPage(false));
                         dispatch(push(ROUTE.AUTH));
                     }}
+                    data-test-id='check-retry-button'
                 >
                     Попробовать снова
                 </Button>
@@ -119,6 +124,7 @@ export const ResultPage: React.FC = () => {
                         dispatch(push(ROUTE.AUTH));
                         dispatch(apiForgotPassActions.startForgotPass(forgotPassData));
                     }}
+                    data-test-id='check-back-button'
                 >
                     Назад
                 </Button>
@@ -136,6 +142,7 @@ export const ResultPage: React.FC = () => {
                         dispatch(push(ROUTE.CHANGE_PASS));
                         dispatch(authActions.startChangePass(changePassData));
                     }}
+                    data-test-id='change-retry-button'
                 >
                     Повторить
                 </Button>
@@ -152,6 +159,7 @@ export const ResultPage: React.FC = () => {
                         dispatch(authActions.setCanResultPage(false));
                         dispatch(push(ROUTE.AUTH));
                     }}
+                    data-test-id='change-entry-button'
                 >
                     Вход
                 </Button>

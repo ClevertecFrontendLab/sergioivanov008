@@ -20,7 +20,7 @@ export const ConfirmPage: React.FC = () => {
                 code: value,
             }
         };
-        
+
         dispatch(apiConfirmPassActions.startConfirmPass(data));
     }
 
@@ -52,6 +52,9 @@ export const ConfirmPage: React.FC = () => {
                             dispatch(apiConfirmPassActions.setConfirmInputValue(value));
                             handleCompleteCode(value)}
                         }
+                        inputProps={{
+                            "data-test-id": "verification-input"
+                        }}
                     />
                     <div className="result-text__main">Не пришло письмо? Проверьте папку Спам.</div>
                 </div>

@@ -79,6 +79,7 @@ export const ChangePassPage: React.FC = () => {
                                     placeholder={FORM_TEXT.PLACE_NEW_PASS}
                                     value={password}
                                     onChange={handlePassword}
+                                    data-test-id='change-password'
                                 />
                             </Form.Item>
                             <Form.Item
@@ -96,6 +97,7 @@ export const ChangePassPage: React.FC = () => {
                                     placeholder={FORM_TEXT.PLACE_REPEAT_PASS}
                                     value={confirmPassword}
                                     onChange={handleConfirmPassword}
+                                    data-test-id='change-confirm-password'
                                 />
                             </Form.Item>
                         </div>
@@ -105,6 +107,7 @@ export const ChangePassPage: React.FC = () => {
                                 htmlType="submit"
                                 className="login-form-button"
                                 disabled={!isCanSubmit}
+                                data-test-id='change-submit-button'
                             >
                                 Сохранить
                             </Button>

@@ -1,10 +1,8 @@
 import { apiRegistrationActions } from "@redux/slices/api-registration-slice";
 import {
     ChangePassData,
-    ChangePassErrorResponse,
     ChangePassOkResponse,
     ConfirmPassData,
-    ConfirmPassErrorResponse,
     ConfirmPassOkResponse,
     ForgotPassData,
     ForgotPassErrorResponse,

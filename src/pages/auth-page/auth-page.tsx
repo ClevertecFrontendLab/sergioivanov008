@@ -99,7 +99,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
         dispatch(push(ROUTE.AUTH));
         setIsAuthorization(true);
     }
-    
+
     const btnRegClick = () => {
         dispatch(push(ROUTE.REGISTRATION));
         setIsAuthorization(false);
@@ -143,6 +143,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                                     addonBefore="e-mail"
                                     value={email}
                                     onChange={handleEmail}
+                                    data-test-id={isAuthorization ? 'login-email' : 'registration-email'}
                                 />
                             </Form.Item>
                             <Form.Item
@@ -159,6 +160,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                                     placeholder={FORM_TEXT.PLACE_PASS}
                                     value={password}
                                     onChange={handlePassword}
+                                    data-test-id={isAuthorization ? 'login-password' : 'registration-password'}
                                 />
                             </Form.Item>
                             {!isAuthorization &&
@@ -180,6 +182,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                                         placeholder={FORM_TEXT.PLACE_PASS}
                                         value={confirmPassword}
                                         onChange={handleConfirmPassword}
+                                        data-test-id='registration-confirm-password'
                                     />
                                 </Form.Item>
                             }
@@ -194,6 +197,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                                     <Checkbox
                                         value={rememberMe}
                                         onChange={handleCheckbox}
+                                        data-test-id='login-remember'
                                     >
                                         {FORM_TEXT.REMEMBER}
                                     </Checkbox>
@@ -204,6 +208,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                                     htmlType="button"
                                     disabled={isDiabledForgotPassBtn}
                                     onClick={handleForgotPass}
+                                    data-test-id='login-forgot-button'
                                 >
                                     {FORM_TEXT.FORGOT}
                                 </Button>
@@ -215,6 +220,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                                 htmlType="submit"
                                 className="login-form-button"
                                 disabled={!isCanSubmit}
+                                data-test-id={isAuthorization ? 'login-submit-button' : 'registration-submit-button'}
                             >
                                 {FORM_TEXT.ENTER}
                             </Button>
