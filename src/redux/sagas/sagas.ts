@@ -1,9 +1,25 @@
 import { apiRegistrationActions } from "@redux/slices/api-registration-slice";
-import { ConfirmPassData, ConfirmPassErrorResponse, ConfirmPassOkResponse, ForgotPassData, ForgotPassErrorResponse, ForgotPassOkResponse, LoginOkResponse, LoginRegistrationData } from "../../types/types";
+import {
+    ChangePassData,
+    ChangePassErrorResponse,
+    ChangePassOkResponse,
+    ConfirmPassData,
+    ConfirmPassErrorResponse,
+    ConfirmPassOkResponse,
+    ForgotPassData,
+    ForgotPassErrorResponse,
+    ForgotPassOkResponse,
+    LoginOkResponse,
+    LoginRegistrationData } from "../../types/types";
 import { all, call, put, select, takeEvery } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { loadersActions } from "@redux/slices/loaders-slice";
-import { confirmPassword, forgotPassword, userLogin, userRegistration } from "../../../src/api/api";
+import {
+    changePassword,
+    confirmPassword,
+    forgotPassword,
+    userLogin,
+    userRegistration } from "../../../src/api/api";
 import { AxiosError } from "axios";
 import { push } from "redux-first-history";
 import { API_MESSAGES, ROUTE, TOKEN } from "@constants/constants";
@@ -50,10 +66,13 @@ function* workLoginUserSaga(action: PayloadAction<{ registrationData: LoginRegis
         const isRememberMe: boolean = yield select(rememberMe);
         if (isRememberMe) localStorage.setItem(TOKEN, response.accessToken);
         yield put(authActions.resetLoginData());
+        yield put(authActions.resetRegData());
+        yield put(authActions.setCanResultPage(false));
         yield put(push(`${ROUTE.MAIN}`));
         yield put(loadersActions.toggleIsLoaderVisible(false));
     } catch (e: unknown) {
         yield put(authActions.resetLoginData());
+        yield put(authActions.resetRegData());
         yield put(push(`${ROUTE.RES}${ROUTE.RES_ERROR_LOGIN}`));
         yield put(loadersActions.toggleIsLoaderVisible(false));
     }
@@ -69,12 +88,12 @@ function* workForgotPassSaga(action: PayloadAction<{ forgotPassData: ForgotPassD
     yield put(apiRegistrationActions.resetRegistrationData());
     yield put(authActions.resetRegData());
     yield put(authActions.resetLoginData());
+    yield put(apiForgotPassActions.resetForgotPassData());
     yield put(apiForgotPassActions.setCanConfirmPage(true));
 
     try {
         const response: ForgotPassOkResponse = yield call(forgotPassword, action.payload.forgotPassData);
         yield put(apiForgotPassActions.setForgotPassOkResponse(response));
-        console.log('response: ', response)
 
         yield put(push(`${ROUTE.CONFIRM}`));
         yield put(loadersActions.toggleIsLoaderVisible(false));
@@ -86,13 +105,11 @@ function* workForgotPassSaga(action: PayloadAction<{ forgotPassData: ForgotPassD
 
         if (error?.response?.status === 404) {
             if (errorResponseData.message === API_MESSAGES.EMAIL_NOT_FOUND) {
-                yield put(apiForgotPassActions.resetForgotPassData());
                 yield put(push(`${ROUTE.RES}${ROUTE.RES_FORGOT_ERROR_404}`));
             } else {
                 yield put(push(`${ROUTE.RES}${ROUTE.RES_FORGOT_ERROR}`));
             }
         } else {
-            console.log('errorResponseData: ', errorResponseData)
             yield put(push(`${ROUTE.RES}${ROUTE.RES_FORGOT_ERROR}`));
         }
     }
@@ -103,25 +120,21 @@ function* watchForgotPassSaga() {
 }
 
 function* workConfirmPassSaga(action: PayloadAction<{ confirmPassData: ConfirmPassData }>) {
-    yield console.log('action: ', action)
     yield put(loadersActions.toggleIsLoaderVisible(true));
-    // yield put(authActions.setCanResultPage(true));
-    // yield put(apiRegistrationActions.resetRegistrationData());
-    // yield put(authActions.resetRegData());
-    // yield put(authActions.resetLoginData());
-    // yield put(apiForgotPassActions.setCanConfirmPage(true));
+    yield put(authActions.setCanResultPage(true));
+    yield put(apiRegistrationActions.resetRegistrationData());
+    yield put(authActions.resetRegData());
+    yield put(authActions.resetLoginData());
+    yield put(apiForgotPassActions.resetForgotPassData());
+    yield put(apiForgotPassActions.setCanConfirmPage(true));
 
     try {
         const response: ConfirmPassOkResponse = yield call(confirmPassword, action.payload.confirmPassData);
-        // yield put(apiForgotPassActions.setForgotPassOkResponse(response));
-        console.log('response: ', response)
+        yield put(apiForgotPassActions.setForgotPassOkResponse(response));
 
-        yield put(push(`${ROUTE.CHANGE_PASS}`));//!
+        yield put(push(`${ROUTE.CHANGE_PASS}`));
         yield put(loadersActions.toggleIsLoaderVisible(false));
     } catch (e: unknown) {
-        const error = e as AxiosError;
-        const errorResponseData  = error?.response?.data as ConfirmPassErrorResponse;
-        console.log('errorResponseData: ', errorResponseData)
         yield put(apiConfirmPassActions.resetConfirmPassState());
         yield put(apiConfirmPassActions.setIsErrorConfirmCode(true));
         yield put(loadersActions.toggleIsLoaderVisible(false));
@@ -132,11 +145,37 @@ function* watchConfirmPassSaga() {
     yield takeEvery(apiConfirmPassActions.startConfirmPass, workConfirmPassSaga);
 }
 
+function* workChangePassSaga(action: PayloadAction<{ changePassData: ChangePassData }>) {
+    yield put(loadersActions.toggleIsLoaderVisible(true));
+    yield put(authActions.setCanResultPage(true));
+    yield put(apiRegistrationActions.resetRegistrationData());
+    yield put(authActions.resetRegData());
+    yield put(authActions.resetLoginData());
+    yield put(apiForgotPassActions.resetForgotPassData());
+    yield put(apiForgotPassActions.setCanConfirmPage(true));
+
+    try {
+        const response: ChangePassOkResponse = yield call(changePassword, action.payload.changePassData);
+        yield put(apiForgotPassActions.setForgotPassOkResponse(response));
+
+        yield put(push(`${ROUTE.RES}${ROUTE.RES_SUCCESS_CHANGE_PASS}`));
+        yield put(loadersActions.toggleIsLoaderVisible(false));
+    } catch (e: unknown) {
+        yield put(push(`${ROUTE.RES}${ROUTE.RES_ERROR_CHANGE_PASS}`));
+        yield put(loadersActions.toggleIsLoaderVisible(false));
+    }
+}
+
+function* watchChangePassSaga() {
+    yield takeEvery(authActions.startChangePass, workChangePassSaga);
+}
+
 export function* rootSaga() {
     yield all([
         watchRegistrationUserSaga(),
         watchLoginUserUserSaga(),
         watchForgotPassSaga(),
         watchConfirmPassSaga(),
+        watchChangePassSaga(),
     ]);
 }

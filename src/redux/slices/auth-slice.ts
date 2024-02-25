@@ -1,6 +1,6 @@
 import { TOKEN } from '@constants/constants';
 import { createSlice } from '@reduxjs/toolkit'
-import { LoginRegistrationData } from '../../types/types';
+import { ChangePassData, LoginRegistrationData } from '../../types/types';
 
 export type AuthState = {
     isAuth: boolean,
@@ -13,6 +13,7 @@ export type AuthState = {
     rememberMe: boolean,
     canResultPage: boolean,
     loginData: null | LoginRegistrationData,
+    changePassData: null | ChangePassData,
 };
 
 const initialState: AuthState = {
@@ -26,6 +27,7 @@ const initialState: AuthState = {
     rememberMe: true,
     canResultPage: false,
     loginData: null,
+    changePassData: null,
 };
 
 export const authSlice = createSlice({
@@ -72,6 +74,9 @@ export const authSlice = createSlice({
         },
         resetLoginData(state) {
             state.loginData = null;
+        },
+        startChangePass(state, action) {
+            state.changePassData = action.payload;
         },
     }
 });

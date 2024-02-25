@@ -38,6 +38,8 @@ export const ROUTE = {
     RES_ERROR_LOGIN: '/error-login',
     RES_FORGOT_ERROR_404: '/error-check-email-no-exist',
     RES_FORGOT_ERROR: '/error-check-email',
+    RES_ERROR_CHANGE_PASS: '/error-change-password',
+    RES_SUCCESS_CHANGE_PASS: '/success-change-password',
 }
 
 export const FORM_TEXT = {
@@ -50,6 +52,8 @@ export const FORM_TEXT = {
     RULE_PASS: 'Пароль не менее 8 символов, с заглавной буквой и цифрой',
     RULE_CONFIRM: 'Пароли не совпадают',
     PLACE_PASS: 'Пароль',
+    PLACE_NEW_PASS: 'Новый пароль',
+    PLACE_REPEAT_PASS: 'Повторите пароль',
 }
 
 export const REGEXP = {
@@ -65,6 +69,7 @@ export const API = {
     url_registration: '/auth/registration',
     url_check_email: '/auth/check-email',
     url_confirm_email: '/auth/confirm-email',
+    url_change_pass: '/auth/change-password',
 }
 
 export const API_MESSAGES = {

@@ -14,14 +14,13 @@ export const ConfirmPage: React.FC = () => {
     const isErrorConfirmCode = useAppSelector(state => state.apiConfirmPass.isErrorConfirmCode);
 
     const handleCompleteCode = (value: string) => {
-        console.log('handleCompleteCode')
         const data = {
             confirmPassData: {
                 email: curEmail,
                 code: value,
             }
         };
-        console.log('data: ', data)
+        
         dispatch(apiConfirmPassActions.startConfirmPass(data));
     }
 

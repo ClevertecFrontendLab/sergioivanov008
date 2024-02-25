@@ -26,8 +26,7 @@ export const App: React.FC = () => {
                 <Route path={ROUTE.REGISTRATION} element={isAuth ? <MainPage /> : <AuthPage isThisAuthPage={false} />} />
                 <Route path={ROUTE.ROUTE_RESULT} element={canResultPage ? <ResultPage /> : <Navigate to={ROUTE.INDEX} />} />
                 <Route path={ROUTE.CONFIRM} element={canConfirmPage ? <ConfirmPage /> : <Navigate to={ROUTE.INDEX} />} />
-                {/* <Route path={ROUTE.CHANGE_PASS} element={canChangePassPage ? <ChangePassPage /> : <Navigate to={ROUTE.INDEX} />} /> */}
-                <Route path={ROUTE.CHANGE_PASS} element={<ChangePassPage />} />
+                <Route path={ROUTE.CHANGE_PASS} element={canChangePassPage ? <ChangePassPage /> : <Navigate to={ROUTE.INDEX} />} />
                 <Route path={ROUTE.WRONG} element={isAuth ? <Navigate to={ROUTE.MAIN} /> : <Navigate to={ROUTE.AUTH} />} />
             </Routes>
         </HistoryRouter>

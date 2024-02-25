@@ -19,6 +19,7 @@ export const ResultPage: React.FC = () => {
     const dispatch = useAppDispatch();
     const registrationData = useAppSelector(state => state.apiRegistration.registrationData);
     const forgotPassData = useAppSelector(state => state.apiForgotPass.forgotPassData);
+    const changePassData = useAppSelector(state => state.auth.changePassData);
 
     const params = useParams();
     const curItem = params?.result as string;
@@ -120,6 +121,39 @@ export const ResultPage: React.FC = () => {
                     }}
                 >
                     Назад
+                </Button>
+        },
+        'error-change-password': {
+            icon: <div className="result-icon"><IconError /></div>,
+            title: <div className="result-text__title">Данные не сохранились</div>,
+            main: <div className="result-text__main">Что-то пошло не так.
+                Попробуйте ещё раз</div>,
+            btn: <Button
+                    className='result-btn'
+                    type="primary"
+                    onClick={() => {
+                        dispatch(authActions.setCanResultPage(false));
+                        dispatch(push(ROUTE.CHANGE_PASS));
+                        dispatch(authActions.startChangePass(changePassData));
+                    }}
+                >
+                    Повторить
+                </Button>
+        },
+        'success-change-password': {
+            icon: <div className="result-icon"><IconSuccess /></div>,
+            title: <div className="result-text__title">Пароль успешно изменен</div>,
+            main: <div className="result-text__main">Теперь можно войти в аккаунт, используя<br />
+                свой логин и новый пароль</div>,
+            btn: <Button
+                    className='result-btn'
+                    type="primary"
+                    onClick={() => {
+                        dispatch(authActions.setCanResultPage(false));
+                        dispatch(push(ROUTE.AUTH));
+                    }}
+                >
+                    Вход
                 </Button>
         },
     }
