@@ -149,7 +149,7 @@ export const ResultPage: React.FC = () => {
         },
         'success-change-password': {
             icon: <div className="result-icon"><IconSuccess /></div>,
-            title: <div className="result-text__title">Пароль успешно изменен</div>,
+            title: <div className="result-text__title custom18">Пароль успешно изменен</div>,
             main: <div className="result-text__main">Теперь можно войти в аккаунт, используя<br />
                 свой логин и новый пароль</div>,
             btn: <Button
