@@ -45,3 +45,27 @@
     display: flex;
     flex-direction: column;
 }
+.result-text__title.custom17 {
+    padding: 0px 36px;
+}
+@media (max-width: 805px) {
+    .confirm-wrapper {
+        padding: 32px 16px;
+        width: 328px;
+    }
+    .confirm-text__wrapper.custom14 {
+        margin: 24px 0px;
+    }
+    .result-text__main.custom15 {
+        padding: 0px 32px;
+    }
+    .result-text__main.custom16 {
+        padding: 0px 16px;
+    }
+    .verification-input {
+        width: 280px;
+    }
+    .result-text__title.custom17 {
+        padding: 0px 0px;
+    }
+}

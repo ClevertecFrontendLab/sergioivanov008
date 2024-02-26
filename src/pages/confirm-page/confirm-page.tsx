@@ -24,16 +24,18 @@ export const ConfirmPage: React.FC = () => {
         dispatch(apiConfirmPassActions.startConfirmPass(data));
     }
 
+    const breakWidthStyle = document.documentElement.clientWidth >= 805 ? '' : <br />;
+
     return (
         <div className='auth-page'>
             <div className="cover-element">
                 <div className="confirm-wrapper">
                     <div className="result-icon">{!isErrorConfirmCode ? <IconAttention /> : <IconError />}</div>
-                    <div className="confirm-text__wrapper">
-                        <div className="result-text__title">
-                        {!isErrorConfirmCode ? '' : 'Неверный код. '}
-                        Введите код <br />для восстановления аккауанта</div>
-                        <div className="result-text__main">Мы отправили вам на e-mail
+                    <div className="confirm-text__wrapper custom14">
+                        <div className="result-text__title custom17">
+                        {!isErrorConfirmCode ? 'Введите код ' : 'Неверный код. Введите код '}
+                        {breakWidthStyle}для восстановления аккауанта</div>
+                        <div className="result-text__main custom16">Мы отправили вам на e-mail
                             <span className='email-accent'> {curEmail} </span><br />
                             шестизначный код. Введите его в поле ниже.</div>
                     </div>
@@ -56,7 +58,7 @@ export const ConfirmPage: React.FC = () => {
                             "data-test-id": "verification-input"
                         }}
                     />
-                    <div className="result-text__main">Не пришло письмо? Проверьте папку Спам.</div>
+                    <div className="result-text__main custom15">Не пришло письмо? Проверьте папку Спам.</div>
                 </div>
             </div>
         </div>
