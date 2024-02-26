@@ -26,9 +26,9 @@
     margin-left: 10px;
 
     font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 130%;
+    font-weight: var(--font-weight-400);
+    font-size: var(--font-size-14);
+    line-height: var(--line-height);
     color: var(--character-light-title-85);
 
     transition: 0.2s;

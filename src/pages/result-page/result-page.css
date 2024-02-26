@@ -22,17 +22,17 @@
 }
 .result-text__title {
     font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 130%;
+    font-weight: var(--font-weight-500);
+    font-size: var(--font-size-24);
+    line-height: var(--line-height);
     text-align: center;
     color: var(--character-light-title-85);
 }
 .result-text__main {
     font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 130%;
+    font-weight: var(--font-weight-400);
+    font-size: var(--font-size-14);
+    line-height: var(--line-height);
     text-align: center;
     color: var(--character-light-secondary-45);
 }

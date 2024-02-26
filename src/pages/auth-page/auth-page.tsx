@@ -35,7 +35,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     const [isDiabledForgotPassBtn, setIsDiabledForgotPassBtn] = useState(false);
 
     useEffect(() => {
-        if (email.length > 0 && isEmailValid) {
+        if (email.length && isEmailValid) {
             setIsDiabledForgotPassBtn(false);
         }
     }, [email, isEmailValid]);
@@ -97,21 +97,18 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     }
 
     const handleConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        dispatch(authActions.setConfirmPassword(value));
-        checkConfirmPassword(value);
+        dispatch(authActions.setConfirmPassword(e.target.value));
+        checkConfirmPassword(e.target.value);
     }
 
     const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        dispatch(authActions.setPassword(value));
-        checkPassword(value);
+        dispatch(authActions.setPassword(e.target.value));
+        checkPassword(e.target.value);
     }
 
     const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        dispatch(authActions.setEmail(value));
-        checkEmail(value);
+        dispatch(authActions.setEmail(e.target.value));
+        checkEmail(e.target.value);
     }
 
     const handleCheckbox = () => {

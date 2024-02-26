@@ -77,3 +77,8 @@ export const API_MESSAGES = {
 }
 
 export const TOKEN = 'cleverFitToken';
+
+export const STATUS = {
+    CODE_404: 404,
+    CODE_409: 409,
+}

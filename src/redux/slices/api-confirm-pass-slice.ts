@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ConfirmPassData } from '../../types/types';
+import { ConfirmPassData, Nullable } from '../../types/types';
 
 export type ApiConfirmPassState = {
-    confirmPassData: null | ConfirmPassData,
+    confirmPassData: Nullable<ConfirmPassData>,
     confirmInputValue: string,
     isErrorConfirmCode: boolean,
     canChangePassPage: boolean,

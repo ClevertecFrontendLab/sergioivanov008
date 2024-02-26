@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ForgotPassData, ForgotPassOkResponse } from '../../types/types';
+import { ForgotPassData, ForgotPassOkResponse, Nullable } from '../../types/types';
 
 export type ApiForgotPassState = {
-    forgotPassData: null | ForgotPassData,
-    forgotPassOkResponse: null | ForgotPassOkResponse,
+    forgotPassData: Nullable<ForgotPassData>,
+    forgotPassOkResponse: Nullable<ForgotPassOkResponse>,
     canConfirmPage: boolean,
 };
 

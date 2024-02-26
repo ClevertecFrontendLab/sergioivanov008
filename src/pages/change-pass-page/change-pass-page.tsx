@@ -42,15 +42,13 @@ export const ChangePassPage: React.FC = () => {
     }
 
     const handleConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        dispatch(authActions.setConfirmPassword(value));
-        checkConfirmPassword(value);
+        dispatch(authActions.setConfirmPassword(e.target.value));
+        checkConfirmPassword(e.target.value);
     }
 
     const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        dispatch(authActions.setPassword(value));
-        checkPassword(value);
+        dispatch(authActions.setPassword(e.target.value));
+        checkPassword(e.target.value);
     }
 
     return (

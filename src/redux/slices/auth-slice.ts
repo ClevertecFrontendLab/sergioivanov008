@@ -1,6 +1,6 @@
 import { TOKEN } from '@constants/constants';
 import { createSlice } from '@reduxjs/toolkit'
-import { ChangePassData, LoginRegistrationData } from '../../types/types';
+import { ChangePassData, LoginRegistrationData, Nullable } from '../../types/types';
 
 export type AuthState = {
     isAuth: boolean,
@@ -12,8 +12,8 @@ export type AuthState = {
     isConfirmPasswordValid: boolean,
     rememberMe: boolean,
     canResultPage: boolean,
-    loginData: null | LoginRegistrationData,
-    changePassData: null | ChangePassData,
+    loginData: Nullable<LoginRegistrationData>,
+    changePassData: Nullable<ChangePassData>,
     emailForgot: string,
 };
 

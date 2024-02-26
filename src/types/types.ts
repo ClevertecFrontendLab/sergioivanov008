@@ -79,3 +79,5 @@ export type ChangePassErrorResponse = {
     error: string,
     message: string,
 }
+
+export type Nullable<T> = T | null;

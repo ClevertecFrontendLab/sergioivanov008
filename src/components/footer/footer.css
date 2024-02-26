@@ -6,9 +6,9 @@
 }
 .btn-3 {
     font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 130%;
+    font-weight: var(--font-weight-400);
+    font-size: var(--font-size-16);
+    line-height: var(--line-height);
     text-align: center;
     color: var(--primary-light-6);
 }
