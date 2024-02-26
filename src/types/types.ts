@@ -29,7 +29,7 @@ export type RegistrationErrorResponse = {
     message: string
 }
 
-export interface FormItems {
+export type FormItems = {
     [index: string]: {
         icon: JSX.Element,
         title: JSX.Element,
