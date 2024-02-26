@@ -28,7 +28,7 @@ export const ResultPage: React.FC = () => {
         'success': {
             icon: <div className="result-icon"><IconSuccess /></div>,
             title: <div className="result-text__title">Регистрация успешна</div>,
-            main: <div className="result-text__main">Регистрация прошла успешно. Зайдите
+            main: <div className="result-text__main">Регистрация прошла успешно. Зайдите<br />
                 в приложение, используя свои e-mail и пароль.</div>,
             btn: <Button
                     className='result-btn'
@@ -45,7 +45,7 @@ export const ResultPage: React.FC = () => {
         'error-user-exist': {
             icon: <div className="result-icon"><IconError /></div>,
             title: <div className="result-text__title">Данные не сохранились</div>,
-            main: <div className="result-text__main">Такой e-mail уже записан в системе.
+            main: <div className="result-text__main custom10">Такой e-mail уже записан в системе.
                 Попробуйте зарегистрироваться по другому e-mail.</div>,
             btn: <Button
                     className='result-btn'
@@ -62,7 +62,7 @@ export const ResultPage: React.FC = () => {
         'error': {
             icon: <div className="result-icon"><IconError /></div>,
             title: <div className="result-text__title">Данные не сохранились</div>,
-            main: <div className="result-text__main">Что-то пошло не так и ваша регистрация
+            main: <div className="result-text__main">Что-то пошло не так и ваша регистрация<br />
                 не завершилась. Попробуйте ещё раз.</div>,
             btn: <Button
                     className='result-btn'
@@ -97,10 +97,10 @@ export const ResultPage: React.FC = () => {
         'error-check-email-no-exist': {
             icon: <div className="result-icon"><IconError /></div>,
             title: <div className="result-text__title">Такой e-mail не зарегистрирован</div>,
-            main: <div className="result-text__main">Мы не нашли в базе вашего e-mail.
+            main: <div className="result-text__main custom12">Мы не нашли в базе вашего e-mail.
                 Попробуйте войти с другим e-mail.</div>,
             btn: <Button
-                    className='result-btn'
+                    className='result-btn custom11'
                     type="primary"
                     onClick={() => {
                         dispatch(authActions.setCanResultPage(false));
@@ -114,10 +114,10 @@ export const ResultPage: React.FC = () => {
         'error-check-email': {
             icon: <div className="result-icon"><IconWrong /></div>,
             title: <div className="result-text__title">Что-то пошло не так</div>,
-            main: <div className="result-text__main">Произошла ошибка,
+            main: <div className="result-text__main custom12">Произошла ошибка,
                 попробуйте отправить форму ещё раз.</div>,
             btn: <Button
-                    className='result-btn'
+                    className='result-btn custom13'
                     type="primary"
                     onClick={() => {
                         dispatch(authActions.setCanResultPage(false));
