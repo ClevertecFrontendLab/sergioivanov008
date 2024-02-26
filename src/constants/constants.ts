@@ -21,3 +21,64 @@ export const FOOTER_TEXT = {
     CARD_TITLE: 'Скачать на телефон',
     CARD_DESC: 'Доступно в PRO-тарифе',
 }
+
+export const ROUTE = {
+    INDEX: '/',
+    MAIN: '/main',
+    AUTH: '/auth',
+    REGISTRATION: '/auth/registration',
+    CONFIRM: '/auth/confirm-email',
+    CHANGE_PASS: '/auth/change-password',
+    WRONG: '/*',
+    ROUTE_RESULT: '/result/:result',
+    RES: '/result',
+    RES_OK: '/success',
+    RES_ERROR_409: '/error-user-exist',
+    RES_ERROR: '/error',
+    RES_ERROR_LOGIN: '/error-login',
+    RES_FORGOT_ERROR_404: '/error-check-email-no-exist',
+    RES_FORGOT_ERROR: '/error-check-email',
+    RES_ERROR_CHANGE_PASS: '/error-change-password',
+    RES_SUCCESS_CHANGE_PASS: '/success-change-password',
+}
+
+export const FORM_TEXT = {
+    AUTH: 'Вход',
+    REGISTRATION: 'Регистрация',
+    REMEMBER: 'Запомнить меня',
+    FORGOT: 'Забыли пароль?',
+    ENTER: 'Войти',
+    ENTER_GOOGLE: 'Войти через Google',
+    RULE_PASS: 'Пароль не менее 8 символов, с заглавной буквой и цифрой',
+    RULE_CONFIRM: 'Пароли не совпадают',
+    PLACE_PASS: 'Пароль',
+    PLACE_NEW_PASS: 'Новый пароль',
+    PLACE_REPEAT_PASS: 'Повторите пароль',
+}
+
+export const REGEXP = {
+    hasDigit: /[0-9]+/,
+    hasLetter: /[a-zа-я]+/,
+    hasUpperLetter: /[A-ZА-Я]+/,
+    isEmailValid: /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
+}
+
+export const API = {
+    host: 'https://marathon-api.clevertec.ru',
+    url_login: '/auth/login',
+    url_registration: '/auth/registration',
+    url_check_email: '/auth/check-email',
+    url_confirm_email: '/auth/confirm-email',
+    url_change_pass: '/auth/change-password',
+}
+
+export const API_MESSAGES = {
+    EMAIL_NOT_FOUND: 'Email не найден',
+}
+
+export const TOKEN = 'cleverFitToken';
+
+export const STATUS = {
+    CODE_404: 404,
+    CODE_409: 409,
+}
