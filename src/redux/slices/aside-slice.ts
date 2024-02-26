@@ -12,9 +12,4 @@ export const asideSlice = createSlice({
   }
 })
 
-export const {
-    toggleIsAsideCollapsed,
-} = asideSlice.actions
-
-export default asideSlice.reducer;
-
+export const { reducer: asideReducer, actions: asideActions } = asideSlice;

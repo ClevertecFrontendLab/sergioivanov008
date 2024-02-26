@@ -14,6 +14,7 @@ export type AuthState = {
     canResultPage: boolean,
     loginData: null | LoginRegistrationData,
     changePassData: null | ChangePassData,
+    emailForgot: string,
 };
 
 const initialState: AuthState = {
@@ -28,6 +29,7 @@ const initialState: AuthState = {
     canResultPage: false,
     loginData: null,
     changePassData: null,
+    emailForgot: '',
 };
 
 export const authSlice = createSlice({
@@ -78,6 +80,10 @@ export const authSlice = createSlice({
         startChangePass(state, action) {
             state.changePassData = action.payload;
         },
+        setEmailForgot(state, action) {
+            state.emailForgot = action.payload;
+            state.changePassData = null;
+        }
     }
 });
 

@@ -156,6 +156,8 @@ export const ResultPage: React.FC = () => {
                     className='result-btn'
                     type="primary"
                     onClick={() => {
+                        dispatch(authActions.setEmailForgot(''));
+                        dispatch(apiForgotPassActions.resetForgotPassData());
                         dispatch(authActions.setCanResultPage(false));
                         dispatch(push(ROUTE.AUTH));
                     }}

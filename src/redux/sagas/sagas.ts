@@ -93,7 +93,6 @@ function* workForgotPassSaga(action: PayloadAction<{ forgotPassData: ForgotPassD
         yield put(apiForgotPassActions.setForgotPassOkResponse(response));
 
         yield put(push(`${ROUTE.CONFIRM}`));
-        yield put(apiForgotPassActions.resetForgotPassData());
         yield put(loadersActions.toggleIsLoaderVisible(false));
     } catch (e: unknown) {
         const error = e as AxiosError;
@@ -103,7 +102,6 @@ function* workForgotPassSaga(action: PayloadAction<{ forgotPassData: ForgotPassD
 
         if (error?.response?.status === 404) {
             if (errorResponseData.message === API_MESSAGES.EMAIL_NOT_FOUND) {
-                yield put(apiForgotPassActions.resetForgotPassData());
                 yield put(push(`${ROUTE.RES}${ROUTE.RES_FORGOT_ERROR_404}`));
             } else {
                 yield put(push(`${ROUTE.RES}${ROUTE.RES_FORGOT_ERROR}`));
@@ -124,7 +122,6 @@ function* workConfirmPassSaga(action: PayloadAction<{ confirmPassData: ConfirmPa
     yield put(apiRegistrationActions.resetRegistrationData());
     yield put(authActions.resetRegData());
     yield put(authActions.resetLoginData());
-    yield put(apiForgotPassActions.resetForgotPassData());
     yield put(apiForgotPassActions.setCanConfirmPage(true));
 
     try {
@@ -150,7 +147,6 @@ function* workChangePassSaga(action: PayloadAction<{ changePassData: ChangePassD
     yield put(apiRegistrationActions.resetRegistrationData());
     yield put(authActions.resetRegData());
     yield put(authActions.resetLoginData());
-    yield put(apiForgotPassActions.resetForgotPassData());
     yield put(apiForgotPassActions.setCanConfirmPage(true));
 
     try {

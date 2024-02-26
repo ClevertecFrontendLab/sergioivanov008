@@ -9,7 +9,7 @@ import { IconError } from '@components/icon-error';
 
 export const ConfirmPage: React.FC = () => {
     const dispatch = useAppDispatch();
-    const curEmail = useAppSelector(state => state.apiForgotPass.forgotPassOkResponse?.email);
+    const curEmail = useAppSelector(state => state.auth.emailForgot);
     const confirmInputValue = useAppSelector(state => state.apiConfirmPass.confirmInputValue);
     const isErrorConfirmCode = useAppSelector(state => state.apiConfirmPass.isErrorConfirmCode);
 

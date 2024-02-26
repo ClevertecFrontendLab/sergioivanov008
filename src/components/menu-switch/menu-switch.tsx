@@ -2,7 +2,7 @@ import React from 'react';
 import './menu-switch.css';
 
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { toggleIsAsideCollapsed } from '@redux/slices/aside-slice';
+import { asideActions } from '@redux/slices/aside-slice';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
 export const MenuSwitch: React.FC = () => {
@@ -12,7 +12,7 @@ export const MenuSwitch: React.FC = () => {
     const menuIcon = isCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />;
 
     const toggleCollapsed = () => {
-        dispatch(toggleIsAsideCollapsed(!isCollapsed));
+        dispatch(asideActions.toggleIsAsideCollapsed(!isCollapsed));
     }
 
     const dataTestId = document.documentElement.clientWidth >= 805 ? 'sider-switch' : 'sider-switch-mobile';

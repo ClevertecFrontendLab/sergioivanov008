@@ -42,6 +42,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
 
     const handleForgotPass = () => {
         if (isEmailValid) {
+            dispatch(authActions.setEmailForgot(email));
             dispatch(apiForgotPassActions.startForgotPass({forgotPassData: {email: email}}));
         } else {
             setIsDiabledForgotPassBtn(true);
