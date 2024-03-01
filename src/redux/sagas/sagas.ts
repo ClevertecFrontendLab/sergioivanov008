@@ -4,8 +4,8 @@ import {
     ChangePassOkResponse,
     ConfirmPassData,
     ConfirmPassOkResponse,
+    ErrorResponse,
     ForgotPassData,
-    ForgotPassErrorResponse,
     ForgotPassOkResponse,
     LoginOkResponse,
     LoginRegistrationData } from "../../types/types";
@@ -96,7 +96,7 @@ function* workForgotPassSaga(action: PayloadAction<{ forgotPassData: ForgotPassD
         yield put(loadersActions.toggleIsLoaderVisible(false));
     } catch (e: unknown) {
         const error = e as AxiosError;
-        const errorResponseData  = error?.response?.data as ForgotPassErrorResponse;
+        const errorResponseData  = error?.response?.data as ErrorResponse;
 
         yield put(loadersActions.toggleIsLoaderVisible(false));
 
