@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './auth-page.css';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, GooglePlusOutlined } from '@ant-design/icons';
-import { FORM_TEXT, ROUTE } from '@constants/constants';
+import { API, FORM_TEXT, IS_REMEMBERED, ROUTE } from '@constants/constants';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { authActions } from '@redux/slices/auth-slice';
 import { AuthPageProps } from '../../types/types';
@@ -11,6 +11,7 @@ import { apiRegistrationActions } from '@redux/slices/api-registration-slice';
 import { push } from 'redux-first-history';
 import { apiForgotPassActions } from '@redux/slices/api-forgot-pass-slice';
 import { checkEmailIsValid, checkPasswordIsValid } from '@utils/utils';
+import { loadersActions } from '@redux/slices/loaders-slice';
 
 export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     const dispatch = useAppDispatch()
@@ -47,6 +48,11 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
         } else {
             setIsDiabledForgotPassBtn(true);
         }
+    }
+
+    const handleGoogleAuth = () => {
+        window.location.href = `${API.host}${API.url_google_auth}`;
+        dispatch(loadersActions.toggleIsLoaderVisible(true));
     }
 
     const onFinish = () => {
@@ -113,6 +119,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
 
     const handleCheckbox = () => {
         dispatch(authActions.setRememberMe(!rememberMe));
+        localStorage.setItem(IS_REMEMBERED, JSON.stringify(!rememberMe));
     }
 
     const btnAuthClick = () => {
@@ -248,6 +255,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                                 className="login-form-button"
                                 icon={<GooglePlusOutlined />}
                                 style={{fontSize: '16px'}}
+                                onClick={handleGoogleAuth}
                             >
                                 {FORM_TEXT.ENTER_GOOGLE}
                             </Button>

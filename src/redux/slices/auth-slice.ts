@@ -1,6 +1,13 @@
-import { TOKEN } from '@constants/constants';
+import { IS_REMEMBERED, TOKEN } from '@constants/constants';
 import { createSlice } from '@reduxjs/toolkit'
 import { ChangePassData, LoginRegistrationData, Nullable } from '../../types/types';
+import { getIsRemembered } from '@utils/utils';
+
+if (localStorage.getItem(IS_REMEMBERED)) {
+    localStorage.setItem(IS_REMEMBERED, JSON.stringify(getIsRemembered()));
+} else {
+    localStorage.setItem(IS_REMEMBERED, JSON.stringify(true));
+}
 
 export type AuthState = {
     isAuth: boolean,

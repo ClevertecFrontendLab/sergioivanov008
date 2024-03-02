@@ -4,7 +4,7 @@ import './menu-exit.css';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { IconExit } from '@components/icon-exit';
 import { authActions } from '@redux/slices/auth-slice';
-import { ROUTE, TOKEN } from '@constants/constants';
+import { IS_REMEMBERED, ROUTE, TOKEN } from '@constants/constants';
 import { push } from 'redux-first-history';
 
 export const MenuExit: React.FC = () => {
@@ -16,6 +16,7 @@ export const MenuExit: React.FC = () => {
     const handleExit = () => {
         dispatch(authActions.setIsAuth(false));
         localStorage.removeItem(TOKEN);
+        localStorage.removeItem(IS_REMEMBERED);
         dispatch(push(ROUTE.INDEX));
     }
 

@@ -5,17 +5,28 @@ import { history } from '@redux/configure-store';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { MainPage } from './pages';
 import { AuthPage } from '@pages/auth-page';
-import { useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { ROUTE } from '@constants/constants';
+import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { ROUTE, TOKEN } from '@constants/constants';
 import { ResultPage } from '@pages/result-page';
 import { ConfirmPage } from '@pages/confirm-page';
 import { ChangePassPage } from '@pages/change-pass-page';
+import { authActions } from '@redux/slices/auth-slice';
+import { push } from 'redux-first-history';
+import { getIsRemembered } from '@utils/utils';
 
 export const App: React.FC = () => {
+    const dispatch = useAppDispatch();
     const isAuth = useAppSelector(state => state.auth.isAuth);
     const canResultPage = useAppSelector(state => state.auth.canResultPage);
     const canConfirmPage = useAppSelector(state => state.apiForgotPass.canConfirmPage);
     const canChangePassPage = useAppSelector(state => state.apiConfirmPass.canChangePassPage);
+
+    if (location.search) {
+        const accessToken = location.search.split('=')[1];
+        if (getIsRemembered()) localStorage.setItem(TOKEN, accessToken);
+        dispatch(authActions.setIsAuth(true));
+        dispatch(push(ROUTE.MAIN));
+    }
 
     return (
         <HistoryRouter history={history}>

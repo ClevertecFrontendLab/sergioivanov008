@@ -1,4 +1,4 @@
-import { REGEXP } from "@constants/constants";
+import { IS_REMEMBERED, REGEXP } from "@constants/constants";
 
 export const toggleBodyNotScrollable = (set: boolean) => {
     if (set) {
@@ -22,4 +22,13 @@ export const checkEmailIsValid = (v: string) => {
     const isEmailValid = REGEXP.isEmailValid.test(v);
 
     return isEmailValid;
+}
+
+export const getIsRemembered = (): boolean => {
+    let isRememberMe = true;
+    if (localStorage.getItem(IS_REMEMBERED)) {
+        isRememberMe = JSON.parse(localStorage.getItem(IS_REMEMBERED) as string);
+    }
+
+    return isRememberMe;
 }

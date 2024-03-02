@@ -70,6 +70,7 @@ export const API = {
     url_check_email: '/auth/check-email',
     url_confirm_email: '/auth/confirm-email',
     url_change_pass: '/auth/change-password',
+    url_google_auth: '/auth/google',
 }
 
 export const API_MESSAGES = {
@@ -77,6 +78,7 @@ export const API_MESSAGES = {
 }
 
 export const TOKEN = 'cleverFitToken';
+export const IS_REMEMBERED = 'cleverFitIsRemembered';
 
 export const STATUS = {
     CODE_404: 404,
