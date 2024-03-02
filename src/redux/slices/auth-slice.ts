@@ -3,9 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { ChangePassData, LoginRegistrationData, Nullable } from '../../types/types';
 import { getIsRemembered } from '@utils/utils';
 
-if (localStorage.getItem(IS_REMEMBERED)) {
-    localStorage.setItem(IS_REMEMBERED, JSON.stringify(getIsRemembered()));
-} else {
+if (!localStorage.getItem(IS_REMEMBERED)) {
     localStorage.setItem(IS_REMEMBERED, JSON.stringify(true));
 }
 
@@ -32,7 +30,7 @@ const initialState: AuthState = {
     isPasswordValid: false,
     confirmPassword: '',
     isConfirmPasswordValid: false,
-    rememberMe: true,
+    rememberMe: getIsRemembered(),
     canResultPage: false,
     loginData: null,
     changePassData: null,

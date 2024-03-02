@@ -219,11 +219,10 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                             <div className='class111'>
                                 <Form.Item
                                     name="remember"
-                                    valuePropName="checked"
                                     noStyle
                                 >
                                     <Checkbox
-                                        value={rememberMe}
+                                        checked={rememberMe}
                                         onChange={handleCheckbox}
                                         data-test-id='login-remember'
                                     >
