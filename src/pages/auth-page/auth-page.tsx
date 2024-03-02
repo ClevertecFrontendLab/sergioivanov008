@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import 'antd/dist/antd.css';
 import './auth-page.css';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, GooglePlusOutlined } from '@ant-design/icons';
