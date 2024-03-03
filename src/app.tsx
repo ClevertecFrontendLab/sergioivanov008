@@ -15,6 +15,7 @@ import { push } from 'redux-first-history';
 import { getIsRemembered } from '@utils/utils';
 import { PrivateRouter } from './private-router';
 import { Layout } from '@components/layout';
+import { FeedbacksPage } from '@pages/feedbacks-page';
 
 export const App: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -45,6 +46,7 @@ export const App: React.FC = () => {
                         <Route element={<Outlet />}>
                             <Route path={ROUTE.INDEX} element={<Navigate to={ROUTE.MAIN} />} />
                             <Route path={ROUTE.MAIN} element={<MainPage />} />
+                            <Route path={ROUTE.FEEDBACKS} element={<FeedbacksPage />} />
                         </Route>
                     </Route>
                 </Route>

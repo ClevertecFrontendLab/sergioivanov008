@@ -1,0 +1,49 @@
+.feedback-item {
+    width: 100%;
+}
+.feedback-item .ant-card-body{
+    display: flex;
+    gap: 12px;
+}
+.item-user {
+    width: 174px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.item-user-name {
+    width: 76px;
+    text-align: center;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: var(--character-light-title-85);
+}
+.item-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.item-body-rating {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.item-body-date {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    text-align: right;
+    color: var(--character-light-disable-25);
+}
+.item-body-message {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: var(--character-light-secondary-45);
+}

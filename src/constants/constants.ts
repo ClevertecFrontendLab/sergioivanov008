@@ -15,7 +15,7 @@ export const CONTENT_TEXT = {
 }
 
 export const FOOTER_TEXT = {
-    BTN_REVIEW: 'Смотреть отзывы',
+    BTN_FEEDBACKS: 'Смотреть отзывы',
     BTN_ANDROID: 'Android OS',
     BTN_APPLE: 'Apple iOS',
     CARD_TITLE: 'Скачать на телефон',
@@ -40,6 +40,7 @@ export const ROUTE = {
     RES_FORGOT_ERROR: '/error-check-email',
     RES_ERROR_CHANGE_PASS: '/error-change-password',
     RES_SUCCESS_CHANGE_PASS: '/success-change-password',
+    FEEDBACKS: '/feedbacks',
 }
 
 export const FORM_TEXT = {
@@ -83,4 +84,13 @@ export const IS_REMEMBERED = 'cleverFitIsRemembered';
 export const STATUS = {
     CODE_404: 404,
     CODE_409: 409,
+}
+
+export const FEEDBACK_TEXT = {
+    TITLE: 'Оставьте свой отзыв первым',
+    DESC_1: 'Вы можете быть первым, кто оставит отзыв об этом фитнесс приложении.',
+    DESC_2: 'Поделитесь своим мнением и опытом с другими пользователями,',
+    DESC_3: 'и помогите им сделать правильный выбор.',
+    BTN_NEW_FEEDBACK: 'Написать отзыв',
+    BTN_ALL: 'Развернуть все отзывы',
 }
