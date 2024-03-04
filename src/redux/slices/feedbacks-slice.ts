@@ -10,12 +10,18 @@ export type FeedbacksState = {
     feedbacks: GetFeedbacksOkResponse,
     isLoading: boolean,
     showModalFeedbacks: Nullable<string>,
+    showModalNewFeedback: boolean,
+    newFeedbackRating: number,
+    newFeedbackMessage: string,
 };
 
 const initialState: FeedbacksState = {
     feedbacks: [],
     isLoading: false,
     showModalFeedbacks: null,
+    showModalNewFeedback: false,
+    newFeedbackRating: 0,
+    newFeedbackMessage: '',
 };
 
 export const feedbacksSlice = createSlice({
@@ -32,6 +38,15 @@ export const feedbacksSlice = createSlice({
         setShowModalFeedbacks: (state, action) => {
             state.isLoading = false;
             state.showModalFeedbacks = action.payload;
+        },
+        setShowModalNewFeedback: (state, action) => {
+            state.showModalNewFeedback = action.payload;
+        },
+        setNewFeedbackRating: (state, action) => {
+            state.newFeedbackRating = action.payload;
+        },
+        setNewFeedbackMessage: (state, action) => {
+            state.newFeedbackMessage = action.payload;
         },
     }
 });

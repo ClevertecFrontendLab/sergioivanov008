@@ -5,6 +5,7 @@ import { Feedbacks } from '@components/feedbacks';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { feedbacksActions } from '@redux/slices/feedbacks-slice';
 import { ModalFeedbacks } from '@components/modal-feedbacks';
+import { ModalNewFeedback } from '@components/modal-new-feedback';
 
 export const FeedbacksPage: React.FC = () => {
     const isRendered = useRef(false);
@@ -22,6 +23,7 @@ export const FeedbacksPage: React.FC = () => {
         <>
             {feedbacks.length ? <Feedbacks /> : <FeedbackEmptyItem />}
             <ModalFeedbacks />
+            <ModalNewFeedback />
         </>
 
     );

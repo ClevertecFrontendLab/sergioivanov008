@@ -3,15 +3,21 @@ import './feedbacks.css';
 import { Button } from 'antd';
 import { FEEDBACK_TEXT, NUMBER_DATA } from '@constants/constants';
 import { FeedbackItem } from '@components/feedback-item';
-import { useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { feedbacksActions } from '@redux/slices/feedbacks-slice';
 
 export const Feedbacks: React.FC = () => {
+    const dispatch = useAppDispatch();
     const feedbacks = useAppSelector(state => state.feedbacks.feedbacks);
     const [isCollapsedFeedbacks, setIsCollapsedFeedbacks] = useState(true);
     const curFeedbacks = [...feedbacks].reverse();
 
     const handleToggleFeedbacks = () => {
         setIsCollapsedFeedbacks(!isCollapsedFeedbacks);
+    }
+
+    const handleNewFeedback = () => {
+        dispatch(feedbacksActions.setShowModalNewFeedback(true));
     }
 
     return (
@@ -28,6 +34,7 @@ export const Feedbacks: React.FC = () => {
                     type="primary"
                     size="large"
                     className='custom-btn'
+                    onClick={handleNewFeedback}
                 >
                     {FEEDBACK_TEXT.BTN_NEW_FEEDBACK}
                 </Button>

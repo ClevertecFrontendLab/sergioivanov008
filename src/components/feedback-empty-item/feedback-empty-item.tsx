@@ -2,8 +2,15 @@ import React from 'react';
 import './feedback-empty-item.css';
 import { Button, Card, Typography } from 'antd';
 import { FEEDBACK_TEXT } from '@constants/constants';
+import { useAppDispatch } from '@hooks/typed-react-redux-hooks';
+import { feedbacksActions } from '@redux/slices/feedbacks-slice';
 
 export const FeedbackEmptyItem: React.FC = () => {
+    const dispatch = useAppDispatch();
+
+    const handleNewFeedback = () => {
+        dispatch(feedbacksActions.setShowModalNewFeedback(true));
+    }
 
     return (
         <div className="feedbacks-empty">
@@ -22,6 +29,7 @@ export const FeedbackEmptyItem: React.FC = () => {
                     type="primary"
                     size="large"
                     className='custom-btn'
+                    onClick={handleNewFeedback}
                 >
                     {FEEDBACK_TEXT.BTN_NEW_FEEDBACK}
                 </Button>

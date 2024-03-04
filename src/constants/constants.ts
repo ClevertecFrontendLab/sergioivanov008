@@ -106,4 +106,7 @@ export const NUMBER_DATA = {
 
 export const MODAL_FEEDBACKS = {
     MODAL_WRONG: 'modal-wrong',
+    NEW_FEEDBACK_TITLE: 'Ваш отзыв',
+    NEW_FEEDBACK_BTN: 'Опубликовать',
+    INPUT_PLACEHOLDER: 'Autosize height based on content lines',
 }
