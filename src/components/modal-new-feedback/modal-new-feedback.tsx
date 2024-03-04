@@ -57,6 +57,7 @@ export const ModalNewFeedback: React.FC = () => {
                     type="primary"
                     disabled={!isCanSubmit}
                     onClick={handleOk}
+                    data-test-id='new-review-submit-button'
                 >
                     {MODAL_FEEDBACKS.NEW_FEEDBACK_BTN}
                 </Button>,

@@ -30,6 +30,7 @@ export const FeedbackEmptyItem: React.FC = () => {
                     size="large"
                     className='custom-btn'
                     onClick={handleNewFeedback}
+                    data-test-id='write-review'
                 >
                     {FEEDBACK_TEXT.BTN_NEW_FEEDBACK}
                 </Button>

@@ -68,6 +68,7 @@ export const ModalFeedbacks: React.FC = () => {
                         toggleBodyNotScrollable(false);
                         dispatch(dispatch(feedbacksActions.setShowModalNewFeedback(true)));
                     }}
+                    data-test-id='write-review-not-saved-modal'
                 >
                     {MODAL_FEEDBACKS.BTN_NEW_FEEDBACK}
                 </Button>

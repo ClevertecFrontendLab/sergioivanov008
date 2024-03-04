@@ -24,6 +24,7 @@ export const Footer: React.FC = () => {
                 type="text"
                 className='btn-3'
                 onClick={handleBtnFeedbacks}
+                data-test-id='see-reviews'
             >
                 {FOOTER_TEXT.BTN_FEEDBACKS}
             </Button>

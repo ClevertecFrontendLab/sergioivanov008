@@ -35,6 +35,7 @@ export const Feedbacks: React.FC = () => {
                     size="large"
                     className='custom-btn'
                     onClick={handleNewFeedback}
+                    data-test-id='write-review'
                 >
                     {FEEDBACK_TEXT.BTN_NEW_FEEDBACK}
                 </Button>
@@ -42,6 +43,7 @@ export const Feedbacks: React.FC = () => {
                     type="text"
                     className='btn-3'
                     onClick={handleToggleFeedbacks}
+                    data-test-id='all-reviews-button'
                 >
                     {isCollapsedFeedbacks ? FEEDBACK_TEXT.BTN_EXPAND : FEEDBACK_TEXT.BTN_COLLAPSE}
                 </Button>
