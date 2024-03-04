@@ -1,6 +1,6 @@
 import { IS_REMEMBERED } from '@constants/constants';
 import { createSlice } from '@reduxjs/toolkit'
-import { GetFeedbacksOkResponse, Nullable } from '../../types/types';
+import { GetFeedbacksOkResponse, NewFeedbackPost, Nullable } from '../../types/types';
 
 if (!localStorage.getItem(IS_REMEMBERED)) {
     localStorage.setItem(IS_REMEMBERED, JSON.stringify(true));
@@ -13,6 +13,7 @@ export type FeedbacksState = {
     showModalNewFeedback: boolean,
     newFeedbackRating: number,
     newFeedbackMessage: string,
+    newFeedbackPost: Nullable<NewFeedbackPost>,
 };
 
 const initialState: FeedbacksState = {
@@ -22,6 +23,7 @@ const initialState: FeedbacksState = {
     showModalNewFeedback: false,
     newFeedbackRating: 0,
     newFeedbackMessage: '',
+    newFeedbackPost: null,
 };
 
 export const feedbacksSlice = createSlice({
@@ -48,6 +50,13 @@ export const feedbacksSlice = createSlice({
         setNewFeedbackMessage: (state, action) => {
             state.newFeedbackMessage = action.payload;
         },
+        startNewFeedbackPost: (state, action) => {
+            state.isLoading = true;
+            state.newFeedbackPost = action.payload;
+        },
+        clearNewFeedbackPost: (state) => {
+            state.newFeedbackPost = null;
+        }
     }
 });
 

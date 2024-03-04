@@ -29,6 +29,9 @@ export const ModalNewFeedback: React.FC = () => {
 
     const handleOk = () => {
         handleCancelModal();
+        dispatch(feedbacksActions.startNewFeedbackPost({
+            newFeedbackPost: {message: newFeedbackMessage, rating: newFeedbackRating}
+        }));
     }
 
     const handleSetNewFeedbackRating = (value: number) => {
@@ -78,7 +81,6 @@ export const ModalNewFeedback: React.FC = () => {
                 <Form.Item name={'message'}>
                     <TextArea
                         placeholder={MODAL_FEEDBACKS.INPUT_PLACEHOLDER}
-                        className={'modal-textarea'}
                         style={{ minHeight: 46 }}
                         value={newFeedbackMessage}
                         onChange={handleSetNewFeedbackMessage}

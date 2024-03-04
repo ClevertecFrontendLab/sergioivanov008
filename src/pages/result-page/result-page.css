@@ -55,6 +55,11 @@
 .result-btn.custom13 {
     width: 74px;
 }
+.btns-modal-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+}
 @media (max-width: 805px) {
     .form-result {
         padding: 32px 16px;

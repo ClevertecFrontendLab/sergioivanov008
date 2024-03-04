@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { FEEDBACK_TEXT, ROUTE } from '@constants/constants';
+import { MODAL_FEEDBACKS, ROUTE } from '@constants/constants';
 import { Button } from 'antd';
 import { push } from 'redux-first-history';
 import { FormItems } from '../../types/types';
 import { IconWrong } from '@components/icon-wrong';
 import { toggleBodyNotScrollable } from '@utils/utils';
 import { feedbacksActions } from '@redux/slices/feedbacks-slice';
+import { IconSuccess } from '@components/icon-success';
+import { IconError } from '@components/icon-error';
 
 export const ModalFeedbacks: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -18,7 +20,7 @@ export const ModalFeedbacks: React.FC = () => {
     const isSetBodyNotScrollable = curItem ? true : false;
 
     useEffect(() => {
-        if (!isLoaderVisible && isSetBodyNotScrollable) toggleBodyNotScrollable(true);
+        if (isSetBodyNotScrollable) toggleBodyNotScrollable(true);
     }, [isLoaderVisible, isSetBodyNotScrollable])
 
     const formItems: FormItems = {
@@ -34,10 +36,51 @@ export const ModalFeedbacks: React.FC = () => {
                         dispatch(push(ROUTE.MAIN));
                         toggleBodyNotScrollable(false);
                     }}
-                    data-test-id='check-back-button'
                 >
-                    {FEEDBACK_TEXT.BTN_BACK}
+                    {MODAL_FEEDBACKS.BTN_BACK}
                 </Button>
+        },
+        'modal-success': {
+            icon: <div className="result-icon"><IconSuccess /></div>,
+            title: <div className="result-text__title">Отзыв успешно опубликован</div>,
+            main: <div className="result-text__main custom12"></div>,
+            btn: <Button
+                    type="primary"
+                    block
+                    onClick={() => {
+                        dispatch(feedbacksActions.setShowModalFeedbacks(null));
+                        toggleBodyNotScrollable(false);
+                    }}
+                >
+                    {MODAL_FEEDBACKS.BTN_SUCCESS}
+                </Button>
+        },
+        'modal-error': {
+            icon: <div className="result-icon"><IconError /></div>,
+            title: <div className="result-text__title">Данные не сохранились</div>,
+            main: <div className="result-text__main custom12">Что-то пошло не так. Попробуйте ещё раз.</div>,
+            btn: <div className="btns-modal-wrapper">
+                <Button
+                    type="primary"
+                    block
+                    onClick={() => {
+                        dispatch(feedbacksActions.setShowModalFeedbacks(null));
+                        toggleBodyNotScrollable(false);
+                        dispatch(dispatch(feedbacksActions.setShowModalNewFeedback(true)));
+                    }}
+                >
+                    {MODAL_FEEDBACKS.BTN_NEW_FEEDBACK}
+                </Button>
+                <Button
+                    block
+                    onClick={() => {
+                        dispatch(feedbacksActions.setShowModalFeedbacks(null));
+                        toggleBodyNotScrollable(false);
+                    }}
+                >
+                    {MODAL_FEEDBACKS.BTN_ERROR_CLOSE}
+                </Button>
+            </div>
         },
     }
 

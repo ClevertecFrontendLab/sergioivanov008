@@ -9,7 +9,8 @@ import {
     ForgotPassOkResponse,
     GetFeedbacksOkResponse,
     LoginOkResponse,
-    LoginRegistrationData } from "../../types/types";
+    LoginRegistrationData,
+    NewFeedbackPost} from "../../types/types";
 import { all, call, put, select, takeEvery } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { loadersActions } from "@redux/slices/loaders-slice";
@@ -18,6 +19,7 @@ import {
     confirmPassword,
     forgotPassword,
     getFeedbacks,
+    postNewFeedback,
     userLogin,
     userRegistration } from "../../../src/api/api";
 import { AxiosError } from "axios";
@@ -169,7 +171,7 @@ function* watchChangePassSaga() {
     yield takeEvery(authActions.startChangePass, workChangePassSaga);
 }
 
-function* GetFeedbacksFetchSaga() {
+function* workGetFeedbacksFetchSaga() {
     yield put(loadersActions.toggleIsLoaderVisible(true));
 
     try {
@@ -192,7 +194,28 @@ function* GetFeedbacksFetchSaga() {
 }
 
 function* watchGetFeedbacksFetchSaga() {
-    yield takeEvery(feedbacksActions.getFeedbacksFetch, GetFeedbacksFetchSaga);
+    yield takeEvery(feedbacksActions.getFeedbacksFetch, workGetFeedbacksFetchSaga);
+}
+
+function* workNewFeedbackPostSaga(action: PayloadAction<{ newFeedbackPost: NewFeedbackPost }>) {
+    yield put(loadersActions.toggleIsLoaderVisible(true));
+
+    try {
+        yield call(postNewFeedback, action.payload.newFeedbackPost);
+        yield workGetFeedbacksFetchSaga();
+
+        yield put(loadersActions.toggleIsLoaderVisible(false));
+        yield put(feedbacksActions.clearNewFeedbackPost());
+        yield put(feedbacksActions.setShowModalFeedbacks(MODAL_FEEDBACKS.MODAL_SUCCESS));
+    } catch (e) {
+        yield put(loadersActions.toggleIsLoaderVisible(false));
+        yield put(feedbacksActions.clearNewFeedbackPost());
+        yield put(feedbacksActions.setShowModalFeedbacks(MODAL_FEEDBACKS.MODAL_ERROR));
+    }
+}
+
+function* watchNewFeedbackPostSaga() {
+    yield takeEvery(feedbacksActions.startNewFeedbackPost, workNewFeedbackPostSaga);
 }
 
 export function* rootSaga() {
@@ -203,5 +226,6 @@ export function* rootSaga() {
         watchConfirmPassSaga(),
         watchChangePassSaga(),
         watchGetFeedbacksFetchSaga(),
+        watchNewFeedbackPostSaga(),
     ]);
 }

@@ -11,6 +11,7 @@ import {
     GetFeedbacksOkResponse,
     LoginOkResponse,
     LoginRegistrationData,
+    NewFeedbackPost,
 } from "../types/types";
 import { API, TOKEN } from "@constants/constants";
 
@@ -76,7 +77,14 @@ export async function changePassword(data: ChangePassData): Promise<ChangePassOk
 }
 
 export async function getFeedbacks(): Promise<GetFeedbacksOkResponse | ErrorResponse> {
-    const response = await $api.get(API.url_get_feedbacks);
+    const response = await $api.get(API.url_feedback);
+    const outData = await response.data;
+
+    return outData;
+}
+
+export async function postNewFeedback(data: NewFeedbackPost): Promise<EmptyOkResponse | ErrorResponse> {
+    const response = await $api.post(API.url_feedback, data);
     const outData = await response.data;
 
     return outData;

@@ -72,3 +72,8 @@ export type GetFeedbacksOkResponse = Array<FeedbackItem>;
 export type FeedbackItemProps = {
     item: FeedbackItem,
 }
+
+export type NewFeedbackPost = {
+    message: string,
+    rating: number,
+  }

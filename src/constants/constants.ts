@@ -72,7 +72,7 @@ export const API = {
     url_confirm_email: '/auth/confirm-email',
     url_change_pass: '/auth/change-password',
     url_google_auth: '/auth/google',
-    url_get_feedbacks: '/feedback',
+    url_feedback: '/feedback',
 }
 
 export const API_MESSAGES = {
@@ -97,7 +97,6 @@ export const FEEDBACK_TEXT = {
     BTN_EXPAND: 'Развернуть все отзывы',
     BTN_COLLAPSE: 'Свернуть все отзывы',
     ANONIMOUS_USER: 'Пользователь',
-    BTN_BACK: 'Назад',
 }
 
 export const NUMBER_DATA = {
@@ -106,7 +105,13 @@ export const NUMBER_DATA = {
 
 export const MODAL_FEEDBACKS = {
     MODAL_WRONG: 'modal-wrong',
+    MODAL_SUCCESS: 'modal-success',
+    MODAL_ERROR: 'modal-error',
     NEW_FEEDBACK_TITLE: 'Ваш отзыв',
     NEW_FEEDBACK_BTN: 'Опубликовать',
     INPUT_PLACEHOLDER: 'Autosize height based on content lines',
+    BTN_BACK: 'Назад',
+    BTN_SUCCESS: 'Отлично',
+    BTN_NEW_FEEDBACK: 'Написать отзыв',
+    BTN_ERROR_CLOSE: 'Закрыть',
 }
