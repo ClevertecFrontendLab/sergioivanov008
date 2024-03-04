@@ -5,6 +5,7 @@ import { loadersReducer } from './slices/loaders-slice';
 import { apiRegistrationReducer } from './slices/api-registration-slice';
 import { apiForgotPassReducer } from './slices/api-forgot-pass-slice';
 import { apiConfirmPassReducer } from './slices/api-confirm-pass-slice';
+import { feedbacksReducer } from './slices/feedbacks-slice';
 import { createReduxHistoryContext } from 'redux-first-history';
 import { createBrowserHistory } from 'history';
 import createSagaMiddleware from 'redux-saga';
@@ -27,6 +28,7 @@ export const store = configureStore({
         apiRegistration: apiRegistrationReducer,
         apiForgotPass: apiForgotPassReducer,
         apiConfirmPass: apiConfirmPassReducer,
+        feedbacks: feedbacksReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(routerMiddleware).concat(saga),
 });

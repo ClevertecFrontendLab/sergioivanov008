@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './feedbacks.css';
 import { Button } from 'antd';
-import { FEEDBACK_TEXT } from '@constants/constants';
+import { FEEDBACK_TEXT, NUMBER_DATA } from '@constants/constants';
 import { FeedbackItem } from '@components/feedback-item';
+import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 
 export const Feedbacks: React.FC = () => {
+    const feedbacks = useAppSelector(state => state.feedbacks.feedbacks);
+    const [isCollapsedFeedbacks, setIsCollapsedFeedbacks] = useState(true);
+    const curFeedbacks = [...feedbacks].reverse();
+
+    const handleToggleFeedbacks = () => {
+        setIsCollapsedFeedbacks(!isCollapsedFeedbacks);
+    }
 
     return (
         <div className="feedbacks">
             <div className="feedbacks-wrapper">
-                <FeedbackItem />
-                <FeedbackItem />
+                {
+                    isCollapsedFeedbacks
+                        ? curFeedbacks.slice(0, NUMBER_DATA.QUAN_FEEDBACKS).map((el) => <FeedbackItem key={el.id} item={el} />)
+                        : curFeedbacks.map((el) => <FeedbackItem key={el.id} item={el} />)
+                }
             </div>
             <div className="feedbacks-btns">
                 <Button
@@ -23,8 +34,9 @@ export const Feedbacks: React.FC = () => {
                 <Button
                     type="text"
                     className='btn-3'
+                    onClick={handleToggleFeedbacks}
                 >
-                    {FEEDBACK_TEXT.BTN_ALL}
+                    {isCollapsedFeedbacks ? FEEDBACK_TEXT.BTN_EXPAND : FEEDBACK_TEXT.BTN_COLLAPSE}
                 </Button>
             </div>
         </div>

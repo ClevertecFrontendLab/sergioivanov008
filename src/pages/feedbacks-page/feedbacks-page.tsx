@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './feedbacks-page.css';
 import { FeedbackEmptyItem } from '@components/feedback-empty-item';
 import { Feedbacks } from '@components/feedbacks';
+import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { feedbacksActions } from '@redux/slices/feedbacks-slice';
+import { ModalFeedbacks } from '@components/modal-feedbacks';
 
 export const FeedbacksPage: React.FC = () => {
+    const isRendered = useRef(false);
+    const dispatch = useAppDispatch();
+    const feedbacks = useAppSelector(state => state.feedbacks.feedbacks);
+
+    useEffect(() => {
+        if (isRendered.current === false) {
+            isRendered.current = true;
+            dispatch(feedbacksActions.getFeedbacksFetch());
+        }
+    }, [dispatch, isRendered]);
 
     return (
         <>
-            <Feedbacks />
-            {/* <FeedbackEmptyItem /> */}
+            {feedbacks.length ? <Feedbacks /> : <FeedbackEmptyItem />}
+            <ModalFeedbacks />
         </>
+
     );
 };

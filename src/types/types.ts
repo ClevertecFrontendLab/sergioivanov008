@@ -21,7 +21,7 @@ export type ChangePassData = {
     confirmPassword: string,
 }
 
-export type RegistrationOkResponse = Record<string, never>;
+export type EmptyOkResponse = Record<string, never>;
 
 export type FormItems = {
     [index: string]: {
@@ -56,4 +56,19 @@ export type ErrorResponse = {
     statusCode: number,
     error: string,
     message: string,
+}
+
+export type FeedbackItem = {
+    id: string,
+    fullName: string | null,
+    imageSrc: string | null,
+    message: string | null,
+    rating: number,
+    createdAt: string,
+}
+
+export type GetFeedbacksOkResponse = Array<FeedbackItem>;
+
+export type FeedbackItemProps = {
+    item: FeedbackItem,
 }

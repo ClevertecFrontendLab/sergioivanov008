@@ -7,6 +7,7 @@ import {
     ErrorResponse,
     ForgotPassData,
     ForgotPassOkResponse,
+    GetFeedbacksOkResponse,
     LoginOkResponse,
     LoginRegistrationData } from "../../types/types";
 import { all, call, put, select, takeEvery } from "redux-saga/effects";
@@ -16,15 +17,18 @@ import {
     changePassword,
     confirmPassword,
     forgotPassword,
+    getFeedbacks,
     userLogin,
     userRegistration } from "../../../src/api/api";
 import { AxiosError } from "axios";
 import { push } from "redux-first-history";
-import { API_MESSAGES, ROUTE, STATUS, TOKEN } from "@constants/constants";
+import { API_MESSAGES, MODAL_FEEDBACKS, ROUTE, STATUS, TOKEN } from "@constants/constants";
 import { authActions } from "@redux/slices/auth-slice";
 import { rememberMe } from "./selectors";
 import { apiForgotPassActions } from "@redux/slices/api-forgot-pass-slice";
 import { apiConfirmPassActions } from "@redux/slices/api-confirm-pass-slice";
+import { feedbacksActions } from "@redux/slices/feedbacks-slice";
+import { clearLocalStorage } from "@utils/utils";
 
 function* workRegistrationUserSaga(action: PayloadAction<{ registrationData: LoginRegistrationData }>) {
     yield put(loadersActions.toggleIsLoaderVisible(true));
@@ -165,6 +169,32 @@ function* watchChangePassSaga() {
     yield takeEvery(authActions.startChangePass, workChangePassSaga);
 }
 
+function* GetFeedbacksFetchSaga() {
+    yield put(loadersActions.toggleIsLoaderVisible(true));
+
+    try {
+        const response: GetFeedbacksOkResponse = yield call(getFeedbacks);
+        yield put(feedbacksActions.getFeedbacksSuccess(response));
+        yield put(loadersActions.toggleIsLoaderVisible(false));
+    } catch (e: unknown) {
+        const error = e as AxiosError;
+
+        yield put(loadersActions.toggleIsLoaderVisible(false));
+
+        if (error?.response?.status === STATUS.CODE_403) {
+            yield put(authActions.setIsAuth(false));
+            yield clearLocalStorage();
+            yield put(push(ROUTE.AUTH));
+        } else {
+            yield put(feedbacksActions.setShowModalFeedbacks(MODAL_FEEDBACKS.MODAL_WRONG));
+        }
+    }
+}
+
+function* watchGetFeedbacksFetchSaga() {
+    yield takeEvery(feedbacksActions.getFeedbacksFetch, GetFeedbacksFetchSaga);
+}
+
 export function* rootSaga() {
     yield all([
         watchRegistrationUserSaga(),
@@ -172,5 +202,6 @@ export function* rootSaga() {
         watchForgotPassSaga(),
         watchConfirmPassSaga(),
         watchChangePassSaga(),
+        watchGetFeedbacksFetchSaga(),
     ]);
 }

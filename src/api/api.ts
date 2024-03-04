@@ -4,12 +4,13 @@ import {
     ChangePassOkResponse,
     ConfirmPassData,
     ConfirmPassOkResponse,
+    EmptyOkResponse,
     ErrorResponse,
     ForgotPassData,
     ForgotPassOkResponse,
+    GetFeedbacksOkResponse,
     LoginOkResponse,
     LoginRegistrationData,
-    RegistrationOkResponse
 } from "../types/types";
 import { API, TOKEN } from "@constants/constants";
 
@@ -39,7 +40,7 @@ $api.interceptors.response.use((config) => {
     return newConfig;
 });
 
-export async function userRegistration(data: LoginRegistrationData): Promise<RegistrationOkResponse | ErrorResponse> {
+export async function userRegistration(data: LoginRegistrationData): Promise<EmptyOkResponse | ErrorResponse> {
     const response = await $apiBase.post(API.url_registration, data);
     const outData = await response.data;
 
@@ -69,6 +70,13 @@ export async function confirmPassword(data: ConfirmPassData): Promise<ConfirmPas
 
 export async function changePassword(data: ChangePassData): Promise<ChangePassOkResponse | ErrorResponse> {
     const response = await $apiBase.post(API.url_change_pass, data);
+    const outData = await response.data;
+
+    return outData;
+}
+
+export async function getFeedbacks(): Promise<GetFeedbacksOkResponse | ErrorResponse> {
+    const response = await $api.get(API.url_get_feedbacks);
     const outData = await response.data;
 
     return outData;

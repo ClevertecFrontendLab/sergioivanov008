@@ -72,6 +72,7 @@ export const API = {
     url_confirm_email: '/auth/confirm-email',
     url_change_pass: '/auth/change-password',
     url_google_auth: '/auth/google',
+    url_get_feedbacks: '/feedback',
 }
 
 export const API_MESSAGES = {
@@ -82,6 +83,7 @@ export const TOKEN = 'cleverFitToken';
 export const IS_REMEMBERED = 'cleverFitIsRemembered';
 
 export const STATUS = {
+    CODE_403: 403,
     CODE_404: 404,
     CODE_409: 409,
 }
@@ -92,5 +94,16 @@ export const FEEDBACK_TEXT = {
     DESC_2: 'Поделитесь своим мнением и опытом с другими пользователями,',
     DESC_3: 'и помогите им сделать правильный выбор.',
     BTN_NEW_FEEDBACK: 'Написать отзыв',
-    BTN_ALL: 'Развернуть все отзывы',
+    BTN_EXPAND: 'Развернуть все отзывы',
+    BTN_COLLAPSE: 'Свернуть все отзывы',
+    ANONIMOUS_USER: 'Пользователь',
+    BTN_BACK: 'Назад',
+}
+
+export const NUMBER_DATA = {
+    QUAN_FEEDBACKS: 4,
+}
+
+export const MODAL_FEEDBACKS = {
+    MODAL_WRONG: 'modal-wrong',
 }

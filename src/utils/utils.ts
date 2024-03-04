@@ -1,4 +1,4 @@
-import { IS_REMEMBERED, REGEXP } from "@constants/constants";
+import { IS_REMEMBERED, REGEXP, TOKEN } from "@constants/constants";
 
 export const toggleBodyNotScrollable = (set: boolean) => {
     if (set) {
@@ -31,4 +31,18 @@ export const getIsRemembered = (): boolean => {
     }
 
     return isRememberMe;
+}
+
+export const getDateForFeedback = (date: string): string => {
+    const dateForParse = new Date(date);
+    const day = dateForParse.getDate().toString().padStart(2, '0');
+    const month = dateForParse.getMonth().toString().padStart(2, '0');
+    const year = dateForParse.getFullYear().toString();
+
+    return `${day}.${month}.${year}`;
+};
+
+export const clearLocalStorage = (): void => {
+    localStorage.removeItem(TOKEN);
+    localStorage.removeItem(IS_REMEMBERED);
 }
