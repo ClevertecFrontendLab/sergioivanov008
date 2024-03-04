@@ -11,6 +11,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    z-index: 102;
 }
 .result-icon {
     margin-top: 8px;
