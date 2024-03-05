@@ -77,3 +77,7 @@ export type NewFeedbackPost = {
     message: string,
     rating: number,
   }
+
+export type ModalFeedbacksItems = {
+    [index: string]: JSX.Element,
+}
