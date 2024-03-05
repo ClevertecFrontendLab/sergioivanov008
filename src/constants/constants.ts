@@ -101,6 +101,9 @@ export const FEEDBACK_TEXT = {
 
 export const NUMBER_DATA = {
     QUAN_FEEDBACKS: 4,
+    BREAK_WIDTH: 805,
+    MODAL_MAX_WIDTH: 539,
+    MODAL_MIN_WIDTH: 328,
 }
 
 export const MODAL_FEEDBACKS = {

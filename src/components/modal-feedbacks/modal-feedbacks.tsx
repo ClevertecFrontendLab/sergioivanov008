@@ -6,6 +6,7 @@ import { Button, Modal, Result } from 'antd';
 import { push } from 'redux-first-history';
 import { ModalFeedbacksItems } from '../../types/types';
 import { feedbacksActions } from '@redux/slices/feedbacks-slice';
+import { getModalWidth } from '@utils/utils';
 
 export const ModalFeedbacks: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -14,7 +15,7 @@ export const ModalFeedbacks: React.FC = () => {
     const curItem = showModalFeedbacks ? showModalFeedbacks as string : false;
     const isSetBodyNotScrollable = curItem ? true : false;
 
-    const modalWidth = document.documentElement.clientWidth >= 805 ? 539 : 328;
+    const modalWidth = getModalWidth(document.documentElement.clientWidth);
 
     const modalFeedbacksItems: ModalFeedbacksItems = {
         'modal-wrong':

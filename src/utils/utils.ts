@@ -1,4 +1,4 @@
-import { IS_REMEMBERED, REGEXP, TOKEN } from "@constants/constants";
+import { IS_REMEMBERED, NUMBER_DATA, REGEXP, TOKEN } from "@constants/constants";
 
 export const toggleBodyNotScrollable = (set: boolean) => {
     if (set) {
@@ -45,4 +45,10 @@ export const getDateForFeedback = (date: string): string => {
 export const clearLocalStorage = (): void => {
     localStorage.removeItem(TOKEN);
     localStorage.removeItem(IS_REMEMBERED);
+}
+
+export const getModalWidth = (width: number): number => {
+    return width >= NUMBER_DATA.BREAK_WIDTH
+        ? NUMBER_DATA.MODAL_MAX_WIDTH
+        : NUMBER_DATA.MODAL_MIN_WIDTH;
 }

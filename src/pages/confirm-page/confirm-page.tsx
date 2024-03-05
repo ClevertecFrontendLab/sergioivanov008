@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import VerificationInput from 'react-verification-input';
 import { apiConfirmPassActions } from '@redux/slices/api-confirm-pass-slice';
 import { IconError } from '@components/icon-error';
+import { NUMBER_DATA } from '@constants/constants';
 
 export const ConfirmPage: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -24,7 +25,7 @@ export const ConfirmPage: React.FC = () => {
         dispatch(apiConfirmPassActions.startConfirmPass(data));
     }
 
-    const breakWidthStyle = document.documentElement.clientWidth >= 805 ? '' : <br />;
+    const breakWidthStyle = document.documentElement.clientWidth >= NUMBER_DATA.BREAK_WIDTH ? '' : <br />;
 
     return (
         <div className='auth-page'>

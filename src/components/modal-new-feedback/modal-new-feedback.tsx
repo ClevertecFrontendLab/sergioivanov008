@@ -6,6 +6,7 @@ import { StarFilled, StarOutlined } from '@ant-design/icons';
 import { feedbacksActions } from '@redux/slices/feedbacks-slice';
 import { MODAL_FEEDBACKS } from '@constants/constants';
 import TextArea from 'antd/lib/input/TextArea';
+import { getModalWidth } from '@utils/utils';
 
 export const ModalNewFeedback: React.FC = () => {
     const dispatch = useAppDispatch()
@@ -15,7 +16,7 @@ export const ModalNewFeedback: React.FC = () => {
 
     const [isCanSubmit, setIsCanSubmit ] = useState(false);
 
-    const modalWidth = document.documentElement.clientWidth >= 805 ? 539 : 328;
+    const modalWidth = getModalWidth(document.documentElement.clientWidth);
 
     useEffect(() => {
         if (newFeedbackRating > 0) {
