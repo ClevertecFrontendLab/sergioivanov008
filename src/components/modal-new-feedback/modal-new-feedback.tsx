@@ -15,6 +15,8 @@ export const ModalNewFeedback: React.FC = () => {
 
     const [isCanSubmit, setIsCanSubmit ] = useState(false);
 
+    const modalWidth = document.documentElement.clientWidth >= 805 ? 539 : 328;
+
     useEffect(() => {
         if (newFeedbackRating > 0) {
             setIsCanSubmit(true);
@@ -48,7 +50,7 @@ export const ModalNewFeedback: React.FC = () => {
             onCancel={handleCancelModal}
             centered
             title={MODAL_FEEDBACKS.NEW_FEEDBACK_TITLE}
-            width={539}
+            width={modalWidth}
 
             maskStyle={{ backgroundColor: 'rgba(121, 156, 213, 0.5)', backdropFilter: 'blur(5px)' }}
             footer={[
