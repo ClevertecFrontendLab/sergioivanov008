@@ -14,13 +14,15 @@ export const ModalFeedbacks: React.FC = () => {
     const curItem = showModalFeedbacks ? showModalFeedbacks as string : false;
     const isSetBodyNotScrollable = curItem ? true : false;
 
+    const modalWidth = document.documentElement.clientWidth >= 805 ? 539 : 328;
+
     const modalFeedbacksItems: ModalFeedbacksItems = {
         'modal-wrong':
             <Result
                 status="500"
                 title="Что-то пошло не так"
                 subTitle="Произошла ошибка, попробуйте ещё раз."
-                className="feedbaks-modal-result"
+                className="feedbaks-modal-result modal-wrong"
                 extra={
                     <Button
                         type="primary"
@@ -38,7 +40,7 @@ export const ModalFeedbacks: React.FC = () => {
             <Result
                 status="success"
                 title="Отзыв успешно опубликован"
-                className="feedbaks-modal-result"
+                className="feedbaks-modal-result modal-success"
                 extra={[
                     <Button
                         type="primary"
@@ -57,7 +59,7 @@ export const ModalFeedbacks: React.FC = () => {
                 status="error"
                 title="Данные не сохранились"
                 subTitle="Что-то пошло не так. Попробуйте ещё раз."
-                className="feedbaks-modal-result"
+                className="feedbaks-modal-error"
                 extra={[
                     <Button
                         type="primary"
@@ -92,7 +94,7 @@ export const ModalFeedbacks: React.FC = () => {
             closable={false}
             title={null}
             footer={null}
-            width={539}
+            width={modalWidth}
             maskStyle={{ backgroundColor: 'rgba(121, 156, 213, 0.5)', backdropFilter: 'blur(5px)' }}
             className='feedbaks-modal'
         >
