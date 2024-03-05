@@ -13,7 +13,6 @@
     gap: 12px;
 }
 .item-user-name {
-    width: 76px;
     text-align: center;
     font-family: var(--font-family);
     font-weight: var(--font-weight-400);
