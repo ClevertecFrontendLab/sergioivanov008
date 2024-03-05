@@ -14,12 +14,16 @@ import { authActions } from '@redux/slices/auth-slice';
 import { IconWarning } from '@components/icon-warning';
 import { apiForgotPassActions } from '@redux/slices/api-forgot-pass-slice';
 import { IconWrong } from '@components/icon-wrong';
+import {
+    changePassDataSelector,
+    forgotPassDataSelector,
+    registrationDataSelector } from '@redux/sagas/selectors';
 
 export const ResultPage: React.FC = () => {
     const dispatch = useAppDispatch();
-    const registrationData = useAppSelector(state => state.apiRegistration.registrationData);
-    const forgotPassData = useAppSelector(state => state.apiForgotPass.forgotPassData);
-    const changePassData = useAppSelector(state => state.auth.changePassData);
+    const registrationData = useAppSelector(registrationDataSelector);
+    const forgotPassData = useAppSelector(forgotPassDataSelector);
+    const changePassData = useAppSelector(changePassDataSelector);
 
     const params = useParams();
     const curItem = params?.result as string;

@@ -1,0 +1,9 @@
+.app-wrapper {
+    display: flex;
+    background: transparent url(/public/Main_page_light.png) center / cover no-repeat;
+    min-height: 1024px;
+}
+.app-content {
+    padding: 0px 0px 42px 0px;
+    width: 100%;
+}

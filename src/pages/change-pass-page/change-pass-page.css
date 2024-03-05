@@ -15,7 +15,7 @@
 .class114 {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--gap8);
     margin-bottom: 38px;
 }
 @media (max-width: 805px) {

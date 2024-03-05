@@ -4,9 +4,10 @@ import lottieJson from '../assets/lottie/lottie-loader.json';
 import './loader.css';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { toggleBodyNotScrollable } from '@utils/utils';
+import { isLoaderVisibleSelector } from '@redux/sagas/selectors';
 
 export const Loader: React.FC = () => {
-    const isLoaderVisible = useAppSelector(state => state.loaders.isLoaderVisible);
+    const isLoaderVisible = useAppSelector(isLoaderVisibleSelector);
 
     toggleBodyNotScrollable(isLoaderVisible);
 

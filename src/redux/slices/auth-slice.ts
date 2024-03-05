@@ -1,6 +1,11 @@
-import { TOKEN } from '@constants/constants';
+import { IS_REMEMBERED, TOKEN } from '@constants/constants';
 import { createSlice } from '@reduxjs/toolkit'
 import { ChangePassData, LoginRegistrationData, Nullable } from '../../types/types';
+import { getIsRemembered } from '@utils/utils';
+
+if (!localStorage.getItem(IS_REMEMBERED)) {
+    localStorage.setItem(IS_REMEMBERED, JSON.stringify(false));
+}
 
 export type AuthState = {
     isAuth: boolean,
@@ -25,7 +30,7 @@ const initialState: AuthState = {
     isPasswordValid: false,
     confirmPassword: '',
     isConfirmPasswordValid: false,
-    rememberMe: true,
+    rememberMe: getIsRemembered(),
     canResultPage: false,
     loginData: null,
     changePassData: null,

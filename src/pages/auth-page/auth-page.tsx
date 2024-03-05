@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
+import 'antd/dist/antd.css';
 import './auth-page.css';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, GooglePlusOutlined } from '@ant-design/icons';
-import { FORM_TEXT, ROUTE } from '@constants/constants';
+import { API, FORM_TEXT, IS_REMEMBERED, ROUTE } from '@constants/constants';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { authActions } from '@redux/slices/auth-slice';
 import { AuthPageProps } from '../../types/types';
@@ -11,16 +12,25 @@ import { apiRegistrationActions } from '@redux/slices/api-registration-slice';
 import { push } from 'redux-first-history';
 import { apiForgotPassActions } from '@redux/slices/api-forgot-pass-slice';
 import { checkEmailIsValid, checkPasswordIsValid } from '@utils/utils';
+import { loadersActions } from '@redux/slices/loaders-slice';
+import {
+    confirmPasswordSelector,
+    emailSelector,
+    isConfirmPasswordValidSelector,
+    isEmailValidSelector,
+    isPasswordValidSelector,
+    passwordSelector,
+    rememberMeSelector } from '@redux/sagas/selectors';
 
 export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     const dispatch = useAppDispatch()
-    const email = useAppSelector(state => state.auth.email);
-    const isEmailValid = useAppSelector(state => state.auth.isEmailValid);
-    const password = useAppSelector(state => state.auth.password);
-    const isPasswordValid = useAppSelector(state => state.auth.isPasswordValid);
-    const confirmPassword = useAppSelector(state => state.auth.confirmPassword);
-    const isConfirmPasswordValid = useAppSelector(state => state.auth.isConfirmPasswordValid);
-    const rememberMe = useAppSelector(state => state.auth.rememberMe);
+    const email = useAppSelector(emailSelector);
+    const isEmailValid = useAppSelector(isEmailValidSelector);
+    const password = useAppSelector(passwordSelector);
+    const isPasswordValid = useAppSelector(isPasswordValidSelector);
+    const confirmPassword = useAppSelector(confirmPasswordSelector);
+    const isConfirmPasswordValid = useAppSelector(isConfirmPasswordValidSelector);
+    const rememberMe = useAppSelector(rememberMeSelector);
 
     const [isAuthorization, setIsAuthorization ] = useState(isThisAuthPage);
     const [isCanSubmit, setIsCanSubmit ] = useState(false);
@@ -47,6 +57,11 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
         } else {
             setIsDiabledForgotPassBtn(true);
         }
+    }
+
+    const handleGoogleAuth = () => {
+        window.location.href = `${API.host}${API.url_google_auth}`;
+        dispatch(loadersActions.toggleIsLoaderVisible(true));
     }
 
     const onFinish = () => {
@@ -113,6 +128,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
 
     const handleCheckbox = () => {
         dispatch(authActions.setRememberMe(!rememberMe));
+        localStorage.setItem(IS_REMEMBERED, JSON.stringify(!rememberMe));
     }
 
     const btnAuthClick = () => {
@@ -211,11 +227,10 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                             <div className='class111'>
                                 <Form.Item
                                     name="remember"
-                                    valuePropName="checked"
                                     noStyle
                                 >
                                     <Checkbox
-                                        value={rememberMe}
+                                        checked={rememberMe}
                                         onChange={handleCheckbox}
                                         data-test-id='login-remember'
                                     >
@@ -248,6 +263,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
                                 className="login-form-button"
                                 icon={<GooglePlusOutlined />}
                                 style={{fontSize: '16px'}}
+                                onClick={handleGoogleAuth}
                             >
                                 {FORM_TEXT.ENTER_GOOGLE}
                             </Button>

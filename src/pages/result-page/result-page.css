@@ -11,6 +11,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    z-index: 102;
 }
 .result-icon {
     margin-top: 8px;
@@ -54,6 +55,11 @@
 }
 .result-btn.custom13 {
     width: 74px;
+}
+.btns-modal-wrapper {
+    width: 100%;
+    display: flex;
+    gap: var(--gap8);
 }
 @media (max-width: 805px) {
     .form-result {

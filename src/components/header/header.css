@@ -6,12 +6,16 @@
     flex-direction: column;
     gap: 6px
 }
+.header.feedback{
+    height: 50px;
+}
 .breadcrumb-item {
     font-family: var(--font-family);
     font-weight: var(--font-weight-400);
     font-size: var(--font-size-14);
     line-height: var(--line-height);
     color: var(--character-light-title-85);
+    cursor: pointer;
 }
 .header-content {
     display: flex;
@@ -38,7 +42,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: var(--gap16);
 
     font-family: var(--font-family);
     font-weight: var(--font-weight-400);

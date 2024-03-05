@@ -1,0 +1,15 @@
+.feedbacks-empty {
+    padding: 0px 24px;
+    width: 100%;
+    height: 908px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 805px) {
+    .feedbacks-empty {
+        padding: 0px 16px;
+        height: 402px;
+    }
+}

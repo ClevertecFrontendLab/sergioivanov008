@@ -1,18 +1,34 @@
 import React from 'react';
 import './footer.css';
 import { Button, Card } from 'antd';
-import { FOOTER_TEXT } from '@constants/constants';
+import { FOOTER_TEXT, ROUTE } from '@constants/constants';
 import { AndroidFilled, AppleFilled } from '@ant-design/icons';
-import { useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { push } from 'redux-first-history';
+import { useLocation } from 'react-router-dom';
+import { collapsedSelector } from '@redux/sagas/selectors';
 const { Meta } = Card;
 
 export const Footer: React.FC = () => {
-    const collapsed = useAppSelector(state => state.aside.isAsideCollapsed);
+    const location = useLocation();
+    const dispatch = useAppDispatch();
+    const collapsed = useAppSelector(collapsedSelector);
     const footerClass = `footer ${collapsed ? 'collapsed' : ''}`;
 
-    return (
+    const handleBtnFeedbacks = () => {
+        dispatch(push(ROUTE.FEEDBACKS));
+    }
+
+    return (location.pathname === ROUTE.MAIN &&
         <footer className={footerClass}>
-            <Button type="text" className='btn-3'>{FOOTER_TEXT.BTN_REVIEW}</Button>
+            <Button
+                type="text"
+                className='btn-3'
+                onClick={handleBtnFeedbacks}
+                data-test-id='see-reviews'
+            >
+                {FOOTER_TEXT.BTN_FEEDBACKS}
+            </Button>
             <Card
                 hoverable
                 bordered={false}

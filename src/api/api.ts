@@ -1,21 +1,20 @@
 import axios from "axios";
 import {
     ChangePassData,
-    ChangePassErrorResponse,
     ChangePassOkResponse,
     ConfirmPassData,
-    ConfirmPassErrorResponse,
     ConfirmPassOkResponse,
+    EmptyOkResponse,
+    ErrorResponse,
     ForgotPassData,
-    ForgotPassErrorResponse,
     ForgotPassOkResponse,
-    LoginErrorResponse,
+    GetFeedbacksOkResponse,
     LoginOkResponse,
     LoginRegistrationData,
-    RegistrationErrorResponse,
-    RegistrationOkResponse
+    NewFeedbackPost,
 } from "../types/types";
-import { API, TOKEN } from "@constants/constants";
+import { API } from "@constants/constants";
+import { getToken } from "@utils/utils";
 
 const $api = axios.create({
     withCredentials: true,
@@ -30,7 +29,7 @@ const $apiBase = axios.create({
 $api.interceptors.request.use((config) => {
     const newConfig = config;
 
-    newConfig.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN)}`;
+    newConfig.headers.Authorization = `Bearer ${getToken()}`;
 
     return newConfig;
 });
@@ -38,41 +37,55 @@ $api.interceptors.request.use((config) => {
 $api.interceptors.response.use((config) => {
     const newConfig = config;
 
-    newConfig.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN)}`;
+    newConfig.headers.Authorization = `Bearer ${getToken()}`;
 
     return newConfig;
 });
 
-export async function userRegistration(data: LoginRegistrationData): Promise<RegistrationOkResponse | RegistrationErrorResponse> {
+export async function userRegistration(data: LoginRegistrationData): Promise<EmptyOkResponse | ErrorResponse> {
     const response = await $apiBase.post(API.url_registration, data);
     const outData = await response.data;
 
     return outData;
 }
 
-export async function userLogin(data: LoginRegistrationData): Promise<LoginOkResponse | LoginErrorResponse> {
+export async function userLogin(data: LoginRegistrationData): Promise<LoginOkResponse | ErrorResponse> {
     const response = await $apiBase.post(API.url_login, data);
     const outData = await response.data;
 
     return outData;
 }
 
-export async function forgotPassword(data: ForgotPassData): Promise<ForgotPassOkResponse | ForgotPassErrorResponse> {
+export async function forgotPassword(data: ForgotPassData): Promise<ForgotPassOkResponse | ErrorResponse> {
     const response = await $apiBase.post(API.url_check_email, data);
     const outData = await response.data;
 
     return outData;
 }
 
-export async function confirmPassword(data: ConfirmPassData): Promise<ConfirmPassOkResponse | ConfirmPassErrorResponse> {
+export async function confirmPassword(data: ConfirmPassData): Promise<ConfirmPassOkResponse | ErrorResponse> {
     const response = await $apiBase.post(API.url_confirm_email, data);
     const outData = await response.data;
 
     return outData;
 }
 
-export async function changePassword(data: ChangePassData): Promise<ChangePassOkResponse | ChangePassErrorResponse> {
+export async function changePassword(data: ChangePassData): Promise<ChangePassOkResponse | ErrorResponse> {
     const response = await $apiBase.post(API.url_change_pass, data);
+    const outData = await response.data;
+
+    return outData;
+}
+
+export async function getFeedbacks(): Promise<GetFeedbacksOkResponse | ErrorResponse> {
+    const response = await $api.get(API.url_feedback);
+    const outData = await response.data;
+
+    return outData;
+}
+
+export async function postNewFeedback(data: NewFeedbackPost): Promise<EmptyOkResponse | ErrorResponse> {
+    const response = await $api.post(API.url_feedback, data);
     const outData = await response.data;
 
     return outData;
