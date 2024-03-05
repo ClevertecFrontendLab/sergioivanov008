@@ -1,10 +1,5 @@
-import { IS_REMEMBERED } from '@constants/constants';
 import { createSlice } from '@reduxjs/toolkit'
 import { GetFeedbacksOkResponse, NewFeedbackPost, Nullable } from '../../types/types';
-
-if (!localStorage.getItem(IS_REMEMBERED)) {
-    localStorage.setItem(IS_REMEMBERED, JSON.stringify(true));
-}
 
 export type FeedbacksState = {
     feedbacks: GetFeedbacksOkResponse,

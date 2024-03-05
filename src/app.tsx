@@ -34,7 +34,7 @@ export const App: React.FC = () => {
     return (
         <HistoryRouter history={history}>
             <Routes>
-                <Route path={ROUTE.INDEX} element={isAuth ? <PrivateRouter /> : <Navigate to={ROUTE.AUTH} />} />
+                <Route path={ROUTE.INDEX} element={isAuth ? <MainPage /> : <Navigate to={ROUTE.AUTH} />} />
                 <Route path={ROUTE.AUTH} element={isAuth ? <MainPage /> : <AuthPage isThisAuthPage={true} />} />
                 <Route path={ROUTE.REGISTRATION} element={isAuth ? <MainPage /> : <AuthPage isThisAuthPage={false} />} />
                 <Route path={ROUTE.ROUTE_RESULT} element={canResultPage ? <ResultPage /> : <Navigate to={ROUTE.INDEX} />} />
