@@ -15,6 +15,7 @@
     font-size: var(--font-size-14);
     line-height: var(--line-height);
     color: var(--character-light-title-85);
+    cursor: pointer;
 }
 .header-content {
     display: flex;
