@@ -31,6 +31,6 @@
         left: -64px;
     }
     .menu-wrapper {
-        gap: 8px;
+        gap: var(--gap8);
     }
 }

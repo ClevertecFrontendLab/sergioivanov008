@@ -59,7 +59,7 @@
 .btns-modal-wrapper {
     width: 100%;
     display: flex;
-    gap: 8px;
+    gap: var(--gap8);
 }
 @media (max-width: 805px) {
     .form-result {

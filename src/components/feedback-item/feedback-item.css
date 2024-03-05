@@ -3,14 +3,14 @@
 }
 .feedback-item .ant-card-body{
     display: flex;
-    gap: 12px;
+    gap: var(--gap12);
 }
 .item-user {
     width: 174px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: var(--gap12);
 }
 .item-user-name {
     text-align: center;
@@ -24,12 +24,12 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--gap12);
 }
 .item-body-rating {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: var(--gap16);
 }
 .item-body-date {
     font-family: var(--font-family);

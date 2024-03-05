@@ -95,6 +95,11 @@
     --font-weight-700: 700;
 
     --line-height: 130%;
+
+    --gap8: 8px;
+    --gap12: 12px;
+    --gap16: 16px;
+    --gap20: 20px;
 }
 #root {
     max-width: 1440px;

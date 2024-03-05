@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: var(--gap20);
 }
 .feedback-empty-card {
     border-radius: 2px;

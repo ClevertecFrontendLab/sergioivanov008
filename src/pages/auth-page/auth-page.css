@@ -75,7 +75,7 @@
 .class109 {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--gap8);
     margin-bottom: 27px;
 }
 .class110 {
@@ -94,7 +94,7 @@
 .class112 {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: var(--gap16);
 }
 .class113 {
     margin-top: 2px;
