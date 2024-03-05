@@ -4,7 +4,7 @@ import { GetFeedbacksOkResponse, NewFeedbackPost, Nullable } from '../../types/t
 export type FeedbacksState = {
     feedbacks: GetFeedbacksOkResponse,
     isLoading: boolean,
-    showModalFeedbacks: Nullable<string>,
+    showModalFeedbacks: string,
     showModalNewFeedback: boolean,
     newFeedbackRating: number,
     newFeedbackMessage: string,
@@ -14,7 +14,7 @@ export type FeedbacksState = {
 const initialState: FeedbacksState = {
     feedbacks: [],
     isLoading: false,
-    showModalFeedbacks: null,
+    showModalFeedbacks: '',
     showModalNewFeedback: false,
     newFeedbackRating: 0,
     newFeedbackMessage: '',

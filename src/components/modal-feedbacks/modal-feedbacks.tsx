@@ -12,9 +12,6 @@ export const ModalFeedbacks: React.FC = () => {
     const dispatch = useAppDispatch();
     const showModalFeedbacks = useAppSelector(state => state.feedbacks.showModalFeedbacks);
 
-    const curItem = showModalFeedbacks ? showModalFeedbacks as string : false;
-    const isSetBodyNotScrollable = curItem ? true : false;
-
     const modalWidth = getModalWidth(document.documentElement.clientWidth);
 
     const modalFeedbacksItems: ModalFeedbacksItems = {
@@ -29,7 +26,7 @@ export const ModalFeedbacks: React.FC = () => {
                         type="primary"
                         size="large"
                         onClick={() => {
-                            dispatch(feedbacksActions.setShowModalFeedbacks(null));
+                            dispatch(feedbacksActions.setShowModalFeedbacks(''));
                             dispatch(push(ROUTE.MAIN));
                         }}
                     >
@@ -48,7 +45,7 @@ export const ModalFeedbacks: React.FC = () => {
                         size="large"
                         block
                         onClick={() => {
-                            dispatch(feedbacksActions.setShowModalFeedbacks(null));
+                            dispatch(feedbacksActions.setShowModalFeedbacks(''));
                         }}
                     >
                         {MODAL_FEEDBACKS.BTN_SUCCESS}
@@ -67,7 +64,7 @@ export const ModalFeedbacks: React.FC = () => {
                         size="large"
                         block
                         onClick={() => {
-                            dispatch(feedbacksActions.setShowModalFeedbacks(null));
+                            dispatch(feedbacksActions.setShowModalFeedbacks(''));
                             dispatch(dispatch(feedbacksActions.setShowModalNewFeedback(true)));
                         }}
                         data-test-id='write-review-not-saved-modal'
@@ -79,7 +76,7 @@ export const ModalFeedbacks: React.FC = () => {
                         size="large"
                         block
                         onClick={() => {
-                            dispatch(feedbacksActions.setShowModalFeedbacks(null));
+                            dispatch(feedbacksActions.setShowModalFeedbacks(''));
                         }}
                     >
                         {MODAL_FEEDBACKS.BTN_ERROR_CLOSE}
@@ -90,7 +87,7 @@ export const ModalFeedbacks: React.FC = () => {
 
     return (
         <Modal
-            open={isSetBodyNotScrollable}
+            open={Boolean(showModalFeedbacks)}
             centered
             closable={false}
             title={null}
@@ -99,7 +96,7 @@ export const ModalFeedbacks: React.FC = () => {
             maskStyle={{ backgroundColor: 'rgba(121, 156, 213, 0.5)', backdropFilter: 'blur(5px)' }}
             className='feedbaks-modal'
         >
-            {curItem && modalFeedbacksItems[curItem]}
+            {Boolean(showModalFeedbacks) && modalFeedbacksItems[showModalFeedbacks]}
         </Modal>
     );
 };
