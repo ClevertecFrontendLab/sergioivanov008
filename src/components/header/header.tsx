@@ -6,13 +6,14 @@ import { SettingOutlined } from '@ant-design/icons';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { useLocation } from 'react-router-dom';
 import { push } from 'redux-first-history';
+import { collapsedSelector } from '@redux/sagas/selectors';
 
 const { Title } = Typography;
 
 export const Header: React.FC = () => {
     const dispatch = useAppDispatch();
     const location = useLocation();
-    const collapsed = useAppSelector(state => state.aside.isAsideCollapsed);
+    const collapsed = useAppSelector(collapsedSelector);
     const spanClass = collapsed ? '' : 'span-block';
     const headerStyle = `header ${location.pathname === ROUTE.FEEDBACKS && 'feedback'}`;
     const pathName = location.pathname;

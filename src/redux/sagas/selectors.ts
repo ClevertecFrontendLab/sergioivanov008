@@ -1,3 +1,26 @@
 import { RootState } from "@redux/configure-store";
 
-export const rememberMe = (state: RootState) => state.auth.rememberMe;
+export const rememberMeSelector = (state: RootState) => state.auth.rememberMe;
+export const feedbacksSelector = (state: RootState) => state.feedbacks.feedbacks;
+export const isAuthSelector = (state: RootState) => state.auth.isAuth;
+export const canResultPageSelector = (state: RootState) => state.auth.canResultPage;
+export const canConfirmPageSelector = (state: RootState) => state.apiForgotPass.canConfirmPage;
+export const canChangePassPageSelector = (state: RootState) => state.apiConfirmPass.canChangePassPage;
+export const collapsedSelector = (state: RootState) => state.aside.isAsideCollapsed;
+export const isLoaderVisibleSelector = (state: RootState) => state.loaders.isLoaderVisible;
+export const showModalFeedbacksSelector = (state: RootState) => state.feedbacks.showModalFeedbacks;
+export const showModalNewFeedbackSelector = (state: RootState) => state.feedbacks.showModalNewFeedback;
+export const newFeedbackRatingSelector = (state: RootState) => state.feedbacks.newFeedbackRating;
+export const newFeedbackMessageSelector = (state: RootState) => state.feedbacks.newFeedbackMessage;
+export const emailSelector = (state: RootState) => state.auth.email;
+export const isEmailValidSelector = (state: RootState) => state.auth.isEmailValid;
+export const passwordSelector = (state: RootState) => state.auth.password;
+export const isPasswordValidSelector = (state: RootState) => state.auth.isPasswordValid;
+export const confirmPasswordSelector = (state: RootState) => state.auth.confirmPassword;
+export const isConfirmPasswordValidSelector = (state: RootState) => state.auth.isConfirmPasswordValid;
+export const emailForgotSelector = (state: RootState) => state.auth.emailForgot;
+export const confirmInputValueSelector = (state: RootState) => state.apiConfirmPass.confirmInputValue;
+export const isErrorConfirmCodeSelector = (state: RootState) => state.apiConfirmPass.isErrorConfirmCode;
+export const registrationDataSelector = (state: RootState) => state.apiRegistration.registrationData;
+export const forgotPassDataSelector = (state: RootState) => state.apiForgotPass.forgotPassData;
+export const changePassDataSelector = (state: RootState) => state.auth.changePassData;

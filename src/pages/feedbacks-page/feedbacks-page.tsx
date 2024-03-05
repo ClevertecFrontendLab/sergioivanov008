@@ -6,11 +6,12 @@ import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { feedbacksActions } from '@redux/slices/feedbacks-slice';
 import { ModalFeedbacks } from '@components/modal-feedbacks';
 import { ModalNewFeedback } from '@components/modal-new-feedback';
+import { feedbacksSelector } from '@redux/sagas/selectors';
 
 export const FeedbacksPage: React.FC = () => {
     const isRendered = useRef(false);
     const dispatch = useAppDispatch();
-    const feedbacks = useAppSelector(state => state.feedbacks.feedbacks);
+    const feedbacks = useAppSelector(feedbacksSelector);
 
     useEffect(() => {
         if (isRendered.current === false) {

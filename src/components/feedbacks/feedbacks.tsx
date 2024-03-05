@@ -5,10 +5,11 @@ import { FEEDBACK_TEXT, NUMBER_DATA } from '@constants/constants';
 import { FeedbackItem } from '@components/feedback-item';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { feedbacksActions } from '@redux/slices/feedbacks-slice';
+import { feedbacksSelector } from '@redux/sagas/selectors';
 
 export const Feedbacks: React.FC = () => {
     const dispatch = useAppDispatch();
-    const feedbacks = useAppSelector(state => state.feedbacks.feedbacks);
+    const feedbacks = useAppSelector(feedbacksSelector);
     const [isCollapsedFeedbacks, setIsCollapsedFeedbacks] = useState(true);
     const curFeedbacks = [...feedbacks].reverse();
 

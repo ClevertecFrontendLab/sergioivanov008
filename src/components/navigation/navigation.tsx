@@ -3,6 +3,7 @@ import './navigation.css';
 
 import { CalendarOutlined, HeartFilled, IdcardOutlined, TrophyFilled } from '@ant-design/icons';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { collapsedSelector } from '@redux/sagas/selectors';
 
 const menuItems = [
     {
@@ -28,7 +29,7 @@ const menuItems = [
 ];
 
 export const Navigation: React.FC = () => {
-    const collapsed = useAppSelector(state => state.aside.isAsideCollapsed);
+    const collapsed = useAppSelector(collapsedSelector);
     const menuClass = `menu ${collapsed ? 'collapsed' : ''}`;
 
     return (

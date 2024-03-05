@@ -4,6 +4,7 @@ import { Button, Card } from 'antd';
 import { CONTENT_TEXT } from '@constants/constants';
 import { CalendarOutlined, HeartFilled, IdcardOutlined } from '@ant-design/icons';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { collapsedSelector } from '@redux/sagas/selectors';
 
 const cardItems = [
     {
@@ -30,7 +31,7 @@ const cardItems = [
 ];
 
 export const MainPage: React.FC = () => {
-    const collapsed = useAppSelector(state => state.aside.isAsideCollapsed);
+    const collapsed = useAppSelector(collapsedSelector);
     const spanClass = collapsed ? '' : 'span-block';
 
     return (

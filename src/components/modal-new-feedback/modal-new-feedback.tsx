@@ -7,12 +7,16 @@ import { feedbacksActions } from '@redux/slices/feedbacks-slice';
 import { MODAL_FEEDBACKS } from '@constants/constants';
 import TextArea from 'antd/lib/input/TextArea';
 import { getModalWidth } from '@utils/utils';
+import {
+    newFeedbackMessageSelector,
+    newFeedbackRatingSelector,
+    showModalNewFeedbackSelector } from '@redux/sagas/selectors';
 
 export const ModalNewFeedback: React.FC = () => {
     const dispatch = useAppDispatch()
-    const showModalNewFeedback = useAppSelector(state => state.feedbacks.showModalNewFeedback);
-    const newFeedbackRating = useAppSelector(state => state.feedbacks.newFeedbackRating);
-    const newFeedbackMessage = useAppSelector(state => state.feedbacks.newFeedbackMessage);
+    const showModalNewFeedback = useAppSelector(showModalNewFeedbackSelector);
+    const newFeedbackRating = useAppSelector(newFeedbackRatingSelector);
+    const newFeedbackMessage = useAppSelector(newFeedbackMessageSelector);
 
     const [isCanSubmit, setIsCanSubmit ] = useState(false);
 

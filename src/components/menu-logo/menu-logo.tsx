@@ -5,9 +5,10 @@ import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { IconClever } from '@components/icon-clever';
 import { IconFit } from '@components/icon-fit';
 import { IconLogoMobile } from '@components/icon-logo-mobile';
+import { collapsedSelector } from '@redux/sagas/selectors';
 
 export const MenuLogo: React.FC = () => {
-    const isCollapsed = useAppSelector(state => state.aside.isAsideCollapsed);
+    const isCollapsed = useAppSelector(collapsedSelector);
 
     const elClass = `logo ${isCollapsed ? 'collapsed' : ''}`;
 

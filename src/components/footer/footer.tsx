@@ -6,12 +6,13 @@ import { AndroidFilled, AppleFilled } from '@ant-design/icons';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { push } from 'redux-first-history';
 import { useLocation } from 'react-router-dom';
+import { collapsedSelector } from '@redux/sagas/selectors';
 const { Meta } = Card;
 
 export const Footer: React.FC = () => {
     const location = useLocation();
     const dispatch = useAppDispatch();
-    const collapsed = useAppSelector(state => state.aside.isAsideCollapsed);
+    const collapsed = useAppSelector(collapsedSelector);
     const footerClass = `footer ${collapsed ? 'collapsed' : ''}`;
 
     const handleBtnFeedbacks = () => {

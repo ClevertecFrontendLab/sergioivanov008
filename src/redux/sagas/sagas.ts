@@ -26,7 +26,7 @@ import { AxiosError } from "axios";
 import { push } from "redux-first-history";
 import { API_MESSAGES, MODAL_FEEDBACKS, ROUTE, STATUS, TOKEN } from "@constants/constants";
 import { authActions } from "@redux/slices/auth-slice";
-import { rememberMe } from "./selectors";
+import { rememberMeSelector } from "./selectors";
 import { apiForgotPassActions } from "@redux/slices/api-forgot-pass-slice";
 import { apiConfirmPassActions } from "@redux/slices/api-confirm-pass-slice";
 import { feedbacksActions } from "@redux/slices/feedbacks-slice";
@@ -66,7 +66,7 @@ function* workLoginUserSaga(action: PayloadAction<{ registrationData: LoginRegis
         const response: LoginOkResponse = yield call(userLogin, action.payload.registrationData);
 
         yield put(authActions.setIsAuth(true));
-        const isRememberMe: boolean = yield select(rememberMe);
+        const isRememberMe: boolean = yield select(rememberMeSelector);
         if (isRememberMe) localStorage.setItem(TOKEN, response.accessToken);
         yield put(authActions.resetLoginData());
         yield put(authActions.resetRegData());

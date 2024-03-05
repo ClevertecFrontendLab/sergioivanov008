@@ -13,16 +13,24 @@ import { push } from 'redux-first-history';
 import { apiForgotPassActions } from '@redux/slices/api-forgot-pass-slice';
 import { checkEmailIsValid, checkPasswordIsValid } from '@utils/utils';
 import { loadersActions } from '@redux/slices/loaders-slice';
+import {
+    confirmPasswordSelector,
+    emailSelector,
+    isConfirmPasswordValidSelector,
+    isEmailValidSelector,
+    isPasswordValidSelector,
+    passwordSelector,
+    rememberMeSelector } from '@redux/sagas/selectors';
 
 export const AuthPage: React.FC<AuthPageProps> = ({ isThisAuthPage }) => {
     const dispatch = useAppDispatch()
-    const email = useAppSelector(state => state.auth.email);
-    const isEmailValid = useAppSelector(state => state.auth.isEmailValid);
-    const password = useAppSelector(state => state.auth.password);
-    const isPasswordValid = useAppSelector(state => state.auth.isPasswordValid);
-    const confirmPassword = useAppSelector(state => state.auth.confirmPassword);
-    const isConfirmPasswordValid = useAppSelector(state => state.auth.isConfirmPasswordValid);
-    const rememberMe = useAppSelector(state => state.auth.rememberMe);
+    const email = useAppSelector(emailSelector);
+    const isEmailValid = useAppSelector(isEmailValidSelector);
+    const password = useAppSelector(passwordSelector);
+    const isPasswordValid = useAppSelector(isPasswordValidSelector);
+    const confirmPassword = useAppSelector(confirmPasswordSelector);
+    const isConfirmPasswordValid = useAppSelector(isConfirmPasswordValidSelector);
+    const rememberMe = useAppSelector(rememberMeSelector);
 
     const [isAuthorization, setIsAuthorization ] = useState(isThisAuthPage);
     const [isCanSubmit, setIsCanSubmit ] = useState(false);

@@ -7,10 +7,11 @@ import { push } from 'redux-first-history';
 import { ModalFeedbacksItems } from '../../types/types';
 import { feedbacksActions } from '@redux/slices/feedbacks-slice';
 import { getModalWidth } from '@utils/utils';
+import { showModalFeedbacksSelector } from '@redux/sagas/selectors';
 
 export const ModalFeedbacks: React.FC = () => {
     const dispatch = useAppDispatch();
-    const showModalFeedbacks = useAppSelector(state => state.feedbacks.showModalFeedbacks);
+    const showModalFeedbacks = useAppSelector(showModalFeedbacksSelector);
 
     const modalWidth = getModalWidth(document.documentElement.clientWidth);
 

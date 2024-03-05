@@ -6,14 +6,18 @@ import { FORM_TEXT } from '@constants/constants';
 import { checkPasswordIsValid } from '@utils/utils';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { authActions } from '@redux/slices/auth-slice';
+import {
+    confirmPasswordSelector,
+    isConfirmPasswordValidSelector,
+    isPasswordValidSelector,
+    passwordSelector } from '@redux/sagas/selectors';
 
 export const ChangePassPage: React.FC = () => {
     const dispatch = useAppDispatch();
-
-    const password = useAppSelector(state => state.auth.password);
-    const isPasswordValid = useAppSelector(state => state.auth.isPasswordValid);
-    const confirmPassword = useAppSelector(state => state.auth.confirmPassword);
-    const isConfirmPasswordValid = useAppSelector(state => state.auth.isConfirmPasswordValid);
+    const password = useAppSelector(passwordSelector);
+    const isPasswordValid = useAppSelector(isPasswordValidSelector);
+    const confirmPassword = useAppSelector(confirmPasswordSelector);
+    const isConfirmPasswordValid = useAppSelector(isConfirmPasswordValidSelector);
 
     const [isCanSubmit, setIsCanSubmit ] = useState(false);
 

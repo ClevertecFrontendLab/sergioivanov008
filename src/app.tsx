@@ -16,13 +16,18 @@ import { getIsRemembered } from '@utils/utils';
 import { PrivateRouter } from './private-router';
 import { Layout } from '@components/layout';
 import { FeedbacksPage } from '@pages/feedbacks-page';
+import {
+    canChangePassPageSelector,
+    canConfirmPageSelector,
+    canResultPageSelector,
+    isAuthSelector } from '@redux/sagas/selectors';
 
 export const App: React.FC = () => {
     const dispatch = useAppDispatch();
-    const isAuth = useAppSelector(state => state.auth.isAuth);
-    const canResultPage = useAppSelector(state => state.auth.canResultPage);
-    const canConfirmPage = useAppSelector(state => state.apiForgotPass.canConfirmPage);
-    const canChangePassPage = useAppSelector(state => state.apiConfirmPass.canChangePassPage);
+    const isAuth = useAppSelector(isAuthSelector);
+    const canResultPage = useAppSelector(canResultPageSelector);
+    const canConfirmPage = useAppSelector(canConfirmPageSelector);
+    const canChangePassPage = useAppSelector(canChangePassPageSelector);
 
     if (location.search) {
         const accessToken = location.search.split('=')[1];

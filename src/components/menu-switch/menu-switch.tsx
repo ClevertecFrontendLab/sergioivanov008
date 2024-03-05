@@ -5,10 +5,11 @@ import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { asideActions } from '@redux/slices/aside-slice';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { NUMBER_DATA } from '@constants/constants';
+import { collapsedSelector } from '@redux/sagas/selectors';
 
 export const MenuSwitch: React.FC = () => {
     const dispatch = useAppDispatch()
-    const isCollapsed = useAppSelector(state => state.aside.isAsideCollapsed);
+    const isCollapsed = useAppSelector(collapsedSelector);
 
     const menuIcon = isCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />;
 
