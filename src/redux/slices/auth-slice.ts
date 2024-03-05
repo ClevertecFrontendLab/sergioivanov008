@@ -1,10 +1,10 @@
-import { IS_REMEMBERED } from '@constants/constants';
+import { IS_REMEMBERED, TOKEN } from '@constants/constants';
 import { createSlice } from '@reduxjs/toolkit'
 import { ChangePassData, LoginRegistrationData, Nullable } from '../../types/types';
 import { getIsRemembered } from '@utils/utils';
 
 if (!localStorage.getItem(IS_REMEMBERED)) {
-    localStorage.setItem(IS_REMEMBERED, JSON.stringify(true));
+    localStorage.setItem(IS_REMEMBERED, JSON.stringify(false));
 }
 
 export type AuthState = {
@@ -23,7 +23,7 @@ export type AuthState = {
 };
 
 const initialState: AuthState = {
-    isAuth: false,
+    isAuth: localStorage.getItem(TOKEN) !== null,
     email: '',
     isEmailValid: false,
     password: '',

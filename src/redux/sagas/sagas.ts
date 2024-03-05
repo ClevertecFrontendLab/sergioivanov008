@@ -67,7 +67,11 @@ function* workLoginUserSaga(action: PayloadAction<{ registrationData: LoginRegis
 
         yield put(authActions.setIsAuth(true));
         const isRememberMe: boolean = yield select(rememberMeSelector);
-        if (isRememberMe) localStorage.setItem(TOKEN, response.accessToken);
+        if (isRememberMe) {
+            localStorage.setItem(TOKEN, response.accessToken);
+        } else {
+            sessionStorage.setItem(TOKEN, response.accessToken);
+        }
         yield put(authActions.resetLoginData());
         yield put(authActions.resetRegData());
         yield put(authActions.setCanResultPage(false));

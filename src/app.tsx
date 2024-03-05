@@ -31,7 +31,11 @@ export const App: React.FC = () => {
 
     if (location.search) {
         const accessToken = location.search.split('=')[1];
-        if (getIsRemembered()) localStorage.setItem(TOKEN, accessToken);
+        if (getIsRemembered()) {
+            localStorage.setItem(TOKEN, accessToken);
+        } else {
+            sessionStorage.setItem(TOKEN, accessToken);
+        }
         dispatch(authActions.setIsAuth(true));
         dispatch(push(ROUTE.MAIN));
     }

@@ -13,7 +13,8 @@ import {
     LoginRegistrationData,
     NewFeedbackPost,
 } from "../types/types";
-import { API, TOKEN } from "@constants/constants";
+import { API } from "@constants/constants";
+import { getToken } from "@utils/utils";
 
 const $api = axios.create({
     withCredentials: true,
@@ -28,7 +29,7 @@ const $apiBase = axios.create({
 $api.interceptors.request.use((config) => {
     const newConfig = config;
 
-    newConfig.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN)}`;
+    newConfig.headers.Authorization = `Bearer ${getToken()}`;
 
     return newConfig;
 });
@@ -36,7 +37,7 @@ $api.interceptors.request.use((config) => {
 $api.interceptors.response.use((config) => {
     const newConfig = config;
 
-    newConfig.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN)}`;
+    newConfig.headers.Authorization = `Bearer ${getToken()}`;
 
     return newConfig;
 });
