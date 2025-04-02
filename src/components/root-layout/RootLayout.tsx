@@ -1,30 +1,100 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import { Outlet } from 'react-router';
 
-// import s from './RootLayout.module.css';
+import s from './RootLayout.module.css';
 
 export function RootLayout() {
     return (
         <Grid
-            templateAreas={`"header header header"
-                      "nav main aside"`}
-            gridTemplateRows='80px 1fr'
-            gridTemplateColumns='256px 1fr 256px'
+            mx='auto'
+            templateAreas={{
+                base: `"header"
+                     "main"
+                     "footer"`,
+                sm: `"header"
+                     "main"
+                     "footer"`,
+                md: `"header"
+                     "main"
+                     "footer"`,
+                lg: `"header header header"
+                     "nav main aside"`,
+            }}
+            gridTemplateRows={{
+                base: '64px 1fr 84px',
+                sm: '64px 1fr 84px',
+                md: '64px 1fr 84px',
+                lg: '80px 1fr',
+            }}
+            gridTemplateColumns={{
+                base: '1fr',
+                sm: '1fr',
+                md: '1fr',
+                lg: '256px 1fr 256px',
+            }}
             h='100vh'
             color='blackAlpha.700'
             fontWeight='bold'
+            gridColumnGap='24px'
         >
-            <GridItem pl='2' bg='orange.300' area='header'>
+            <GridItem
+                area='header'
+                bg='myColor.yellow'
+                height={{
+                    base: '64px',
+                    sm: '64px',
+                    md: '64px',
+                    lg: '80px',
+                }}
+                pl='4'
+                pr='4'
+                pt='6'
+                pb='6'
+                className={s.headerComponent}
+            >
                 Header component
             </GridItem>
-            <GridItem pl='2' bg='pink.300' area='nav'>
+            <GridItem
+                area='nav'
+                bg='pink.300'
+                display={{
+                    base: 'none',
+                    sm: 'none',
+                    md: 'none',
+                    lg: 'block',
+                }}
+                className={s.navComponent}
+            >
                 Nav component
             </GridItem>
-            <GridItem pl='2' bg='green.300' area='main'>
+            <GridItem area='main' bg='green.300'>
                 <Outlet />
             </GridItem>
-            <GridItem pl='2' bg='blue.300' area='aside'>
+            <GridItem
+                area='aside'
+                bg='blue.300'
+                display={{
+                    base: 'none',
+                    sm: 'none',
+                    md: 'none',
+                    lg: 'block',
+                }}
+                className={s.asideComponent}
+            >
                 Aside component
+            </GridItem>
+            <GridItem
+                area='footer'
+                bg='myColor.yellow'
+                display={{
+                    base: 'block',
+                    sm: 'block',
+                    md: 'block',
+                    lg: 'none',
+                }}
+                className={s.footerComponent}
+            >
+                Footer component
             </GridItem>
         </Grid>
     );

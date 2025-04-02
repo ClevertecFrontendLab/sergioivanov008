@@ -1,0 +1,30 @@
+.headerComponent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
+.navComponent {
+    position: fixed;
+    top: var(--header-height-max);
+    left: 0;
+    width: 256px;
+    height: calc(100vh - var(--header-height-max));
+}
+
+.asideComponent {
+    position: fixed;
+    top: var(--header-height-max);
+    right: 0;
+    width: 256px;
+    height: calc(100vh - var(--header-height-max));
+}
+
+.footerComponent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--footer-height);
+}
