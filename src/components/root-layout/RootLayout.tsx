@@ -49,7 +49,7 @@ export function RootLayout() {
                     lg: '80px',
                 }}
                 pl='4'
-                pr='4'
+                pr='8'
                 pt='4'
                 pb='4'
                 className={s.headerComponent}

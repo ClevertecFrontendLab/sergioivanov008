@@ -1,4 +1,4 @@
-import { Flex, Image, Text } from '@chakra-ui/react';
+import { Avatar, Flex, Text } from '@chakra-ui/react';
 
 import { AVATAR_DATA } from '~/constants/constants';
 
@@ -15,12 +15,7 @@ export function AvatarContent() {
                 lg: 'flex',
             }}
         >
-            <Image
-                borderRadius='full'
-                boxSize='48px'
-                src={AVATAR_DATA.imgSrc}
-                alt={AVATAR_DATA.imgAlt}
-            />
+            <Avatar name={AVATAR_DATA.imgAlt} src={AVATAR_DATA.imgSrc} />
             <Flex direction='column' justify='space-between'>
                 <Text className={s.textName}>{AVATAR_DATA.name}</Text>
                 <Text className={s.nickName}>{AVATAR_DATA.nickName}</Text>
