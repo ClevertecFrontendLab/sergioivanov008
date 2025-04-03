@@ -1,10 +1,10 @@
 import { Flex, Icon, Text } from '@chakra-ui/react';
 
-import { CustomIconPropsType, OutIconType } from '../types';
-import s from './CustomIcon.module.css';
+import { CustomIcon12PropsType, OutCustomIcon12Type } from '../types';
+import s from './CustomIcon12.module.css';
 
-export function CustomIcon(data: CustomIconPropsType) {
-    const outIcon: OutIconType = {
+export function CustomIcon12(data: CustomIcon12PropsType) {
+    const outIcon: OutCustomIcon12Type = {
         pin: (
             <svg
                 width='12'
