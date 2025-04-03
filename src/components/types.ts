@@ -1,6 +1,6 @@
 import { IconProps } from '@chakra-ui/react';
 
-export type CustomIconType = 'pin' | 'view' | 'like';
+export type CustomIconType = 'pin' | 'view' | 'like' | 'addRecipe';
 
 export type CustomIconPropsType = {
     iconType: CustomIconType;
@@ -8,4 +8,9 @@ export type CustomIconPropsType = {
     props?: IconProps;
 };
 
-export type OutIconType = Record<CustomIconType, React.JSX.Element>;
+export type OutIconType = Partial<Record<CustomIconType, React.JSX.Element>>;
+
+export type BigCustomIconPropsType = {
+    iconType: CustomIconType;
+    props?: IconProps;
+};
