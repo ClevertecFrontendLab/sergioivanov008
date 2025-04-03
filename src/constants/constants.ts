@@ -6,3 +6,7 @@ export const AVATAR_DATA = {
     name: 'Екатерина Константинопольская',
     nickName: '@bake_and_pie',
 };
+
+export const BTN_TEXT = {
+    addRecipe: 'Записать рецепт',
+};
