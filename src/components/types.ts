@@ -10,12 +10,12 @@ export type CustomIcon12PropsType = {
 
 export type OutCustomIcon12Type = Partial<Record<CustomIcon12Type, React.JSX.Element>>;
 
-export type BigCustomIconType = 'addRecipe';
+export type CustomIcon24Type = 'addRecipe';
 
-export type OutBigIconType = Partial<Record<BigCustomIconType, React.JSX.Element>>;
+export type OutCustomIcon24Type = Partial<Record<CustomIcon24Type, React.JSX.Element>>;
 
-export type BigCustomIconPropsType = {
-    iconType: BigCustomIconType;
+export type CustomIcon24PropsType = {
+    iconType: CustomIcon24Type;
     props?: IconProps;
 };
 

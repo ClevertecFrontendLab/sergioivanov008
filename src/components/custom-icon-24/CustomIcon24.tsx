@@ -1,9 +1,9 @@
 import { Icon } from '@chakra-ui/react';
 
-import { BigCustomIconPropsType, OutIconType } from '../types';
+import { CustomIcon24PropsType, OutCustomIcon24Type } from '../types';
 
-export function BigCustomIcon(data: BigCustomIconPropsType) {
-    const outIcon: OutIconType = {
+export function CustomIcon24(data: CustomIcon24PropsType) {
+    const outIcon: OutCustomIcon24Type = {
         addRecipe: (
             <svg
                 width='24'
