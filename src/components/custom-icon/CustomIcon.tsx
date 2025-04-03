@@ -1,16 +1,7 @@
-import { Flex, Icon, IconProps, Text } from '@chakra-ui/react';
+import { Flex, Icon, Text } from '@chakra-ui/react';
 
+import { CustomIconPropsType, OutIconType } from '../types';
 import s from './CustomIcon.module.css';
-
-export type CustomIconType = 'pin' | 'view' | 'like';
-
-export type CustomIconPropsType = {
-    iconType: CustomIconType;
-    value?: string;
-    props?: IconProps;
-};
-
-export type OutIconType = Record<CustomIconType, React.JSX.Element>;
 
 export function CustomIcon(data: CustomIconPropsType) {
     const outIcon: OutIconType = {
