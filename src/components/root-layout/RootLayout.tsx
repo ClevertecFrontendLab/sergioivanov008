@@ -1,6 +1,8 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import { Outlet } from 'react-router';
 
+import { Header } from '~/components';
+
 import s from './RootLayout.module.css';
 
 export function RootLayout() {
@@ -52,7 +54,7 @@ export function RootLayout() {
                 pb='6'
                 className={s.headerComponent}
             >
-                Header component
+                <Header />
             </GridItem>
             <GridItem
                 area='nav'
