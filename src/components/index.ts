@@ -1,6 +1,7 @@
 export { AvatarContent } from './avatar-content/AvatarContent.tsx';
 export { BreadcrumbComponent } from './breadcrumb-component/BreadcrumbComponent.tsx';
 export { BurgerMenu } from './burger-menu/BurgerMenu.tsx';
+export { CustomIcon } from './custom-icon/CustomIcon.tsx';
 export { Header } from './header/Header.tsx';
 export { HeaderContent } from './header-content/HeaderContent.tsx';
 export { LogoIcon } from './logo-icon/LogoIcon.tsx';
