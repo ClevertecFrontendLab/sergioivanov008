@@ -1,7 +1,7 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import { Outlet } from 'react-router';
 
-import { Header } from '~/components';
+import { Aside, Header } from '~/components';
 
 import s from './RootLayout.module.css';
 
@@ -74,7 +74,6 @@ export function RootLayout() {
             </GridItem>
             <GridItem
                 area='aside'
-                bg='blue.300'
                 display={{
                     base: 'none',
                     sm: 'none',
@@ -83,7 +82,7 @@ export function RootLayout() {
                 }}
                 className={s.asideComponent}
             >
-                Aside component
+                <Aside />
             </GridItem>
             <GridItem
                 area='footer'

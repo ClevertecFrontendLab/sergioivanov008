@@ -1,3 +1,5 @@
+export { Aside } from './aside/Aside.tsx';
+export { AsideUserData } from './aside-user-data/AsideUserData.tsx';
 export { AvatarContent } from './avatar-content/AvatarContent.tsx';
 export { BreadcrumbComponent } from './breadcrumb-component/BreadcrumbComponent.tsx';
 export { BurgerMenu } from './burger-menu/BurgerMenu.tsx';

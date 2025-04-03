@@ -79,13 +79,14 @@ export function CustomIcon(data: CustomIconPropsType) {
     };
 
     const curGap = data.props?.boxSize === '12px' ? 1.5 : 2;
+    const curTextStyle = data.props?.boxSize === '12px' ? s.textValue12 : s.textValue16;
 
     return (
         <Flex gap={curGap} align='center'>
             <Icon viewBox='0 0 12 12' {...data.props}>
                 {outIcon[data.iconType]}
             </Icon>
-            {data.value && <Text className={s.textValue}>{data.value}</Text>}
+            {data.value && <Text className={curTextStyle}>{data.value}</Text>}
         </Flex>
     );
 }
