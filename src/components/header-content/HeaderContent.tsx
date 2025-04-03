@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 
-import { AvatarContent, BreadcrumbComponent, BurgerMenu, UserData } from '~/components';
+import { AvatarContent, BreadcrumbComponent, BurgerMenu, HeaderUserData } from '~/components';
 
 export function HeaderContent() {
     return (
@@ -25,7 +25,7 @@ export function HeaderContent() {
                     lg: 'none',
                 }}
             >
-                <UserData />
+                <HeaderUserData />
                 <BurgerMenu />
             </Flex>
         </Flex>
