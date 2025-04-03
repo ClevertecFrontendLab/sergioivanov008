@@ -1,6 +1,6 @@
 import { Avatar, Flex, Text } from '@chakra-ui/react';
 
-import { AVATAR_DATA } from '~/constants/constants';
+import { AVATAR_DATA } from '~/constants';
 
 import s from './AvatarContent.module.css';
 
