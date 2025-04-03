@@ -4,7 +4,7 @@ import { HeaderContent, Logotype } from '~/components';
 
 export function Header() {
     return (
-        <Flex alignItems='center'>
+        <Flex align='center'>
             <Logotype />
             <HeaderContent />
         </Flex>

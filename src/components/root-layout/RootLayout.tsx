@@ -50,8 +50,8 @@ export function RootLayout() {
                 }}
                 pl='4'
                 pr='4'
-                pt='6'
-                pb='6'
+                pt='4'
+                pb='4'
                 className={s.headerComponent}
             >
                 <Header />

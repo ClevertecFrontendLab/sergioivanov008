@@ -12,6 +12,7 @@ export function Logotype() {
                 sm: '135px',
                 md: '280px',
                 lg: '280px',
+                xl: '280px',
             }}
         >
             <LogoIcon boxSize={8} />
