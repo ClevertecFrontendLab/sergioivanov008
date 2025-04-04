@@ -28,5 +28,6 @@ export { MainHeader } from './main-header/MainHeader.tsx';
 export { NavComponent } from './nav-component/NavComponent.tsx';
 export { NavFooter } from './nav-footer/NavFooter.tsx';
 export { Navigation } from './navigation/Navigation.tsx';
+export { NewRecipes } from './new-recipes/NewRecipes.tsx';
 export { RootLayout } from './root-layout/RootLayout.tsx';
 export { SliderItem } from './slider-item/SliderItem.tsx';
