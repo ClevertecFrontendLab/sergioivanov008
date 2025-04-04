@@ -1,0 +1,32 @@
+.wrapper {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.wrapper:hover {
+    box-shadow:
+        0 2px 4px -1px rgba(32, 126, 0, 0.06),
+        0 4px 6px -1px rgba(32, 126, 0, 0.1);
+}
+
+.data {
+    padding: 16px 24px 20px;
+}
+
+.title {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 140%;
+    color: #000;
+}
+
+.description {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 143%;
+    color: #000;
+}
