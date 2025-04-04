@@ -19,13 +19,24 @@ export type CustomIcon24PropsType = {
     props?: IconProps;
 };
 
+export type CustomIcon16Type = 'home' | 'search' | 'addRecipe';
+
+export type OutCustomIcon16Type = Partial<Record<CustomIcon16Type, React.JSX.Element>>;
+
+export type CustomIcon16PropsType = {
+    iconType: CustomIcon16Type;
+    props?: IconProps;
+};
+
 export type FooterButtonPropsType = {
-    type: BigCustomIconType;
+    type: CustomIcon16Type;
     text: string;
+    isActive?: boolean;
 };
 
 export type FooterMenuItemType = {
     id: string;
-    type: BigCustomIconType;
+    type: CustomIcon16Type;
     text: string;
+    isActive?: boolean;
 };

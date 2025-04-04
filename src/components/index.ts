@@ -5,6 +5,7 @@ export { AvatarContent } from './avatar-content/AvatarContent.tsx';
 export { BreadcrumbComponent } from './breadcrumb-component/BreadcrumbComponent.tsx';
 export { BurgerMenu } from './burger-menu/BurgerMenu.tsx';
 export { CustomIcon12 } from './custom-icon-12/CustomIcon12.tsx';
+export { CustomIcon16 } from './custom-icon-16/CustomIcon16.tsx';
 export { CustomIcon24 } from './custom-icon-24/CustomIcon24.tsx';
 export { Footer } from './footer/Footer.tsx';
 export { FooterButton } from './footer-button/FooterButton.tsx';
