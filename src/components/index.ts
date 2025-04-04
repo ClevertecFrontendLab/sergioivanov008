@@ -12,6 +12,7 @@ export { CustomIcon24 } from './custom-icon-24/CustomIcon24.tsx';
 export { ExitButton } from './exit-button/ExitButton.tsx';
 export { FilterButton } from './filter-button/FilterButton.tsx';
 export { FilterSearch } from './filter-search/FilterSearch.tsx';
+export { FilterSelect } from './filter-select/FilterSelect.tsx';
 export { Footer } from './footer/Footer.tsx';
 export { FooterButton } from './footer-button/FooterButton.tsx';
 export { Header } from './header/Header.tsx';
