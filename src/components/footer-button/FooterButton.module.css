@@ -1,0 +1,48 @@
+.wrapper {
+    flex: 1 1 0%;
+    min-width: 0;
+    height: 84px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.center {
+    border-radius: 50px;
+    background-color: 'transparent';
+    transition: 0.2s;
+}
+
+.text {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.64);
+    transition: 0.2s;
+}
+
+.wrapper:hover,
+.wrapper.active {
+    background: radial-gradient(
+        62.52% 62.51% at 48.89% 37.5%,
+        #c4ff61 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+.wrapper:hover .text,
+.wrapper.active .text {
+    font-weight: 500;
+    color: #000;
+}
+
+.wrapper:hover .center,
+.wrapper.active .center {
+    background-color: #000;
+}
+
+.wrapper:hover svg path,
+.wrapper.active svg path {
+    fill: #ffffd3;
+}
