@@ -14,6 +14,7 @@ export { FilterButton } from './filter-button/FilterButton.tsx';
 export { FilterSearch } from './filter-search/FilterSearch.tsx';
 export { FilterSelect } from './filter-select/FilterSelect.tsx';
 export { FilterSwitch } from './filter-switch/FilterSwitch.tsx';
+export { Filters } from './filters/Filters.tsx';
 export { Footer } from './footer/Footer.tsx';
 export { FooterButton } from './footer-button/FooterButton.tsx';
 export { Header } from './header/Header.tsx';
