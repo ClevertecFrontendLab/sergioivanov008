@@ -88,3 +88,15 @@ export type BadgePropsType = {
     type: BadgeKeyType;
     color: string;
 };
+
+export type SliderItemType = {
+    id: string;
+    image: string;
+    title: string;
+    description: string;
+    badgeType: BadgeKeyType;
+};
+
+export type SliderItemPropsType = {
+    data: SliderItemType;
+};

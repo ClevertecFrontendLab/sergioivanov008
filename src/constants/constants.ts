@@ -12,7 +12,16 @@ import PreparationsImg from '~/assets/icons/Preparations.png';
 import saladsImg from '~/assets/icons/Salads.png';
 import saucesImg from '~/assets/icons/Sauces.png';
 import veganCuisineImg from '~/assets/icons/VeganCuisine.png';
-import { BadgeStoreType, FooterMenuItemType, NavDataType } from '~/components/types';
+import recipe1Img from '~/assets/images/new_recipe_1.png';
+import recipe2Img from '~/assets/images/new_recipe_2.png';
+import recipe3Img from '~/assets/images/new_recipe_3.png';
+import recipe4Img from '~/assets/images/new_recipe_4.png';
+import {
+    BadgeStoreType,
+    FooterMenuItemType,
+    NavDataType,
+    SliderItemType,
+} from '~/components/types';
 
 export const AVATAR_DATA = {
     imgSrc: avatarImg,
@@ -331,3 +340,38 @@ export const BADGE_STORE: BadgeStoreType = {
         image: PreparationsImg,
     },
 };
+
+export const SLIDER_DATA: SliderItemType[] = [
+    {
+        id: '01',
+        image: recipe1Img,
+        title: 'Солянка с грибами',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        badgeType: 'pervieBluda',
+    },
+    {
+        id: '02',
+        image: recipe2Img,
+        title: 'Капустные котлеты',
+        description:
+            'Капустные котлеты по этому рецепту получаются необычайно пышными и  невероятно вкусными. Мягкий вкус и ...',
+        badgeType: 'vegan',
+    },
+    {
+        id: '03',
+        image: recipe3Img,
+        title: 'Оладьи на кефире "Пышн...',
+        description:
+            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
+        badgeType: 'deserty',
+    },
+    {
+        id: '04',
+        image: recipe4Img,
+        title: 'Салат "Здоровье"',
+        description:
+            'Сельдерей очень полезен для здоровья, пора набираться витаминов. Не  салат, а сплошное удовольствие:) ...',
+        badgeType: 'salaty',
+    },
+];
