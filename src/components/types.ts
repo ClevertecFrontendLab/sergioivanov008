@@ -1,6 +1,6 @@
 import { IconProps } from '@chakra-ui/react';
 
-export type CustomIcon12Type = 'pin' | 'view' | 'like';
+export type CustomIcon12Type = 'pin' | 'view' | 'like' | 'exit';
 
 export type CustomIcon12PropsType = {
     iconType: CustomIcon12Type;
