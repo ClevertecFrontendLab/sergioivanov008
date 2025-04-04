@@ -7,7 +7,7 @@ import s from './NavFooter.module.css';
 
 export function NavFooter() {
     return (
-        <Flex gap={4} direction='column' align='flex-start'>
+        <Flex gap={4} direction='column' align='flex-start' pl={6}>
             <Text className={s.textLight}>{NAV_FOOTER.textLight}</Text>
             <Text className={s.text}>{NAV_FOOTER.text}</Text>
             <ExitButton />

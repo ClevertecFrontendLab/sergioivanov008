@@ -66,8 +66,6 @@ export function RootLayout() {
                 className={s.navComponent}
                 pt={6}
                 pb={8}
-                pl={6}
-                pr={6}
             >
                 <Navigation />
             </GridItem>
