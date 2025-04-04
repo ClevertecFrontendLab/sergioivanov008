@@ -35,7 +35,6 @@ export function RootLayout() {
                 lg: '256px 1fr 256px',
             }}
             h='100vh'
-            color='blackAlpha.700'
             gridColumnGap='24px'
         >
             <GridItem
@@ -69,7 +68,7 @@ export function RootLayout() {
             >
                 <Navigation />
             </GridItem>
-            <GridItem area='main' bg='green.300'>
+            <GridItem area='main'>
                 <Outlet />
             </GridItem>
             <GridItem
