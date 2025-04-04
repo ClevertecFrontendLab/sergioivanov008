@@ -14,8 +14,8 @@ export function CustomIcon12(data: CustomIcon12PropsType) {
                 xmlns='http://www.w3.org/2000/svg'
             >
                 <path
-                    fill-rule='evenodd'
-                    clip-rule='evenodd'
+                    fillRule='evenodd'
+                    clipRule='evenodd'
                     d='M5.99985 3.30749C7.0401 2.23874 9.64035 4.10999 5.99985 6.51524C2.35935 4.10999 4.9596 2.23949 5.99985 3.30899V3.30749Z'
                     fill='black'
                 />
@@ -38,8 +38,8 @@ export function CustomIcon12(data: CustomIcon12PropsType) {
                     fill='black'
                 />
                 <path
-                    fill-rule='evenodd'
-                    clip-rule='evenodd'
+                    fillRule='evenodd'
+                    clipRule='evenodd'
                     d='M3.912 10.5C3.80082 10.2659 3.74537 10.0092 3.75 9.75002C3.75 8.73377 4.26 7.68752 5.202 6.96002C4.73182 6.81514 4.24196 6.7443 3.75 6.75002C0.75 6.75002 0 9.00002 0 9.75002C0 10.5 0.75 10.5 0.75 10.5H3.912Z'
                     fill='black'
                 />
