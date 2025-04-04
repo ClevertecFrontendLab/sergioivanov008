@@ -1,7 +1,7 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import { Outlet } from 'react-router';
 
-import { Aside, Header } from '~/components';
+import { Aside, Footer, Header } from '~/components';
 
 import s from './RootLayout.module.css';
 
@@ -36,7 +36,6 @@ export function RootLayout() {
             }}
             h='100vh'
             color='blackAlpha.700'
-            fontWeight='bold'
             gridColumnGap='24px'
         >
             <GridItem
@@ -95,7 +94,7 @@ export function RootLayout() {
                 }}
                 className={s.footerComponent}
             >
-                Footer component
+                <Footer />
             </GridItem>
         </Grid>
     );

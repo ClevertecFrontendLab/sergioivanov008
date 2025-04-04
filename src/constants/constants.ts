@@ -1,4 +1,5 @@
 import avatarImg from '~/assets/avatar_image.png';
+import { FooterMenuItemType } from '~/components/types';
 
 export const AVATAR_DATA = {
     imgSrc: avatarImg,
@@ -10,3 +11,27 @@ export const AVATAR_DATA = {
 export const BTN_TEXT = {
     addRecipe: 'Записать рецепт',
 };
+
+export const FOOTER_MENU: FooterMenuItemType[] = [
+    {
+        id: '01',
+        type: 'home',
+        text: 'Главная',
+        isActive: true,
+    },
+    {
+        id: '02',
+        type: 'search',
+        text: 'Поиск',
+    },
+    {
+        id: '03',
+        type: 'addRecipe',
+        text: 'Записать',
+    },
+    {
+        id: '04',
+        type: 'addRecipe',
+        text: 'Мой профиль',
+    },
+];
