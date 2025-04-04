@@ -41,11 +41,22 @@ export type FooterMenuItemType = {
     isActive?: boolean;
 };
 
+export type NavDataItemsType = {
+    id: string;
+    title: string;
+};
+
 export type NavDataType = {
     id: string;
     category: string;
-    items: {
-        id: string;
-        title: string;
-    }[];
+    image?: string;
+    items: NavDataItemsType[];
+};
+
+export type CategoryPropsType = {
+    data: NavDataType;
+};
+
+export type CategoryItemPropsType = {
+    data: NavDataItemsType;
 };

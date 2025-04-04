@@ -1,4 +1,17 @@
 import avatarImg from '~/assets/avatar_image.png';
+import appetizersImg from '~/assets/icons/Appetizers.png';
+import hildrensDishesImg from '~/assets/icons/ChildrensDishes.png';
+import dessertsPastriesImg from '~/assets/icons/DessertsPastries.png';
+import drinksImg from '~/assets/icons/Drinks.png';
+import firstCoursesImg from '~/assets/icons/FirstCourses.png';
+import grilledDishesImg from '~/assets/icons/GrilledDishes.png';
+import healthyNutritionImg from '~/assets/icons/HealthyNutrition.png';
+import mainCoursesImg from '~/assets/icons/MainCourses.png';
+import nationalDishesImg from '~/assets/icons/NationalDishes.png';
+import PreparationsImg from '~/assets/icons/Preparations.png';
+import saladsImg from '~/assets/icons/Salads.png';
+import saucesImg from '~/assets/icons/Sauces.png';
+import veganCuisineImg from '~/assets/icons/VeganCuisine.png';
 import { FooterMenuItemType, NavDataType } from '~/components/types';
 
 export const AVATAR_DATA = {
@@ -48,6 +61,7 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '01',
         category: 'Салаты',
+        image: saladsImg,
         items: [
             { id: '001', title: 'Мясные салаты' },
             { id: '002', title: 'Рыбные салаты' },
@@ -58,6 +72,7 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '02',
         category: 'Закуски',
+        image: appetizersImg,
         items: [
             { id: '005', title: 'Мясные закуски' },
             { id: '006', title: 'Рыбные закуски' },
@@ -70,6 +85,7 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '03',
         category: 'Первые блюда',
+        image: firstCoursesImg,
         items: [
             { id: '011', title: 'Мясные супы' },
             { id: '012', title: 'Овощные супы' },
@@ -81,6 +97,7 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '04',
         category: 'Вторые блюда',
+        image: mainCoursesImg,
         items: [
             { id: '016', title: 'Мясные' },
             { id: '017', title: 'Рыбные' },
@@ -98,7 +115,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '05',
-        category: 'Десерты и выпечка',
+        category: 'Десерты, выпечка',
+        image: dessertsPastriesImg,
         items: [
             { id: '028', title: 'Блины и оладьи' },
             { id: '029', title: 'Пироги и пончики' },
@@ -118,6 +136,7 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '06',
         category: 'Блюда на гриле',
+        image: grilledDishesImg,
         items: [
             { id: '041', title: 'Говядина' },
             { id: '042', title: 'Свинина' },
@@ -130,6 +149,7 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '07',
         category: 'Веганская кухня',
+        image: veganCuisineImg,
         items: [
             { id: '047', title: 'Закуски' },
             { id: '048', title: 'Первые блюда' },
@@ -144,6 +164,7 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '08',
         category: 'Детские блюда',
+        image: hildrensDishesImg,
         items: [
             { id: '047', title: 'Первые блюда' },
             { id: '047', title: 'Вторые блюда' },
@@ -158,6 +179,7 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '09',
         category: 'Лечебное питание',
+        image: healthyNutritionImg,
         items: [
             { id: '048', title: 'Детская диета' },
             { id: '049', title: 'Диета №1' },
@@ -179,7 +201,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '10',
-        category: 'Национальные блюда',
+        category: 'Национальные',
+        image: nationalDishesImg,
         items: [
             { id: '064', title: 'Американская кухня' },
             { id: '065', title: 'Армянская кухня' },
@@ -201,6 +224,7 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '11',
         category: 'Соусы',
+        image: saucesImg,
         items: [
             { id: '079', title: 'Соусы мясные' },
             { id: '080', title: 'Соусы сырные' },
@@ -209,21 +233,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '12',
-        category: 'Домашние заготовки',
-        items: [
-            { id: '082', title: 'Мясные заготовки' },
-            { id: '083', title: 'Рыбные заготовки' },
-            { id: '084', title: 'Из огурцов' },
-            { id: '085', title: 'Из томатов' },
-            { id: '086', title: 'Из грибов' },
-            { id: '087', title: 'Овощные заготовки' },
-            { id: '088', title: 'Салаты, икра' },
-            { id: '089', title: 'Из фруктов и ягод' },
-        ],
-    },
-    {
-        id: '13',
         category: 'Напитки',
+        image: drinksImg,
         items: [
             { id: '082', title: 'Соки и фреши' },
             { id: '082', title: 'Смузи' },
@@ -234,6 +245,21 @@ export const NAV_DATA: NavDataType[] = [
             { id: '082', title: 'Квас' },
             { id: '082', title: 'Коктейли' },
             { id: '082', title: 'Алкогольные' },
+        ],
+    },
+    {
+        id: '13',
+        category: 'Заготовки',
+        image: PreparationsImg,
+        items: [
+            { id: '082', title: 'Мясные заготовки' },
+            { id: '083', title: 'Рыбные заготовки' },
+            { id: '084', title: 'Из огурцов' },
+            { id: '085', title: 'Из томатов' },
+            { id: '086', title: 'Из грибов' },
+            { id: '087', title: 'Овощные заготовки' },
+            { id: '088', title: 'Салаты, икра' },
+            { id: '089', title: 'Из фруктов и ягод' },
         ],
     },
 ];
