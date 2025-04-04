@@ -35,3 +35,11 @@ export const FOOTER_MENU: FooterMenuItemType[] = [
         text: 'Мой профиль',
     },
 ];
+
+export const NAV_FOOTER = {
+    textLight: 'Версия программы 03.25',
+    text: `Все права защищены,\n
+           ученический файл,\n
+           ©Клевер Технолоджи, 2025`,
+    btnText: 'Выйти',
+};
