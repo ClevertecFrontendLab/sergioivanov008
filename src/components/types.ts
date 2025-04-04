@@ -10,7 +10,7 @@ export type CustomIcon12PropsType = {
 
 export type OutCustomIcon12Type = Partial<Record<CustomIcon12Type, React.JSX.Element>>;
 
-export type CustomIcon24Type = 'addRecipe';
+export type CustomIcon24Type = 'addRecipe' | 'filter';
 
 export type OutCustomIcon24Type = Partial<Record<CustomIcon24Type, React.JSX.Element>>;
 
