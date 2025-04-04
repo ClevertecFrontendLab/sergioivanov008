@@ -1,0 +1,5 @@
+.navComponent {
+    height: 100%;
+    overflow-y: auto;
+    padding-left: 10px;
+}
