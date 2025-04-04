@@ -12,7 +12,7 @@ import PreparationsImg from '~/assets/icons/Preparations.png';
 import saladsImg from '~/assets/icons/Salads.png';
 import saucesImg from '~/assets/icons/Sauces.png';
 import veganCuisineImg from '~/assets/icons/VeganCuisine.png';
-import { FooterMenuItemType, NavDataType } from '~/components/types';
+import { BadgeStoreType, FooterMenuItemType, NavDataType } from '~/components/types';
 
 export const AVATAR_DATA = {
     imgSrc: avatarImg,
@@ -263,3 +263,71 @@ export const NAV_DATA: NavDataType[] = [
         ],
     },
 ];
+
+export const BADGE_STORE: BadgeStoreType = {
+    salaty: {
+        id: '01',
+        category: 'Салаты',
+        image: saladsImg,
+    },
+    zakuski: {
+        id: '02',
+        category: 'Закуски',
+        image: appetizersImg,
+    },
+    pervieBluda: {
+        id: '03',
+        category: 'Первые блюда',
+        image: firstCoursesImg,
+    },
+    vtorieBluda: {
+        id: '04',
+        category: 'Вторые блюда',
+        image: mainCoursesImg,
+    },
+    deserty: {
+        id: '05',
+        category: 'Десерты, выпечка',
+        image: dessertsPastriesImg,
+    },
+    gril: {
+        id: '06',
+        category: 'Блюда на гриле',
+        image: grilledDishesImg,
+    },
+    vegan: {
+        id: '07',
+        category: 'Веганская кухня',
+        image: veganCuisineImg,
+    },
+    detskie: {
+        id: '08',
+        category: 'Детские блюда',
+        image: hildrensDishesImg,
+    },
+    lechebnoe: {
+        id: '09',
+        category: 'Лечебное питание',
+        image: healthyNutritionImg,
+    },
+    nacional: {
+        id: '10',
+        category: 'Национальные',
+        image: nationalDishesImg,
+    },
+    soucy: {
+        id: '11',
+        category: 'Соусы',
+        image: saucesImg,
+    },
+    napitki: {
+        id: '12',
+        category: 'Напитки',
+        image: drinksImg,
+    },
+    zagotovki: {
+        id: '13',
+        category: 'Заготовки',
+        image: PreparationsImg,
+    },
+};

@@ -60,3 +60,31 @@ export type CategoryPropsType = {
 export type CategoryItemPropsType = {
     data: NavDataItemsType;
 };
+
+export type BadgeDataType = {
+    id: string;
+    category: string;
+    image: string;
+};
+
+export type BadgeKeyType =
+    | 'salaty'
+    | 'zakuski'
+    | 'pervieBluda'
+    | 'vtorieBluda'
+    | 'deserty'
+    | 'gril'
+    | 'vegan'
+    | 'detskie'
+    | 'lechebnoe'
+    | 'nacional'
+    | 'soucy'
+    | 'napitki'
+    | 'zagotovki';
+
+export type BadgeStoreType = Record<BadgeKeyType, BadgeDataType>;
+
+export type BadgePropsType = {
+    type: BadgeKeyType;
+    color: string;
+};
