@@ -1,0 +1,27 @@
+.category {
+    padding: 12px 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.category:hover {
+    background: #ffffd3;
+}
+
+.text {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #000;
+
+    flex-grow: 1;
+}
+
+.openIcon {
+    transition: 0.2s;
+}
+
+.openIcon.close {
+    transform: rotate(180deg);
+}
