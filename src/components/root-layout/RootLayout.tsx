@@ -1,7 +1,7 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import { Outlet } from 'react-router';
 
-import { Aside, Footer, Header } from '~/components';
+import { Aside, Footer, Header, Navigation } from '~/components';
 
 import s from './RootLayout.module.css';
 
@@ -57,7 +57,6 @@ export function RootLayout() {
             </GridItem>
             <GridItem
                 area='nav'
-                bg='pink.300'
                 display={{
                     base: 'none',
                     sm: 'none',
@@ -65,8 +64,12 @@ export function RootLayout() {
                     lg: 'block',
                 }}
                 className={s.navComponent}
+                pt={6}
+                pb={8}
+                pl={6}
+                pr={6}
             >
-                Nav component
+                <Navigation />
             </GridItem>
             <GridItem area='main' bg='green.300'>
                 <Outlet />
