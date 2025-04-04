@@ -11,6 +11,7 @@ export { CustomIcon16 } from './custom-icon-16/CustomIcon16.tsx';
 export { CustomIcon24 } from './custom-icon-24/CustomIcon24.tsx';
 export { ExitButton } from './exit-button/ExitButton.tsx';
 export { FilterButton } from './filter-button/FilterButton.tsx';
+export { FilterSearch } from './filter-search/FilterSearch.tsx';
 export { Footer } from './footer/Footer.tsx';
 export { FooterButton } from './footer-button/FooterButton.tsx';
 export { Header } from './header/Header.tsx';
