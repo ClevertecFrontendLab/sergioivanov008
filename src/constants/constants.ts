@@ -398,6 +398,7 @@ export const TITLES = {
     newRecipes: 'Новые рецепты',
     tastyest: 'Самое сочное ',
     blogs: 'Кулинарные блоги',
+    vegan: 'Веганская кухня',
 };
 
 export const TASTYEST_DATA: RecipeItemType[] = [
@@ -424,6 +425,11 @@ export const TASTYEST_DATA: RecipeItemType[] = [
             { id: '01', type: 'pin', value: '159' },
             { id: '02', type: 'like', value: '257' },
         ],
+        recomendation: {
+            id: '01',
+            image: avatarImg2,
+            name: 'Елена Высоцкая',
+        },
     },
     {
         id: '03',
@@ -436,6 +442,11 @@ export const TASTYEST_DATA: RecipeItemType[] = [
             { id: '01', type: 'pin', value: '258' },
             { id: '02', type: 'like', value: '342' },
         ],
+        recomendation: {
+            id: '02',
+            image: avatarImg3,
+            name: 'Alex Cook',
+        },
     },
     {
         id: '04',
@@ -483,3 +494,8 @@ export const BLOGS_DATA: BlogsItemType[] = [
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
     },
 ];
+
+export const TEXT = {
+    vegan: 'Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.',
+    recommend: 'рекомендует',
+};
