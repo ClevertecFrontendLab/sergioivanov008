@@ -12,9 +12,13 @@ const colors = {
     myColor: {
         yellow: '#ffffd3',
     },
-    black: {
+    myBlack: {
         500: '#000000',
         600: '#4A4A4A',
+    },
+    myGreen: {
+        500: '#b1ff2e',
+        600: '#d7ff94',
     },
 };
 
