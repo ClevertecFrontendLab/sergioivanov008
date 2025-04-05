@@ -32,6 +32,7 @@ export { NavFooter } from './nav-footer/NavFooter.tsx';
 export { Navigation } from './navigation/Navigation.tsx';
 export { NewRecipes } from './new-recipes/NewRecipes.tsx';
 export { RecipeItem } from './recipe-item/RecipeItem.tsx';
+export { RecomendationBadge } from './recomendation-badge/RecomendationBadge.tsx';
 export { RootLayout } from './root-layout/RootLayout.tsx';
 export { SliderItem } from './slider-item/SliderItem.tsx';
 export { Tastyest } from './tastyest/Tastyest.tsx';

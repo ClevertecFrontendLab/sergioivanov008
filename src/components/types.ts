@@ -95,6 +95,12 @@ export type RecipePropsType = {
     value: string;
 };
 
+export type RecipeRecomendationType = {
+    id: string;
+    image: string;
+    name: string;
+};
+
 export type RecipeItemType = {
     id: string;
     image: string;
@@ -102,6 +108,7 @@ export type RecipeItemType = {
     description: string;
     badgeType: BadgeKeyType;
     recipeProps?: RecipePropsType[];
+    recomendation?: RecipeRecomendationType;
 };
 
 export type SliderItemPropsType = {
@@ -136,4 +143,8 @@ export type BlogsItemType = {
 
 export type BlogsItemPropsType = {
     data: BlogsItemType;
+};
+
+export type RecomendationBadgePropsType = {
+    data: RecipeRecomendationType;
 };
