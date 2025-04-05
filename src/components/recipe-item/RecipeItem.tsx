@@ -13,9 +13,9 @@ import {
 import { Badge, CustomIcon12 } from '~/components';
 import { BTN_TEXT } from '~/constants';
 
-import { TastyestItemPropsType } from '../types';
+import { RecipeItemPropsType } from '../types';
 
-export function TastyestItem({ data }: TastyestItemPropsType) {
+export function RecipeItem({ data }: RecipeItemPropsType) {
     return (
         <Card direction='row' overflow='hidden' variant='outline'>
             <Image objectFit='cover' maxW='346px' src={data.image} alt={data.title} />

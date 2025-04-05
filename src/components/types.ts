@@ -114,7 +114,7 @@ export type ArrowButtonPropsType = {
     to: ArrowButtonDirection;
 };
 
-export type TastyestItemPropsType = {
+export type RecipeItemPropsType = {
     data: RecipeItemType;
 };
 

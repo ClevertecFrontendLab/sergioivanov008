@@ -1,7 +1,7 @@
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Button, Flex, Heading, SimpleGrid } from '@chakra-ui/react';
 
-import { TastyestItem } from '~/components';
+import { RecipeItem } from '~/components';
 import { BTN_TEXT, TASTYEST_DATA, TITLES } from '~/constants';
 
 export function Tastyest() {
@@ -23,7 +23,7 @@ export function Tastyest() {
             </Flex>
             <SimpleGrid columns={2} spacing={6}>
                 {TASTYEST_DATA.map((el) => (
-                    <TastyestItem key={el.id} data={el} />
+                    <RecipeItem key={el.id} data={el} />
                 ))}
             </SimpleGrid>
         </Flex>
