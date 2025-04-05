@@ -117,3 +117,13 @@ export type ArrowButtonPropsType = {
 export type TastyestItemPropsType = {
     data: RecipeItemType;
 };
+
+export type AvatarContentType = {
+    image: string;
+    name: string;
+    nickName: string;
+};
+
+export type AvatarContentPropsType = {
+    data: AvatarContentType;
+};

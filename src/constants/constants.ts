@@ -21,15 +21,15 @@ import recipe6Img from '~/assets/images/new_recipe_6.png';
 import recipe7Img from '~/assets/images/new_recipe_7.png';
 import recipe8Img from '~/assets/images/new_recipe_8.png';
 import {
+    AvatarContentType,
     BadgeStoreType,
     FooterMenuItemType,
     NavDataType,
     RecipeItemType,
 } from '~/components/types';
 
-export const AVATAR_DATA = {
-    imgSrc: avatarImg,
-    imgAlt: 'Avatar image',
+export const AVATAR_DATA: AvatarContentType = {
+    image: avatarImg,
     name: 'Екатерина Константинопольская',
     nickName: '@bake_and_pie',
 };
@@ -393,6 +393,7 @@ export const TITLES = {
     bonAppetit: 'Приятного аппетита!',
     newRecipes: 'Новые рецепты',
     tastyest: 'Самое сочное ',
+    blogs: 'Кулинарные блоги',
 };
 
 export const TASTYEST_DATA: RecipeItemType[] = [

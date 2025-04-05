@@ -1,24 +1,18 @@
-import { Avatar, Flex, Text } from '@chakra-ui/react';
+import { Avatar, Flex, Heading, Text } from '@chakra-ui/react';
 
-import { AVATAR_DATA } from '~/constants';
+import { AvatarContentPropsType } from '../types';
 
-import s from './AvatarContent.module.css';
-
-export function AvatarContent() {
+export function AvatarContent({ data }: AvatarContentPropsType) {
     return (
-        <Flex
-            gap={3}
-            display={{
-                base: 'none',
-                sm: 'none',
-                md: 'none',
-                lg: 'flex',
-            }}
-        >
-            <Avatar name={AVATAR_DATA.imgAlt} src={AVATAR_DATA.imgSrc} />
+        <Flex gap={3} display={{ base: 'none', lg: 'flex' }}>
+            <Avatar name={data.name} src={data.image} />
             <Flex direction='column' justify='space-between'>
-                <Text className={s.textName}>{AVATAR_DATA.name}</Text>
-                <Text className={s.nickName}>{AVATAR_DATA.nickName}</Text>
+                <Heading fontWeight={500} fontSize={18} lineHeight='156%'>
+                    {data.name}
+                </Heading>
+                <Text fontWeight={400} fontSize={14} lineHeight='143%'>
+                    {data.nickName}
+                </Text>
             </Flex>
         </Flex>
     );
