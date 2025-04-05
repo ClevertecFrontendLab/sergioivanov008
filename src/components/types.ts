@@ -90,6 +90,7 @@ export type BadgePropsType = {
 };
 
 export type RecipePropsType = {
+    id: string;
     type: CustomIcon12Type;
     value: string;
 };

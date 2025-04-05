@@ -16,7 +16,18 @@ export function SliderItem({ data }: SliderItemPropsType) {
                 </Flex>
                 <Flex justify='space-between'>
                     <Badge type={data.badgeType} color='#d7ff94' />
-                    <CustomIcon12 props={{ boxSize: '12px' }} iconType='pin' value='1' />
+                    {data.recipeProps && (
+                        <Flex gap={2}>
+                            {data.recipeProps.map((el) => (
+                                <CustomIcon12
+                                    key={el.id}
+                                    props={{ boxSize: '12px' }}
+                                    iconType={el.type}
+                                    value={el.value}
+                                />
+                            ))}
+                        </Flex>
+                    )}
                 </Flex>
             </Flex>
         </Flex>
