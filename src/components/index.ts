@@ -3,6 +3,7 @@ export { Aside } from './aside/Aside.tsx';
 export { AsideUserData } from './aside-user-data/AsideUserData.tsx';
 export { AvatarContent } from './avatar-content/AvatarContent.tsx';
 export { Badge } from './badge/Badge.tsx';
+export { Blogs } from './blogs/Blogs.tsx';
 export { BlogsItem } from './blogs-item/BlogsItem.tsx';
 export { BreadcrumbComponent } from './breadcrumb-component/BreadcrumbComponent.tsx';
 export { BurgerMenu } from './burger-menu/BurgerMenu.tsx';
