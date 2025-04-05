@@ -8,7 +8,7 @@ import s from './Tastyest.module.css';
 
 export function Tastyest() {
     return (
-        <Flex h='584px' backgroundColor='#ffa2a2' direction='column' gap={6}>
+        <Flex direction='column' gap={6}>
             <Flex justify='space-between' align='center'>
                 <Text className={s.text}>{TITLES.tastyest}</Text>
                 <Button
