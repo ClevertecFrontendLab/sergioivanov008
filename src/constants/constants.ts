@@ -16,6 +16,10 @@ import recipe1Img from '~/assets/images/new_recipe_1.png';
 import recipe2Img from '~/assets/images/new_recipe_2.png';
 import recipe3Img from '~/assets/images/new_recipe_3.png';
 import recipe4Img from '~/assets/images/new_recipe_4.png';
+import recipe5Img from '~/assets/images/new_recipe_5.png';
+import recipe6Img from '~/assets/images/new_recipe_6.png';
+import recipe7Img from '~/assets/images/new_recipe_7.png';
+import recipe8Img from '~/assets/images/new_recipe_8.png';
 import {
     BadgeStoreType,
     FooterMenuItemType,
@@ -388,3 +392,54 @@ export const TITLES = {
     newRecipes: 'Новые рецепты',
     tastyest: 'Самое сочное ',
 };
+
+export const TASTYEST_DATA: RecipeItemType[] = [
+    {
+        id: '01',
+        image: recipe5Img,
+        title: 'Кнели со спагетти',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        badgeType: 'vtorieBluda',
+        recipeProps: [
+            { id: '01', type: 'pin', value: '85' },
+            { id: '02', type: 'like', value: '152' },
+        ],
+    },
+    {
+        id: '02',
+        image: recipe6Img,
+        title: 'Пряная ветчина по итальянски',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        badgeType: 'vtorieBluda',
+        recipeProps: [
+            { id: '01', type: 'pin', value: '159' },
+            { id: '02', type: 'like', value: '257' },
+        ],
+    },
+    {
+        id: '03',
+        image: recipe7Img,
+        title: 'Лапша с курицей и шафраном',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        badgeType: 'vtorieBluda',
+        recipeProps: [
+            { id: '01', type: 'pin', value: '258' },
+            { id: '02', type: 'like', value: '342' },
+        ],
+    },
+    {
+        id: '04',
+        image: recipe8Img,
+        title: 'Том-ям с капустой кимчи',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        badgeType: 'nacional',
+        recipeProps: [
+            { id: '01', type: 'pin', value: '124' },
+            { id: '02', type: 'like', value: '324' },
+        ],
+    },
+];
