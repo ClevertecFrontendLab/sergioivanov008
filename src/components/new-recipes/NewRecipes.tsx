@@ -1,6 +1,7 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
+import { Flex, IconButton, Text } from '@chakra-ui/react';
 
-import { ArrowButton, SliderItem } from '~/components';
+import { SliderItem } from '~/components';
 import { SLIDER_DATA, TITLES } from '~/constants';
 
 import s from './NewRecipes.module.css';
@@ -13,8 +14,26 @@ export function NewRecipes() {
                 {SLIDER_DATA.map((el) => (
                     <SliderItem key={el.id} data={el} />
                 ))}
-                <ArrowButton to='back' />
-                <ArrowButton to='forward' />
+                <IconButton
+                    colorScheme='black'
+                    aria-label='new-recipes'
+                    size='lg'
+                    icon={<ArrowBackIcon boxSize='32px' />}
+                    position='absolute'
+                    top='147px'
+                    left='-8px'
+                    display={{ base: 'none', lg: 'block' }}
+                />
+                <IconButton
+                    colorScheme='black'
+                    aria-label='new-recipes'
+                    size='lg'
+                    icon={<ArrowForwardIcon boxSize='32px' />}
+                    position='absolute'
+                    top='147px'
+                    right='-8px'
+                    display={{ base: 'none', lg: 'block' }}
+                />
             </Flex>
         </Flex>
     );

@@ -1,5 +1,4 @@
 export { AddRecipeButton } from './add-recipe-button/AddRecipeButton.tsx';
-export { ArrowButton } from './arrow-button/ArrowButton.tsx';
 export { Aside } from './aside/Aside.tsx';
 export { AsideUserData } from './aside-user-data/AsideUserData.tsx';
 export { AvatarContent } from './avatar-content/AvatarContent.tsx';
@@ -32,3 +31,4 @@ export { Navigation } from './navigation/Navigation.tsx';
 export { NewRecipes } from './new-recipes/NewRecipes.tsx';
 export { RootLayout } from './root-layout/RootLayout.tsx';
 export { SliderItem } from './slider-item/SliderItem.tsx';
+export { Tastyest } from './tastyest/Tastyest.tsx';
