@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 
-import { MainHeader, NewRecipes } from '~/components';
+import { MainHeader, NewRecipes, Tastyest } from '~/components';
 
 export function MainPage() {
     return (
@@ -13,9 +13,7 @@ export function MainPage() {
             <MainHeader />
             <Flex gap={10} direction='column'>
                 <NewRecipes />
-                <Flex h='584px' backgroundColor='#ffa2a2'>
-                    Tastyest section
-                </Flex>
+                <Tastyest />
                 <Flex h='308px' backgroundColor='#ffa2a2'>
                     Blogs section
                 </Flex>
