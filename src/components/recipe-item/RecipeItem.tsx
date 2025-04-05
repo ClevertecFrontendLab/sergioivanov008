@@ -1,4 +1,5 @@
 import {
+    Box,
     Button,
     Card,
     CardBody,
@@ -10,7 +11,7 @@ import {
     Text,
 } from '@chakra-ui/react';
 
-import { Badge, CustomIcon12 } from '~/components';
+import { Badge, CustomIcon12, RecomendationBadge } from '~/components';
 import { BTN_TEXT } from '~/constants';
 
 import { RecipeItemPropsType } from '../types';
@@ -18,7 +19,10 @@ import { RecipeItemPropsType } from '../types';
 export function RecipeItem({ data }: RecipeItemPropsType) {
     return (
         <Card direction='row' overflow='hidden' variant='outline'>
-            <Image objectFit='cover' maxW='346px' src={data.image} alt={data.title} />
+            <Box position='relative'>
+                <Image objectFit='cover' maxW='346px' src={data.image} alt={data.title} />
+                {data.recomendation && <RecomendationBadge data={data.recomendation} />}
+            </Box>
 
             <Stack py={5} px={4} gap={0}>
                 <CardBody p={0}>
