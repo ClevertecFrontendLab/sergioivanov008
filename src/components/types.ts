@@ -89,12 +89,18 @@ export type BadgePropsType = {
     color: string;
 };
 
+export type RecipePropsType = {
+    type: CustomIcon12Type;
+    value: string;
+};
+
 export type SliderItemType = {
     id: string;
     image: string;
     title: string;
     description: string;
     badgeType: BadgeKeyType;
+    recipeProps?: RecipePropsType[];
 };
 
 export type SliderItemPropsType = {

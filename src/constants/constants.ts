@@ -349,6 +349,7 @@ export const SLIDER_DATA: SliderItemType[] = [
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
         badgeType: 'pervieBluda',
+        recipeProps: [{ type: 'pin', value: '1' }],
     },
     {
         id: '02',
@@ -357,6 +358,10 @@ export const SLIDER_DATA: SliderItemType[] = [
         description:
             'Капустные котлеты по этому рецепту получаются необычайно пышными и  невероятно вкусными. Мягкий вкус и ...',
         badgeType: 'vegan',
+        recipeProps: [
+            { type: 'pin', value: '2' },
+            { type: 'like', value: '1' },
+        ],
     },
     {
         id: '03',
@@ -365,6 +370,7 @@ export const SLIDER_DATA: SliderItemType[] = [
         description:
             'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
         badgeType: 'deserty',
+        recipeProps: [{ type: 'like', value: '1' }],
     },
     {
         id: '04',
@@ -379,4 +385,5 @@ export const SLIDER_DATA: SliderItemType[] = [
 export const TITLES = {
     bonAppetit: 'Приятного аппетита!',
     newRecipes: 'Новые рецепты',
+    tastyest: 'Самое сочное ',
 };
