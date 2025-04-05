@@ -15,7 +15,7 @@ export function NewRecipes() {
                     <SliderItem key={el.id} data={el} />
                 ))}
                 <IconButton
-                    colorScheme='black'
+                    colorScheme='myBlack'
                     aria-label='new-recipes'
                     size='lg'
                     icon={<ArrowBackIcon boxSize='32px' />}
@@ -25,7 +25,7 @@ export function NewRecipes() {
                     display={{ base: 'none', lg: 'block' }}
                 />
                 <IconButton
-                    colorScheme='black'
+                    colorScheme='myBlack'
                     aria-label='new-recipes'
                     size='lg'
                     icon={<ArrowForwardIcon boxSize='32px' />}
