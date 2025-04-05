@@ -113,3 +113,7 @@ export type ArrowButtonDirection = 'forward' | 'back';
 export type ArrowButtonPropsType = {
     to: ArrowButtonDirection;
 };
+
+export type TastyestItemPropsType = {
+    data: RecipeItemType;
+};

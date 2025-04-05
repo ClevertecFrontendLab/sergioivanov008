@@ -32,3 +32,4 @@ export { NewRecipes } from './new-recipes/NewRecipes.tsx';
 export { RootLayout } from './root-layout/RootLayout.tsx';
 export { SliderItem } from './slider-item/SliderItem.tsx';
 export { Tastyest } from './tastyest/Tastyest.tsx';
+export { TastyestItem } from './tastyest-item/TastyestItem.tsx';

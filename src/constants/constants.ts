@@ -37,6 +37,8 @@ export const AVATAR_DATA = {
 export const BTN_TEXT = {
     addRecipe: 'Записать рецепт',
     allSelection: 'Вся подборка',
+    save: 'Сохранить',
+    cook: 'Готовить',
 };
 
 export const FOOTER_MENU: FooterMenuItemType[] = [
