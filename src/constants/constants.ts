@@ -20,7 +20,7 @@ import {
     BadgeStoreType,
     FooterMenuItemType,
     NavDataType,
-    SliderItemType,
+    RecipeItemType,
 } from '~/components/types';
 
 export const AVATAR_DATA = {
@@ -32,6 +32,7 @@ export const AVATAR_DATA = {
 
 export const BTN_TEXT = {
     addRecipe: 'Записать рецепт',
+    allSelection: 'Вся подборка',
 };
 
 export const FOOTER_MENU: FooterMenuItemType[] = [
@@ -341,7 +342,7 @@ export const BADGE_STORE: BadgeStoreType = {
     },
 };
 
-export const SLIDER_DATA: SliderItemType[] = [
+export const SLIDER_DATA: RecipeItemType[] = [
     {
         id: '01',
         image: recipe1Img,

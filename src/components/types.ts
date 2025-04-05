@@ -95,7 +95,7 @@ export type RecipePropsType = {
     value: string;
 };
 
-export type SliderItemType = {
+export type RecipeItemType = {
     id: string;
     image: string;
     title: string;
@@ -105,7 +105,7 @@ export type SliderItemType = {
 };
 
 export type SliderItemPropsType = {
-    data: SliderItemType;
+    data: RecipeItemType;
 };
 
 export type ArrowButtonDirection = 'forward' | 'back';
