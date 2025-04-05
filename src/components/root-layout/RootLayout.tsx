@@ -13,37 +13,17 @@ export function RootLayout() {
                 base: `"header"
                      "main"
                      "footer"`,
-                sm: `"header"
-                     "main"
-                     "footer"`,
-                md: `"header"
-                     "main"
-                     "footer"`,
                 lg: `"header header header"
                      "nav main aside"`,
             }}
-            gridTemplateRows={{
-                base: '64px 1fr 84px',
-                sm: '64px 1fr 84px',
-                md: '64px 1fr 84px',
-                lg: '80px 1fr',
-            }}
-            gridTemplateColumns={{
-                base: '1fr',
-                sm: '1fr',
-                md: '1fr',
-                lg: '256px 1fr 256px',
-            }}
-            h='100vh'
-            gridColumnGap='24px'
+            gridTemplateRows={{ base: '64px 1fr 84px', lg: '80px 1fr' }}
+            gridTemplateColumns={{ base: '1fr', lg: '256px 1fr 256px' }}
         >
             <GridItem
                 area='header'
                 bg='myColor.yellow'
                 height={{
                     base: '64px',
-                    sm: '64px',
-                    md: '64px',
                     lg: '80px',
                 }}
                 pl='4'
@@ -56,29 +36,19 @@ export function RootLayout() {
             </GridItem>
             <GridItem
                 area='nav'
-                display={{
-                    base: 'none',
-                    sm: 'none',
-                    md: 'none',
-                    lg: 'block',
-                }}
-                className={s.navComponent}
+                display={{ base: 'none', lg: 'block' }}
                 pt={6}
                 pb={8}
+                className={s.navComponent}
             >
                 <Navigation />
             </GridItem>
-            <GridItem area='main'>
+            <GridItem area='main' overflow='hidden'>
                 <Outlet />
             </GridItem>
             <GridItem
                 area='aside'
-                display={{
-                    base: 'none',
-                    sm: 'none',
-                    md: 'none',
-                    lg: 'block',
-                }}
+                display={{ base: 'none', lg: 'block' }}
                 className={s.asideComponent}
             >
                 <Aside />
@@ -86,12 +56,7 @@ export function RootLayout() {
             <GridItem
                 area='footer'
                 bg='myColor.yellow'
-                display={{
-                    base: 'block',
-                    sm: 'block',
-                    md: 'block',
-                    lg: 'none',
-                }}
+                display={{ base: 'block', lg: 'none' }}
                 className={s.footerComponent}
             >
                 <Footer />
