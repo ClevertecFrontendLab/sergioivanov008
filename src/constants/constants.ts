@@ -1,4 +1,3 @@
-import avatarImg from '~/assets/avatar_image.png';
 import appetizersImg from '~/assets/icons/Appetizers.png';
 import hildrensDishesImg from '~/assets/icons/ChildrensDishes.png';
 import dessertsPastriesImg from '~/assets/icons/DessertsPastries.png';
@@ -12,6 +11,10 @@ import PreparationsImg from '~/assets/icons/Preparations.png';
 import saladsImg from '~/assets/icons/Salads.png';
 import saucesImg from '~/assets/icons/Sauces.png';
 import veganCuisineImg from '~/assets/icons/VeganCuisine.png';
+import avatarImg1 from '~/assets/images/avatar_image1.png';
+import avatarImg2 from '~/assets/images/avatar_image2.png';
+import avatarImg3 from '~/assets/images/avatar_image3.png';
+import avatarImg4 from '~/assets/images/avatar_image4.png';
 import recipe1Img from '~/assets/images/new_recipe_1.png';
 import recipe2Img from '~/assets/images/new_recipe_2.png';
 import recipe3Img from '~/assets/images/new_recipe_3.png';
@@ -23,13 +26,14 @@ import recipe8Img from '~/assets/images/new_recipe_8.png';
 import {
     AvatarContentType,
     BadgeStoreType,
+    BlogsItemType,
     FooterMenuItemType,
     NavDataType,
     RecipeItemType,
 } from '~/components/types';
 
 export const AVATAR_DATA: AvatarContentType = {
-    image: avatarImg,
+    image: avatarImg1,
     name: 'Екатерина Константинопольская',
     nickName: '@bake_and_pie',
 };
@@ -444,5 +448,38 @@ export const TASTYEST_DATA: RecipeItemType[] = [
             { id: '01', type: 'pin', value: '124' },
             { id: '02', type: 'like', value: '324' },
         ],
+    },
+];
+
+export const BLOGS_DATA: BlogsItemType[] = [
+    {
+        id: '01',
+        avatarData: {
+            image: avatarImg2,
+            name: 'Елена Высоцкая',
+            nickName: '@elenapovar',
+        },
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+    },
+    {
+        id: '02',
+        avatarData: {
+            image: avatarImg3,
+            name: 'Alex Cook',
+            nickName: '@funtasticooking',
+        },
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+    },
+    {
+        id: '03',
+        avatarData: {
+            image: avatarImg4,
+            name: 'Екатерина Константинопольская',
+            nickName: '@bake_and_pie',
+        },
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
     },
 ];

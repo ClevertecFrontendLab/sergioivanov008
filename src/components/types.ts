@@ -127,3 +127,13 @@ export type AvatarContentType = {
 export type AvatarContentPropsType = {
     data: AvatarContentType;
 };
+
+export type BlogsItemType = {
+    id: string;
+    avatarData: AvatarContentType;
+    description: string;
+};
+
+export type BlogsItemPropsType = {
+    data: BlogsItemType;
+};
