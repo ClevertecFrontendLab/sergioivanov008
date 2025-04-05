@@ -100,3 +100,9 @@ export type SliderItemType = {
 export type SliderItemPropsType = {
     data: SliderItemType;
 };
+
+export type ArrowButtonDirection = 'forward' | 'back';
+
+export type ArrowButtonPropsType = {
+    to: ArrowButtonDirection;
+};

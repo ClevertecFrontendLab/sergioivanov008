@@ -1,6 +1,6 @@
 import { Flex, Text } from '@chakra-ui/react';
 
-import { SliderItem } from '~/components';
+import { ArrowButton, SliderItem } from '~/components';
 import { SLIDER_DATA } from '~/constants';
 
 import s from './NewRecipes.module.css';
@@ -13,6 +13,8 @@ export function NewRecipes() {
                 {SLIDER_DATA.map((el) => (
                     <SliderItem key={el.id} data={el} />
                 ))}
+                <ArrowButton to='back' />
+                <ArrowButton to='forward' />
             </Flex>
         </Flex>
     );
