@@ -375,3 +375,8 @@ export const SLIDER_DATA: SliderItemType[] = [
         badgeType: 'salaty',
     },
 ];
+
+export const TITLES = {
+    bonAppetit: 'Приятного аппетита!',
+    newRecipes: 'Новые рецепты',
+};
