@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 
-import { Blogs, MainHeader, NewRecipes, Tastyest } from '~/components';
+import { Blogs, MainHeader, NewRecipes, Tastyest, Vegan } from '~/components';
 
 export function MainPage() {
     return (
@@ -15,9 +15,7 @@ export function MainPage() {
                 <NewRecipes />
                 <Tastyest />
                 <Blogs />
-                <Flex h='288px' backgroundColor='#ffa2a2'>
-                    Vegan section
-                </Flex>
+                <Vegan />
             </Flex>
         </Flex>
     );
