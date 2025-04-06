@@ -2,8 +2,8 @@ import { Flex } from '@chakra-ui/react';
 
 import {
     BlogsSection,
-    MainHeaderSection,
     NewRecipesSection,
+    PageHeaderSection,
     TastyestSection,
     Vegan,
 } from '~/components';
@@ -16,7 +16,7 @@ export function MainPage() {
             pl={{ base: '16px', md: '20px', lg: '24px' }}
             pr={{ base: '16px', md: '20px', lg: '24px' }}
         >
-            <MainHeaderSection />
+            <PageHeaderSection />
             <Flex gap={10} direction='column'>
                 <NewRecipesSection />
                 <TastyestSection />
