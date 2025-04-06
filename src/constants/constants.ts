@@ -352,7 +352,7 @@ export const CATEGORY_DB: CategoryDbType = {
     },
 };
 
-export const SLIDER_DATA: RecipeItemType[] = [
+export const NEW_RECIPES_DATA: RecipeItemType[] = [
     {
         id: '01',
         image: recipe1Img,

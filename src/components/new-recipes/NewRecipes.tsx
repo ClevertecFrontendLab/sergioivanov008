@@ -2,7 +2,7 @@ import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import { Flex, IconButton, Text } from '@chakra-ui/react';
 
 import { RecipeItemLook } from '~/components';
-import { SLIDER_DATA, TITLES } from '~/constants';
+import { NEW_RECIPES_DATA, TITLES } from '~/constants';
 
 export function NewRecipes() {
     return (
@@ -11,7 +11,7 @@ export function NewRecipes() {
                 {TITLES.newRecipes}
             </Text>
             <Flex gap={6} position='relative'>
-                {SLIDER_DATA.map((el) => (
+                {NEW_RECIPES_DATA.map((el) => (
                     <RecipeItemLook key={el.id} data={el} />
                 ))}
                 <IconButton
