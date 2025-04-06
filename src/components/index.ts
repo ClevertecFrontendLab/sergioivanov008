@@ -26,7 +26,7 @@ export { HeaderUserData } from './header-user-data/HeaderUserData.tsx';
 export { LogoIcon } from './logo-icon/LogoIcon.tsx';
 export { LogoText } from './logo-text/LogoText.tsx';
 export { Logotype } from './logotype/Logotype.tsx';
-export { MainHeader } from './main-header/MainHeader.tsx';
+export { MainHeaderSection } from './main-header-section/MainHeaderSection.tsx';
 export { NavComponent } from './nav-component/NavComponent.tsx';
 export { NavFooter } from './nav-footer/NavFooter.tsx';
 export { Navigation } from './navigation/Navigation.tsx';
