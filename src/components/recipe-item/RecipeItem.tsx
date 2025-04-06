@@ -18,7 +18,17 @@ import { RecipeItemPropsType } from '../types';
 
 export function RecipeItem({ data }: RecipeItemPropsType) {
     return (
-        <Card direction='row' overflow='hidden' variant='outline'>
+        <Card
+            direction='row'
+            overflow='hidden'
+            variant='outline'
+            cursor='pointer'
+            transition='0.2s'
+            _hover={{
+                boxShadow:
+                    '0 2px 4px -1px rgba(32, 126, 0, 0.06), 0 4px 6px -1px rgba(32, 126, 0, 0.1)',
+            }}
+        >
             <Box position='relative'>
                 <Image objectFit='cover' maxW='346px' src={data.image} alt={data.title} />
                 {data.recomendation && <RecomendationBadge data={data.recomendation} />}
