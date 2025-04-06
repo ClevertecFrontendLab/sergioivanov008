@@ -2,9 +2,9 @@ import { Box, Card, CardBody, Flex, Heading, Image, Stack, Text } from '@chakra-
 
 import { Badge, CustomIcon12, RecomendationBadge } from '~/components';
 
-import { RecipeItemLookPropsType } from '../types';
+import { RecipeItemPropsType } from '../types';
 
-export function RecipeItemLook({ data }: RecipeItemLookPropsType) {
+export function RecipeItemLook({ data }: RecipeItemPropsType) {
     return (
         <Card
             overflow='hidden'
