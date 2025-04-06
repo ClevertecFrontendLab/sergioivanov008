@@ -103,7 +103,7 @@ export type RecipeRecomendationType = {
 
 export type RecipeItemType = {
     id: string;
-    image: string;
+    image?: string;
     title: string;
     description: string;
     badgeType: BadgeKeyType;
