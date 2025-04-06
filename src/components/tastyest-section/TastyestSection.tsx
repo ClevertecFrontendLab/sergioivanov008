@@ -8,7 +8,11 @@ export function TastyestSection() {
     return (
         <Flex direction='column' gap={6} mb='40px'>
             <Flex justify='space-between' align='center'>
-                <Heading fontWeight={500} fontSize={48} lineHeight='100%'>
+                <Heading
+                    fontWeight={{ base: '500' }}
+                    fontSize={{ base: '24px', lg: '36px', xl: '48px' }}
+                    lineHeight={{ base: '133%', lg: '111%', xl: '100%' }}
+                >
                     {TITLES.tastyest}
                 </Heading>
                 <Button

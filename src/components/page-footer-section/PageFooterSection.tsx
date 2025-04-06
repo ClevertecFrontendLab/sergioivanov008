@@ -38,13 +38,17 @@ export function PageFooterSection() {
             mb='16px'
         >
             <GridItem area='one'>
-                <Heading fontWeight={500} fontSize={48} lineHeight='100%'>
+                <Heading
+                    fontWeight={{ base: '500' }}
+                    fontSize={{ base: '24px', lg: '36px', xl: '48px' }}
+                    lineHeight={{ base: '133%', lg: '111%', xl: '100%' }}
+                >
                     {TITLES.vegan}
                 </Heading>
             </GridItem>
             <GridItem area='two'>
                 <Text
-                    noOfLines={2}
+                    noOfLines={{ base: 4, md: 2, lg: 3, xl: 2 }}
                     fontWeight={500}
                     fontSize={16}
                     lineHeight='150%'

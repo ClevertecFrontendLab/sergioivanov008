@@ -8,7 +8,11 @@ export function BlogsSection() {
     return (
         <Flex backgroundColor='#c4ff61' direction='column' gap={8} p='24px' mb='40px'>
             <Flex justify='space-between' align='center'>
-                <Heading fontWeight={400} fontSize={36} lineHeight='111%'>
+                <Heading
+                    fontWeight={{ base: '500' }}
+                    fontSize={{ base: '24px', lg: '36px', xl: '48px' }}
+                    lineHeight={{ base: '133%', lg: '111%', xl: '100%' }}
+                >
                     {TITLES.blogs}
                 </Heading>
                 <Button
