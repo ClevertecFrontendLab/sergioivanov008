@@ -17,7 +17,7 @@ export function RecipeItemPin({ data }: RecipeItemPropsType) {
                     '0 2px 4px -1px rgba(32, 126, 0, 0.06), 0 4px 6px -1px rgba(32, 126, 0, 0.1)',
             }}
         >
-            <HStack py={3} px={6} gap={2}>
+            <HStack py={{ base: '10px', xl: '12px' }} px={{ base: '12px', xl: '24px' }} gap={2}>
                 <CardBody p={0}>
                     <Flex align='center' gap={3}>
                         <Image
