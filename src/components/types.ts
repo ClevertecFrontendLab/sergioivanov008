@@ -111,12 +111,6 @@ export type RecipeItemType = {
     recomendation?: RecipeRecomendationType;
 };
 
-export type ArrowButtonDirection = 'forward' | 'back';
-
-export type ArrowButtonPropsType = {
-    to: ArrowButtonDirection;
-};
-
 export type RecipeItemPropsType = {
     data: RecipeItemType;
 };
