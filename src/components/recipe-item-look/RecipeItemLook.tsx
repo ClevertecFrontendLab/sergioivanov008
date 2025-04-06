@@ -1,35 +1,51 @@
-import { Flex, Image, Text } from '@chakra-ui/react';
+import { Box, Card, CardBody, Flex, Heading, Image, Stack, Text } from '@chakra-ui/react';
 
-import { Badge, CustomIcon12 } from '~/components';
+import { Badge, CustomIcon12, RecomendationBadge } from '~/components';
 
 import { RecipeItemLookPropsType } from '../types';
-import s from './RecipeItemLook.module.css';
 
 export function RecipeItemLook({ data }: RecipeItemLookPropsType) {
     return (
-        <Flex direction='column' w='322px' h='414px' className={s.wrapper}>
-            <Image h='230px' objectFit='cover' src={data.image} alt={data.title} />
-            <Flex h='100%' gap={6} direction='column' className={s.data}>
-                <Flex gap={2} direction='column'>
-                    <Text className={s.title}>{data.title}</Text>
-                    <Text className={s.description}>{data.description}</Text>
-                </Flex>
-                <Flex justify='space-between'>
-                    <Badge type={data.badgeType} color='#d7ff94' />
-                    {data.recipeProps && (
-                        <Flex gap={2}>
-                            {data.recipeProps.map((el) => (
-                                <CustomIcon12
-                                    key={el.id}
-                                    props={{ boxSize: '12px' }}
-                                    iconType={el.type}
-                                    value={el.value}
-                                />
-                            ))}
-                        </Flex>
-                    )}
-                </Flex>
-            </Flex>
-        </Flex>
+        <Card
+            overflow='hidden'
+            variant='outline'
+            cursor='pointer'
+            transition='0.2s'
+            _hover={{
+                boxShadow:
+                    '0 2px 4px -1px rgba(32, 126, 0, 0.06), 0 4px 6px -1px rgba(32, 126, 0, 0.1)',
+            }}
+        >
+            <Box position='relative'>
+                <Image objectFit='cover' w='100%' src={data.image} alt={data.title} />
+                {data.recomendation && <RecomendationBadge data={data.recomendation} />}
+            </Box>
+
+            <Stack py={5} px={4} gap={0}>
+                <CardBody p={0}>
+                    <Heading size='md' noOfLines={1}>
+                        {data.title}
+                    </Heading>
+                    <Text py='2' noOfLines={3}>
+                        {data.description}
+                    </Text>
+                    <Flex justify='space-between'>
+                        <Badge type={data.badgeType} color='#d7ff94' />
+                        {data.recipeProps && (
+                            <Flex gap={2}>
+                                {data.recipeProps.map((el) => (
+                                    <CustomIcon12
+                                        key={el.id}
+                                        props={{ boxSize: '12px' }}
+                                        iconType={el.type}
+                                        value={el.value}
+                                    />
+                                ))}
+                            </Flex>
+                        )}
+                    </Flex>
+                </CardBody>
+            </Stack>
+        </Card>
     );
 }
