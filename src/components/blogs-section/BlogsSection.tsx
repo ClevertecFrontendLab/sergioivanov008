@@ -6,7 +6,7 @@ import { BLOGS_DATA, BTN_TEXT, TITLES } from '~/constants';
 
 export function BlogsSection() {
     return (
-        <Flex backgroundColor='#c4ff61' direction='column' gap={8} p='24px'>
+        <Flex backgroundColor='#c4ff61' direction='column' gap={8} p='24px' mb='40px'>
             <Flex justify='space-between' align='center'>
                 <Heading fontWeight={400} fontSize={36} lineHeight='111%'>
                     {TITLES.blogs}

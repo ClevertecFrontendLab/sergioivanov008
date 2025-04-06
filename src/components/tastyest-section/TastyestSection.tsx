@@ -6,7 +6,7 @@ import { BTN_TEXT, TASTYEST_DATA, TITLES } from '~/constants';
 
 export function TastyestSection() {
     return (
-        <Flex direction='column' gap={6}>
+        <Flex direction='column' gap={6} mb='40px'>
             <Flex justify='space-between' align='center'>
                 <Heading fontWeight={500} fontSize={48} lineHeight='100%'>
                     {TITLES.tastyest}
