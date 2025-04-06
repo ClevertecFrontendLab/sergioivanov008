@@ -111,7 +111,7 @@ export type RecipeItemType = {
     recomendation?: RecipeRecomendationType;
 };
 
-export type SliderItemPropsType = {
+export type RecipeItemLookPropsType = {
     data: RecipeItemType;
 };
 

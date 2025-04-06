@@ -2,10 +2,10 @@ import { Flex, Image, Text } from '@chakra-ui/react';
 
 import { Badge, CustomIcon12 } from '~/components';
 
-import { SliderItemPropsType } from '../types';
-import s from './SliderItem.module.css';
+import { RecipeItemLookPropsType } from '../types';
+import s from './RecipeItemLook.module.css';
 
-export function SliderItem({ data }: SliderItemPropsType) {
+export function RecipeItemLook({ data }: RecipeItemLookPropsType) {
     return (
         <Flex direction='column' w='322px' h='414px' className={s.wrapper}>
             <Image h='230px' objectFit='cover' src={data.image} alt={data.title} />

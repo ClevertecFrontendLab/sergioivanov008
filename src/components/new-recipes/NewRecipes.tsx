@@ -1,7 +1,7 @@
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import { Flex, IconButton, Text } from '@chakra-ui/react';
 
-import { SliderItem } from '~/components';
+import { RecipeItemLook } from '~/components';
 import { SLIDER_DATA, TITLES } from '~/constants';
 
 export function NewRecipes() {
@@ -12,7 +12,7 @@ export function NewRecipes() {
             </Text>
             <Flex gap={6} position='relative'>
                 {SLIDER_DATA.map((el) => (
-                    <SliderItem key={el.id} data={el} />
+                    <RecipeItemLook key={el.id} data={el} />
                 ))}
                 <IconButton
                     colorScheme='myBlack'
