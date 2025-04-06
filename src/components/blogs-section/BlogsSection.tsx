@@ -4,7 +4,7 @@ import { Button, Flex, Heading } from '@chakra-ui/react';
 import { BlogsItem } from '~/components';
 import { BLOGS_DATA, BTN_TEXT, TITLES } from '~/constants';
 
-export function Blogs() {
+export function BlogsSection() {
     return (
         <Flex backgroundColor='#c4ff61' direction='column' gap={8} p='24px'>
             <Flex justify='space-between' align='center'>
