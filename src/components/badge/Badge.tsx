@@ -1,6 +1,6 @@
 import { Flex, Image, Text } from '@chakra-ui/react';
 
-import { BADGE_STORE } from '~/constants';
+import { CATEGORY_DB } from '~/constants';
 
 import { BadgePropsType } from '../types';
 
@@ -18,11 +18,11 @@ export function Badge({ type, color }: BadgePropsType) {
             <Image
                 boxSize='16px'
                 objectFit='cover'
-                src={BADGE_STORE[type].image}
-                alt={BADGE_STORE[type].category}
+                src={CATEGORY_DB[type].image}
+                alt={CATEGORY_DB[type].category}
             />
             <Text fontWeight={400} fontSize={14} lineHeight='143%'>
-                {BADGE_STORE[type].category}
+                {CATEGORY_DB[type].category}
             </Text>
         </Flex>
     );

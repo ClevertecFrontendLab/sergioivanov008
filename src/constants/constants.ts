@@ -25,8 +25,8 @@ import recipe7Img from '~/assets/images/new_recipe_7.png';
 import recipe8Img from '~/assets/images/new_recipe_8.png';
 import {
     AvatarContentType,
-    BadgeStoreType,
     BlogsItemType,
+    CategoryDbType,
     FooterMenuItemType,
     NavDataType,
     RecipeItemType,
@@ -284,7 +284,7 @@ export const NAV_DATA: NavDataType[] = [
     },
 ];
 
-export const BADGE_STORE: BadgeStoreType = {
+export const CATEGORY_DB: CategoryDbType = {
     salaty: {
         id: '01',
         category: 'Салаты',

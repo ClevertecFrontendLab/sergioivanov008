@@ -61,13 +61,13 @@ export type CategoryItemPropsType = {
     data: NavDataItemsType;
 };
 
-export type BadgeDataType = {
+export type CategoryDataType = {
     id: string;
     category: string;
     image: string;
 };
 
-export type BadgeKeyType =
+export type CategoryKeyType =
     | 'salaty'
     | 'zakuski'
     | 'pervieBluda'
@@ -82,10 +82,10 @@ export type BadgeKeyType =
     | 'napitki'
     | 'zagotovki';
 
-export type BadgeStoreType = Record<BadgeKeyType, BadgeDataType>;
+export type CategoryDbType = Record<CategoryKeyType, CategoryDataType>;
 
 export type BadgePropsType = {
-    type: BadgeKeyType;
+    type: CategoryKeyType;
     color: string;
 };
 
@@ -106,7 +106,7 @@ export type RecipeItemType = {
     image?: string;
     title: string;
     description: string;
-    badgeType: BadgeKeyType;
+    badgeType: CategoryKeyType;
     recipeProps?: RecipePropsType[];
     recomendation?: RecipeRecomendationType;
 };
