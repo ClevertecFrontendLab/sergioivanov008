@@ -6,9 +6,17 @@ import { BadgePropsType } from '../types';
 
 export function Badge({ type, color }: BadgePropsType) {
     return (
-        <Flex align='center' gap={2} backgroundColor={color} borderRadius={1} py='2px' px='8px'>
+        <Flex
+            align='center'
+            gap={2}
+            backgroundColor={color}
+            borderRadius={1}
+            py='2px'
+            px='8px'
+            h='24px'
+        >
             <Image
-                boxSize='24px'
+                boxSize='16px'
                 objectFit='cover'
                 src={BADGE_STORE[type].image}
                 alt={BADGE_STORE[type].category}
