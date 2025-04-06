@@ -3,7 +3,7 @@ import { Grid, GridItem, Heading, Stack, Text } from '@chakra-ui/react';
 import { RecipeItemPin, RecipeItemSimple } from '~/components';
 import { MAIN_PIN_DATA, TEXT, TITLES, VEGAN_DATA } from '~/constants';
 
-export function Vegan() {
+export function PageFooterSection() {
     return (
         <Grid
             mx='auto'

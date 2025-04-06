@@ -3,9 +3,9 @@ import { Flex } from '@chakra-ui/react';
 import {
     BlogsSection,
     NewRecipesSection,
+    PageFooterSection,
     PageHeaderSection,
     TastyestSection,
-    Vegan,
 } from '~/components';
 
 export function MainPage() {
@@ -21,7 +21,7 @@ export function MainPage() {
                 <NewRecipesSection />
                 <TastyestSection />
                 <BlogsSection />
-                <Vegan />
+                <PageFooterSection />
             </Flex>
         </Flex>
     );
