@@ -33,6 +33,7 @@ export { Navigation } from './navigation/Navigation.tsx';
 export { NewRecipes } from './new-recipes/NewRecipes.tsx';
 export { RecipeItem } from './recipe-item/RecipeItem.tsx';
 export { RecipeItemLook } from './recipe-item-look/RecipeItemLook.tsx';
+export { RecipeItemPin } from './recipe-item-pin/RecipeItemPin.tsx';
 export { RecipeItemSimple } from './recipe-item-simple/RecipeItemSimple.tsx';
 export { RecomendationBadge } from './recomendation-badge/RecomendationBadge.tsx';
 export { RootLayout } from './root-layout/RootLayout.tsx';
