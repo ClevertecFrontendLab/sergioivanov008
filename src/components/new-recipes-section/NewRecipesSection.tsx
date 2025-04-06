@@ -4,7 +4,7 @@ import { Flex, IconButton, Text } from '@chakra-ui/react';
 import { RecipeItemLook } from '~/components';
 import { NEW_RECIPES_DATA, TITLES } from '~/constants';
 
-export function NewRecipes() {
+export function NewRecipesSection() {
     return (
         <Flex direction='column' gap={6}>
             <Text fontWeight={500} fontSize={48} lineHeight='100%'>

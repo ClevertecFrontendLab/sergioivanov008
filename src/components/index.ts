@@ -30,7 +30,7 @@ export { MainHeaderSection } from './main-header-section/MainHeaderSection.tsx';
 export { NavComponent } from './nav-component/NavComponent.tsx';
 export { NavFooter } from './nav-footer/NavFooter.tsx';
 export { Navigation } from './navigation/Navigation.tsx';
-export { NewRecipes } from './new-recipes/NewRecipes.tsx';
+export { NewRecipesSection } from './new-recipes-section/NewRecipesSection.tsx';
 export { RecipeItem } from './recipe-item/RecipeItem.tsx';
 export { RecipeItemLook } from './recipe-item-look/RecipeItemLook.tsx';
 export { RecipeItemPin } from './recipe-item-pin/RecipeItemPin.tsx';
