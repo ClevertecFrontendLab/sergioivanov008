@@ -60,7 +60,7 @@ export function PageFooterSection() {
                 <RecipeItemSimple data={VEGAN_DATA[1]} />
             </GridItem>
             <GridItem area='five'>
-                <Stack>
+                <Stack spacing='12px'>
                     {MAIN_PIN_DATA.map((el) => (
                         <RecipeItemPin key={el.id} data={el} />
                     ))}

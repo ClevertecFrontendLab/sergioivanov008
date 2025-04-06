@@ -17,7 +17,7 @@ export function RecipeItemPin({ data }: RecipeItemPropsType) {
                     '0 2px 4px -1px rgba(32, 126, 0, 0.06), 0 4px 6px -1px rgba(32, 126, 0, 0.1)',
             }}
         >
-            <HStack py={3} px={6} gap={0}>
+            <HStack py={3} px={6} gap={2}>
                 <CardBody p={0}>
                     <Flex align='center' gap={3}>
                         <Image
@@ -26,7 +26,12 @@ export function RecipeItemPin({ data }: RecipeItemPropsType) {
                             src={CATEGORY_DB[data.badgeType].image}
                             alt={CATEGORY_DB[data.badgeType].category}
                         />
-                        <Text noOfLines={1} fontWeight={500} fontSize={20} lineHeight='140%'>
+                        <Text
+                            noOfLines={1}
+                            fontWeight={500}
+                            fontSize={{ md: '16px', lg: '18px', xl: '20px' }}
+                            lineHeight={{ md: '150%', lg: '156%', xl: '140%' }}
+                        >
                             {data.title}
                         </Text>
                     </Flex>
