@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 
-import { Blogs, MainHeaderSection, NewRecipesSection, Tastyest, Vegan } from '~/components';
+import { Blogs, MainHeaderSection, NewRecipesSection, TastyestSection, Vegan } from '~/components';
 
 export function MainPage() {
     return (
@@ -13,7 +13,7 @@ export function MainPage() {
             <MainHeaderSection />
             <Flex gap={10} direction='column'>
                 <NewRecipesSection />
-                <Tastyest />
+                <TastyestSection />
                 <Blogs />
                 <Vegan />
             </Flex>

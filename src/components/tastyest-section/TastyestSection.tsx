@@ -4,7 +4,7 @@ import { Button, Flex, Heading, SimpleGrid } from '@chakra-ui/react';
 import { RecipeItem } from '~/components';
 import { BTN_TEXT, TASTYEST_DATA, TITLES } from '~/constants';
 
-export function Tastyest() {
+export function TastyestSection() {
     return (
         <Flex direction='column' gap={6}>
             <Flex justify='space-between' align='center'>
