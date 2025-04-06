@@ -20,6 +20,10 @@ const colors = {
         500: '#b1ff2e',
         600: '#d7ff94',
     },
+    myGreenButton: {
+        500: '#2db100',
+        600: '#2db100',
+    },
 };
 
 export const theme = extendTheme({
