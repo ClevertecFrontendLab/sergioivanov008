@@ -23,16 +23,30 @@ export function RecipeItemLook({ data }: RecipeItemPropsType) {
                 {data.recomendation && <RecomendationBadge data={data.recomendation} />}
             </Box>
 
-            <Stack py={5} px={4} gap={0}>
+            <Stack
+                pt={{ base: '8px', lg: '24px' }}
+                pb={{ base: '4px', lg: '20px' }}
+                px={{ base: '8px', lg: '24px' }}
+                gap={{ base: '20px', lg: '24px' }}
+                w='100%'
+            >
                 <CardBody p={0}>
-                    <Heading size='md' noOfLines={1}>
+                    <Heading
+                        noOfLines={{ base: 2, lg: 1 }}
+                        fontWeight={{ base: '500' }}
+                        fontSize={{ base: '16px', lg: '18px', xl: '20px' }}
+                        lineHeight={{ base: '150%', lg: '156%', xl: '140%' }}
+                        mb='8px'
+                    >
                         {data.title}
                     </Heading>
-                    <Text py='2' noOfLines={3}>
+                    <Text py='2' noOfLines={3} display={{ base: 'none', lg: 'block' }}>
                         {data.description}
                     </Text>
                     <Flex justify='space-between'>
-                        <Badge type={data.badgeType} color='#d7ff94' />
+                        <Box position={{ base: 'absolute', lg: 'relative' }} left='8px' top='8px'>
+                            <Badge type={data.badgeType} color='#d7ff94' />
+                        </Box>
                         {data.recipeProps && (
                             <Flex gap={2}>
                                 {data.recipeProps.map((el) => (
