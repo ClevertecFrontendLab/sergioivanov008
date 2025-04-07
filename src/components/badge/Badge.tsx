@@ -10,7 +10,7 @@ export function Badge({ type, color }: BadgePropsType) {
             align='center'
             gap={2}
             backgroundColor={color}
-            borderRadius={1}
+            borderRadius='4px'
             py='2px'
             px='8px'
             h='24px'
