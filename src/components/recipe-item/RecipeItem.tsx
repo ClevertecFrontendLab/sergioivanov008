@@ -45,6 +45,7 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
                 pb={{ base: '4px', lg: '20px' }}
                 px={{ base: '8px', lg: '24px' }}
                 gap={{ base: '20px', lg: '24px' }}
+                w='100%'
             >
                 <CardBody p={0}>
                     <Flex
