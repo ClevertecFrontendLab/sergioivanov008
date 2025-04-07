@@ -44,8 +44,7 @@ export function BlogsSection() {
                     colorScheme='myGreen'
                     variant='ghost'
                     color='black'
-                    size='lg'
-                    h={{ base: '40px', lg: '48px' }}
+                    size={{ base: 'md', lg: 'lg' }}
                 >
                     {BTN_TEXT.allSelection}
                 </Button>
