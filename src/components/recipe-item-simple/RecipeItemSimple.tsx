@@ -23,7 +23,12 @@ export function RecipeItemSimple({ data }: RecipeItemPropsType) {
                 gap={0}
             >
                 <CardBody p={0}>
-                    <Heading size='md' noOfLines={1}>
+                    <Heading
+                        noOfLines={1}
+                        fontWeight={{ base: '500' }}
+                        fontSize={{ base: '16px', xl: '20px' }}
+                        lineHeight={{ base: '150%', xl: '140%' }}
+                    >
                         {data.title}
                     </Heading>
                     <Text mt='8px' mb='20px' noOfLines={3}>
