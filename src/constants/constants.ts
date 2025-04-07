@@ -377,7 +377,7 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
     {
         id: '03',
         image: recipe3Img,
-        title: 'Оладьи на кефире "Пышн...',
+        title: 'Оладьи на кефире "Пышные"',
         description:
             'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
         badgeType: 'deserty',
@@ -390,6 +390,60 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         description:
             'Сельдерей очень полезен для здоровья, пора набираться витаминов. Не  салат, а сплошное удовольствие:) ...',
         badgeType: 'salaty',
+    },
+    {
+        id: '05',
+        image: recipe3Img,
+        title: 'Оладьи на кефире "Пышные"',
+        description:
+            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
+        badgeType: 'deserty',
+        recipeProps: [{ id: '01', type: 'like', value: '1' }],
+    },
+    {
+        id: '06',
+        image: recipe3Img,
+        title: 'Оладьи на кефире "Пышные"',
+        description:
+            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
+        badgeType: 'deserty',
+        recipeProps: [{ id: '01', type: 'like', value: '1' }],
+    },
+    {
+        id: '07',
+        image: recipe3Img,
+        title: 'Оладьи на кефире "Пышные"',
+        description:
+            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
+        badgeType: 'deserty',
+        recipeProps: [{ id: '01', type: 'like', value: '1' }],
+    },
+    {
+        id: '08',
+        image: recipe3Img,
+        title: 'Оладьи на кефире "Пышные"',
+        description:
+            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
+        badgeType: 'deserty',
+        recipeProps: [{ id: '01', type: 'like', value: '1' }],
+    },
+    {
+        id: '09',
+        image: recipe3Img,
+        title: 'Оладьи на кефире "Пышные"',
+        description:
+            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
+        badgeType: 'deserty',
+        recipeProps: [{ id: '01', type: 'like', value: '1' }],
+    },
+    {
+        id: '10',
+        image: recipe3Img,
+        title: 'Оладьи на кефире "Пышные"',
+        description:
+            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
+        badgeType: 'deserty',
+        recipeProps: [{ id: '01', type: 'like', value: '1' }],
     },
 ];
 

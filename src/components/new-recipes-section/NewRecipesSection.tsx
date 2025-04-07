@@ -1,5 +1,5 @@
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
-import { Flex, IconButton } from '@chakra-ui/react';
+import { Box, Flex, IconButton } from '@chakra-ui/react';
 
 import { RecipeItemLook, SectionTitle } from '~/components';
 import { NEW_RECIPES_DATA, TITLES } from '~/constants';
@@ -8,10 +8,14 @@ export function NewRecipesSection() {
     return (
         <Flex direction='column' gap={6} mt='24px' mb='40px'>
             <SectionTitle title={TITLES.newRecipes} />
-            <Flex gap={6} position='relative'>
-                {NEW_RECIPES_DATA.map((el) => (
-                    <RecipeItemLook key={el.id} data={el} />
-                ))}
+            <Box position='relative'>
+                <Box overflow='hidden'>
+                    <Flex gap={{ base: '12px', xl: '24px' }}>
+                        {NEW_RECIPES_DATA.map((el) => (
+                            <RecipeItemLook key={el.id} data={el} />
+                        ))}
+                    </Flex>
+                </Box>
                 <IconButton
                     colorScheme='myBlack'
                     aria-label='new-recipes'
@@ -32,7 +36,7 @@ export function NewRecipesSection() {
                     right='-8px'
                     display={{ base: 'none', lg: 'block' }}
                 />
-            </Flex>
+            </Box>
         </Flex>
     );
 }

@@ -7,6 +7,8 @@ import { RecipeItemPropsType } from '../types';
 export function RecipeItemLook({ data }: RecipeItemPropsType) {
     return (
         <Card
+            flexShrink={0}
+            flexBasis={{ base: '158px', lg: '277px', xl: '322px' }}
             overflow='hidden'
             variant='outline'
             cursor='pointer'
