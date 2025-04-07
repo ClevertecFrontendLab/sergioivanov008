@@ -38,4 +38,5 @@ export { RecipeItemPin } from './recipe-item-pin/RecipeItemPin.tsx';
 export { RecipeItemSimple } from './recipe-item-simple/RecipeItemSimple.tsx';
 export { RecomendationBadge } from './recomendation-badge/RecomendationBadge.tsx';
 export { RootLayout } from './root-layout/RootLayout.tsx';
+export { SectionTitle } from './section-title/SectionTitle.tsx';
 export { TastyestSection } from './tastyest-section/TastyestSection.tsx';

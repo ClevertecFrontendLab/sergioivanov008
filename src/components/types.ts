@@ -138,3 +138,7 @@ export type BlogsItemPropsType = {
 export type RecomendationBadgePropsType = {
     data: RecipeRecomendationType;
 };
+
+export type SectionTitlePropsType = {
+    title: string;
+};

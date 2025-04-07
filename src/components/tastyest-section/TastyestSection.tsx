@@ -1,7 +1,7 @@
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { Button, Grid, GridItem, Heading, SimpleGrid } from '@chakra-ui/react';
+import { Button, Grid, GridItem, SimpleGrid } from '@chakra-ui/react';
 
-import { RecipeItem } from '~/components';
+import { RecipeItem, SectionTitle } from '~/components';
 import { BTN_TEXT, TASTYEST_DATA, TITLES } from '~/constants';
 
 export function TastyestSection() {
@@ -28,13 +28,7 @@ export function TastyestSection() {
             }}
         >
             <GridItem area='one'>
-                <Heading
-                    fontWeight={{ base: '500' }}
-                    fontSize={{ base: '24px', lg: '36px', xl: '48px' }}
-                    lineHeight={{ base: '133%', lg: '111%', xl: '100%' }}
-                >
-                    {TITLES.tastyest}
-                </Heading>
+                <SectionTitle title={TITLES.tastyest} />
             </GridItem>
             <GridItem area='two' justifySelf={{ base: 'center', lg: 'flex-end' }}>
                 <Button

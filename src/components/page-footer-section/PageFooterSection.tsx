@@ -1,6 +1,6 @@
-import { Grid, GridItem, Heading, Stack, Text } from '@chakra-ui/react';
+import { Grid, GridItem, Stack, Text } from '@chakra-ui/react';
 
-import { RecipeItemPin, RecipeItemSimple } from '~/components';
+import { RecipeItemPin, RecipeItemSimple, SectionTitle } from '~/components';
 import { MAIN_PIN_DATA, TEXT, TITLES, VEGAN_DATA } from '~/constants';
 
 export function PageFooterSection() {
@@ -38,13 +38,7 @@ export function PageFooterSection() {
             mb='16px'
         >
             <GridItem area='one'>
-                <Heading
-                    fontWeight={{ base: '500' }}
-                    fontSize={{ base: '24px', lg: '36px', xl: '48px' }}
-                    lineHeight={{ base: '133%', lg: '111%', xl: '100%' }}
-                >
-                    {TITLES.vegan}
-                </Heading>
+                <SectionTitle title={TITLES.vegan} />
             </GridItem>
             <GridItem area='two'>
                 <Text
