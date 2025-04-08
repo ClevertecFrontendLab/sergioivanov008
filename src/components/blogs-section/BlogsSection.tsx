@@ -1,7 +1,7 @@
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { Button, Flex, Grid, GridItem } from '@chakra-ui/react';
+import { Button, Flex, Grid, GridItem, Heading } from '@chakra-ui/react';
 
-import { BlogsItem, SectionTitle } from '~/components';
+import { BlogsItem } from '~/components';
 import { BLOGS_DATA, BTN_TEXT, TITLES } from '~/constants';
 
 export function BlogsSection() {
@@ -30,7 +30,13 @@ export function BlogsSection() {
             }}
         >
             <GridItem area='one'>
-                <SectionTitle title={TITLES.blogs} />
+                <Heading
+                    fontWeight={{ base: '500', xl: '400' }}
+                    fontSize={{ base: '24px', lg: '30px', xl: '36px' }}
+                    lineHeight={{ base: '133%', lg: '120%', xl: '111%' }}
+                >
+                    {TITLES.blogs}
+                </Heading>
             </GridItem>
             <GridItem area='two' justifySelf={{ base: 'center', lg: 'flex-end' }}>
                 <Button
