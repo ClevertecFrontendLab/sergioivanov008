@@ -1,33 +1,42 @@
-import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Flex, Image, Text } from '@chakra-ui/react';
-import { useState } from 'react';
+import {
+    AccordionButton,
+    AccordionIcon,
+    AccordionItem,
+    AccordionPanel,
+    Flex,
+    Image,
+    Text,
+} from '@chakra-ui/react';
 
 import { CategoryItem } from '~/components';
 
 import { CategoryPropsType } from '../types';
-import s from './Category.module.css';
 
 export function Category({ data }: CategoryPropsType) {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const handlerCategoryClick = () => setIsOpen(!isOpen);
-
-    const openIconStyle = isOpen ? s.openIcon : `${s.openIcon} ${s.close}`;
-
     return (
-        <Flex direction='column' w='230px'>
-            <Flex gap={3} align='center' className={s.category} onClick={handlerCategoryClick}>
-                <Image boxSize='24px' objectFit='cover' src={data.image} alt={data.category} />
-                <Text className={s.text}>{data.category}</Text>
-                <ChevronDownIcon boxSize={4} className={openIconStyle} />
-            </Flex>
-            {isOpen && (
+        <AccordionItem w='230px' border='none'>
+            <AccordionButton
+                py='12px'
+                px='8px'
+                justifyContent='space-between'
+                alignItems='center'
+                _expanded={{ bg: '#eaffc7', fontWeight: 700 }}
+                _hover={{ bg: '#ffffd3' }}
+                as='span'
+            >
+                <Flex gap='12px' align='center'>
+                    <Image boxSize='24px' objectFit='cover' src={data.image} alt={data.category} />
+                    <Text>{data.category}</Text>
+                </Flex>
+                <AccordionIcon boxSize={6} />
+            </AccordionButton>
+            <AccordionPanel p={0}>
                 <Flex direction='column'>
                     {data.items.map((el) => (
                         <CategoryItem key={el.id} data={el} />
                     ))}
                 </Flex>
-            )}
-        </Flex>
+            </AccordionPanel>
+        </AccordionItem>
     );
 }
