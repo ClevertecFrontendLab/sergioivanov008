@@ -1,6 +1,16 @@
-import { Box, Card, CardBody, Flex, Heading, Image, Stack, Text } from '@chakra-ui/react';
+import {
+    Box,
+    Card,
+    CardBody,
+    CardFooter,
+    Flex,
+    Heading,
+    Image,
+    Stack,
+    Text,
+} from '@chakra-ui/react';
 
-import { Badge, CustomIcon12, RecomendationBadge } from '~/components';
+import { Badge, RecipeStatistic, RecomendationBadge } from '~/components';
 
 import { RecipeItemPropsType } from '../types';
 
@@ -24,43 +34,42 @@ export function RecipeItemLook({ data }: RecipeItemPropsType) {
             </Box>
 
             <Stack
-                pt={{ base: '8px', lg: '24px' }}
-                pb={{ base: '4px', lg: '20px' }}
-                px={{ base: '8px', lg: '24px' }}
-                gap={{ base: '20px', lg: '24px' }}
+                pt={{ base: '8px', lg: '12px', xl: '16px' }}
+                pb={{ base: '4px', lg: '12px', xl: '20px' }}
+                px={{ base: '8px', lg: '12px', xl: '24px' }}
+                spacing={{ base: '8px', lg: '26px' }}
                 w='100%'
             >
                 <CardBody p={0}>
-                    <Heading
-                        noOfLines={{ base: 2, lg: 1 }}
-                        fontWeight={{ base: '500' }}
-                        fontSize={{ base: '16px', lg: '18px', xl: '20px' }}
-                        lineHeight={{ base: '150%', lg: '156%', xl: '140%' }}
-                        mb='8px'
-                    >
-                        {data.title}
-                    </Heading>
-                    <Text py='2' noOfLines={3} display={{ base: 'none', lg: 'block' }}>
-                        {data.description}
-                    </Text>
-                    <Flex justify='space-between'>
-                        <Box position={{ base: 'absolute', lg: 'relative' }} left='8px' top='8px'>
-                            <Badge type={data.badgeType} color='#d7ff94' />
+                    <Flex direction='column' gap='8px'>
+                        <Heading
+                            noOfLines={{ base: 2, lg: 1 }}
+                            fontWeight={{ base: '500' }}
+                            fontSize={{ base: '16px', lg: '18px', xl: '20px' }}
+                            lineHeight={{ base: '150%', lg: '156%', xl: '140%' }}
+                        >
+                            {data.title}
+                        </Heading>
+                        <Box display={{ base: 'none', lg: 'block' }}>
+                            <Text noOfLines={3} fontWeight={400} fontSize='14px' lineHeight='143%'>
+                                {data.description}
+                            </Text>
                         </Box>
-                        {data.recipeProps && (
-                            <Flex gap={2}>
-                                {data.recipeProps.map((el) => (
-                                    <CustomIcon12
-                                        key={el.id}
-                                        props={{ boxSize: '12px' }}
-                                        iconType={el.type}
-                                        value={el.value}
-                                    />
-                                ))}
-                            </Flex>
-                        )}
                     </Flex>
                 </CardBody>
+
+                <CardFooter p={0} m={0}>
+                    <Flex justify='space-between' w='100%'>
+                        <Box
+                            position={{ base: 'absolute', lg: 'relative' }}
+                            left={{ base: '8px', lg: '0px' }}
+                            top={{ base: '8px', lg: '0px' }}
+                        >
+                            <Badge type={data.badgeType} color='#d7ff94' />
+                        </Box>
+                        {data.recipeProps && <RecipeStatistic data={data.recipeProps} />}
+                    </Flex>
+                </CardFooter>
             </Stack>
         </Card>
     );
