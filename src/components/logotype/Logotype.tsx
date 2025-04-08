@@ -11,6 +11,7 @@ export function Logotype() {
                 sm: '135px',
                 md: '308px',
             }}
+            align='flex-end'
         >
             <LogoIcon boxSize={8} />
             <LogoText
