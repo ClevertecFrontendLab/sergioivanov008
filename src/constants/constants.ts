@@ -553,6 +553,7 @@ export const TEXT = {
     vegan: 'Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.',
     recommend: 'рекомендует',
     searchPlaceholder: 'Название или ингредиент...',
+    switchPlaceholder: 'Исключить мои аллергены',
 };
 
 export const VEGAN_DATA: RecipeItemType[] = [
