@@ -552,6 +552,7 @@ export const BLOGS_DATA: BlogsItemType[] = [
 export const TEXT = {
     vegan: 'Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.',
     recommend: 'рекомендует',
+    searchPlaceholder: 'Название или ингредиент...',
 };
 
 export const VEGAN_DATA: RecipeItemType[] = [
