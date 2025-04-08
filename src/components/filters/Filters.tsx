@@ -9,7 +9,7 @@ export function Filters() {
                 <FilterButton />
                 <FilterSearch />
             </Flex>
-            <Flex gap={4} justify='center'>
+            <Flex gap={4} justify='center' w='100%' display={{ base: 'none', lg: 'flex' }}>
                 <FilterSwitch />
                 <FilterSelect />
             </Flex>
