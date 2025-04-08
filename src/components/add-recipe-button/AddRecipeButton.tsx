@@ -7,11 +7,13 @@ import s from './AddRecipeButton.module.css';
 
 export function AddRecipeButton() {
     return (
-        <Flex boxSize={52} align='center' justify='center' className={s.wrapper}>
-            <Flex boxSize={12} align='center' justify='center' className={s.center}>
-                <CustomIcon24 iconType='addRecipe' props={{ boxSize: '24px' }} />
+        <Flex w='100%' justify='flex-end'>
+            <Flex boxSize={52} align='center' justify='center' className={s.wrapper}>
+                <Flex boxSize={12} align='center' justify='center' className={s.center}>
+                    <CustomIcon24 iconType='addRecipe' props={{ boxSize: '24px' }} />
+                </Flex>
+                <Text className={s.text}>{BTN_TEXT.addRecipe}</Text>
             </Flex>
-            <Text className={s.text}>{BTN_TEXT.addRecipe}</Text>
         </Flex>
     );
 }
