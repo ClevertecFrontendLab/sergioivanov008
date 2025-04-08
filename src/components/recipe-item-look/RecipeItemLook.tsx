@@ -29,7 +29,13 @@ export function RecipeItemLook({ data }: RecipeItemPropsType) {
             }}
         >
             <Box position='relative'>
-                <Image objectFit='cover' w='100%' src={data.image} alt={data.title} />
+                <Image
+                    objectFit='cover'
+                    w='100%'
+                    h={{ base: '128px', lg: '230px' }}
+                    src={data.image}
+                    alt={data.title}
+                />
                 {data.recomendation && <RecomendationBadge data={data.recomendation} />}
             </Box>
 
