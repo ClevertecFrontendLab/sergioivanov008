@@ -44,7 +44,7 @@ export function BlogsSection() {
                     colorScheme='myGreen'
                     variant='ghost'
                     color='black'
-                    size={{ base: 'md', lg: 'lg' }}
+                    size={{ base: 'md', xl: 'lg' }}
                 >
                     {BTN_TEXT.allAuthors}
                 </Button>
