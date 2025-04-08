@@ -36,7 +36,7 @@ export function TastyestSection() {
                     colorScheme='myGreen'
                     variant='solid'
                     color='black'
-                    size={{ base: 'md', lg: 'lg' }}
+                    size={{ base: 'md', xl: 'lg' }}
                 >
                     {BTN_TEXT.allSelection}
                 </Button>
@@ -44,7 +44,7 @@ export function TastyestSection() {
             <GridItem area='three'>
                 <SimpleGrid
                     columns={{ base: 1, md: 2, lg: 1, xl: 2 }}
-                    spacing={{ base: '12px', md: '16px', xl: '24px' }}
+                    gap={{ base: '12px', md: '14px', xl: '24px' }}
                 >
                     {TASTYEST_DATA.map((el) => (
                         <RecipeItem key={el.id} data={el} />
