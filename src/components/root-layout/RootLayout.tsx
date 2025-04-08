@@ -49,6 +49,7 @@ export function RootLayout() {
             <GridItem
                 area='aside'
                 display={{ base: 'none', lg: 'block' }}
+                pt={6}
                 className={s.asideComponent}
             >
                 <Aside />
