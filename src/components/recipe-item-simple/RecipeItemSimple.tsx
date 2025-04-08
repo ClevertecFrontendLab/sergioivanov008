@@ -26,12 +26,19 @@ export function RecipeItemSimple({ data }: RecipeItemPropsType) {
                     <Heading
                         noOfLines={1}
                         fontWeight={{ base: '500' }}
-                        fontSize={{ base: '16px', xl: '20px' }}
-                        lineHeight={{ base: '150%', xl: '140%' }}
+                        fontSize={{ base: '16px', lg: '20px' }}
+                        lineHeight={{ base: '150%', lg: '140%' }}
                     >
                         {data.title}
                     </Heading>
-                    <Text mt='8px' mb='20px' noOfLines={3}>
+                    <Text
+                        mt='8px'
+                        mb='20px'
+                        noOfLines={3}
+                        fontWeight={400}
+                        fontSize='14px'
+                        lineHeight='143%'
+                    >
                         {data.description}
                     </Text>
                     <Flex justify='space-between'>
