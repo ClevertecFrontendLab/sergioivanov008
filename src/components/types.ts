@@ -142,3 +142,7 @@ export type RecomendationBadgePropsType = {
 export type SectionTitlePropsType = {
     title: string;
 };
+
+export type RecipeStatisticPropsType = {
+    data: RecipePropsType[];
+};

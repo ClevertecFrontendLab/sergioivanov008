@@ -12,7 +12,7 @@ import {
     Text,
 } from '@chakra-ui/react';
 
-import { Badge, CustomIcon12, RecomendationBadge } from '~/components';
+import { Badge, CustomIcon12, RecipeStatistic, RecomendationBadge } from '~/components';
 import { BTN_TEXT } from '~/constants';
 
 import { RecipeItemPropsType } from '../types';
@@ -57,18 +57,7 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
                         <Box position={{ base: 'absolute', lg: 'relative' }} left='8px'>
                             <Badge type={data.badgeType} color='#ffffd3' />
                         </Box>
-                        {data.recipeProps && (
-                            <Flex gap={2}>
-                                {data.recipeProps.map((el) => (
-                                    <CustomIcon12
-                                        key={el.id}
-                                        props={{ boxSize: '12px' }}
-                                        iconType={el.type}
-                                        value={el.value}
-                                    />
-                                ))}
-                            </Flex>
-                        )}
+                        {data.recipeProps && <RecipeStatistic data={data.recipeProps} />}
                     </Flex>
                     <Heading
                         noOfLines={1}

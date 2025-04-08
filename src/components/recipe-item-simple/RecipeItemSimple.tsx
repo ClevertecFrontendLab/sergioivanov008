@@ -1,6 +1,6 @@
 import { Card, CardBody, Flex, Heading, Stack, Text } from '@chakra-ui/react';
 
-import { Badge, CustomIcon12 } from '~/components';
+import { Badge, RecipeStatistic } from '~/components';
 
 import { RecipeItemPropsType } from '../types';
 
@@ -36,18 +36,7 @@ export function RecipeItemSimple({ data }: RecipeItemPropsType) {
                     </Text>
                     <Flex justify='space-between'>
                         <Badge type={data.badgeType} color='#ffffd3' />
-                        {data.recipeProps && (
-                            <Flex gap={2}>
-                                {data.recipeProps.map((el) => (
-                                    <CustomIcon12
-                                        key={el.id}
-                                        props={{ boxSize: '12px' }}
-                                        iconType={el.type}
-                                        value={el.value}
-                                    />
-                                ))}
-                            </Flex>
-                        )}
+                        {data.recipeProps && <RecipeStatistic data={data.recipeProps} />}
                     </Flex>
                 </CardBody>
             </Stack>
