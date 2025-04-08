@@ -41,35 +41,46 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
             </Box>
 
             <Stack
-                pt={{ base: '8px', lg: '24px' }}
+                pt={{ base: '8px', lg: '20px' }}
                 pb={{ base: '4px', lg: '20px' }}
                 px={{ base: '8px', lg: '24px' }}
-                gap={{ base: '20px', lg: '24px' }}
+                spacing={{ base: '20px', lg: '24px' }}
                 w='100%'
             >
                 <CardBody p={0}>
-                    <Flex
-                        justify='space-between'
-                        align='center'
-                        h='24px'
-                        pb={{ base: '0px', lg: '24px' }}
-                    >
-                        <Box position={{ base: 'absolute', lg: 'relative' }} left='8px'>
-                            <Badge type={data.badgeType} color='#ffffd3' />
-                        </Box>
-                        {data.recipeProps && <RecipeStatistic data={data.recipeProps} />}
+                    <Flex direction='column' gap={{ base: '8px', lg: '24px' }}>
+                        <Flex justify='space-between' align='center' h='24px' p={0}>
+                            <Box
+                                position={{ base: 'absolute', lg: 'relative' }}
+                                left={{ base: '8px', lg: '0px' }}
+                                top={{ base: '8px', lg: '0px' }}
+                            >
+                                <Badge type={data.badgeType} color='#ffffd3' />
+                            </Box>
+                            {data.recipeProps && <RecipeStatistic data={data.recipeProps} />}
+                        </Flex>
+
+                        <Flex direction='column' gap='8px'>
+                            <Heading
+                                noOfLines={1}
+                                fontWeight={{ base: '500' }}
+                                fontSize={{ base: '16px', lg: '20px' }}
+                                lineHeight={{ base: '150%', lg: '140%' }}
+                            >
+                                {data.title}
+                            </Heading>
+                            <Box display={{ base: 'none', lg: 'block' }}>
+                                <Text
+                                    noOfLines={3}
+                                    fontWeight={400}
+                                    fontSize='14px'
+                                    lineHeight='143%'
+                                >
+                                    {data.description}
+                                </Text>
+                            </Box>
+                        </Flex>
                     </Flex>
-                    <Heading
-                        noOfLines={1}
-                        fontWeight={{ base: '500' }}
-                        fontSize={{ base: '16px', lg: '20px' }}
-                        lineHeight={{ base: '150%', lg: '140%' }}
-                    >
-                        {data.title}
-                    </Heading>
-                    <Text py='2' noOfLines={3} display={{ base: 'none', lg: 'block' }}>
-                        {data.description}
-                    </Text>
                 </CardBody>
 
                 <CardFooter p={0} gap={2} justify='flex-end'>
