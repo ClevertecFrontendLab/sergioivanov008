@@ -7,8 +7,9 @@ export function FilterButton() {
         <IconButton
             colorScheme='myBlack'
             aria-label='new-recipes'
-            size='lg'
-            icon={<CustomIcon24 iconType='filter' props={{ boxSize: '32px' }} />}
+            size={{ base: 'sm', lg: 'lg' }}
+            width={{ base: '32px', lg: '48px' }}
+            icon={<CustomIcon24 iconType='filter' />}
             variant='outline'
         />
     );
