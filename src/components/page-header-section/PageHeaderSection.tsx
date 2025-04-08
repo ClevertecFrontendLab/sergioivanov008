@@ -5,8 +5,19 @@ import { TITLES } from '~/constants';
 
 export function PageHeaderSection() {
     return (
-        <Flex gap={8} direction='column' align='center' mb='32px'>
-            <Heading fontWeight={700} fontSize={48} lineHeight='100%'>
+        <Flex
+            gap={{ base: '16px', lg: '32px' }}
+            direction='column'
+            align='center'
+            mt='32px'
+            mb='48px'
+            mx='auto'
+        >
+            <Heading
+                fontWeight={700}
+                fontSize={{ base: '24px', lg: '48px' }}
+                lineHeight={{ base: '133%', lg: '100%' }}
+            >
                 {TITLES.bonAppetit}
             </Heading>
             <Filters />
