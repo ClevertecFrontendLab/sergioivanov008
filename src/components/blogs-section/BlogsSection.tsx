@@ -40,7 +40,7 @@ export function BlogsSection() {
                     color='black'
                     size={{ base: 'md', lg: 'lg' }}
                 >
-                    {BTN_TEXT.allSelection}
+                    {BTN_TEXT.allAuthors}
                 </Button>
             </GridItem>
             <GridItem area='three'>

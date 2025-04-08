@@ -41,6 +41,7 @@ export const AVATAR_DATA: AvatarContentType = {
 export const BTN_TEXT = {
     addRecipe: 'Записать рецепт',
     allSelection: 'Вся подборка',
+    allAuthors: 'Все авторы',
     save: 'Сохранить',
     cook: 'Готовить',
 };
