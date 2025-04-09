@@ -22,14 +22,10 @@ export function RootLayout() {
             <GridItem
                 area='header'
                 bg='myColor.yellow'
-                height={{
-                    base: '64px',
-                    lg: '80px',
-                }}
-                pl='4'
-                pr='9'
-                pt='4'
-                pb='4'
+                height={{ base: '64px', lg: '80px' }}
+                pl={{ base: '20px', lg: '16px' }}
+                pr='36px'
+                py='16px'
                 className={s.headerComponent}
             >
                 <Header />
