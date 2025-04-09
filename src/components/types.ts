@@ -166,3 +166,7 @@ export type PageHeaderSectionPropsType = {
 export type PagePropsType = {
     page: PageType;
 };
+
+export type RecipesGridPropsType = {
+    data: RecipeItemType[];
+};
