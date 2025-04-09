@@ -6,7 +6,7 @@ import { NEW_RECIPES_DATA, TITLES } from '~/constants';
 
 export function NewRecipesSection() {
     return (
-        <Flex direction='column' gap={6} mb='40px'>
+        <Flex direction='column' gap={{ base: '12px', xl: '24px' }} mb='40px'>
             <SectionTitle title={TITLES.newRecipes} />
             <Box position='relative'>
                 <Box overflow='hidden'>
