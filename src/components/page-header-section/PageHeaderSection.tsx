@@ -1,9 +1,10 @@
-import { Flex, Heading } from '@chakra-ui/react';
+import { Flex, Heading, Text } from '@chakra-ui/react';
 
 import { Filters } from '~/components';
-import { TITLES } from '~/constants';
 
-export function PageHeaderSection() {
+import { PageHeaderSectionPropsType } from '../types';
+
+export function PageHeaderSection({ data }: PageHeaderSectionPropsType) {
     return (
         <Flex
             gap={{ base: '12px', lg: '32px' }}
@@ -13,13 +14,28 @@ export function PageHeaderSection() {
             mb={{ base: '32px', md: '38px', lg: '48px' }}
             mx='auto'
         >
-            <Heading
-                fontWeight={700}
-                fontSize={{ base: '24px', lg: '48px' }}
-                lineHeight={{ base: '133%', lg: '100%' }}
-            >
-                {TITLES.bonAppetit}
-            </Heading>
+            <Flex direction='column' align='center' gap={{ base: '16px', lg: '12px' }}>
+                <Heading
+                    fontWeight={700}
+                    fontSize={{ base: '24px', lg: '48px' }}
+                    lineHeight={{ base: '133%', lg: '100%' }}
+                >
+                    {data.title}
+                </Heading>
+                {data.desc && (
+                    <Text
+                        noOfLines={2}
+                        fontWeight={500}
+                        fontSize={{ base: '14px', lg: '16px' }}
+                        lineHeight={{ base: '143%', lg: '150%' }}
+                        color='rgba(0, 0, 0, 0.48);'
+                        maxW={{ base: '328px', md: '727px', lg: '696px' }}
+                        align='center'
+                    >
+                        {data.desc}
+                    </Text>
+                )}
+            </Flex>
             <Filters />
         </Flex>
     );
