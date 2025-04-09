@@ -6,11 +6,11 @@ import { TITLES } from '~/constants';
 export function PageHeaderSection() {
     return (
         <Flex
-            gap={{ base: '16px', lg: '32px' }}
+            gap={{ base: '12px', lg: '32px' }}
             direction='column'
             align='center'
-            mt='32px'
-            mb='48px'
+            mt={{ base: '16px', lg: '32px' }}
+            mb={{ base: '32px', md: '38px', lg: '48px' }}
             mx='auto'
         >
             <Heading
