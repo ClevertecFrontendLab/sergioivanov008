@@ -15,11 +15,11 @@ export function MainPage() {
             pl={{ base: '16px', md: '20px', lg: '24px' }}
             pr={{ base: '16px', md: '20px', lg: '24px' }}
         >
-            <PageHeaderSection />
+            <PageHeaderSection page='home' />
             <NewRecipesSection />
             <TastyestSection />
             <BlogsSection />
-            <PageFooterSection />
+            <PageFooterSection page='vegan' />
         </Flex>
     );
 }
