@@ -8,7 +8,8 @@ export function PageFooterSection() {
         <Grid
             mx='auto'
             w='100%'
-            gap={{ base: '12px', lg: '16px', xl: '24px' }}
+            gridRowGap={{ base: '16px', lg: '32px', xl: '24px' }}
+            gridColumnGap={{ base: '12px', lg: '16px', xl: '24px' }}
             templateAreas={{
                 base: `"one"
                      "two"
