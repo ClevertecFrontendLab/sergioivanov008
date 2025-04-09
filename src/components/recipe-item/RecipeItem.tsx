@@ -49,7 +49,7 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
                 w='100%'
             >
                 <CardBody p={0}>
-                    <Flex direction='column' gap={{ base: '8px', lg: '24px' }}>
+                    <Flex direction='column' gap={{ base: '4px', md: '8px', lg: '24px' }}>
                         <Flex justify='space-between' align='center' h='24px' p={0}>
                             <Box
                                 position={{ base: 'absolute', lg: 'relative' }}
@@ -63,7 +63,7 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
 
                         <Flex direction='column' gap='8px'>
                             <Heading
-                                noOfLines={1}
+                                noOfLines={{ base: 2, lg: 1 }}
                                 fontWeight={{ base: '500' }}
                                 fontSize={{ base: '16px', lg: '20px' }}
                                 lineHeight={{ base: '150%', lg: '140%' }}
