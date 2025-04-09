@@ -36,8 +36,13 @@ export function RecipeItemPin({ data }: RecipeItemPropsType) {
                         </Text>
                     </Flex>
                 </CardBody>
-                <Button colorScheme='myGreenButton' variant='outline' size='sm'>
-                    {BTN_TEXT.save}
+                <Button
+                    colorScheme='myGreenButton'
+                    variant='outline'
+                    size='sm'
+                    px={{ base: '8px', xl: '12px' }}
+                >
+                    {BTN_TEXT.cook}
                 </Button>
             </HStack>
         </Card>
