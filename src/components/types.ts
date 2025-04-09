@@ -146,3 +146,16 @@ export type SectionTitlePropsType = {
 export type RecipeStatisticPropsType = {
     data: RecipePropsType[];
 };
+
+export type PageType = CategoryKeyType | 'home' | 'tastyest';
+
+export type PageHeaderItemType = {
+    title: string;
+    desc?: string;
+};
+
+export type PageHeaderDataType = Partial<Record<PageType, PageHeaderItemType>>;
+
+export type PageHeaderSectionPropsType = {
+    data: PageHeaderItemType;
+};

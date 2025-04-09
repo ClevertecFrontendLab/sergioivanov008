@@ -29,6 +29,7 @@ import {
     CategoryDbType,
     FooterMenuItemType,
     NavDataType,
+    PageHeaderDataType,
     RecipeItemType,
 } from '~/components/types';
 
@@ -451,11 +452,25 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
 ];
 
 export const TITLES = {
-    bonAppetit: 'Приятного аппетита!',
     newRecipes: 'Новые рецепты',
     tastyest: 'Самое сочное ',
     blogs: 'Кулинарные блоги',
     vegan: 'Веганская кухня',
+};
+
+export const PAGE_HEADER_DATA: PageHeaderDataType = {
+    home: {
+        title: 'Приятного аппетита!',
+        desc: '',
+    },
+    tastyest: {
+        title: 'Самое сочное',
+        desc: '',
+    },
+    vegan: {
+        title: 'Веганская кухня',
+        desc: 'Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.',
+    },
 };
 
 export const TASTYEST_DATA: RecipeItemType[] = [
