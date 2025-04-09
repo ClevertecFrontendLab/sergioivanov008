@@ -10,7 +10,7 @@ export function TastyestSection() {
             mx='auto'
             w='100%'
             gap={{ base: '12px', lg: '16px', xl: '24px' }}
-            mb='40px'
+            mb='32px'
             templateAreas={{
                 base: `"one"
                      "three"
