@@ -15,6 +15,7 @@ export function RecipeItemSimple({ data }: RecipeItemPropsType) {
                 boxShadow:
                     '0 2px 4px -1px rgba(32, 126, 0, 0.06), 0 4px 6px -1px rgba(32, 126, 0, 0.1)',
             }}
+            h='100%'
         >
             <Stack
                 pt={{ base: '12px', lg: '16px', xl: '24px' }}
@@ -23,27 +24,24 @@ export function RecipeItemSimple({ data }: RecipeItemPropsType) {
                 gap={0}
             >
                 <CardBody p={0}>
-                    <Heading
-                        noOfLines={1}
-                        fontWeight={{ base: '500' }}
-                        fontSize={{ base: '16px', lg: '20px' }}
-                        lineHeight={{ base: '150%', lg: '140%' }}
-                    >
-                        {data.title}
-                    </Heading>
-                    <Text
-                        mt='8px'
-                        mb='20px'
-                        noOfLines={3}
-                        fontWeight={400}
-                        fontSize='14px'
-                        lineHeight='143%'
-                    >
-                        {data.description}
-                    </Text>
-                    <Flex justify='space-between'>
-                        <Badge type={data.badgeType} color='#ffffd3' />
-                        {data.recipeProps && <RecipeStatistic data={data.recipeProps} />}
+                    <Flex direction='column' gap='24px'>
+                        <Flex direction='column' gap='8px'>
+                            <Heading
+                                noOfLines={1}
+                                fontWeight={{ base: '500' }}
+                                fontSize={{ base: '16px', lg: '20px' }}
+                                lineHeight={{ base: '150%', lg: '140%' }}
+                            >
+                                {data.title}
+                            </Heading>
+                            <Text noOfLines={3} fontWeight={400} fontSize='14px' lineHeight='143%'>
+                                {data.description}
+                            </Text>
+                        </Flex>
+                        <Flex justify='space-between'>
+                            <Badge type={data.badgeType} color='#ffffd3' />
+                            {data.recipeProps && <RecipeStatistic data={data.recipeProps} />}
+                        </Flex>
                     </Flex>
                 </CardBody>
             </Stack>
