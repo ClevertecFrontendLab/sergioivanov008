@@ -11,6 +11,7 @@ export function BlogsSection() {
             w='100%'
             gap={{ base: '12px', lg: '16px', xl: '24px' }}
             bg='#c4ff61'
+            borderRadius='16px'
             p={{ base: '12px', lg: '24px' }}
             mb={{ base: '40px', lg: '64px' }}
             templateAreas={{
