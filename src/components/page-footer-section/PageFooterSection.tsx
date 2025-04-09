@@ -1,4 +1,4 @@
-import { Grid, GridItem, Stack, Text } from '@chakra-ui/react';
+import { Flex, Grid, GridItem, Text } from '@chakra-ui/react';
 
 import { RecipeItemPin, RecipeItemSimple, SectionTitle } from '~/components';
 import { MAIN_PIN_DATA, TEXT, TITLES, VEGAN_DATA } from '~/constants';
@@ -59,11 +59,11 @@ export function PageFooterSection() {
                 <RecipeItemSimple data={VEGAN_DATA[1]} />
             </GridItem>
             <GridItem area='five'>
-                <Stack spacing='12px'>
+                <Flex direction='column' justify='space-between' h='100%'>
                     {MAIN_PIN_DATA.map((el) => (
                         <RecipeItemPin key={el.id} data={el} />
                     ))}
-                </Stack>
+                </Flex>
             </GridItem>
         </Grid>
     );
