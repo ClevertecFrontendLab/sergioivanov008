@@ -18,9 +18,9 @@ export function BlogsItem({ data }: BlogsItemPropsType) {
             }}
         >
             <Stack
-                pt='24px'
-                pb='22px'
-                px='24px'
+                pt={{ base: '16px', xl: '24px' }}
+                pb={{ base: '16px', xl: '20px' }}
+                px={{ base: '16px', xl: '24px' }}
                 gap={{ base: '16px', xl: '28px' }}
                 overflow='hidden'
             >
