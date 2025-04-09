@@ -10,7 +10,7 @@ export function RecipeItemPin({ data }: RecipeItemPropsType) {
             overflow='hidden'
             variant='outline'
             cursor='pointer'
-            h='56px'
+            h={{ base: '52px', xl: '56px' }}
             transition='0.2s'
             _hover={{
                 boxShadow:
