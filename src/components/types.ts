@@ -162,3 +162,7 @@ export type PageDbType = Record<PageType, PageHeaderItemType>;
 export type PageHeaderSectionPropsType = {
     data: PageHeaderItemType;
 };
+
+export type PagePropsType = {
+    page: PageType;
+};

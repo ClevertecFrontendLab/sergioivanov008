@@ -1,9 +1,13 @@
 import { Flex, Grid, GridItem, Text } from '@chakra-ui/react';
 
 import { RecipeItemPin, RecipeItemSimple, SectionTitle } from '~/components';
-import { MAIN_PIN_DATA, TEXT, TITLES, VEGAN_DATA } from '~/constants';
+import { PAGE_DB } from '~/constants';
 
-export function PageFooterSection() {
+import { PagePropsType } from '../types';
+
+export function PageFooterSection({ page }: PagePropsType) {
+    const data = PAGE_DB[page];
+
     return (
         <Grid
             mx='auto'
@@ -39,7 +43,7 @@ export function PageFooterSection() {
             mb='16px'
         >
             <GridItem area='one'>
-                <SectionTitle title={TITLES.vegan} />
+                <SectionTitle title={data.title} />
             </GridItem>
             <GridItem area='two'>
                 <Text
@@ -49,20 +53,19 @@ export function PageFooterSection() {
                     lineHeight='150%'
                     color='rgba(0, 0, 0, 0.64)'
                 >
-                    {TEXT.vegan}
+                    {data.desc}
                 </Text>
             </GridItem>
             <GridItem area='three'>
-                <RecipeItemSimple data={VEGAN_DATA[0]} />
+                {data.recipes && <RecipeItemSimple data={data.recipes[0]} />}
             </GridItem>
             <GridItem area='four'>
-                <RecipeItemSimple data={VEGAN_DATA[1]} />
+                {data.recipes && <RecipeItemSimple data={data.recipes[1]} />}
             </GridItem>
             <GridItem area='five'>
                 <Flex direction='column' justify='space-between' h='100%'>
-                    {MAIN_PIN_DATA.map((el) => (
-                        <RecipeItemPin key={el.id} data={el} />
-                    ))}
+                    {data.pinRecipes &&
+                        data.pinRecipes.map((el) => <RecipeItemPin key={el.id} data={el} />)}
                 </Flex>
             </GridItem>
         </Grid>
