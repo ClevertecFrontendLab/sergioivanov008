@@ -7,7 +7,7 @@ export function Footer() {
     return (
         <Flex h='100%'>
             {FOOTER_MENU.map((el) => (
-                <FooterButton key={el.id} type={el.type} text={el.text} isActive={el.isActive} />
+                <FooterButton key={el.id} data={el} />
             ))}
         </Flex>
     );

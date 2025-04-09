@@ -67,6 +67,8 @@ export const FOOTER_MENU: FooterMenuItemType[] = [
         id: '04',
         type: 'addRecipe',
         text: 'Мой профиль',
+        isImage: true,
+        image: avatarImg1,
     },
 ];
 

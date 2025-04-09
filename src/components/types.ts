@@ -28,17 +28,17 @@ export type CustomIcon16PropsType = {
     props?: IconProps;
 };
 
-export type FooterButtonPropsType = {
-    type: CustomIcon16Type;
-    text: string;
-    isActive?: boolean;
-};
-
 export type FooterMenuItemType = {
     id: string;
     type: CustomIcon16Type;
     text: string;
     isActive?: boolean;
+    isImage?: boolean;
+    image?: string;
+};
+
+export type FooterButtonPropsType = {
+    data: FooterMenuItemType;
 };
 
 export type NavDataItemsType = {
