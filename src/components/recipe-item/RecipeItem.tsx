@@ -34,6 +34,7 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
                 <Image
                     objectFit='cover'
                     maxW={{ base: '158px', lg: '346px' }}
+                    h={{ base: '128px', lg: '244px' }}
                     src={data.image}
                     alt={data.title}
                 />
@@ -89,6 +90,7 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
                         colorScheme='myBlack'
                         variant='outline'
                         size={{ base: 'xs', lg: 'sm' }}
+                        px={{ base: '8px', xl: '12px' }}
                         display={{ base: 'none', lg: 'block' }}
                     >
                         {BTN_TEXT.save}
