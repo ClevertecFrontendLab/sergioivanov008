@@ -12,7 +12,7 @@ export function BlogsSection() {
             gap={{ base: '12px', lg: '16px', xl: '24px' }}
             bg='#c4ff61'
             p={{ base: '12px', lg: '24px' }}
-            mb='64px'
+            mb={{ base: '40px', lg: '64px' }}
             templateAreas={{
                 base: `"one"
                      "three"
