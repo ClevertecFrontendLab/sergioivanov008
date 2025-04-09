@@ -154,7 +154,7 @@ export type PageHeaderItemType = {
     desc?: string;
 };
 
-export type PageHeaderDataType = Partial<Record<PageType, PageHeaderItemType>>;
+export type PageDbType = Record<PageType, PageHeaderItemType>;
 
 export type PageHeaderSectionPropsType = {
     data: PageHeaderItemType;

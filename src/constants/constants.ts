@@ -29,7 +29,7 @@ import {
     CategoryDbType,
     FooterMenuItemType,
     NavDataType,
-    PageHeaderDataType,
+    PageDbType,
     RecipeItemType,
 } from '~/components/types';
 
@@ -458,7 +458,7 @@ export const TITLES = {
     vegan: 'Веганская кухня',
 };
 
-export const PAGE_HEADER_DATA: PageHeaderDataType = {
+export const PAGE_DB: PageDbType = {
     home: {
         title: 'Приятного аппетита!',
         desc: '',
@@ -470,6 +470,54 @@ export const PAGE_HEADER_DATA: PageHeaderDataType = {
     vegan: {
         title: 'Веганская кухня',
         desc: 'Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.',
+    },
+    salaty: {
+        title: 'Салаты',
+        desc: '',
+    },
+    zakuski: {
+        title: 'Закуски',
+        desc: '',
+    },
+    pervieBluda: {
+        title: 'Первые блюда',
+        desc: '',
+    },
+    vtorieBluda: {
+        title: 'Вторые блюда',
+        desc: '',
+    },
+    deserty: {
+        title: 'Десерты, выпечка',
+        desc: '',
+    },
+    gril: {
+        title: 'Блюда на гриле',
+        desc: '',
+    },
+    detskie: {
+        title: 'Детские блюда',
+        desc: '',
+    },
+    lechebnoe: {
+        title: 'Лечебное питание',
+        desc: '',
+    },
+    nacional: {
+        title: 'Национальные',
+        desc: '',
+    },
+    soucy: {
+        title: 'Соусы',
+        desc: '',
+    },
+    napitki: {
+        title: 'Напитки',
+        desc: '',
+    },
+    zagotovki: {
+        title: 'Заготовки',
+        desc: '',
     },
 };
 
