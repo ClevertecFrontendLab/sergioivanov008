@@ -150,8 +150,11 @@ export type RecipeStatisticPropsType = {
 export type PageType = CategoryKeyType | 'home' | 'tastyest';
 
 export type PageHeaderItemType = {
+    id: string;
     title: string;
-    desc?: string;
+    desc: string;
+    recipes?: RecipeItemType[];
+    pinRecipes?: RecipeItemType[];
 };
 
 export type PageDbType = Record<PageType, PageHeaderItemType>;
