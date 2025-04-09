@@ -15,7 +15,7 @@ export function RecipeItemSimple({ data }: RecipeItemPropsType) {
                 boxShadow:
                     '0 2px 4px -1px rgba(32, 126, 0, 0.06), 0 4px 6px -1px rgba(32, 126, 0, 0.1)',
             }}
-            h='100%'
+            h={{ base: 'unset', lg: '100%' }}
         >
             <Stack
                 pt={{ base: '12px', lg: '16px', xl: '24px' }}
