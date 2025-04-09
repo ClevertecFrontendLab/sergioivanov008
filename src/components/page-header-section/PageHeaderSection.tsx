@@ -1,10 +1,13 @@
 import { Flex, Heading, Text } from '@chakra-ui/react';
 
 import { Filters } from '~/components';
+import { PAGE_DB } from '~/constants';
 
-import { PageHeaderSectionPropsType } from '../types';
+import { PagePropsType } from '../types';
 
-export function PageHeaderSection({ data }: PageHeaderSectionPropsType) {
+export function PageHeaderSection({ page }: PagePropsType) {
+    const data = PAGE_DB[page];
+
     return (
         <Flex
             gap={{ base: '12px', lg: '32px' }}
