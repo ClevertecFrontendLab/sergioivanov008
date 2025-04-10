@@ -48,7 +48,8 @@ export type NavDataItemsType = {
 
 export type NavDataType = {
     id: string;
-    category: string;
+    categoryRus: string;
+    categoryEng: string;
     image?: string;
     items: NavDataItemsType[];
 };
@@ -70,8 +71,8 @@ export type CategoryDataType = {
 export type CategoryKeyType =
     | 'salaty'
     | 'zakuski'
-    | 'pervieBluda'
-    | 'vtorieBluda'
+    | 'perviebluda'
+    | 'vtoriebluda'
     | 'deserty'
     | 'gril'
     | 'vegan'
