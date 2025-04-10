@@ -23,6 +23,14 @@ import recipe5Img from '~/assets/images/new_recipe_5.png';
 import recipe6Img from '~/assets/images/new_recipe_6.png';
 import recipe7Img from '~/assets/images/new_recipe_7.png';
 import recipe8Img from '~/assets/images/new_recipe_8.png';
+import tastyest101Img from '~/assets/images/tastyest_101.png';
+import tastyest102Img from '~/assets/images/tastyest_102.png';
+import tastyest103Img from '~/assets/images/tastyest_103.png';
+import tastyest104Img from '~/assets/images/tastyest_104.png';
+import tastyest105Img from '~/assets/images/tastyest_105.png';
+import tastyest106Img from '~/assets/images/tastyest_106.png';
+import tastyest107Img from '~/assets/images/tastyest_107.png';
+import tastyest108Img from '~/assets/images/tastyest_108.png';
 import {
     AvatarContentType,
     BlogsItemType,
@@ -286,6 +294,22 @@ export const NAV_DATA: NavDataType[] = [
             { id: '113', title: 'Из фруктов и ягод' },
         ],
     },
+];
+
+export const CATEGORY_LIST = [
+    'salaty',
+    'zakuski',
+    'pervieBluda',
+    'vtorieBluda',
+    'deserty',
+    'gril',
+    'vegan',
+    'detskie',
+    'lechebnoe',
+    'nacional',
+    'soucy',
+    'napitki',
+    'zagotovki',
 ];
 
 export const CATEGORY_DB: CategoryDbType = {
@@ -693,7 +717,54 @@ export const PAGE_DB: PageDbType = {
     deserty: {
         id: '05',
         title: 'Десерты, выпечка',
-        desc: '',
+        desc: 'Без них невозможно представить себе ни современную, ни традиционную  кулинарию. Пироги и печенья, блины, пончики, вареники и, конечно, хлеб - рецепты изделий из теста многообразны и невероятно популярны.',
+        recipes: [
+            {
+                id: '01',
+                title: 'Бананово-молочное желе',
+                description:
+                    'Молочное желе – это просто, вкусно и полезно, ведь для его приготовления в качестве основы используется молоко.',
+                badgeType: 'detskie',
+                recipeProps: [
+                    { id: '01', type: 'pin', value: '1' },
+                    { id: '02', type: 'like', value: '1' },
+                ],
+            },
+            {
+                id: '02',
+                title: 'Нежный сливочно-сырный крем для кексов',
+                description:
+                    'Сливочно-сырным кремом можно украсить кексы, либо другую выпечку, а также этим кремом можно наполнить заварные пирожные.',
+                badgeType: 'detskie',
+                recipeProps: [
+                    { id: '01', type: 'pin', value: '2' },
+                    { id: '02', type: 'like', value: '1' },
+                ],
+            },
+        ],
+        pinRecipes: [
+            {
+                id: '01',
+                title: 'Домашние сырные палочки',
+                description:
+                    'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+                badgeType: 'detskie',
+            },
+            {
+                id: '02',
+                title: 'Панкейки',
+                description:
+                    'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+                badgeType: 'nacional',
+            },
+            {
+                id: '03',
+                title: 'Воздушное банановое печенье на сковороде',
+                description:
+                    'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+                badgeType: 'vegan',
+            },
+        ],
     },
     gril: {
         id: '06',
@@ -731,3 +802,112 @@ export const PAGE_DB: PageDbType = {
         desc: '',
     },
 };
+
+export const TASTYEST_DATA_FULL: RecipeItemType[] = [
+    {
+        id: '01',
+        image: tastyest101Img,
+        title: 'Лапша с курицей и шафраном',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        badgeType: 'vtorieBluda',
+        recipeProps: [
+            { id: '01', type: 'pin', value: '258' },
+            { id: '02', type: 'like', value: '342' },
+        ],
+        recomendation: {
+            id: '02',
+            image: avatarImg3,
+            name: 'Alex Cook',
+        },
+    },
+    {
+        id: '02',
+        image: tastyest102Img,
+        title: 'Том-ям с капустой кимчи',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        badgeType: 'nacional',
+        recipeProps: [
+            { id: '01', type: 'pin', value: '124' },
+            { id: '02', type: 'like', value: '324' },
+        ],
+    },
+    {
+        id: '03',
+        image: tastyest103Img,
+        title: 'Пряная ветчина по итальянски',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        badgeType: 'vtorieBluda',
+        recipeProps: [
+            { id: '01', type: 'pin', value: '159' },
+            { id: '02', type: 'like', value: '257' },
+        ],
+        recomendation: {
+            id: '01',
+            image: avatarImg2,
+            name: 'Елена Высоцкая',
+        },
+    },
+    {
+        id: '04',
+        image: tastyest104Img,
+        title: 'Кнели со спагетти',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        badgeType: 'vtorieBluda',
+        recipeProps: [
+            { id: '01', type: 'pin', value: '124' },
+            { id: '02', type: 'like', value: '231' },
+        ],
+    },
+    {
+        id: '05',
+        image: tastyest105Img,
+        title: 'Картошка, тушенная с болгарским перцем и фасолью в томатном соусе',
+        description:
+            'Картошка, тушенная с болгарским перцем, фасолью, морковью и луком, -  вариант сытного блюда на каждый день. Фасоль в данном случае заменяет  мясо, делая рагу сытным и питательным. Чтобы сократить время  приготовления, возьмём консервированную фасоль. Блюдо хоть и простое, но в полной мере наполнено ароматами и имеет выразительный вкус за счёт  добавления томатной пасты.',
+        badgeType: 'vtorieBluda',
+        recipeProps: [
+            { id: '01', type: 'pin', value: '120' },
+            { id: '02', type: 'like', value: '180' },
+        ],
+    },
+    {
+        id: '06',
+        image: tastyest106Img,
+        title: 'Картофельные рулетики с грибами',
+        description:
+            'Рекомендую всем приготовить постное блюдо из картофеля и грибов.  Готовится это блюдо без яиц, без мяса и без сыра, из самых простых  ингредиентов, а получается очень вкусно и сытно. Постный рецепт  картофельных рулетиков с грибами, в томатном соусе, - на обед, ужин и  даже на праздничный стол!',
+        badgeType: 'detskie',
+        recipeProps: [
+            { id: '01', type: 'pin', value: '85' },
+            { id: '02', type: 'like', value: '180' },
+        ],
+    },
+    {
+        id: '07',
+        image: tastyest107Img,
+        title: 'Овощная лазанья из лаваша',
+        description:
+            'Большое, сытное блюдо для ценителей блюд без мяса! Такая лазанья  готовится с овощным соусом и соусом бешамель, а вместо листов для  лазаньи используется тонкий лаваш.',
+        badgeType: 'gril',
+        recipeProps: [
+            { id: '01', type: 'pin', value: '85' },
+            { id: '02', type: 'like', value: '182' },
+        ],
+    },
+    {
+        id: '08',
+        image: tastyest108Img,
+        title: 'Тефтели из булгура и чечевицы, запечённые в томатном соусе',
+        description:
+            'Тефтели из булгура и чечевицы – яркие и питательные, отлично подходят  для постного и вегетарианского меню. Тефтели получаются нежными, а также сочными и ароматными благодаря использованию томатного соуса и душистых пряностей.',
+        badgeType: 'vtorieBluda',
+        recipeProps: [
+            { id: '01', type: 'pin', value: '85' },
+            { id: '02', type: 'like', value: '150' },
+        ],
+    },
+];
