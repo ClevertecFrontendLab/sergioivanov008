@@ -25,15 +25,20 @@ export function Category({ data }: CategoryPropsType) {
                 as='span'
             >
                 <Flex gap='12px' align='center'>
-                    <Image boxSize='24px' objectFit='cover' src={data.image} alt={data.category} />
-                    <Text>{data.category}</Text>
+                    <Image
+                        boxSize='24px'
+                        objectFit='cover'
+                        src={data.image}
+                        alt={data.categoryView}
+                    />
+                    <Text>{data.categoryView}</Text>
                 </Flex>
                 <AccordionIcon boxSize={6} />
             </AccordionButton>
             <AccordionPanel p={0}>
                 <Flex direction='column'>
                     {data.items.map((el) => (
-                        <CategoryItem key={el.id} data={el} />
+                        <CategoryItem key={el.id} data={el} categoryNav={data.categoryNav} />
                     ))}
                 </Flex>
             </AccordionPanel>
