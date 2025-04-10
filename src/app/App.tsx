@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 
 import { RootLayout } from '~/components';
-import { MainPage } from '~/pages';
+import { MainPage, Page } from '~/pages';
 
 function App() {
     return (
@@ -9,6 +9,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<RootLayout />}>
                     <Route index element={<MainPage />} />
+                    <Route path='/:categoryId/:categoryItemId?' element={<Page />} />
                 </Route>
             </Routes>
         </BrowserRouter>
