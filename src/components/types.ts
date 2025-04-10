@@ -48,8 +48,8 @@ export type NavDataItemsType = {
 
 export type NavDataType = {
     id: string;
-    categoryRus: string;
-    categoryEng: string;
+    categoryView: string;
+    categoryNav: string;
     image?: string;
     items: NavDataItemsType[];
 };
@@ -60,6 +60,7 @@ export type CategoryPropsType = {
 
 export type CategoryItemPropsType = {
     data: NavDataItemsType;
+    categoryNav: string;
 };
 
 export type CategoryDataType = {

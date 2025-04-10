@@ -101,8 +101,8 @@ export const NAV_FOOTER = {
 export const NAV_DATA: NavDataType[] = [
     {
         id: '01',
-        categoryRus: 'Салаты',
-        categoryEng: 'salaty',
+        categoryView: 'Салаты',
+        categoryNav: 'salaty',
         image: saladsImg,
         items: [
             { id: '001', title: 'Мясные салаты' },
@@ -113,8 +113,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '02',
-        categoryRus: 'Закуски',
-        categoryEng: 'zakuski',
+        categoryView: 'Закуски',
+        categoryNav: 'zakuski',
         image: appetizersImg,
         items: [
             { id: '005', title: 'Мясные закуски' },
@@ -127,8 +127,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '03',
-        categoryRus: 'Первые блюда',
-        categoryEng: 'perviebluda',
+        categoryView: 'Первые блюда',
+        categoryNav: 'perviebluda',
         image: firstCoursesImg,
         items: [
             { id: '011', title: 'Мясные супы' },
@@ -140,8 +140,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '04',
-        categoryRus: 'Вторые блюда',
-        categoryEng: 'vtoriebluda',
+        categoryView: 'Вторые блюда',
+        categoryNav: 'vtoriebluda',
         image: mainCoursesImg,
         items: [
             { id: '016', title: 'Мясные' },
@@ -160,8 +160,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '05',
-        categoryRus: 'Десерты, выпечка',
-        categoryEng: 'deserty',
+        categoryView: 'Десерты, выпечка',
+        categoryNav: 'deserty',
         image: dessertsPastriesImg,
         items: [
             { id: '028', title: 'Блины и оладьи' },
@@ -181,8 +181,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '06',
-        categoryRus: 'Блюда на гриле',
-        categoryEng: 'gril',
+        categoryView: 'Блюда на гриле',
+        categoryNav: 'gril',
         image: grilledDishesImg,
         items: [
             { id: '041', title: 'Говядина' },
@@ -195,8 +195,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '07',
-        categoryRus: 'Веганская кухня',
-        categoryEng: 'vegan',
+        categoryView: 'Веганская кухня',
+        categoryNav: 'vegan',
         image: veganCuisineImg,
         items: [
             { id: '047', title: 'Закуски' },
@@ -211,8 +211,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '08',
-        categoryRus: 'Детские блюда',
-        categoryEng: 'detskie',
+        categoryView: 'Детские блюда',
+        categoryNav: 'detskie',
         image: hildrensDishesImg,
         items: [
             { id: '055', title: 'Первые блюда' },
@@ -227,8 +227,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '09',
-        categoryRus: 'Лечебное питание',
-        categoryEng: 'lechebnoe',
+        categoryView: 'Лечебное питание',
+        categoryNav: 'lechebnoe',
         image: healthyNutritionImg,
         items: [
             { id: '063', title: 'Детская диета' },
@@ -251,8 +251,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '10',
-        categoryRus: 'Национальные',
-        categoryEng: 'nacional',
+        categoryView: 'Национальные',
+        categoryNav: 'nacional',
         image: nationalDishesImg,
         items: [
             { id: '079', title: 'Американская кухня' },
@@ -274,8 +274,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '11',
-        categoryRus: 'Соусы',
-        categoryEng: 'soucy',
+        categoryView: 'Соусы',
+        categoryNav: 'soucy',
         image: saucesImg,
         items: [
             { id: '094', title: 'Соусы мясные' },
@@ -285,8 +285,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '12',
-        categoryRus: 'Напитки',
-        categoryEng: 'napitki',
+        categoryView: 'Напитки',
+        categoryNav: 'napitki',
         image: drinksImg,
         items: [
             { id: '097', title: 'Соки и фреши' },
@@ -302,8 +302,8 @@ export const NAV_DATA: NavDataType[] = [
     },
     {
         id: '13',
-        categoryRus: 'Заготовки',
-        categoryEng: 'zagotovki',
+        categoryView: 'Заготовки',
+        categoryNav: 'zagotovki',
         image: PreparationsImg,
         items: [
             { id: '106', title: 'Мясные заготовки' },
