@@ -171,3 +171,7 @@ export type PagePropsType = {
 export type RecipesGridPropsType = {
     data: RecipeItemType[];
 };
+
+export type PageRecipesSectionPropsType = {
+    page: PageType;
+};
