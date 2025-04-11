@@ -1,31 +1,23 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
-import { useState } from 'react';
+import { NavLink } from 'react-router';
 
 import { CategoryItemPropsType } from '../types';
+import s from './CategoryItem.module.css';
 
-export function CategoryItem({ data }: CategoryItemPropsType) {
-    const [isHover, setIsHover] = useState(false);
-
-    const handlerHover = () => setIsHover(!isHover);
+export function CategoryItem({ data, categoryNav }: CategoryItemPropsType) {
+    const linkTo = `/${categoryNav}/${data.id}`;
 
     return (
-        <Flex
-            gap={3}
-            py={1.5}
-            pr={2}
-            pl={4}
-            cursor='pointer'
-            transition='0.2s'
-            bg={isHover ? '#ffffd3' : ''}
-            onMouseEnter={handlerHover}
-            onMouseLeave={handlerHover}
+        <NavLink
+            to={linkTo}
+            className={({ isActive }) => `${s.categoryItem} ${isActive ? s.active : ''}`}
         >
-            <Flex boxSize={6} justify='flex-end'>
-                <Box w='1px' h='24px' bg={isHover ? '' : '#c4ff61'} />
+            <Flex gap={3} py={1.5} pr={2} pl={4} className={s.flex}>
+                <Flex boxSize={6} justify='flex-end'>
+                    <Box className={s.box} />
+                </Flex>
+                <Text className={s.text}>{data.title}</Text>
             </Flex>
-            <Text fontWeight={500} fontSize='16px' lineHeight='150%'>
-                {data.title}
-            </Text>
-        </Flex>
+        </NavLink>
     );
 }
