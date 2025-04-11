@@ -603,6 +603,7 @@ export const TEXT = {
     recommend: 'рекомендует',
     searchPlaceholder: 'Название или ингредиент...',
     switchPlaceholder: 'Исключить мои аллергены',
+    mainPage: 'Главная',
 };
 
 export const VEGAN_PIN_DATA: RecipeItemType[] = [

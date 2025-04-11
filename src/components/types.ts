@@ -176,3 +176,10 @@ export type RecipesGridPropsType = {
 export type PageRecipesSectionPropsType = {
     page: PageType;
 };
+
+export type BreadcrumbSlotType = {
+    isShow: boolean;
+    isCurrentPage: boolean;
+    text?: string;
+    linkTo: string;
+};
