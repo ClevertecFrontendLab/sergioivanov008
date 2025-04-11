@@ -1,6 +1,6 @@
 import { Button, Flex } from '@chakra-ui/react';
 
-import { RecipesGrid } from '~/components';
+import { RecipesGrid, RecipesTabs } from '~/components';
 import { PageRecipesSectionPropsType, PageType } from '~/components/types';
 import { BTN_TEXT, TASTYEST_DATA_FULL, VEGAN_DATA_FULL } from '~/constants';
 
@@ -8,9 +8,10 @@ export function PageRecipesSection({ page }: PageRecipesSectionPropsType) {
     const curData = page === ('tastyest' as PageType) ? TASTYEST_DATA_FULL : VEGAN_DATA_FULL;
 
     return (
-        <Flex direction='column' mb='40px'>
+        <Flex direction='column' mb='40px' justify='center' align='center'>
+            <RecipesTabs page={page} />
             <RecipesGrid data={curData} />
-            <Flex w='100%' justify='center'>
+            <Flex w='100%' justify='center' mt='16px'>
                 <Button
                     colorScheme='myGreen'
                     variant='solid'
