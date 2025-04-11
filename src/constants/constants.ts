@@ -196,7 +196,7 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '07',
         categoryView: 'Веганская кухня',
-        categoryNav: 'vegan',
+        categoryNav: 'vegan-cuisine',
         image: veganCuisineImg,
         items: [
             { id: '047', title: 'Закуски' },
@@ -325,7 +325,7 @@ export const CATEGORY_LIST = [
     'vtoriebluda',
     'deserty',
     'gril',
-    'vegan',
+    'vegan-cuisine',
     'detskie',
     'lechebnoe',
     'nacional',
@@ -365,7 +365,7 @@ export const CATEGORY_DB: CategoryDbType = {
         category: 'Блюда на гриле',
         image: grilledDishesImg,
     },
-    vegan: {
+    'vegan-cuisine': {
         id: '07',
         category: 'Веганская кухня',
         image: veganCuisineImg,
@@ -418,7 +418,7 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         title: 'Капустные котлеты',
         description:
             'Капустные котлеты по этому рецепту получаются необычайно пышными и  невероятно вкусными. Мягкий вкус и ...',
-        badgeType: 'vegan',
+        badgeType: 'vegan-cuisine',
         recipeProps: [
             { id: '01', type: 'pin', value: '2' },
             { id: '02', type: 'like', value: '1' },
@@ -501,7 +501,7 @@ export const TITLES = {
     newRecipes: 'Новые рецепты',
     tastyest: 'Самое сочное ',
     blogs: 'Кулинарные блоги',
-    vegan: 'Веганская кухня',
+    'vegan-cuisine': 'Веганская кухня',
 };
 
 export const TASTYEST_DATA: RecipeItemType[] = [
@@ -599,7 +599,6 @@ export const BLOGS_DATA: BlogsItemType[] = [
 ];
 
 export const TEXT = {
-    vegan: 'Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.',
     recommend: 'рекомендует',
     searchPlaceholder: 'Название или ингредиент...',
     switchPlaceholder: 'Исключить мои аллергены',
@@ -626,7 +625,7 @@ export const VEGAN_PIN_DATA: RecipeItemType[] = [
         title: 'Воздушное банановое печенье на сковороде',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'vegan',
+        badgeType: 'vegan-cuisine',
     },
 ];
 
@@ -665,7 +664,7 @@ export const PAGE_DB: PageDbType = {
         title: 'Самое сочное',
         desc: '',
     },
-    vegan: {
+    'vegan-cuisine': {
         id: '07',
         title: 'Веганская кухня',
         desc: 'Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.',
@@ -785,7 +784,7 @@ export const PAGE_DB: PageDbType = {
                 title: 'Воздушное банановое печенье на сковороде',
                 description:
                     'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-                badgeType: 'vegan',
+                badgeType: 'vegan-cuisine',
             },
         ],
     },

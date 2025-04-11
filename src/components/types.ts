@@ -76,7 +76,7 @@ export type CategoryKeyType =
     | 'vtoriebluda'
     | 'deserty'
     | 'gril'
-    | 'vegan'
+    | 'vegan-cuisine'
     | 'detskie'
     | 'lechebnoe'
     | 'nacional'
