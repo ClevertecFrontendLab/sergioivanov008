@@ -41,6 +41,20 @@ export function TastyestSection() {
                     color='black'
                     size={{ base: 'md', xl: 'lg' }}
                     onClick={() => navigate('/tastyest')}
+                    display={{ base: 'none', lg: 'flex' }}
+                    data-test-id='juiciest-link'
+                >
+                    {BTN_TEXT.allSelection}
+                </Button>
+                <Button
+                    rightIcon={<ArrowForwardIcon />}
+                    colorScheme='myGreen'
+                    variant='solid'
+                    color='black'
+                    size={{ base: 'md', xl: 'lg' }}
+                    onClick={() => navigate('/tastyest')}
+                    display={{ base: 'flex', lg: 'none' }}
+                    data-test-id='juiciest-link-mobile'
                 >
                     {BTN_TEXT.allSelection}
                 </Button>

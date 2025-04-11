@@ -27,6 +27,7 @@ export function Category({ data }: CategoryPropsType) {
                 _hover={{ bg: '#ffffd3' }}
                 as='span'
                 onClick={() => navigate(`/${data.categoryNav}`)}
+                data-test-id={data.categoryNav}
             >
                 <Flex gap='12px' align='center'>
                     <Image

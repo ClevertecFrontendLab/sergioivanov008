@@ -5,7 +5,7 @@ import { FOOTER_MENU } from '~/constants';
 
 export function Footer() {
     return (
-        <Flex h='100%'>
+        <Flex h='100%' data-test-id='footer'>
             {FOOTER_MENU.map((el) => (
                 <FooterButton key={el.id} data={el} />
             ))}
