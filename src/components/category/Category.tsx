@@ -7,12 +7,15 @@ import {
     Image,
     Text,
 } from '@chakra-ui/react';
+import { useNavigate } from 'react-router';
 
 import { CategoryItem } from '~/components';
 
 import { CategoryPropsType } from '../types';
 
 export function Category({ data }: CategoryPropsType) {
+    const navigate = useNavigate();
+
     return (
         <AccordionItem w='230px' border='none'>
             <AccordionButton
@@ -23,6 +26,7 @@ export function Category({ data }: CategoryPropsType) {
                 _expanded={{ bg: '#eaffc7', fontWeight: 700 }}
                 _hover={{ bg: '#ffffd3' }}
                 as='span'
+                onClick={() => navigate(`/${data.categoryNav}`)}
             >
                 <Flex gap='12px' align='center'>
                     <Image
