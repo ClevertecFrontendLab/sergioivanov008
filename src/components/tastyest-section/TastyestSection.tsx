@@ -1,10 +1,13 @@
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { Button, Grid, GridItem } from '@chakra-ui/react';
+import { useNavigate } from 'react-router';
 
 import { RecipesGrid, SectionTitle } from '~/components';
 import { BTN_TEXT, TASTYEST_DATA, TITLES } from '~/constants';
 
 export function TastyestSection() {
+    const navigate = useNavigate();
+
     return (
         <Grid
             mx='auto'
@@ -37,6 +40,7 @@ export function TastyestSection() {
                     variant='solid'
                     color='black'
                     size={{ base: 'md', xl: 'lg' }}
+                    onClick={() => navigate('/tastyest')}
                 >
                     {BTN_TEXT.allSelection}
                 </Button>
