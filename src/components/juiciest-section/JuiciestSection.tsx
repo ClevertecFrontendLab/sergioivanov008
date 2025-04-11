@@ -3,9 +3,9 @@ import { Button, Grid, GridItem } from '@chakra-ui/react';
 import { useNavigate } from 'react-router';
 
 import { RecipesGrid, SectionTitle } from '~/components';
-import { BTN_TEXT, TASTYEST_DATA, TITLES } from '~/constants';
+import { BTN_TEXT, JUICIEST_DATA, TITLES } from '~/constants';
 
-export function TastyestSection() {
+export function JuiciestSection() {
     const navigate = useNavigate();
 
     return (
@@ -31,7 +31,7 @@ export function TastyestSection() {
             }}
         >
             <GridItem area='one'>
-                <SectionTitle title={TITLES.tastyest} />
+                <SectionTitle title={TITLES.juiciest} />
             </GridItem>
             <GridItem area='two' justifySelf={{ base: 'center', lg: 'flex-end' }}>
                 <Button
@@ -40,7 +40,7 @@ export function TastyestSection() {
                     variant='solid'
                     color='black'
                     size={{ base: 'md', xl: 'lg' }}
-                    onClick={() => navigate('/tastyest')}
+                    onClick={() => navigate('/juiciest')}
                     display={{ base: 'none', lg: 'flex' }}
                     data-test-id='juiciest-link'
                 >
@@ -52,7 +52,7 @@ export function TastyestSection() {
                     variant='solid'
                     color='black'
                     size={{ base: 'md', xl: 'lg' }}
-                    onClick={() => navigate('/tastyest')}
+                    onClick={() => navigate('/juiciest')}
                     display={{ base: 'flex', lg: 'none' }}
                     data-test-id='juiciest-link-mobile'
                 >
@@ -60,7 +60,7 @@ export function TastyestSection() {
                 </Button>
             </GridItem>
             <GridItem area='three'>
-                <RecipesGrid data={TASTYEST_DATA} />
+                <RecipesGrid data={JUICIEST_DATA} />
             </GridItem>
         </Grid>
     );

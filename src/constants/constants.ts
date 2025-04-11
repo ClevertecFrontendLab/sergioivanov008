@@ -15,6 +15,14 @@ import avatarImg1 from '~/assets/images/avatar_image1.png';
 import avatarImg2 from '~/assets/images/avatar_image2.png';
 import avatarImg3 from '~/assets/images/avatar_image3.png';
 import avatarImg4 from '~/assets/images/avatar_image4.png';
+import juiciest101Img from '~/assets/images/juiciest_101.png';
+import juiciest102Img from '~/assets/images/juiciest_102.png';
+import juiciest103Img from '~/assets/images/juiciest_103.png';
+import juiciest104Img from '~/assets/images/juiciest_104.png';
+import juiciest105Img from '~/assets/images/juiciest_105.png';
+import juiciest106Img from '~/assets/images/juiciest_106.png';
+import juiciest107Img from '~/assets/images/juiciest_107.png';
+import juiciest108Img from '~/assets/images/juiciest_108.png';
 import recipe1Img from '~/assets/images/new_recipe_1.png';
 import recipe2Img from '~/assets/images/new_recipe_2.png';
 import recipe3Img from '~/assets/images/new_recipe_3.png';
@@ -23,14 +31,6 @@ import recipe5Img from '~/assets/images/new_recipe_5.png';
 import recipe6Img from '~/assets/images/new_recipe_6.png';
 import recipe7Img from '~/assets/images/new_recipe_7.png';
 import recipe8Img from '~/assets/images/new_recipe_8.png';
-import tastyest101Img from '~/assets/images/tastyest_101.png';
-import tastyest102Img from '~/assets/images/tastyest_102.png';
-import tastyest103Img from '~/assets/images/tastyest_103.png';
-import tastyest104Img from '~/assets/images/tastyest_104.png';
-import tastyest105Img from '~/assets/images/tastyest_105.png';
-import tastyest106Img from '~/assets/images/tastyest_106.png';
-import tastyest107Img from '~/assets/images/tastyest_107.png';
-import tastyest108Img from '~/assets/images/tastyest_108.png';
 import vegan101Img from '~/assets/images/vegan_101.png';
 import vegan102Img from '~/assets/images/vegan_102.png';
 import vegan103Img from '~/assets/images/vegan_103.png';
@@ -499,12 +499,12 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
 
 export const TITLES = {
     newRecipes: 'Новые рецепты',
-    tastyest: 'Самое сочное ',
+    juiciest: 'Самое сочное ',
     blogs: 'Кулинарные блоги',
     'vegan-cuisine': 'Веганская кухня',
 };
 
-export const TASTYEST_DATA: RecipeItemType[] = [
+export const JUICIEST_DATA: RecipeItemType[] = [
     {
         id: '01',
         image: recipe5Img,
@@ -629,7 +629,7 @@ export const VEGAN_PIN_DATA: RecipeItemType[] = [
     },
 ];
 
-export const TASTYEST_PIN_DATA: RecipeItemType[] = [
+export const JUICIEST_PIN_DATA: RecipeItemType[] = [
     {
         id: '01',
         title: 'Стейк для вегетарианцев',
@@ -659,7 +659,7 @@ export const PAGE_DB: PageDbType = {
         title: 'Приятного аппетита!',
         desc: '',
     },
-    tastyest: {
+    juiciest: {
         id: '101',
         title: 'Самое сочное',
         desc: '',
@@ -825,10 +825,10 @@ export const PAGE_DB: PageDbType = {
     },
 };
 
-export const TASTYEST_DATA_FULL: RecipeItemType[] = [
+export const JUICIEST_DATA_FULL: RecipeItemType[] = [
     {
         id: '01',
-        image: tastyest101Img,
+        image: juiciest101Img,
         title: 'Лапша с курицей и шафраном',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
@@ -845,7 +845,7 @@ export const TASTYEST_DATA_FULL: RecipeItemType[] = [
     },
     {
         id: '02',
-        image: tastyest102Img,
+        image: juiciest102Img,
         title: 'Том-ям с капустой кимчи',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
@@ -857,7 +857,7 @@ export const TASTYEST_DATA_FULL: RecipeItemType[] = [
     },
     {
         id: '03',
-        image: tastyest103Img,
+        image: juiciest103Img,
         title: 'Пряная ветчина по итальянски',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
@@ -874,7 +874,7 @@ export const TASTYEST_DATA_FULL: RecipeItemType[] = [
     },
     {
         id: '04',
-        image: tastyest104Img,
+        image: juiciest104Img,
         title: 'Кнели со спагетти',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
@@ -886,7 +886,7 @@ export const TASTYEST_DATA_FULL: RecipeItemType[] = [
     },
     {
         id: '05',
-        image: tastyest105Img,
+        image: juiciest105Img,
         title: 'Картошка, тушенная с болгарским перцем и фасолью в томатном соусе',
         description:
             'Картошка, тушенная с болгарским перцем, фасолью, морковью и луком, -  вариант сытного блюда на каждый день. Фасоль в данном случае заменяет  мясо, делая рагу сытным и питательным. Чтобы сократить время  приготовления, возьмём консервированную фасоль. Блюдо хоть и простое, но в полной мере наполнено ароматами и имеет выразительный вкус за счёт  добавления томатной пасты.',
@@ -898,7 +898,7 @@ export const TASTYEST_DATA_FULL: RecipeItemType[] = [
     },
     {
         id: '06',
-        image: tastyest106Img,
+        image: juiciest106Img,
         title: 'Картофельные рулетики с грибами',
         description:
             'Рекомендую всем приготовить постное блюдо из картофеля и грибов.  Готовится это блюдо без яиц, без мяса и без сыра, из самых простых  ингредиентов, а получается очень вкусно и сытно. Постный рецепт  картофельных рулетиков с грибами, в томатном соусе, - на обед, ужин и  даже на праздничный стол!',
@@ -910,7 +910,7 @@ export const TASTYEST_DATA_FULL: RecipeItemType[] = [
     },
     {
         id: '07',
-        image: tastyest107Img,
+        image: juiciest107Img,
         title: 'Овощная лазанья из лаваша',
         description:
             'Большое, сытное блюдо для ценителей блюд без мяса! Такая лазанья  готовится с овощным соусом и соусом бешамель, а вместо листов для  лазаньи используется тонкий лаваш.',
@@ -922,7 +922,7 @@ export const TASTYEST_DATA_FULL: RecipeItemType[] = [
     },
     {
         id: '08',
-        image: tastyest108Img,
+        image: juiciest108Img,
         title: 'Тефтели из булгура и чечевицы, запечённые в томатном соусе',
         description:
             'Тефтели из булгура и чечевицы – яркие и питательные, отлично подходят  для постного и вегетарианского меню. Тефтели получаются нежными, а также сочными и ароматными благодаря использованию томатного соуса и душистых пряностей.',

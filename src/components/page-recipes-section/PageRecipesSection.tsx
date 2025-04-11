@@ -2,10 +2,10 @@ import { Button, Flex } from '@chakra-ui/react';
 
 import { RecipesGrid, RecipesTabs } from '~/components';
 import { PageRecipesSectionPropsType, PageType } from '~/components/types';
-import { BTN_TEXT, TASTYEST_DATA_FULL, VEGAN_DATA_FULL } from '~/constants';
+import { BTN_TEXT, JUICIEST_DATA_FULL, VEGAN_DATA_FULL } from '~/constants';
 
 export function PageRecipesSection({ page }: PageRecipesSectionPropsType) {
-    const curData = page === ('tastyest' as PageType) ? TASTYEST_DATA_FULL : VEGAN_DATA_FULL;
+    const curData = page === ('juiciest' as PageType) ? JUICIEST_DATA_FULL : VEGAN_DATA_FULL;
 
     return (
         <Flex direction='column' mb='40px' justify='center' align='center'>

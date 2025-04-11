@@ -149,7 +149,7 @@ export type RecipeStatisticPropsType = {
     data: RecipePropsType[];
 };
 
-export type PageType = CategoryKeyType | 'home' | 'tastyest';
+export type PageType = CategoryKeyType | 'home' | 'juiciest';
 
 export type PageHeaderItemType = {
     id: string;

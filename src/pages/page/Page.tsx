@@ -13,14 +13,14 @@ export function Page() {
     let pageFooterData: PageType | null = null;
 
     useEffect(() => {
-        if (categoryId && categoryId !== 'tastyest' && !CATEGORY_LIST.includes(categoryId)) {
+        if (categoryId && categoryId !== 'juiciest' && !CATEGORY_LIST.includes(categoryId)) {
             navigate('/');
         }
     }, [categoryId, navigate]);
 
     if (categoryId) {
-        if (categoryId === 'tastyest') {
-            pageHeaderData = 'tastyest' as PageType;
+        if (categoryId === 'juiciest') {
+            pageHeaderData = 'juiciest' as PageType;
             pageFooterData = 'vegan-cuisine' as PageType;
         } else if (CATEGORY_LIST.includes(categoryId)) {
             pageHeaderData = 'vegan-cuisine' as PageType;
