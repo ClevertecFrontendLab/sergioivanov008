@@ -47,7 +47,7 @@ export function PageFooterSection({ page }: PagePropsType) {
             </GridItem>
             <GridItem area='two'>
                 <Text
-                    noOfLines={{ base: 4, md: 2, lg: 3 }}
+                    noOfLines={{ base: 6, md: 2, lg: 3 }}
                     fontWeight={500}
                     fontSize={16}
                     lineHeight='150%'

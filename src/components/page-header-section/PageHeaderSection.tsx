@@ -14,7 +14,7 @@ export function PageHeaderSection({ page }: PagePropsType) {
             direction='column'
             align='center'
             mt={{ base: '16px', lg: '32px' }}
-            mb={{ base: '32px', md: '38px', lg: '48px' }}
+            mb={{ base: '32px', md: '38px', lg: '48px', xl: '56px' }}
             mx='auto'
         >
             <Flex direction='column' align='center' gap={{ base: '16px', lg: '12px' }}>
@@ -27,7 +27,7 @@ export function PageHeaderSection({ page }: PagePropsType) {
                 </Heading>
                 {data.desc && (
                     <Text
-                        noOfLines={2}
+                        noOfLines={{ base: 4, md: 2 }}
                         fontWeight={500}
                         fontSize={{ base: '14px', lg: '16px' }}
                         lineHeight={{ base: '143%', lg: '150%' }}
