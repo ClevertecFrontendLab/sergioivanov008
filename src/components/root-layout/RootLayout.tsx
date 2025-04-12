@@ -27,6 +27,8 @@ export function RootLayout() {
                 pr='36px'
                 py='16px'
                 className={s.headerComponent}
+                w='100vw'
+                data-test-id='header'
             >
                 <Header />
             </GridItem>
@@ -55,6 +57,8 @@ export function RootLayout() {
                 bg='myColor.yellow'
                 display={{ base: 'block', lg: 'none' }}
                 className={s.footerComponent}
+                w='100vw'
+                data-test-id='footer'
             >
                 <Footer />
             </GridItem>
