@@ -11,6 +11,8 @@ export function FilterButton() {
             width={{ base: '32px', lg: '48px' }}
             icon={<CustomIcon24 iconType='filter' />}
             variant='outline'
+            border='1px solid rgba(0, 0, 0, 0.48)'
+            borderColor='rgba(0, 0, 0, 0.48)'
         />
     );
 }
