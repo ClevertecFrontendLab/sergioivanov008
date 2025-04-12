@@ -91,7 +91,7 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
                         variant='outline'
                         size={{ base: 'xs', lg: 'sm' }}
                         px={{ base: '8px', xl: '12px' }}
-                        display={{ base: 'none', lg: 'block' }}
+                        display={{ base: 'none', lg: 'flex' }}
                     >
                         {BTN_TEXT.save}
                     </Button>
