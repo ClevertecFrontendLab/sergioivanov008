@@ -29,7 +29,7 @@ export function RecipesTabs({ page }: PageRecipesSectionPropsType) {
                             fontSize={{ base: '14px', lg: '16px' }}
                             lineHeight={{ base: '143%', lg: '150%' }}
                             _focus={{ boxShadow: 'none' }}
-                            _selected={{ color: '#2db100' }}
+                            _selected={{ color: '#2db100', borderBottom: '2px solid #2db100' }}
                         >
                             {el.title}
                         </Tab>
