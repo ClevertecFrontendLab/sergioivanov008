@@ -4,7 +4,7 @@ import { HeaderContent, Logotype } from '~/components';
 
 export function Header() {
     return (
-        <Flex align='center' data-test-id='header'>
+        <Flex w='100%' align='center' justify='space-between'>
             <Logotype />
             <HeaderContent />
         </Flex>
