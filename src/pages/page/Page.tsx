@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react';
+import { Divider, Flex } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
@@ -36,6 +36,7 @@ export function Page() {
         >
             <PageHeaderSection page={pageHeaderData} />
             <PageRecipesSection page={pageHeaderData} />
+            <Divider mb={{ base: '8px', lg: '24px' }} />
             <PageFooterSection page={pageFooterData} />
         </Flex>
     ) : null;
