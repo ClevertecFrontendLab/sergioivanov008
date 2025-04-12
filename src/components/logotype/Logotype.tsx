@@ -11,7 +11,7 @@ export function Logotype() {
                 width={{
                     base: '32px',
                     sm: '135px',
-                    md: '308px',
+                    md: '264px',
                 }}
                 align='flex-end'
             >
