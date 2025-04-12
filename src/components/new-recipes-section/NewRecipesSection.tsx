@@ -9,7 +9,7 @@ export function NewRecipesSection() {
         <Flex direction='column' gap={{ base: '12px', xl: '24px' }} mb='40px'>
             <SectionTitle title={TITLES.newRecipes} />
             <Box position='relative'>
-                <Box overflow='hidden'>
+                <Box overflow={{ base: 'unset', xl: 'hidden' }}>
                     <Flex gap={{ base: '12px', xl: '24px' }}>
                         {NEW_RECIPES_DATA.map((el) => (
                             <RecipeItemLook key={el.id} data={el} />
