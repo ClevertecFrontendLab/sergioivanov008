@@ -1,0 +1,15 @@
+.textValue12 {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 133%;
+    color: #2db100;
+}
+
+.textValue16 {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #2db100;
+}

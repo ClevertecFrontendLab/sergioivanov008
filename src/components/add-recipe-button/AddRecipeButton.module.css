@@ -1,0 +1,30 @@
+.wrapper {
+    background: radial-gradient(50% 50% at 50% 50%, #c4ff61 0%, rgba(255, 255, 255, 0) 100%);
+    position: relative;
+}
+
+.center {
+    border-radius: 50px;
+    background-color: #000;
+    cursor: pointer;
+}
+
+.text {
+    position: absolute;
+    top: 140px;
+    left: 0;
+    width: 100%;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.64);
+    transition: 0.2s;
+}
+
+.center:hover ~ .text {
+    font-weight: 500;
+    color: #000;
+}

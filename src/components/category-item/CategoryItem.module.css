@@ -1,0 +1,44 @@
+.flex {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.box {
+    width: 1px;
+    height: 24px;
+    background: #c4ff61;
+}
+
+.text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.categoryItem:hover .flex {
+    background: #ffffd3;
+    color: #000;
+    font-weight: 700;
+}
+
+.categoryItem:hover .box {
+    background: unset;
+}
+
+.categoryItem.active .box {
+    width: 8px;
+}
+
+.categoryItem.active .text {
+    background: unset;
+    font-weight: 700;
+}
+
+.categoryItem.active:hover .flex {
+    background: unset;
+}
+
+.categoryItem.active:hover .box {
+    width: 8px;
+    background: #c4ff61;
+}
