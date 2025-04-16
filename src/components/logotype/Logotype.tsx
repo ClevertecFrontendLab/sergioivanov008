@@ -10,7 +10,6 @@ export function Logotype() {
                 gap={2}
                 width={{
                     base: '32px',
-                    sm: '135px',
                     md: '264px',
                 }}
                 align='flex-end'
