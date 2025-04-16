@@ -9,7 +9,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<RootLayout />}>
                     <Route index element={<MainPage />} />
-                    <Route path='/:categoryId/:categoryItemId?' element={<Page />} />
+                    <Route path='/:category/:subcategory?' element={<Page />} />
                     <Route path='*' element={<Navigate to='/' replace />} />
                 </Route>
             </Routes>

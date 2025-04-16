@@ -7,22 +7,22 @@ import { PageType } from '~/components/types';
 import { CATEGORY_LIST } from '~/constants';
 
 export function Page() {
-    const { categoryId } = useParams();
+    const { category } = useParams();
     const navigate = useNavigate();
     let pageHeaderData: PageType | null = null;
     let pageFooterData: PageType | null = null;
 
     useEffect(() => {
-        if (categoryId && categoryId !== 'juiciest' && !CATEGORY_LIST.includes(categoryId)) {
+        if (category && category !== 'juiciest' && !CATEGORY_LIST.includes(category)) {
             navigate('/');
         }
-    }, [categoryId, navigate]);
+    }, [category, navigate]);
 
-    if (categoryId) {
-        if (categoryId === 'juiciest') {
+    if (category) {
+        if (category === 'juiciest') {
             pageHeaderData = 'juiciest' as PageType;
             pageFooterData = 'vegan-cuisine' as PageType;
-        } else if (CATEGORY_LIST.includes(categoryId)) {
+        } else if (CATEGORY_LIST.includes(category)) {
             pageHeaderData = 'vegan-cuisine' as PageType;
             pageFooterData = 'deserty' as PageType;
         }
