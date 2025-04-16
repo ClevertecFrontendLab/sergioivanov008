@@ -1,18 +1,27 @@
 import { Flex, Tab, TabIndicator, TabList, Tabs } from '@chakra-ui/react';
+import { useNavigate, useParams } from 'react-router';
 
 import { PageRecipesSectionPropsType } from '~/components/types';
 import { NAV_DATA } from '~/constants';
 
 export function RecipesTabs({ page }: PageRecipesSectionPropsType) {
+    const { category, subcategory } = useParams();
+    const navigate = useNavigate();
     const data = NAV_DATA.find((el) => el.categoryNav === page)?.items;
+    const curIndex = data ? data.findIndex((el) => el.id === subcategory) : 0;
+
+    const handlerTabsChange = (index: number) => {
+        navigate(`/${category}/${data![index].id}`);
+    };
 
     return (
         <Flex justify='center' flexWrap='nowrap' mb='24px' direction='column' align='center'>
             <Tabs
-                defaultIndex={2}
+                index={curIndex}
                 position='relative'
                 variant='unstyled'
                 borderBottom='1px solid rgba(0, 0, 0, 0.08)'
+                onChange={(index) => handlerTabsChange(index)}
             >
                 <TabList w='max-content'>
                     {data?.map((el) => (
