@@ -1,5 +1,5 @@
 import { ChevronRightIcon } from '@chakra-ui/icons';
-import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 
 import { NAV_DATA, PAGE_DB, TEXT } from '~/constants';
@@ -32,45 +32,34 @@ export function BreadcrumbComponent() {
     }
 
     return (
-        <Box
-            display={{
-                base: 'none',
-                sm: 'none',
-                md: 'none',
-                lg: 'block',
-            }}
-        >
-            <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
-                <BreadcrumbItem isCurrentPage={slot1.isCurrentPage}>
+        <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
+            <BreadcrumbItem isCurrentPage={slot1.isCurrentPage}>
+                <BreadcrumbLink
+                    href='/'
+                    color={slot1.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
+                >
+                    {TEXT.mainPage}
+                </BreadcrumbLink>
+            </BreadcrumbItem>
+
+            {slot2.isShow && (
+                <BreadcrumbItem isCurrentPage={slot2.isCurrentPage}>
                     <BreadcrumbLink
-                        href='/'
-                        color={slot1.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
+                        href={`/${category}`}
+                        color={slot2.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
                     >
-                        {TEXT.mainPage}
+                        {slot2.text}
                     </BreadcrumbLink>
                 </BreadcrumbItem>
+            )}
 
-                {slot2.isShow && (
-                    <BreadcrumbItem isCurrentPage={slot2.isCurrentPage}>
-                        <BreadcrumbLink
-                            href={`/${category}`}
-                            color={slot2.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
-                        >
-                            {slot2.text}
-                        </BreadcrumbLink>
-                    </BreadcrumbItem>
-                )}
-
-                {slot3.isShow && (
-                    <BreadcrumbItem isCurrentPage={slot3.isCurrentPage}>
-                        <BreadcrumbLink
-                            color={slot3.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
-                        >
-                            {slot3.text}
-                        </BreadcrumbLink>
-                    </BreadcrumbItem>
-                )}
-            </Breadcrumb>
-        </Box>
+            {slot3.isShow && (
+                <BreadcrumbItem isCurrentPage={slot3.isCurrentPage}>
+                    <BreadcrumbLink color={slot3.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}>
+                        {slot3.text}
+                    </BreadcrumbLink>
+                </BreadcrumbItem>
+            )}
+        </Breadcrumb>
     );
 }

@@ -6,7 +6,9 @@ import { AVATAR_DATA } from '~/constants';
 export function HeaderContent() {
     return (
         <Flex w='100%' alignItems='center' justify={{ base: 'flex-end', lg: 'space-between' }}>
-            <BreadcrumbComponent />
+            <Box display={{ base: 'none', lg: 'block' }}>
+                <BreadcrumbComponent />
+            </Box>
             <Box display={{ base: 'none', lg: 'flex' }} w='400px'>
                 <AvatarContent data={AVATAR_DATA} />
             </Box>
