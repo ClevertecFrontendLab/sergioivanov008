@@ -5,7 +5,7 @@ import { CategoryItemPropsType } from '../types';
 import s from './CategoryItem.module.css';
 
 export function CategoryItem({ data, categoryNav }: CategoryItemPropsType) {
-    const linkTo = `/${categoryNav}/${data.id}`;
+    const linkTo = `/${categoryNav}/${data.subcategoryNav}`;
 
     return (
         <NavLink

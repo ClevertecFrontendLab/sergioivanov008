@@ -26,7 +26,7 @@ export function BreadcrumbComponent() {
             slot2.isCurrentPage = false;
             slot3.isShow = true;
             slot3.text = NAV_DATA.find((el) => el.categoryNav === category)?.items.find(
-                (el) => el.id === subcategory,
+                (el) => el.subcategoryNav === subcategory,
             )?.title;
         }
     }
