@@ -6,6 +6,7 @@ export function BurgerMenu() {
     return (
         <Box
             position='fixed'
+            zIndex={10}
             top='64px'
             w='100vw'
             h='100vh'
@@ -15,6 +16,7 @@ export function BurgerMenu() {
             <Box w='100vw' h='100vh' position='relative'>
                 <Flex
                     position='absolute'
+                    zIndex={11}
                     top='0'
                     right='8px'
                     w='344px'
