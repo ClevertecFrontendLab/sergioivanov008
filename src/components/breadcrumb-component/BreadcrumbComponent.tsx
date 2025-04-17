@@ -32,7 +32,16 @@ export function BreadcrumbComponent() {
     }
 
     return (
-        <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
+        <Breadcrumb
+            spacing='8px'
+            separator={<ChevronRightIcon color='gray.500' />}
+            sx={{
+                ol: {
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                },
+            }}
+        >
             <BreadcrumbItem isCurrentPage={slot1.isCurrentPage}>
                 <BreadcrumbLink
                     href='/'
