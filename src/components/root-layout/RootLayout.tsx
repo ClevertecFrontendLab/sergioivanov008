@@ -2,10 +2,14 @@ import { Grid, GridItem } from '@chakra-ui/react';
 import { Outlet } from 'react-router';
 
 import { Aside, Footer, Header, Navigation } from '~/components';
+import { useAppSelector } from '~/store/hooks';
+import { mainSelector } from '~/store/slices/main-slice';
 
 import s from './RootLayout.module.css';
 
 export function RootLayout() {
+    const { isOpenBurger } = useAppSelector(mainSelector);
+
     return (
         <Grid
             mx='auto'
@@ -21,7 +25,7 @@ export function RootLayout() {
         >
             <GridItem
                 area='header'
-                bg='myColor.yellow'
+                bg={isOpenBurger ? 'unset' : 'myColor.yellow'}
                 height={{ base: '64px', lg: '80px' }}
                 pl={{ base: '20px', lg: '16px' }}
                 pr='36px'
