@@ -6,7 +6,7 @@ export { Badge } from './badge/Badge.tsx';
 export { BlogsItem } from './blogs-item/BlogsItem.tsx';
 export { BlogsSection } from './blogs-section/BlogsSection.tsx';
 export { BreadcrumbComponent } from './breadcrumb-component/BreadcrumbComponent.tsx';
-export { BurgerMenu } from './burger-menu/BurgerMenu.tsx';
+export { BurgerMenuButton } from './burger-menu-button/BurgerMenuButton.tsx';
 export { Category } from './category/Category.tsx';
 export { CategoryItem } from './category-item/CategoryItem.tsx';
 export { CustomIcon12 } from './custom-icon-12/CustomIcon12.tsx';

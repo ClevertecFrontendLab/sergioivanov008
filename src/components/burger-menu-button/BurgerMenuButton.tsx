@@ -4,7 +4,7 @@ import { Flex } from '@chakra-ui/react';
 import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { mainActions, mainSelector } from '~/store/slices/main-slice';
 
-export function BurgerMenu() {
+export function BurgerMenuButton() {
     const { isOpenBurger } = useAppSelector(mainSelector);
     const dispatch = useAppDispatch();
 

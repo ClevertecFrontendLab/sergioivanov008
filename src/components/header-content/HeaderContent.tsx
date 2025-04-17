@@ -1,6 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react';
 
-import { AvatarContent, BreadcrumbComponent, BurgerMenu, HeaderUserData } from '~/components';
+import { AvatarContent, BreadcrumbComponent, BurgerMenuButton, HeaderUserData } from '~/components';
 import { AVATAR_DATA } from '~/constants';
 import { useAppSelector } from '~/store/hooks';
 import { mainSelector } from '~/store/slices/main-slice';
@@ -18,7 +18,7 @@ export function HeaderContent() {
             </Box>
             <Flex gap={8} display={{ base: 'flex', lg: 'none' }}>
                 {!isOpenBurger && <HeaderUserData />}
-                <BurgerMenu />
+                <BurgerMenuButton />
             </Flex>
         </Flex>
     );
