@@ -44,6 +44,7 @@ export type FooterButtonPropsType = {
 export type NavDataItemsType = {
     id: string;
     title: string;
+    subcategoryNav: string;
 };
 
 export type NavDataType = {
