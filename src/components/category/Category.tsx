@@ -17,7 +17,7 @@ export function Category({ data }: CategoryPropsType) {
     const navigate = useNavigate();
 
     return (
-        <AccordionItem w='230px' border='none'>
+        <AccordionItem w={{ base: 'unset', lg: '230px' }} border='none'>
             <AccordionButton
                 py='12px'
                 px='8px'
