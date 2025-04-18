@@ -8,7 +8,8 @@ export function RecipesTabs({ page }: PageRecipesSectionPropsType) {
     const { category, subcategory } = useParams();
     const navigate = useNavigate();
     const data = NAV_DATA.find((el) => el.categoryNav === page)?.items;
-    const curIndex = data ? data.findIndex((el) => el.subcategoryNav === subcategory) : 0;
+    const curIndex =
+        data && subcategory ? data.findIndex((el) => el.subcategoryNav === subcategory) : 0;
 
     const handlerTabsChange = (index: number) => {
         navigate(`/${category}/${data![index].subcategoryNav}`);
