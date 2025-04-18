@@ -1,8 +1,13 @@
-import { Divider, Flex } from '@chakra-ui/react';
+import { Divider } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
-import { PageFooterSection, PageHeaderSection, PageRecipesSection } from '~/components';
+import {
+    PageFooterSection,
+    PageHeaderSection,
+    PageRecipesSection,
+    PageWrapper,
+} from '~/components';
 import { PageType } from '~/components/types';
 import { CATEGORY_LIST } from '~/constants';
 
@@ -29,15 +34,11 @@ export function Page() {
     }
 
     return pageHeaderData !== null && pageFooterData !== null ? (
-        <Flex
-            direction='column'
-            pl={{ base: '16px', md: '20px', lg: '24px' }}
-            pr={{ base: '16px', md: '20px', lg: '24px' }}
-        >
+        <PageWrapper>
             <PageHeaderSection page={pageHeaderData} />
             <PageRecipesSection page={pageHeaderData} />
             <Divider mb={{ base: '8px', lg: '24px' }} />
             <PageFooterSection page={pageFooterData} />
-        </Flex>
+        </PageWrapper>
     ) : null;
 }
