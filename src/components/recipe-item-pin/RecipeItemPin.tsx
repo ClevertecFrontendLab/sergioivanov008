@@ -1,11 +1,11 @@
 import { Button, Card, CardBody, Flex, HStack, Image, Text } from '@chakra-ui/react';
 
-import { BTN_TEXT, CATEGORY_DB } from '~/constants';
+import { BTN_TEXT, NAV_DATA } from '~/constants';
 
-import { CategoryKeyType, RecipeItemPropsType } from '../types';
+import { RecipeItemPropsType } from '../types';
 
 export function RecipeItemPin({ data }: RecipeItemPropsType) {
-    const curItem = CATEGORY_DB[data.category[0] as CategoryKeyType];
+    const curItem = NAV_DATA.find((item) => item.categoryNav === data.category[0]);
 
     return (
         <Card
@@ -25,8 +25,8 @@ export function RecipeItemPin({ data }: RecipeItemPropsType) {
                         <Image
                             boxSize='24px'
                             objectFit='cover'
-                            src={curItem.image}
-                            alt={curItem.category}
+                            src={curItem?.image}
+                            alt={curItem?.categoryView}
                         />
                         <Text
                             noOfLines={1}

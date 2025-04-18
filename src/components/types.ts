@@ -86,8 +86,6 @@ export type CategoryKeyType =
     | 'napitki'
     | 'zagotovki';
 
-export type CategoryDbType = Record<CategoryKeyType, CategoryDataType>;
-
 export type BadgePropsType = {
     category: string[];
     color: string;

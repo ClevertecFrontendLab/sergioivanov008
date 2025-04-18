@@ -1,15 +1,15 @@
 import { Flex, Image, Stack, Text } from '@chakra-ui/react';
 
-import { CATEGORY_DB } from '~/constants';
+import { NAV_DATA } from '~/constants';
 
-import { BadgePropsType, CategoryKeyType } from '../types';
+import { BadgePropsType } from '../types';
 
 export function Badge({ category, color }: BadgePropsType) {
     return (
         <Stack spacing='8px' align='flex-start' wrap='wrap'>
             {category &&
                 category.map((el, index) => {
-                    const curItem = CATEGORY_DB[el as CategoryKeyType];
+                    const curItem = NAV_DATA.find((item) => item.categoryNav === el);
 
                     return (
                         <Flex
@@ -25,8 +25,8 @@ export function Badge({ category, color }: BadgePropsType) {
                             <Image
                                 boxSize='16px'
                                 objectFit='cover'
-                                src={curItem.image}
-                                alt={curItem.category}
+                                src={curItem?.image}
+                                alt={curItem?.categoryView}
                             />
                             <Text
                                 fontWeight={400}
@@ -34,7 +34,7 @@ export function Badge({ category, color }: BadgePropsType) {
                                 lineHeight='143%'
                                 whiteSpace='nowrap'
                             >
-                                {curItem.category}
+                                {curItem?.categoryView}
                             </Text>
                         </Flex>
                     );

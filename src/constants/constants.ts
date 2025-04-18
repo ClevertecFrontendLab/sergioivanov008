@@ -42,7 +42,6 @@ import vegan108Img from '~/assets/images/vegan_108.png';
 import {
     AvatarContentType,
     BlogsItemType,
-    CategoryDbType,
     FooterMenuItemType,
     NavDataType,
     PageDbType,
@@ -346,74 +345,6 @@ export const CATEGORY_LIST = [
     'napitki',
     'zagotovki',
 ];
-
-export const CATEGORY_DB: CategoryDbType = {
-    salads: {
-        id: '01',
-        category: 'Салаты',
-        image: saladsImg,
-    },
-    snacks: {
-        id: '02',
-        category: 'Закуски',
-        image: appetizersImg,
-    },
-    perviebluda: {
-        id: '03',
-        category: 'Первые блюда',
-        image: firstCoursesImg,
-    },
-    'second-dish': {
-        id: '04',
-        category: 'Вторые блюда',
-        image: mainCoursesImg,
-    },
-    deserty: {
-        id: '05',
-        category: 'Десерты, выпечка',
-        image: dessertsPastriesImg,
-    },
-    gril: {
-        id: '06',
-        category: 'Блюда на гриле',
-        image: grilledDishesImg,
-    },
-    vegan: {
-        id: '07',
-        category: 'Веганская кухня',
-        image: veganCuisineImg,
-    },
-    detskie: {
-        id: '08',
-        category: 'Детские блюда',
-        image: hildrensDishesImg,
-    },
-    lechebnoe: {
-        id: '09',
-        category: 'Лечебное питание',
-        image: healthyNutritionImg,
-    },
-    nacional: {
-        id: '10',
-        category: 'Национальные',
-        image: nationalDishesImg,
-    },
-    soucy: {
-        id: '11',
-        category: 'Соусы',
-        image: saucesImg,
-    },
-    napitki: {
-        id: '12',
-        category: 'Напитки',
-        image: drinksImg,
-    },
-    zagotovki: {
-        id: '13',
-        category: 'Заготовки',
-        image: PreparationsImg,
-    },
-};
 
 export const NEW_RECIPES_DATA: RecipeItemFullType[] = [
     {
