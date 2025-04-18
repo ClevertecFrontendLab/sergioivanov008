@@ -21,9 +21,9 @@ export function Page() {
     if (category) {
         if (category === 'juiciest') {
             pageHeaderData = 'juiciest' as PageType;
-            pageFooterData = 'vegan-cuisine' as PageType;
+            pageFooterData = 'vegan' as PageType;
         } else if (CATEGORY_LIST.includes(category)) {
-            pageHeaderData = 'vegan-cuisine' as PageType;
+            pageHeaderData = 'vegan' as PageType;
             pageFooterData = 'deserty' as PageType;
         }
     }

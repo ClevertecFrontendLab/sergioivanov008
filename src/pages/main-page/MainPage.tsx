@@ -19,7 +19,7 @@ export function MainPage() {
             <NewRecipesSection />
             <JuiciestSection />
             <BlogsSection />
-            <PageFooterSection page='vegan-cuisine' />
+            <PageFooterSection page='vegan' />
         </Flex>
     );
 }

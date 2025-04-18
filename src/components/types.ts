@@ -51,6 +51,7 @@ export type NavDataType = {
     id: string;
     categoryView: string;
     categoryNav: string;
+    testId: string;
     image?: string;
     items: NavDataItemsType[];
 };
@@ -77,7 +78,7 @@ export type CategoryKeyType =
     | 'vtoriebluda'
     | 'deserty'
     | 'gril'
-    | 'vegan-cuisine'
+    | 'vegan'
     | 'detskie'
     | 'lechebnoe'
     | 'nacional'

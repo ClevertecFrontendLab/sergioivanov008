@@ -104,6 +104,7 @@ export const NAV_DATA: NavDataType[] = [
         id: '01',
         categoryView: 'Салаты',
         categoryNav: 'salaty',
+        testId: 'salaty',
         image: saladsImg,
         items: [
             { id: '001', title: 'Мясные салаты', subcategoryNav: 'meat-salaty' },
@@ -116,6 +117,7 @@ export const NAV_DATA: NavDataType[] = [
         id: '02',
         categoryView: 'Закуски',
         categoryNav: 'zakuski',
+        testId: 'zakuski',
         image: appetizersImg,
         items: [
             { id: '005', title: 'Мясные закуски', subcategoryNav: 'meat-zakuski' },
@@ -130,6 +132,7 @@ export const NAV_DATA: NavDataType[] = [
         id: '03',
         categoryView: 'Первые блюда',
         categoryNav: 'perviebluda',
+        testId: 'perviebluda',
         image: firstCoursesImg,
         items: [
             { id: '011', title: 'Мясные супы', subcategoryNav: 'meat-soups' },
@@ -143,6 +146,7 @@ export const NAV_DATA: NavDataType[] = [
         id: '04',
         categoryView: 'Вторые блюда',
         categoryNav: 'vtoriebluda',
+        testId: 'vtoriebluda',
         image: mainCoursesImg,
         items: [
             { id: '016', title: 'Мясные', subcategoryNav: 'meat' },
@@ -163,6 +167,7 @@ export const NAV_DATA: NavDataType[] = [
         id: '05',
         categoryView: 'Десерты, выпечка',
         categoryNav: 'deserty',
+        testId: 'deserty',
         image: dessertsPastriesImg,
         items: [
             { id: '028', title: 'Блины и оладьи', subcategoryNav: 'bliny-oladii' },
@@ -184,6 +189,7 @@ export const NAV_DATA: NavDataType[] = [
         id: '06',
         categoryView: 'Блюда на гриле',
         categoryNav: 'gril',
+        testId: 'gril',
         image: grilledDishesImg,
         items: [
             { id: '041', title: 'Говядина', subcategoryNav: 'goviadina' },
@@ -197,7 +203,8 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '07',
         categoryView: 'Веганская кухня',
-        categoryNav: 'vegan-cuisine',
+        categoryNav: 'vegan',
+        testId: 'vegan-cuisine',
         image: veganCuisineImg,
         items: [
             { id: '047', title: 'Закуски', subcategoryNav: 'snacks' },
@@ -214,6 +221,7 @@ export const NAV_DATA: NavDataType[] = [
         id: '08',
         categoryView: 'Детские блюда',
         categoryNav: 'detskie',
+        testId: 'detskie',
         image: hildrensDishesImg,
         items: [
             { id: '055', title: 'Первые блюда', subcategoryNav: 'pervye-bluda' },
@@ -230,6 +238,7 @@ export const NAV_DATA: NavDataType[] = [
         id: '09',
         categoryView: 'Лечебное питание',
         categoryNav: 'lechebnoe',
+        testId: 'lechebnoe',
         image: healthyNutritionImg,
         items: [
             { id: '063', title: 'Детская диета', subcategoryNav: 'detskaja-dieta' },
@@ -254,6 +263,7 @@ export const NAV_DATA: NavDataType[] = [
         id: '10',
         categoryView: 'Национальные',
         categoryNav: 'nacional',
+        testId: 'nacional',
         image: nationalDishesImg,
         items: [
             { id: '079', title: 'Американская кухня', subcategoryNav: 'american-cuisine' },
@@ -277,6 +287,7 @@ export const NAV_DATA: NavDataType[] = [
         id: '11',
         categoryView: 'Соусы',
         categoryNav: 'soucy',
+        testId: 'soucy',
         image: saucesImg,
         items: [
             { id: '094', title: 'Соусы мясные', subcategoryNav: 'meat-soucy' },
@@ -288,6 +299,7 @@ export const NAV_DATA: NavDataType[] = [
         id: '12',
         categoryView: 'Напитки',
         categoryNav: 'napitki',
+        testId: 'napitki',
         image: drinksImg,
         items: [
             { id: '097', title: 'Соки и фреши', subcategoryNav: 'soki-freshi' },
@@ -305,6 +317,7 @@ export const NAV_DATA: NavDataType[] = [
         id: '13',
         categoryView: 'Заготовки',
         categoryNav: 'zagotovki',
+        testId: 'zagotovki',
         image: PreparationsImg,
         items: [
             { id: '106', title: 'Мясные заготовки', subcategoryNav: 'meat-zagotovki' },
@@ -326,7 +339,7 @@ export const CATEGORY_LIST = [
     'vtoriebluda',
     'deserty',
     'gril',
-    'vegan-cuisine',
+    'vegan',
     'detskie',
     'lechebnoe',
     'nacional',
@@ -366,7 +379,7 @@ export const CATEGORY_DB: CategoryDbType = {
         category: 'Блюда на гриле',
         image: grilledDishesImg,
     },
-    'vegan-cuisine': {
+    vegan: {
         id: '07',
         category: 'Веганская кухня',
         image: veganCuisineImg,
@@ -419,7 +432,7 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         title: 'Капустные котлеты',
         description:
             'Капустные котлеты по этому рецепту получаются необычайно пышными и  невероятно вкусными. Мягкий вкус и ...',
-        badgeType: 'vegan-cuisine',
+        badgeType: 'vegan',
         recipeProps: [
             { id: '01', type: 'pin', value: '2' },
             { id: '02', type: 'like', value: '1' },
@@ -502,7 +515,6 @@ export const TITLES = {
     newRecipes: 'Новые рецепты',
     juiciest: 'Самое сочное ',
     blogs: 'Кулинарные блоги',
-    'vegan-cuisine': 'Веганская кухня',
 };
 
 export const JUICIEST_DATA: RecipeItemType[] = [
@@ -626,7 +638,7 @@ export const VEGAN_PIN_DATA: RecipeItemType[] = [
         title: 'Воздушное банановое печенье на сковороде',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'vegan-cuisine',
+        badgeType: 'vegan',
     },
 ];
 
@@ -665,7 +677,7 @@ export const PAGE_DB: PageDbType = {
         title: 'Самое сочное',
         desc: '',
     },
-    'vegan-cuisine': {
+    vegan: {
         id: '07',
         title: 'Веганская кухня',
         desc: 'Интересны не только убеждённым вегетарианцам, но и тем, кто хочет  попробовать вегетарианскую диету и готовить вкусные  вегетарианские блюда.',
@@ -785,7 +797,7 @@ export const PAGE_DB: PageDbType = {
                 title: 'Воздушное банановое печенье на сковороде',
                 description:
                     'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-                badgeType: 'vegan-cuisine',
+                badgeType: 'vegan',
             },
         ],
     },
