@@ -2,9 +2,11 @@ import { Button, Card, CardBody, Flex, HStack, Image, Text } from '@chakra-ui/re
 
 import { BTN_TEXT, CATEGORY_DB } from '~/constants';
 
-import { RecipeItemPropsType } from '../types';
+import { CategoryKeyType, RecipeItemPropsType } from '../types';
 
 export function RecipeItemPin({ data }: RecipeItemPropsType) {
+    const curItem = CATEGORY_DB[data.category[0] as CategoryKeyType];
+
     return (
         <Card
             overflow='hidden'
@@ -23,8 +25,8 @@ export function RecipeItemPin({ data }: RecipeItemPropsType) {
                         <Image
                             boxSize='24px'
                             objectFit='cover'
-                            src={CATEGORY_DB[data.badgeType].image}
-                            alt={CATEGORY_DB[data.badgeType].category}
+                            src={curItem.image}
+                            alt={curItem.category}
                         />
                         <Text
                             noOfLines={1}
