@@ -15,6 +15,8 @@ import { Badge, RecipeStatistic, RecomendationBadge } from '~/components';
 import { RecipeItemPropsType } from '../types';
 
 export function RecipeItemLook({ data }: RecipeItemPropsType) {
+    const { bookmarks, likes } = data;
+
     return (
         <Card
             flexShrink={0}
@@ -65,15 +67,15 @@ export function RecipeItemLook({ data }: RecipeItemPropsType) {
                 </CardBody>
 
                 <CardFooter p={0} m={0}>
-                    <Flex justify='space-between' w='100%'>
+                    <Flex justify='space-between' w='100%' align='flex-start'>
                         <Box
                             position={{ base: 'absolute', lg: 'relative' }}
                             left={{ base: '8px', lg: '0px' }}
                             top={{ base: '8px', lg: '0px' }}
                         >
-                            <Badge type={data.badgeType} color='#d7ff94' />
+                            <Badge category={data.category} color='#d7ff94' />
                         </Box>
-                        {data.recipeProps && <RecipeStatistic data={data.recipeProps} />}
+                        <RecipeStatistic bookmarks={bookmarks} likes={likes} />
                     </Flex>
                 </CardFooter>
             </Stack>
