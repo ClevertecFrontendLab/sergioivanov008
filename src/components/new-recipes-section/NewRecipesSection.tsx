@@ -3,13 +3,24 @@ import 'swiper/swiper-bundle.css';
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import { Box, Flex, IconButton } from '@chakra-ui/react';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 
 import { RecipeItemLook, SectionTitle } from '~/components';
-import { NEW_RECIPES_DATA, TITLES } from '~/constants';
+import { TITLES, VEGAN_RECIPES } from '~/constants';
+import { getSortByDate } from '~/utils';
+
+import { RecipeItemFullType } from '../types';
 
 export function NewRecipesSection() {
+    const navigate = useNavigate();
     const swiperRef = useRef<SwiperRef | null>(null);
+
+    const newRecipesData = getSortByDate(VEGAN_RECIPES, 10);
+
+    const handlerClick = (el: RecipeItemFullType) => {
+        navigate(`/${el.category[0]}/${el.subcategory[0]}/${el.id}`);
+    };
 
     return (
         <Flex direction='column' gap={{ base: '12px', xl: '24px' }} mb='40px'>
@@ -19,8 +30,6 @@ export function NewRecipesSection() {
                     <Swiper
                         ref={swiperRef}
                         loop={true}
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)}
                         breakpoints={{
                             0: {
                                 slidesPerView: 2,
@@ -40,8 +49,8 @@ export function NewRecipesSection() {
                             },
                         }}
                     >
-                        {NEW_RECIPES_DATA.map((el) => (
-                            <SwiperSlide key={el.id}>
+                        {newRecipesData.map((el) => (
+                            <SwiperSlide key={el.id} onClick={() => handlerClick(el)}>
                                 <RecipeItemLook data={el} />
                             </SwiperSlide>
                         ))}
