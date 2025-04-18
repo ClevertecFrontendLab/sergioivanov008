@@ -18,6 +18,8 @@ import { BTN_TEXT } from '~/constants';
 import { RecipeItemPropsType } from '../types';
 
 export function RecipeItem({ data }: RecipeItemPropsType) {
+    const { bookmarks, likes } = data;
+
     return (
         <Card
             direction='row'
@@ -56,9 +58,9 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
                                 left={{ base: '8px', lg: '0px' }}
                                 top={{ base: '8px', lg: '0px' }}
                             >
-                                <Badge type={data.badgeType} color='#ffffd3' />
+                                <Badge category={data.category} color='#ffffd3' />
                             </Box>
-                            {data.recipeProps && <RecipeStatistic data={data.recipeProps} />}
+                            <RecipeStatistic bookmarks={bookmarks} likes={likes} />
                         </Flex>
 
                         <Flex direction='column' gap='8px'>
