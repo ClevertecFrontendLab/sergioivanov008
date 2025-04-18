@@ -2,32 +2,43 @@ import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 
-import { NAV_DATA, PAGE_DB, TEXT } from '~/constants';
+import { NAV_DATA, PAGE_DB, TEXT, VEGAN_RECIPES } from '~/constants';
 
 import { BreadcrumbSlotType, PageType } from '../types';
 
 export function BreadcrumbComponent() {
-    const { category, subcategory } = useParams();
+    const { category, subcategory, id } = useParams();
     const slot1: BreadcrumbSlotType = { isShow: true, isCurrentPage: false, text: '', linkTo: '' };
     const slot2: BreadcrumbSlotType = { isShow: true, isCurrentPage: false, text: '', linkTo: '' };
-    const slot3: BreadcrumbSlotType = { isShow: true, isCurrentPage: true, text: '', linkTo: '' };
+    const slot3: BreadcrumbSlotType = { isShow: true, isCurrentPage: false, text: '', linkTo: '' };
+    const slot4: BreadcrumbSlotType = { isShow: true, isCurrentPage: true, text: '', linkTo: '' };
 
     if (!category) {
         slot1.isCurrentPage = true;
         slot2.isShow = false;
         slot3.isShow = false;
+        slot4.isShow = false;
     } else if (category) {
         slot2.isShow = true;
         slot2.text = PAGE_DB[category as PageType].title;
         if (!subcategory) {
             slot2.isCurrentPage = true;
             slot3.isShow = false;
+            slot4.isShow = false;
         } else if (subcategory) {
             slot2.isCurrentPage = false;
             slot3.isShow = true;
             slot3.text = NAV_DATA.find((el) => el.categoryNav === category)?.items.find(
                 (el) => el.subcategoryNav === subcategory,
             )?.title;
+            if (!id) {
+                slot3.isCurrentPage = true;
+                slot4.isShow = false;
+            } else if (id) {
+                slot3.isCurrentPage = false;
+                slot4.isShow = true;
+                slot4.text = VEGAN_RECIPES.find((el) => el.id === id)?.title;
+            }
         }
     }
 
@@ -64,8 +75,19 @@ export function BreadcrumbComponent() {
 
             {slot3.isShow && (
                 <BreadcrumbItem isCurrentPage={slot3.isCurrentPage}>
-                    <BreadcrumbLink color={slot3.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}>
+                    <BreadcrumbLink
+                        href={`/${category}`}
+                        color={slot3.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
+                    >
                         {slot3.text}
+                    </BreadcrumbLink>
+                </BreadcrumbItem>
+            )}
+
+            {slot4.isShow && (
+                <BreadcrumbItem isCurrentPage={slot4.isCurrentPage}>
+                    <BreadcrumbLink color={slot4.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}>
+                        {slot4.text}
                     </BreadcrumbLink>
                 </BreadcrumbItem>
             )}
