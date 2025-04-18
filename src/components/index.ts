@@ -35,6 +35,7 @@ export { NewRecipesSection } from './new-recipes-section/NewRecipesSection.tsx';
 export { PageFooterSection } from './page-footer-section/PageFooterSection.tsx';
 export { PageHeaderSection } from './page-header-section/PageHeaderSection.tsx';
 export { PageRecipesSection } from './page-recipes-section/PageRecipesSection.tsx';
+export { PageWrapper } from './page-wrapper/PageWrapper.tsx';
 export { RecipeItem } from './recipe-item/RecipeItem.tsx';
 export { RecipeItemLook } from './recipe-item-look/RecipeItemLook.tsx';
 export { RecipeItemPin } from './recipe-item-pin/RecipeItemPin.tsx';
