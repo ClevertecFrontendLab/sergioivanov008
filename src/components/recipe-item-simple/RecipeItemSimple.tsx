@@ -5,6 +5,8 @@ import { Badge, RecipeStatistic } from '~/components';
 import { RecipeItemPropsType } from '../types';
 
 export function RecipeItemSimple({ data }: RecipeItemPropsType) {
+    const { bookmarks, likes } = data;
+
     return (
         <Card
             overflow='hidden'
@@ -39,8 +41,8 @@ export function RecipeItemSimple({ data }: RecipeItemPropsType) {
                             </Text>
                         </Flex>
                         <Flex justify='space-between'>
-                            <Badge type={data.badgeType} color='#ffffd3' />
-                            {data.recipeProps && <RecipeStatistic data={data.recipeProps} />}
+                            <Badge category={data.category} color='#ffffd3' />
+                            <RecipeStatistic bookmarks={bookmarks} likes={likes} />
                         </Flex>
                     </Flex>
                 </CardBody>
