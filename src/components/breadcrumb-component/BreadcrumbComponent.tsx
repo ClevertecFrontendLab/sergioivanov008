@@ -2,7 +2,7 @@ import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 
-import { NAV_DATA, PAGE_DB, TEXT, VEGAN_RECIPES } from '~/constants';
+import { ALL_RECIPES, NAV_DATA, PAGE_DB, TEXT } from '~/constants';
 
 import { BreadcrumbSlotType, PageType } from '../types';
 
@@ -37,7 +37,7 @@ export function BreadcrumbComponent() {
             } else if (id) {
                 slot3.isCurrentPage = false;
                 slot4.isShow = true;
-                slot4.text = VEGAN_RECIPES.find((el) => el.id === id)?.title;
+                slot4.text = ALL_RECIPES.find((el) => el.id === id)?.title;
             }
         }
     }

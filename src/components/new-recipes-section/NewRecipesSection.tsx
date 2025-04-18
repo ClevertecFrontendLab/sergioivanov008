@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router';
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 
 import { RecipeItemLook, SectionTitle } from '~/components';
-import { TITLES, VEGAN_RECIPES } from '~/constants';
+import { ALL_RECIPES, TITLES } from '~/constants';
 import { getSortByDate } from '~/utils';
 
 import { RecipeItemFullType } from '../types';
@@ -16,7 +16,7 @@ export function NewRecipesSection() {
     const navigate = useNavigate();
     const swiperRef = useRef<SwiperRef | null>(null);
 
-    const newRecipesData = getSortByDate(VEGAN_RECIPES, 10);
+    const newRecipesData = getSortByDate(ALL_RECIPES, 10);
 
     const handlerClick = (el: RecipeItemFullType) => {
         navigate(`/${el.category[0]}/${el.subcategory[0]}/${el.id}`);

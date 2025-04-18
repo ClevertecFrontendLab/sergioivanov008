@@ -815,7 +815,7 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
     },
 ];
 
-export const VEGAN_RECIPES: RecipeItemFullType[] = [
+export const ALL_RECIPES: RecipeItemFullType[] = [
     {
         id: '0',
         title: 'Картошка, тушенная с болгарским перцем и фасолью в томатном соусе',
