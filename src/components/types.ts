@@ -182,7 +182,7 @@ export type RecipeItemFullType = {
     title: string;
     description: string;
     category: string[];
-    subcategory?: string[];
+    subcategory: string[];
     image?: string;
     bookmarks?: number;
     likes?: number;
