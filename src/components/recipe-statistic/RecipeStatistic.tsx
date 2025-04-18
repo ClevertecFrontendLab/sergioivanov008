@@ -4,17 +4,23 @@ import { CustomIcon12 } from '~/components';
 
 import { RecipeStatisticPropsType } from '../types';
 
-export function RecipeStatistic({ data }: RecipeStatisticPropsType) {
+export function RecipeStatistic({ bookmarks, likes }: RecipeStatisticPropsType) {
     return (
         <Flex gap={2}>
-            {data.map((el) => (
+            {bookmarks && (
                 <CustomIcon12
-                    key={el.id}
                     props={{ boxSize: '12px' }}
-                    iconType={el.type}
-                    value={el.value}
+                    iconType='pin'
+                    value={bookmarks.toString()}
                 />
-            ))}
+            )}
+            {likes && (
+                <CustomIcon12
+                    props={{ boxSize: '12px' }}
+                    iconType='like'
+                    value={likes.toString()}
+                />
+            )}
         </Flex>
     );
 }
