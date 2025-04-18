@@ -346,109 +346,6 @@ export const CATEGORY_LIST = [
     'zagotovki',
 ];
 
-export const NEW_RECIPES_DATA: RecipeItemFullType[] = [
-    {
-        id: '01',
-        image: recipe1Img,
-        title: 'Солянка с грибами',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        category: ['perviebluda', 'deserty'],
-        subcategory: ['meat-soups'],
-        bookmarks: 1,
-    },
-    {
-        id: '02',
-        image: recipe2Img,
-        title: 'Капустные котлеты',
-        description:
-            'Капустные котлеты по этому рецепту получаются необычайно пышными и  невероятно вкусными. Мягкий вкус и ...',
-        category: ['vegan'],
-        subcategory: ['snacks'],
-        bookmarks: 2,
-        likes: 1,
-    },
-    {
-        id: '03',
-        image: recipe3Img,
-        title: 'Оладьи на кефире "Пышные"',
-        description:
-            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        category: ['deserty'],
-        subcategory: ['bliny-oladii'],
-        likes: 1,
-    },
-    {
-        id: '04',
-        image: recipe4Img,
-        title: 'Салат "Здоровье"',
-        description:
-            'Сельдерей очень полезен для здоровья, пора набираться витаминов. Не  салат, а сплошное удовольствие:) ...',
-        category: ['salads'],
-        subcategory: ['meat-salads'],
-    },
-    {
-        id: '05',
-        image: recipe3Img,
-        title: 'Оладьи на кефире "Пышные"',
-        description:
-            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        category: ['deserty'],
-        subcategory: ['bliny-oladii'],
-        likes: 1,
-    },
-    {
-        id: '06',
-        image: recipe3Img,
-        title: 'Оладьи на кефире "Пышные"',
-        description:
-            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        category: ['deserty'],
-        subcategory: ['bliny-oladii'],
-        likes: 1,
-    },
-    {
-        id: '07',
-        image: recipe3Img,
-        title: 'Оладьи на кефире "Пышные"',
-        description:
-            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        category: ['deserty'],
-        subcategory: ['bliny-oladii'],
-        likes: 1,
-    },
-    {
-        id: '08',
-        image: recipe3Img,
-        title: 'Оладьи на кефире "Пышные"',
-        description:
-            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        category: ['deserty'],
-        subcategory: ['bliny-oladii'],
-        likes: 1,
-    },
-    {
-        id: '09',
-        image: recipe3Img,
-        title: 'Оладьи на кефире "Пышные"',
-        description:
-            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        category: ['deserty'],
-        subcategory: ['bliny-oladii'],
-        likes: 1,
-    },
-    {
-        id: '10',
-        image: recipe3Img,
-        title: 'Оладьи на кефире "Пышные"',
-        description:
-            'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        category: ['deserty'],
-        subcategory: ['bliny-oladii'],
-        likes: 1,
-    },
-];
-
 export const TITLES = {
     newRecipes: 'Новые рецепты',
     juiciest: 'Самое сочное ',
@@ -1238,10 +1135,134 @@ export const VEGAN_RECIPES: RecipeItemFullType[] = [
         description: 'Салат с обжаренными на гриле овощами и легкой заправкой.',
         category: ['salads'],
         subcategory: ['warm-salads'],
-        image: 'путь к изображению в вашем проекте',
+        image: recipe5Img,
         bookmarks: 10,
         likes: 80,
         date: '2023-03-20T00:00:00Z',
+        time: '25 минут',
+        nutritionValue: { calories: 150, proteins: 4, fats: 6, carbohydrates: 20 },
+        ingredients: [
+            { title: 'цуккини', count: '1', measureUnit: 'шт.' },
+            { title: 'болгарский перец', count: '1', measureUnit: 'шт.' },
+            { title: 'баклажан', count: '1', measureUnit: 'шт.' },
+            { title: 'оливковое масло', count: '0', measureUnit: 'по вкусу' },
+        ],
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
+    },
+    {
+        id: '9',
+        title: 'Солянка с грибами',
+        description: 'Салат с обжаренными на гриле овощами и легкой заправкой.',
+        category: ['salads'],
+        subcategory: ['warm-salads'],
+        image: recipe1Img,
+        bookmarks: 10,
+        likes: 80,
+        date: '2025-04-01T00:00:00Z',
+        time: '25 минут',
+        nutritionValue: { calories: 150, proteins: 4, fats: 6, carbohydrates: 20 },
+        ingredients: [
+            { title: 'цуккини', count: '1', measureUnit: 'шт.' },
+            { title: 'болгарский перец', count: '1', measureUnit: 'шт.' },
+            { title: 'баклажан', count: '1', measureUnit: 'шт.' },
+            { title: 'оливковое масло', count: '0', measureUnit: 'по вкусу' },
+        ],
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
+    },
+    {
+        id: '10',
+        title: 'Капустные котлеты',
+        description: 'Салат с обжаренными на гриле овощами и легкой заправкой.',
+        category: ['salads'],
+        subcategory: ['warm-salads'],
+        image: recipe2Img,
+        bookmarks: 10,
+        likes: 80,
+        date: '2025-04-02T00:00:00Z',
+        time: '25 минут',
+        nutritionValue: { calories: 150, proteins: 4, fats: 6, carbohydrates: 20 },
+        ingredients: [
+            { title: 'цуккини', count: '1', measureUnit: 'шт.' },
+            { title: 'болгарский перец', count: '1', measureUnit: 'шт.' },
+            { title: 'баклажан', count: '1', measureUnit: 'шт.' },
+            { title: 'оливковое масло', count: '0', measureUnit: 'по вкусу' },
+        ],
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
+    },
+    {
+        id: '11',
+        title: 'Оладьи на кефире "Пышные"',
+        description: 'Салат с обжаренными на гриле овощами и легкой заправкой.',
+        category: ['salads'],
+        subcategory: ['warm-salads'],
+        image: recipe3Img,
+        bookmarks: 10,
+        likes: 80,
+        date: '2025-04-03T00:00:00Z',
+        time: '25 минут',
+        nutritionValue: { calories: 150, proteins: 4, fats: 6, carbohydrates: 20 },
+        ingredients: [
+            { title: 'цуккини', count: '1', measureUnit: 'шт.' },
+            { title: 'болгарский перец', count: '1', measureUnit: 'шт.' },
+            { title: 'баклажан', count: '1', measureUnit: 'шт.' },
+            { title: 'оливковое масло', count: '0', measureUnit: 'по вкусу' },
+        ],
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
+    },
+    {
+        id: '12',
+        title: 'Салат "Здоровье"',
+        description: 'Салат с обжаренными на гриле овощами и легкой заправкой.',
+        category: ['salads'],
+        subcategory: ['warm-salads'],
+        image: recipe4Img,
+        bookmarks: 10,
+        likes: 80,
+        date: '2025-04-04T00:00:00Z',
         time: '25 минут',
         nutritionValue: { calories: 150, proteins: 4, fats: 6, carbohydrates: 20 },
         ingredients: [
