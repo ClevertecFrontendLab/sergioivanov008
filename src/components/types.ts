@@ -72,10 +72,10 @@ export type CategoryDataType = {
 };
 
 export type CategoryKeyType =
-    | 'salaty'
-    | 'zakuski'
+    | 'salads'
+    | 'snacks'
     | 'perviebluda'
-    | 'vtoriebluda'
+    | 'second-dish'
     | 'deserty'
     | 'gril'
     | 'vegan'

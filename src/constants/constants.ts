@@ -103,27 +103,27 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '01',
         categoryView: 'Салаты',
-        categoryNav: 'salaty',
-        testId: 'salaty',
+        categoryNav: 'salads',
+        testId: 'salads',
         image: saladsImg,
         items: [
-            { id: '001', title: 'Мясные салаты', subcategoryNav: 'meat-salaty' },
-            { id: '002', title: 'Рыбные салаты', subcategoryNav: 'fish-salaty' },
-            { id: '003', title: 'Овощные салаты', subcategoryNav: 'vegetable-salaty' },
-            { id: '004', title: 'Теплые салаты', subcategoryNav: 'warm-salaty' },
+            { id: '001', title: 'Мясные салаты', subcategoryNav: 'meat-salads' },
+            { id: '002', title: 'Рыбные салаты', subcategoryNav: 'fish-salads' },
+            { id: '003', title: 'Овощные салаты', subcategoryNav: 'vegetables-salads' },
+            { id: '004', title: 'Теплые салаты', subcategoryNav: 'warm-salads' },
         ],
     },
     {
         id: '02',
         categoryView: 'Закуски',
-        categoryNav: 'zakuski',
-        testId: 'zakuski',
+        categoryNav: 'snacks',
+        testId: 'snacks',
         image: appetizersImg,
         items: [
-            { id: '005', title: 'Мясные закуски', subcategoryNav: 'meat-zakuski' },
-            { id: '006', title: 'Рыбные закуски', subcategoryNav: 'fish-zakuski' },
-            { id: '007', title: 'Овощные закуски', subcategoryNav: 'vegetable-zakuski' },
-            { id: '008', title: 'Теплые закуски', subcategoryNav: 'warm-zakuski' },
+            { id: '005', title: 'Мясные закуски', subcategoryNav: 'meat-snacks' },
+            { id: '006', title: 'Рыбные закуски', subcategoryNav: 'fish-snacks' },
+            { id: '007', title: 'Овощные закуски', subcategoryNav: 'vegetables-snacks' },
+            { id: '008', title: 'Теплые закуски', subcategoryNav: 'warm-snacks' },
             { id: '009', title: 'Бутерброды', subcategoryNav: 'buterbrody' },
             { id: '010', title: 'Фастфуд', subcategoryNav: 'fastfood' },
         ],
@@ -136,7 +136,7 @@ export const NAV_DATA: NavDataType[] = [
         image: firstCoursesImg,
         items: [
             { id: '011', title: 'Мясные супы', subcategoryNav: 'meat-soups' },
-            { id: '012', title: 'Овощные супы', subcategoryNav: 'vegetable-soups' },
+            { id: '012', title: 'Овощные супы', subcategoryNav: 'vegetables-soups' },
             { id: '013', title: 'Бульоны', subcategoryNav: 'buliony' },
             { id: '014', title: 'Холодные супы', subcategoryNav: 'cold-soups' },
             { id: '015', title: 'Диетические супы', subcategoryNav: 'dietic-soups' },
@@ -145,20 +145,20 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '04',
         categoryView: 'Вторые блюда',
-        categoryNav: 'vtoriebluda',
-        testId: 'vtoriebluda',
+        categoryNav: 'second-dish',
+        testId: 'second-dish',
         image: mainCoursesImg,
         items: [
             { id: '016', title: 'Мясные', subcategoryNav: 'meat' },
             { id: '017', title: 'Рыбные', subcategoryNav: 'fish' },
-            { id: '018', title: 'Овощные', subcategoryNav: 'vegetable' },
-            { id: '019', title: 'Из птицы', subcategoryNav: 'iz-ptizy' },
+            { id: '018', title: 'Овощные', subcategoryNav: 'vegetables' },
+            { id: '019', title: 'Из птицы', subcategoryNav: 'poultry-dish' },
             { id: '020', title: 'Из грибов', subcategoryNav: 'iz-gribov' },
             { id: '021', title: 'Из субпродуктов', subcategoryNav: 'iz-subproductov' },
             { id: '022', title: 'На пару', subcategoryNav: 'na-paru' },
             { id: '023', title: 'Пельмени, вареники', subcategoryNav: 'pelmeni-vareniki' },
-            { id: '024', title: 'Мучные гарниры', subcategoryNav: 'muchnye-garniry' },
-            { id: '025', title: 'Овощные гарниры', subcategoryNav: 'vegetable-garniry' },
+            { id: '024', title: 'Мучные гарниры', subcategoryNav: 'muchnye-side-dishes' },
+            { id: '025', title: 'Овощные гарниры', subcategoryNav: 'vegetables-side-dishes' },
             { id: '026', title: 'Пицца', subcategoryNav: 'pizza' },
             { id: '027', title: 'Суши', subcategoryNav: 'sushi' },
         ],
@@ -194,10 +194,10 @@ export const NAV_DATA: NavDataType[] = [
         items: [
             { id: '041', title: 'Говядина', subcategoryNav: 'goviadina' },
             { id: '042', title: 'Свинина', subcategoryNav: 'svinina' },
-            { id: '043', title: 'Птица', subcategoryNav: 'ptiza' },
+            { id: '043', title: 'Птица', subcategoryNav: 'poultry-dish' },
             { id: '044', title: 'Рыба', subcategoryNav: 'fish' },
             { id: '045', title: 'Грибы', subcategoryNav: 'griby' },
-            { id: '046', title: 'Овощи', subcategoryNav: 'vegetable' },
+            { id: '046', title: 'Овощи', subcategoryNav: 'vegetables' },
         ],
     },
     {
@@ -209,8 +209,8 @@ export const NAV_DATA: NavDataType[] = [
         items: [
             { id: '047', title: 'Закуски', subcategoryNav: 'snacks' },
             { id: '048', title: 'Первые блюда', subcategoryNav: 'pervye-bluda' },
-            { id: '049', title: 'Вторые блюда', subcategoryNav: 'vtorye-bluda' },
-            { id: '050', title: 'Гарниры', subcategoryNav: 'garniry' },
+            { id: '049', title: 'Вторые блюда', subcategoryNav: 'second-dish' },
+            { id: '050', title: 'Гарниры', subcategoryNav: 'side-dishes' },
             { id: '051', title: 'Десерты', subcategoryNav: 'deserty' },
             { id: '052', title: 'Выпечка', subcategoryNav: 'vypechka' },
             { id: '053', title: 'Сыроедческие блюда', subcategoryNav: 'syroednye-bluda' },
@@ -225,8 +225,8 @@ export const NAV_DATA: NavDataType[] = [
         image: hildrensDishesImg,
         items: [
             { id: '055', title: 'Первые блюда', subcategoryNav: 'pervye-bluda' },
-            { id: '056', title: 'Вторые блюда', subcategoryNav: 'vtorye-bluda' },
-            { id: '057', title: 'Гарниры', subcategoryNav: 'garniry' },
+            { id: '056', title: 'Вторые блюда', subcategoryNav: 'second-dish' },
+            { id: '057', title: 'Гарниры', subcategoryNav: 'side-dishes' },
             { id: '058', title: 'Выпечка', subcategoryNav: 'vypechka' },
             { id: '059', title: 'Без глютена', subcategoryNav: 'bez-glutena' },
             { id: '060', title: 'Без сахара', subcategoryNav: 'bez-sahara' },
@@ -266,21 +266,21 @@ export const NAV_DATA: NavDataType[] = [
         testId: 'nacional',
         image: nationalDishesImg,
         items: [
-            { id: '079', title: 'Американская кухня', subcategoryNav: 'american-cuisine' },
-            { id: '080', title: 'Армянская кухня', subcategoryNav: 'armian-cuisine' },
-            { id: '081', title: 'Греческая кухня', subcategoryNav: 'greece-cuisine' },
-            { id: '082', title: 'Грузинская кухня', subcategoryNav: 'georgia-cuisine' },
-            { id: '083', title: 'Итальянская кухня', subcategoryNav: 'italian-cuisine' },
-            { id: '084', title: 'Испанская кухня', subcategoryNav: 'spain-cuisine' },
-            { id: '085', title: 'Китайская кухня', subcategoryNav: 'china-cuisine' },
-            { id: '086', title: 'Мексиканская кухня', subcategoryNav: 'mexican-cuisine' },
-            { id: '087', title: 'Паназиатская кухня', subcategoryNav: 'panasia-cuisine' },
-            { id: '088', title: 'Русская кухня', subcategoryNav: 'russian-cuisine' },
-            { id: '089', title: 'Турецкая кухня', subcategoryNav: 'turkish-cuisine' },
-            { id: '090', title: 'Французская кухня', subcategoryNav: 'french-cuisine' },
-            { id: '091', title: 'Шведская кухня', subcategoryNav: 'sweden-cuisine' },
-            { id: '092', title: 'Японская кухня', subcategoryNav: 'japan-cuisine' },
-            { id: '093', title: 'Другая кухня', subcategoryNav: 'other-cuisine' },
+            { id: '079', title: 'Американская кухня', subcategoryNav: 'american' },
+            { id: '080', title: 'Армянская кухня', subcategoryNav: 'armian' },
+            { id: '081', title: 'Греческая кухня', subcategoryNav: 'greece' },
+            { id: '082', title: 'Грузинская кухня', subcategoryNav: 'georgia' },
+            { id: '083', title: 'Итальянская кухня', subcategoryNav: 'italian' },
+            { id: '084', title: 'Испанская кухня', subcategoryNav: 'spain' },
+            { id: '085', title: 'Китайская кухня', subcategoryNav: 'china' },
+            { id: '086', title: 'Мексиканская кухня', subcategoryNav: 'mexican' },
+            { id: '087', title: 'Паназиатская кухня', subcategoryNav: 'panasia' },
+            { id: '088', title: 'Русская кухня', subcategoryNav: 'russian' },
+            { id: '089', title: 'Турецкая кухня', subcategoryNav: 'turkish' },
+            { id: '090', title: 'Французская кухня', subcategoryNav: 'french' },
+            { id: '091', title: 'Шведская кухня', subcategoryNav: 'sweden' },
+            { id: '092', title: 'Японская кухня', subcategoryNav: 'japan' },
+            { id: '093', title: 'Другая кухня', subcategoryNav: 'other' },
         ],
     },
     {
@@ -325,18 +325,18 @@ export const NAV_DATA: NavDataType[] = [
             { id: '108', title: 'Из огурцов', subcategoryNav: 'iz-ogurcov' },
             { id: '109', title: 'Из томатов', subcategoryNav: 'iz-tomatov' },
             { id: '110', title: 'Из грибов', subcategoryNav: 'iz-gribov' },
-            { id: '111', title: 'Овощные заготовки', subcategoryNav: 'vegetable-zagotovki' },
-            { id: '112', title: 'Салаты, икра', subcategoryNav: 'salaty-ikra' },
+            { id: '111', title: 'Овощные заготовки', subcategoryNav: 'vegetables-zagotovki' },
+            { id: '112', title: 'Салаты, икра', subcategoryNav: 'salads-ikra' },
             { id: '113', title: 'Из фруктов и ягод', subcategoryNav: 'iz-fructov-jagod' },
         ],
     },
 ];
 
 export const CATEGORY_LIST = [
-    'salaty',
-    'zakuski',
+    'salads',
+    'snacks',
     'perviebluda',
-    'vtoriebluda',
+    'second-dish',
     'deserty',
     'gril',
     'vegan',
@@ -349,12 +349,12 @@ export const CATEGORY_LIST = [
 ];
 
 export const CATEGORY_DB: CategoryDbType = {
-    salaty: {
+    salads: {
         id: '01',
         category: 'Салаты',
         image: saladsImg,
     },
-    zakuski: {
+    snacks: {
         id: '02',
         category: 'Закуски',
         image: appetizersImg,
@@ -364,7 +364,7 @@ export const CATEGORY_DB: CategoryDbType = {
         category: 'Первые блюда',
         image: firstCoursesImg,
     },
-    vtoriebluda: {
+    'second-dish': {
         id: '04',
         category: 'Вторые блюда',
         image: mainCoursesImg,
@@ -453,7 +453,7 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         title: 'Салат "Здоровье"',
         description:
             'Сельдерей очень полезен для здоровья, пора набираться витаминов. Не  салат, а сплошное удовольствие:) ...',
-        badgeType: 'salaty',
+        badgeType: 'salads',
     },
     {
         id: '05',
@@ -524,7 +524,7 @@ export const JUICIEST_DATA: RecipeItemType[] = [
         title: 'Кнели со спагетти',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'vtoriebluda',
+        badgeType: 'second-dish',
         recipeProps: [
             { id: '01', type: 'pin', value: '85' },
             { id: '02', type: 'like', value: '152' },
@@ -536,7 +536,7 @@ export const JUICIEST_DATA: RecipeItemType[] = [
         title: 'Пряная ветчина по итальянски',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'vtoriebluda',
+        badgeType: 'second-dish',
         recipeProps: [
             { id: '01', type: 'pin', value: '159' },
             { id: '02', type: 'like', value: '257' },
@@ -553,7 +553,7 @@ export const JUICIEST_DATA: RecipeItemType[] = [
         title: 'Лапша с курицей и шафраном',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'vtoriebluda',
+        badgeType: 'second-dish',
         recipeProps: [
             { id: '01', type: 'pin', value: '258' },
             { id: '02', type: 'like', value: '342' },
@@ -648,14 +648,14 @@ export const JUICIEST_PIN_DATA: RecipeItemType[] = [
         title: 'Стейк для вегетарианцев',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'vtoriebluda',
+        badgeType: 'second-dish',
     },
     {
         id: '02',
         title: 'Котлеты из гречки и фасоли',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'vtoriebluda',
+        badgeType: 'second-dish',
     },
     {
         id: '03',
@@ -687,7 +687,7 @@ export const PAGE_DB: PageDbType = {
                 title: 'Картошка, тушенная с болгарским перцем и фасолью в томатном соусе',
                 description:
                     'Картошка, тушенная с болгарским перцем, фасолью, морковью и луком, -  вариант сытного блюда на каждый день. Фасоль в данном случае заменяет мясо, делая рагу сытным и питательным. Чтобы сократить время  приготовления, возьмём консервированную фасоль. Блюдо хоть и простое, но в полной мере наполнено ароматами и имеет выразительный вкус за счёт  добавления томатной пасты.',
-                badgeType: 'vtoriebluda',
+                badgeType: 'second-dish',
                 recipeProps: [
                     { id: '01', type: 'pin', value: '1' },
                     { id: '02', type: 'like', value: '1' },
@@ -698,7 +698,7 @@ export const PAGE_DB: PageDbType = {
                 title: 'Капустные котлеты',
                 description:
                     'Капустные котлеты по этому рецепту получаются необычайно пышными и  невероятно вкусными. Мягкий вкус и лёгкая пряная нотка наверняка помогут сделать эти чудесные котлеты из капусты одним из ваших любимых овощных  блюд.',
-                badgeType: 'vtoriebluda',
+                badgeType: 'second-dish',
                 recipeProps: [
                     { id: '01', type: 'pin', value: '2' },
                     { id: '02', type: 'like', value: '1' },
@@ -711,14 +711,14 @@ export const PAGE_DB: PageDbType = {
                 title: 'Стейк для вегетарианцев',
                 description:
                     'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-                badgeType: 'vtoriebluda',
+                badgeType: 'second-dish',
             },
             {
                 id: '02',
                 title: 'Котлеты из гречки и фасоли',
                 description:
                     'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-                badgeType: 'vtoriebluda',
+                badgeType: 'second-dish',
             },
             {
                 id: '03',
@@ -729,12 +729,12 @@ export const PAGE_DB: PageDbType = {
             },
         ],
     },
-    salaty: {
+    salads: {
         id: '01',
         title: 'Салаты',
         desc: '',
     },
-    zakuski: {
+    snacks: {
         id: '02',
         title: 'Закуски',
         desc: '',
@@ -744,7 +744,7 @@ export const PAGE_DB: PageDbType = {
         title: 'Первые блюда',
         desc: '',
     },
-    vtoriebluda: {
+    'second-dish': {
         id: '04',
         title: 'Вторые блюда',
         desc: '',
@@ -845,7 +845,7 @@ export const JUICIEST_DATA_FULL: RecipeItemType[] = [
         title: 'Лапша с курицей и шафраном',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'vtoriebluda',
+        badgeType: 'second-dish',
         recipeProps: [
             { id: '01', type: 'pin', value: '258' },
             { id: '02', type: 'like', value: '342' },
@@ -874,7 +874,7 @@ export const JUICIEST_DATA_FULL: RecipeItemType[] = [
         title: 'Пряная ветчина по итальянски',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'vtoriebluda',
+        badgeType: 'second-dish',
         recipeProps: [
             { id: '01', type: 'pin', value: '159' },
             { id: '02', type: 'like', value: '257' },
@@ -891,7 +891,7 @@ export const JUICIEST_DATA_FULL: RecipeItemType[] = [
         title: 'Кнели со спагетти',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'vtoriebluda',
+        badgeType: 'second-dish',
         recipeProps: [
             { id: '01', type: 'pin', value: '124' },
             { id: '02', type: 'like', value: '231' },
@@ -903,7 +903,7 @@ export const JUICIEST_DATA_FULL: RecipeItemType[] = [
         title: 'Картошка, тушенная с болгарским перцем и фасолью в томатном соусе',
         description:
             'Картошка, тушенная с болгарским перцем, фасолью, морковью и луком, -  вариант сытного блюда на каждый день. Фасоль в данном случае заменяет  мясо, делая рагу сытным и питательным. Чтобы сократить время  приготовления, возьмём консервированную фасоль. Блюдо хоть и простое, но в полной мере наполнено ароматами и имеет выразительный вкус за счёт  добавления томатной пасты.',
-        badgeType: 'vtoriebluda',
+        badgeType: 'second-dish',
         recipeProps: [
             { id: '01', type: 'pin', value: '120' },
             { id: '02', type: 'like', value: '180' },
@@ -939,7 +939,7 @@ export const JUICIEST_DATA_FULL: RecipeItemType[] = [
         title: 'Тефтели из булгура и чечевицы, запечённые в томатном соусе',
         description:
             'Тефтели из булгура и чечевицы – яркие и питательные, отлично подходят  для постного и вегетарианского меню. Тефтели получаются нежными, а также сочными и ароматными благодаря использованию томатного соуса и душистых пряностей.',
-        badgeType: 'vtoriebluda',
+        badgeType: 'second-dish',
         recipeProps: [
             { id: '01', type: 'pin', value: '85' },
             { id: '02', type: 'like', value: '150' },
@@ -1002,7 +1002,7 @@ export const VEGAN_DATA_FULL: RecipeItemType[] = [
         title: 'Тефтели из булгура и чечевицы, запечённые в томатном соусе',
         description:
             'Тефтели из булгура и чечевицы – яркие и питательные, отлично подходят  для постного и вегетарианского меню. Тефтели получаются нежными, а также сочными и ароматными благодаря использованию томатного соуса и душистых пряностей.',
-        badgeType: 'vtoriebluda',
+        badgeType: 'second-dish',
         recipeProps: [
             { id: '01', type: 'pin', value: '85' },
             { id: '02', type: 'like', value: '152' },
@@ -1014,7 +1014,7 @@ export const VEGAN_DATA_FULL: RecipeItemType[] = [
         title: 'Тефтели из булгура и чечевицы, запечённые в томатном соусе',
         description:
             'Тефтели из булгура и чечевицы – яркие и питательные, отлично подходят  для постного и вегетарианского меню. Тефтели получаются нежными, а также сочными и ароматными благодаря использованию томатного соуса и душистых пряностей.',
-        badgeType: 'vtoriebluda',
+        badgeType: 'second-dish',
         recipeProps: [
             { id: '01', type: 'pin', value: '85' },
             { id: '02', type: 'like', value: '152' },
