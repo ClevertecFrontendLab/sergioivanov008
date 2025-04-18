@@ -47,7 +47,6 @@ import {
     NavDataType,
     PageDbType,
     RecipeItemFullType,
-    RecipeItemType,
 } from '~/components/types';
 
 export const AVATAR_DATA: AvatarContentType = {
@@ -416,15 +415,15 @@ export const CATEGORY_DB: CategoryDbType = {
     },
 };
 
-export const NEW_RECIPES_DATA: RecipeItemType[] = [
+export const NEW_RECIPES_DATA: RecipeItemFullType[] = [
     {
         id: '01',
         image: recipe1Img,
         title: 'Солянка с грибами',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'perviebluda',
-        recipeProps: [{ id: '01', type: 'pin', value: '1' }],
+        category: ['perviebluda', 'deserty'],
+        bookmarks: 1,
     },
     {
         id: '02',
@@ -432,11 +431,9 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         title: 'Капустные котлеты',
         description:
             'Капустные котлеты по этому рецепту получаются необычайно пышными и  невероятно вкусными. Мягкий вкус и ...',
-        badgeType: 'vegan',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '2' },
-            { id: '02', type: 'like', value: '1' },
-        ],
+        category: ['vegan'],
+        bookmarks: 2,
+        likes: 1,
     },
     {
         id: '03',
@@ -444,8 +441,8 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         title: 'Оладьи на кефире "Пышные"',
         description:
             'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        badgeType: 'deserty',
-        recipeProps: [{ id: '01', type: 'like', value: '1' }],
+        category: ['deserty'],
+        likes: 1,
     },
     {
         id: '04',
@@ -453,7 +450,7 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         title: 'Салат "Здоровье"',
         description:
             'Сельдерей очень полезен для здоровья, пора набираться витаминов. Не  салат, а сплошное удовольствие:) ...',
-        badgeType: 'salads',
+        category: ['salads'],
     },
     {
         id: '05',
@@ -461,8 +458,8 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         title: 'Оладьи на кефире "Пышные"',
         description:
             'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        badgeType: 'deserty',
-        recipeProps: [{ id: '01', type: 'like', value: '1' }],
+        category: ['deserty'],
+        likes: 1,
     },
     {
         id: '06',
@@ -470,8 +467,8 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         title: 'Оладьи на кефире "Пышные"',
         description:
             'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        badgeType: 'deserty',
-        recipeProps: [{ id: '01', type: 'like', value: '1' }],
+        category: ['deserty'],
+        likes: 1,
     },
     {
         id: '07',
@@ -479,8 +476,8 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         title: 'Оладьи на кефире "Пышные"',
         description:
             'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        badgeType: 'deserty',
-        recipeProps: [{ id: '01', type: 'like', value: '1' }],
+        category: ['deserty'],
+        likes: 1,
     },
     {
         id: '08',
@@ -488,8 +485,8 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         title: 'Оладьи на кефире "Пышные"',
         description:
             'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        badgeType: 'deserty',
-        recipeProps: [{ id: '01', type: 'like', value: '1' }],
+        category: ['deserty'],
+        likes: 1,
     },
     {
         id: '09',
@@ -497,8 +494,8 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         title: 'Оладьи на кефире "Пышные"',
         description:
             'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        badgeType: 'deserty',
-        recipeProps: [{ id: '01', type: 'like', value: '1' }],
+        category: ['deserty'],
+        likes: 1,
     },
     {
         id: '10',
@@ -506,8 +503,8 @@ export const NEW_RECIPES_DATA: RecipeItemType[] = [
         title: 'Оладьи на кефире "Пышные"',
         description:
             'Очень вкусные и нежные оладьи на кефире. Настоятельно рекомендую пышные кефирные оладьи на завтрак.',
-        badgeType: 'deserty',
-        recipeProps: [{ id: '01', type: 'like', value: '1' }],
+        category: ['deserty'],
+        likes: 1,
     },
 ];
 
@@ -517,18 +514,16 @@ export const TITLES = {
     blogs: 'Кулинарные блоги',
 };
 
-export const JUICIEST_DATA: RecipeItemType[] = [
+export const JUICIEST_DATA: RecipeItemFullType[] = [
     {
         id: '01',
         image: recipe5Img,
         title: 'Кнели со спагетти',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'second-dish',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '85' },
-            { id: '02', type: 'like', value: '152' },
-        ],
+        category: ['second-dish'],
+        bookmarks: 85,
+        likes: 152,
     },
     {
         id: '02',
@@ -536,11 +531,9 @@ export const JUICIEST_DATA: RecipeItemType[] = [
         title: 'Пряная ветчина по итальянски',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'second-dish',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '159' },
-            { id: '02', type: 'like', value: '257' },
-        ],
+        category: ['second-dish'],
+        bookmarks: 159,
+        likes: 257,
         recomendation: {
             id: '01',
             image: avatarImg2,
@@ -553,11 +546,9 @@ export const JUICIEST_DATA: RecipeItemType[] = [
         title: 'Лапша с курицей и шафраном',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'second-dish',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '258' },
-            { id: '02', type: 'like', value: '342' },
-        ],
+        category: ['second-dish'],
+        bookmarks: 258,
+        likes: 342,
         recomendation: {
             id: '02',
             image: avatarImg3,
@@ -570,11 +561,9 @@ export const JUICIEST_DATA: RecipeItemType[] = [
         title: 'Том-ям с капустой кимчи',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'nacional',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '124' },
-            { id: '02', type: 'like', value: '324' },
-        ],
+        category: ['nacional'],
+        bookmarks: 124,
+        likes: 324,
     },
 ];
 
@@ -618,54 +607,6 @@ export const TEXT = {
     mainPage: 'Главная',
 };
 
-export const VEGAN_PIN_DATA: RecipeItemType[] = [
-    {
-        id: '01',
-        title: 'Домашние сырные палочки',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'detskie',
-    },
-    {
-        id: '02',
-        title: 'Панкейки',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'nacional',
-    },
-    {
-        id: '03',
-        title: 'Воздушное банановое печенье на сковороде',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'vegan',
-    },
-];
-
-export const JUICIEST_PIN_DATA: RecipeItemType[] = [
-    {
-        id: '01',
-        title: 'Стейк для вегетарианцев',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'second-dish',
-    },
-    {
-        id: '02',
-        title: 'Котлеты из гречки и фасоли',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'second-dish',
-    },
-    {
-        id: '03',
-        title: 'Сырный суп с лапшой и брокколи',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'perviebluda',
-    },
-];
-
 export const PAGE_DB: PageDbType = {
     home: {
         id: '100',
@@ -687,22 +628,18 @@ export const PAGE_DB: PageDbType = {
                 title: 'Картошка, тушенная с болгарским перцем и фасолью в томатном соусе',
                 description:
                     'Картошка, тушенная с болгарским перцем, фасолью, морковью и луком, -  вариант сытного блюда на каждый день. Фасоль в данном случае заменяет мясо, делая рагу сытным и питательным. Чтобы сократить время  приготовления, возьмём консервированную фасоль. Блюдо хоть и простое, но в полной мере наполнено ароматами и имеет выразительный вкус за счёт  добавления томатной пасты.',
-                badgeType: 'second-dish',
-                recipeProps: [
-                    { id: '01', type: 'pin', value: '1' },
-                    { id: '02', type: 'like', value: '1' },
-                ],
+                category: ['second-dish'],
+                bookmarks: 1,
+                likes: 1,
             },
             {
                 id: '02',
                 title: 'Капустные котлеты',
                 description:
                     'Капустные котлеты по этому рецепту получаются необычайно пышными и  невероятно вкусными. Мягкий вкус и лёгкая пряная нотка наверняка помогут сделать эти чудесные котлеты из капусты одним из ваших любимых овощных  блюд.',
-                badgeType: 'second-dish',
-                recipeProps: [
-                    { id: '01', type: 'pin', value: '2' },
-                    { id: '02', type: 'like', value: '1' },
-                ],
+                category: ['second-dish'],
+                bookmarks: 2,
+                likes: 1,
             },
         ],
         pinRecipes: [
@@ -711,21 +648,21 @@ export const PAGE_DB: PageDbType = {
                 title: 'Стейк для вегетарианцев',
                 description:
                     'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-                badgeType: 'second-dish',
+                category: ['second-dish'],
             },
             {
                 id: '02',
                 title: 'Котлеты из гречки и фасоли',
                 description:
                     'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-                badgeType: 'second-dish',
+                category: ['second-dish'],
             },
             {
                 id: '03',
                 title: 'Сырный суп с лапшой и брокколи',
                 description:
                     'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-                badgeType: 'perviebluda',
+                category: ['perviebluda'],
             },
         ],
     },
@@ -759,22 +696,18 @@ export const PAGE_DB: PageDbType = {
                 title: 'Бананово-молочное желе',
                 description:
                     'Молочное желе – это просто, вкусно и полезно, ведь для его приготовления в качестве основы используется молоко.',
-                badgeType: 'detskie',
-                recipeProps: [
-                    { id: '01', type: 'pin', value: '1' },
-                    { id: '02', type: 'like', value: '1' },
-                ],
+                category: ['detskie'],
+                bookmarks: 1,
+                likes: 1,
             },
             {
                 id: '02',
                 title: 'Нежный сливочно-сырный крем для кексов',
                 description:
                     'Сливочно-сырным кремом можно украсить кексы, либо другую выпечку, а также этим кремом можно наполнить заварные пирожные.',
-                badgeType: 'detskie',
-                recipeProps: [
-                    { id: '01', type: 'pin', value: '2' },
-                    { id: '02', type: 'like', value: '1' },
-                ],
+                category: ['detskie'],
+                bookmarks: 2,
+                likes: 1,
             },
         ],
         pinRecipes: [
@@ -783,21 +716,21 @@ export const PAGE_DB: PageDbType = {
                 title: 'Домашние сырные палочки',
                 description:
                     'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-                badgeType: 'detskie',
+                category: ['detskie'],
             },
             {
                 id: '02',
                 title: 'Панкейки',
                 description:
                     'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-                badgeType: 'nacional',
+                category: ['nacional'],
             },
             {
                 id: '03',
                 title: 'Воздушное банановое печенье на сковороде',
                 description:
                     'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-                badgeType: 'vegan',
+                category: ['vegan'],
             },
         ],
     },
@@ -838,18 +771,16 @@ export const PAGE_DB: PageDbType = {
     },
 };
 
-export const JUICIEST_DATA_FULL: RecipeItemType[] = [
+export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
     {
         id: '01',
         image: juiciest101Img,
         title: 'Лапша с курицей и шафраном',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'second-dish',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '258' },
-            { id: '02', type: 'like', value: '342' },
-        ],
+        category: ['second-dish'],
+        bookmarks: 258,
+        likes: 342,
         recomendation: {
             id: '02',
             image: avatarImg3,
@@ -862,11 +793,9 @@ export const JUICIEST_DATA_FULL: RecipeItemType[] = [
         title: 'Том-ям с капустой кимчи',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'nacional',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '124' },
-            { id: '02', type: 'like', value: '324' },
-        ],
+        category: ['nacional'],
+        bookmarks: 124,
+        likes: 324,
     },
     {
         id: '03',
@@ -874,11 +803,9 @@ export const JUICIEST_DATA_FULL: RecipeItemType[] = [
         title: 'Пряная ветчина по итальянски',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'second-dish',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '159' },
-            { id: '02', type: 'like', value: '257' },
-        ],
+        category: ['second-dish'],
+        bookmarks: 159,
+        likes: 257,
         recomendation: {
             id: '01',
             image: avatarImg2,
@@ -891,11 +818,9 @@ export const JUICIEST_DATA_FULL: RecipeItemType[] = [
         title: 'Кнели со спагетти',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'second-dish',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '124' },
-            { id: '02', type: 'like', value: '231' },
-        ],
+        category: ['second-dish'],
+        bookmarks: 124,
+        likes: 231,
     },
     {
         id: '05',
@@ -903,11 +828,9 @@ export const JUICIEST_DATA_FULL: RecipeItemType[] = [
         title: 'Картошка, тушенная с болгарским перцем и фасолью в томатном соусе',
         description:
             'Картошка, тушенная с болгарским перцем, фасолью, морковью и луком, -  вариант сытного блюда на каждый день. Фасоль в данном случае заменяет  мясо, делая рагу сытным и питательным. Чтобы сократить время  приготовления, возьмём консервированную фасоль. Блюдо хоть и простое, но в полной мере наполнено ароматами и имеет выразительный вкус за счёт  добавления томатной пасты.',
-        badgeType: 'second-dish',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '120' },
-            { id: '02', type: 'like', value: '180' },
-        ],
+        category: ['second-dish'],
+        bookmarks: 120,
+        likes: 180,
     },
     {
         id: '06',
@@ -915,11 +838,9 @@ export const JUICIEST_DATA_FULL: RecipeItemType[] = [
         title: 'Картофельные рулетики с грибами',
         description:
             'Рекомендую всем приготовить постное блюдо из картофеля и грибов.  Готовится это блюдо без яиц, без мяса и без сыра, из самых простых  ингредиентов, а получается очень вкусно и сытно. Постный рецепт  картофельных рулетиков с грибами, в томатном соусе, - на обед, ужин и  даже на праздничный стол!',
-        badgeType: 'detskie',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '85' },
-            { id: '02', type: 'like', value: '180' },
-        ],
+        category: ['detskie'],
+        bookmarks: 85,
+        likes: 180,
     },
     {
         id: '07',
@@ -927,11 +848,9 @@ export const JUICIEST_DATA_FULL: RecipeItemType[] = [
         title: 'Овощная лазанья из лаваша',
         description:
             'Большое, сытное блюдо для ценителей блюд без мяса! Такая лазанья  готовится с овощным соусом и соусом бешамель, а вместо листов для  лазаньи используется тонкий лаваш.',
-        badgeType: 'gril',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '85' },
-            { id: '02', type: 'like', value: '182' },
-        ],
+        category: ['gril'],
+        bookmarks: 85,
+        likes: 182,
     },
     {
         id: '08',
@@ -939,26 +858,22 @@ export const JUICIEST_DATA_FULL: RecipeItemType[] = [
         title: 'Тефтели из булгура и чечевицы, запечённые в томатном соусе',
         description:
             'Тефтели из булгура и чечевицы – яркие и питательные, отлично подходят  для постного и вегетарианского меню. Тефтели получаются нежными, а также сочными и ароматными благодаря использованию томатного соуса и душистых пряностей.',
-        badgeType: 'second-dish',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '85' },
-            { id: '02', type: 'like', value: '150' },
-        ],
+        category: ['second-dish'],
+        bookmarks: 85,
+        likes: 150,
     },
 ];
 
-export const VEGAN_DATA_FULL: RecipeItemType[] = [
+export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
     {
         id: '01',
         image: vegan101Img,
         title: 'Картошка, тушенная с болгарским перцем и фасолью в томатном соусе',
         description:
             'Картошка, тушенная с болгарским перцем, фасолью, морковью и луком, -  вариант сытного блюда на каждый день. Фасоль в данном случае заменяет  мясо, делая рагу сытным и питательным. Чтобы сократить время  приготовления, возьмём консервированную фасоль. Блюдо хоть и простое, но в полной мере наполнено ароматами и имеет выразительный вкус за счёт  добавления томатной пасты.',
-        badgeType: 'nacional',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '85' },
-            { id: '02', type: 'like', value: '152' },
-        ],
+        category: ['nacional'],
+        bookmarks: 85,
+        likes: 152,
     },
     {
         id: '02',
@@ -966,11 +881,9 @@ export const VEGAN_DATA_FULL: RecipeItemType[] = [
         title: 'Картофельные рулетики с грибами',
         description:
             'Рекомендую всем приготовить постное блюдо из картофеля и грибов.  Готовится это блюдо без яиц, без мяса и без сыра, из самых простых  ингредиентов, а получается очень вкусно и сытно. Постный рецепт  картофельных рулетиков с грибами, в томатном соусе, - на обед, ужин и  даже на праздничный стол!',
-        badgeType: 'detskie',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '124' },
-            { id: '02', type: 'like', value: '324' },
-        ],
+        category: ['detskie'],
+        bookmarks: 124,
+        likes: 324,
     },
     {
         id: '03',
@@ -978,11 +891,9 @@ export const VEGAN_DATA_FULL: RecipeItemType[] = [
         title: 'Том-ям с капустой кимчи',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        badgeType: 'nacional',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '124' },
-            { id: '02', type: 'like', value: '324' },
-        ],
+        category: ['nacional'],
+        bookmarks: 124,
+        likes: 324,
     },
     {
         id: '04',
@@ -990,11 +901,9 @@ export const VEGAN_DATA_FULL: RecipeItemType[] = [
         title: 'Овощная лазанья из лаваша',
         description:
             'Большое, сытное блюдо для ценителей блюд без мяса! Такая лазанья  готовится с овощным соусом и соусом бешамель, а вместо листов для  лазаньи используется тонкий лаваш.',
-        badgeType: 'gril',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '85' },
-            { id: '02', type: 'like', value: '152' },
-        ],
+        category: ['gril'],
+        bookmarks: 85,
+        likes: 152,
     },
     {
         id: '05',
@@ -1002,11 +911,9 @@ export const VEGAN_DATA_FULL: RecipeItemType[] = [
         title: 'Тефтели из булгура и чечевицы, запечённые в томатном соусе',
         description:
             'Тефтели из булгура и чечевицы – яркие и питательные, отлично подходят  для постного и вегетарианского меню. Тефтели получаются нежными, а также сочными и ароматными благодаря использованию томатного соуса и душистых пряностей.',
-        badgeType: 'second-dish',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '85' },
-            { id: '02', type: 'like', value: '152' },
-        ],
+        category: ['second-dish'],
+        bookmarks: 85,
+        likes: 152,
     },
     {
         id: '06',
@@ -1014,11 +921,9 @@ export const VEGAN_DATA_FULL: RecipeItemType[] = [
         title: 'Тефтели из булгура и чечевицы, запечённые в томатном соусе',
         description:
             'Тефтели из булгура и чечевицы – яркие и питательные, отлично подходят  для постного и вегетарианского меню. Тефтели получаются нежными, а также сочными и ароматными благодаря использованию томатного соуса и душистых пряностей.',
-        badgeType: 'second-dish',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '85' },
-            { id: '02', type: 'like', value: '152' },
-        ],
+        category: ['second-dish'],
+        bookmarks: 85,
+        likes: 152,
     },
     {
         id: '07',
@@ -1026,11 +931,9 @@ export const VEGAN_DATA_FULL: RecipeItemType[] = [
         title: 'Чесночная картошка',
         description:
             'Такая картошечка украсит любой семейный обед! Все будут в полном  восторге, очень вкусно! Аромат чеснока, хрустящая корочка на картошечке - просто объедение! Отличная идея для обеда или ужина, готовится просто!',
-        badgeType: 'nacional',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '124' },
-            { id: '02', type: 'like', value: '324' },
-        ],
+        category: ['nacional'],
+        bookmarks: 124,
+        likes: 324,
     },
     {
         id: '08',
@@ -1038,11 +941,9 @@ export const VEGAN_DATA_FULL: RecipeItemType[] = [
         title: 'Пури',
         description:
             'Пури - это индийские жареные лепешки, которые готовятся из пресного  теста. Рецепт лепешек пури требует самых доступных ингредиентов, и  времени на приготовление хрустящих лепешек уйдет мало.',
-        badgeType: 'nacional',
-        recipeProps: [
-            { id: '01', type: 'pin', value: '124' },
-            { id: '02', type: 'like', value: '324' },
-        ],
+        category: ['nacional'],
+        bookmarks: 124,
+        likes: 324,
     },
 ];
 

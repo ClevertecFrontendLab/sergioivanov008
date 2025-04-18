@@ -89,7 +89,7 @@ export type CategoryKeyType =
 export type CategoryDbType = Record<CategoryKeyType, CategoryDataType>;
 
 export type BadgePropsType = {
-    type: CategoryKeyType;
+    category: string[];
     color: string;
 };
 
@@ -105,18 +105,8 @@ export type RecipeRecomendationType = {
     name: string;
 };
 
-export type RecipeItemType = {
-    id: string;
-    image?: string;
-    title: string;
-    description: string;
-    badgeType: CategoryKeyType;
-    recipeProps?: RecipePropsType[];
-    recomendation?: RecipeRecomendationType;
-};
-
 export type RecipeItemPropsType = {
-    data: RecipeItemType;
+    data: RecipeItemFullType;
 };
 
 export type AvatarContentType = {
@@ -148,7 +138,8 @@ export type SectionTitlePropsType = {
 };
 
 export type RecipeStatisticPropsType = {
-    data: RecipePropsType[];
+    bookmarks?: number;
+    likes?: number;
 };
 
 export type PageType = CategoryKeyType | 'home' | 'juiciest';
@@ -157,8 +148,8 @@ export type PageHeaderItemType = {
     id: string;
     title: string;
     desc: string;
-    recipes?: RecipeItemType[];
-    pinRecipes?: RecipeItemType[];
+    recipes?: RecipeItemFullType[];
+    pinRecipes?: RecipeItemFullType[];
 };
 
 export type PageDbType = Record<PageType, PageHeaderItemType>;
@@ -172,7 +163,7 @@ export type PagePropsType = {
 };
 
 export type RecipesGridPropsType = {
-    data: RecipeItemType[];
+    data: RecipeItemFullType[];
 };
 
 export type PageRecipesSectionPropsType = {
@@ -191,29 +182,30 @@ export type RecipeItemFullType = {
     title: string;
     description: string;
     category: string[];
-    subcategory: string[];
-    image: string;
-    bookmarks: number;
-    likes: number;
-    date: string;
-    time: string;
+    subcategory?: string[];
+    image?: string;
+    bookmarks?: number;
+    likes?: number;
+    date?: string;
+    time?: string;
     portions?: number;
-    nutritionValue: {
+    nutritionValue?: {
         calories: number;
         proteins: number;
         fats: number;
         carbohydrates: number;
     };
-    ingredients: {
+    ingredients?: {
         title: string;
         count: string;
         measureUnit: string;
     }[];
-    steps: {
+    steps?: {
         stepNumber: number;
         description: string;
         image: string;
     }[];
     meat?: string;
     side?: string;
+    recomendation?: RecipeRecomendationType;
 };
