@@ -32,6 +32,7 @@ export { NavComponent } from './nav-component/NavComponent.tsx';
 export { NavFooter } from './nav-footer/NavFooter.tsx';
 export { Navigation } from './navigation/Navigation.tsx';
 export { NewRecipesSection } from './new-recipes-section/NewRecipesSection.tsx';
+export { NutritionInfo } from './nutrition-info/NutritionInfo.tsx';
 export { PageFooterSection } from './page-footer-section/PageFooterSection.tsx';
 export { PageHeaderSection } from './page-header-section/PageHeaderSection.tsx';
 export { PageRecipesSection } from './page-recipes-section/PageRecipesSection.tsx';

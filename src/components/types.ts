@@ -175,6 +175,10 @@ export type BreadcrumbSlotType = {
     linkTo: string;
 };
 
+export type NutritionValueKeyType = 'calories' | 'proteins' | 'fats' | 'carbohydrates';
+
+export type NutritionValueType = Record<NutritionValueKeyType, number>;
+
 export type RecipeItemFullType = {
     id: string;
     title: string;
@@ -187,12 +191,7 @@ export type RecipeItemFullType = {
     date?: string;
     time?: string;
     portions?: number;
-    nutritionValue?: {
-        calories: number;
-        proteins: number;
-        fats: number;
-        carbohydrates: number;
-    };
+    nutritionValue?: NutritionValueType;
     ingredients?: {
         title: string;
         count: string;
@@ -210,4 +209,8 @@ export type RecipeItemFullType = {
 
 export type RecipeItemCardPropsType = {
     data: RecipeItemFullType;
+};
+
+export type NutritionInfoPropsType = {
+    data: NutritionValueType;
 };
