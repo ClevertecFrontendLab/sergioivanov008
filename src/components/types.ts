@@ -19,7 +19,7 @@ export type CustomIcon24PropsType = {
     props?: IconProps;
 };
 
-export type CustomIcon16Type = 'home' | 'search' | 'addRecipe';
+export type CustomIcon16Type = 'home' | 'search' | 'addRecipe' | 'time';
 
 export type OutCustomIcon16Type = Partial<Record<CustomIcon16Type, React.JSX.Element>>;
 
