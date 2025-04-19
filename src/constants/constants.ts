@@ -1288,3 +1288,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         ],
     },
 ];
+
+export const NUTRITION_INFO_TEXT = {
+    title: '* Калорийность на 1 порцию',
+    values: [
+        { id: '01', title: 'калорийность', key: 'calories', dimension: 'ккал' },
+        { id: '02', title: 'белки', key: 'proteins', dimension: 'грамм' },
+        { id: '03', title: 'жиры', key: 'fats', dimension: 'грамм' },
+        { id: '04', title: 'углеводы', key: 'carbohydrates', dimension: 'грамм' },
+    ],
+};
