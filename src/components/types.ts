@@ -207,3 +207,7 @@ export type RecipeItemFullType = {
     side?: string;
     recomendation?: RecipeRecomendationType;
 };
+
+export type RecipeItemCardPropsType = {
+    data: RecipeItemFullType;
+};

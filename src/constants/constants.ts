@@ -60,6 +60,8 @@ export const BTN_TEXT = {
     allSelection: 'Вся подборка',
     allAuthors: 'Все авторы',
     save: 'Сохранить',
+    saveToBookmarks: 'Сохранить в закладки',
+    rateRecipe: 'Оценить рецепт',
     cook: 'Готовить',
     loadMore: 'Загрузить еще',
 };
