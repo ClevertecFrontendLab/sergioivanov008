@@ -11,6 +11,7 @@ import PreparationsImg from '~/assets/icons/Preparations.png';
 import saladsImg from '~/assets/icons/Salads.png';
 import saucesImg from '~/assets/icons/Sauces.png';
 import veganCuisineImg from '~/assets/icons/VeganCuisine.png';
+import allRecipes7 from '~/assets/images/all_recipes_7.png';
 import avatarImg1 from '~/assets/images/avatar_image1.png';
 import avatarImg2 from '~/assets/images/avatar_image2.png';
 import avatarImg3 from '~/assets/images/avatar_image3.png';
@@ -1098,7 +1099,7 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         description: 'Ароматная лапша с курицей и шафраном, идеальное сочетание для сытного обеда.',
         category: ['second-dish'],
         subcategory: ['poultry-dish'],
-        image: vegan108Img,
+        image: allRecipes7,
         bookmarks: 258,
         likes: 1342,
         date: '2024-03-08T00:00:00Z',
@@ -1169,7 +1170,7 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         image: recipe1Img,
         bookmarks: 10,
         likes: 80,
-        date: '2025-04-01T00:00:00Z',
+        date: '2015-04-01T00:00:00Z',
         time: '25 минут',
         nutritionValue: { calories: 150, proteins: 4, fats: 6, carbohydrates: 20 },
         ingredients: [
@@ -1200,7 +1201,7 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         image: recipe2Img,
         bookmarks: 10,
         likes: 80,
-        date: '2025-04-02T00:00:00Z',
+        date: '2015-04-02T00:00:00Z',
         time: '25 минут',
         nutritionValue: { calories: 150, proteins: 4, fats: 6, carbohydrates: 20 },
         ingredients: [
@@ -1231,7 +1232,7 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         image: recipe3Img,
         bookmarks: 10,
         likes: 80,
-        date: '2025-04-03T00:00:00Z',
+        date: '2015-04-03T00:00:00Z',
         time: '25 минут',
         nutritionValue: { calories: 150, proteins: 4, fats: 6, carbohydrates: 20 },
         ingredients: [
@@ -1262,7 +1263,7 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         image: recipe4Img,
         bookmarks: 10,
         likes: 80,
-        date: '2025-04-04T00:00:00Z',
+        date: '2015-04-04T00:00:00Z',
         time: '25 минут',
         nutritionValue: { calories: 150, proteins: 4, fats: 6, carbohydrates: 20 },
         ingredients: [
