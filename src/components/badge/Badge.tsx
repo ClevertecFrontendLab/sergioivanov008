@@ -1,4 +1,4 @@
-import { Flex, Image, Stack, Text } from '@chakra-ui/react';
+import { Flex, Image, Text } from '@chakra-ui/react';
 
 import { NAV_DATA } from '~/constants';
 
@@ -6,7 +6,7 @@ import { BadgePropsType } from '../types';
 
 export function Badge({ category, color }: BadgePropsType) {
     return (
-        <Stack spacing='8px' align='flex-start' wrap='wrap'>
+        <Flex gap='8px' align='flex-start' wrap='wrap'>
             {category &&
                 category.map((el, index) => {
                     const curItem = NAV_DATA.find((item) => item.categoryNav === el);
@@ -39,6 +39,6 @@ export function Badge({ category, color }: BadgePropsType) {
                         </Flex>
                     );
                 })}
-        </Stack>
+        </Flex>
     );
 }
