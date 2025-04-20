@@ -24,6 +24,7 @@ export { FooterButton } from './footer-button/FooterButton.tsx';
 export { Header } from './header/Header.tsx';
 export { HeaderContent } from './header-content/HeaderContent.tsx';
 export { HeaderUserData } from './header-user-data/HeaderUserData.tsx';
+export { IngredientsInfo } from './ingredients-info/IngredientsInfo.tsx';
 export { JuiciestSection } from './juiciest-section/JuiciestSection.tsx';
 export { LogoIcon } from './logo-icon/LogoIcon.tsx';
 export { LogoText } from './logo-text/LogoText.tsx';

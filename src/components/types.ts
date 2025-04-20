@@ -179,6 +179,12 @@ export type NutritionValueKeyType = 'calories' | 'proteins' | 'fats' | 'carbohyd
 
 export type NutritionValueType = Record<NutritionValueKeyType, number>;
 
+export type IngredientsType = {
+    title: string;
+    count: string;
+    measureUnit: string;
+};
+
 export type RecipeItemFullType = {
     id: string;
     title: string;
@@ -192,11 +198,7 @@ export type RecipeItemFullType = {
     time?: string;
     portions?: number;
     nutritionValue?: NutritionValueType;
-    ingredients?: {
-        title: string;
-        count: string;
-        measureUnit: string;
-    }[];
+    ingredients?: IngredientsType[];
     steps?: {
         stepNumber: number;
         description: string;
@@ -213,4 +215,9 @@ export type RecipeItemCardPropsType = {
 
 export type NutritionInfoPropsType = {
     data: NutritionValueType;
+};
+
+export type IngredientsInfoPropsType = {
+    portions: number;
+    ingredients: IngredientsType[];
 };

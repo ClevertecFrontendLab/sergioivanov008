@@ -1298,3 +1298,8 @@ export const NUTRITION_INFO_TEXT = {
         { id: '04', title: 'углеводы', key: 'carbohydrates', dimension: 'грамм' },
     ],
 };
+
+export const INGREDIENTS_INFO_TEXT = {
+    titleLeft: 'ИНГРЕДИЕНТЫ',
+    titleRight: 'ПОРЦИЙ',
+};
