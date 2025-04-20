@@ -5,11 +5,11 @@ import { NUTRITION_INFO_TEXT } from '~/constants';
 
 export function NutritionInfo({ data }: NutritionInfoPropsType) {
     return (
-        <Flex direction='column' mx='auto' gap='20px'>
+        <Flex direction='column' mx='auto' gap='20px' mb='40px'>
             <Text fontWeight={400} fontSize='14px' lineHeight='143%' color='rgba(0, 0, 0, 0.8)'>
                 {NUTRITION_INFO_TEXT.title}
             </Text>
-            <Flex direction='row' gap={{ base: '12px', xl: '24px' }} mb='40px'>
+            <Flex direction='row' gap={{ base: '12px', xl: '24px' }}>
                 {NUTRITION_INFO_TEXT.values.map((el) => (
                     <Card
                         key={el.id}
