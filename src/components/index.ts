@@ -10,6 +10,7 @@ export { BurgerMenu } from './burger-menu/BurgerMenu.tsx';
 export { BurgerMenuButton } from './burger-menu-button/BurgerMenuButton.tsx';
 export { Category } from './category/Category.tsx';
 export { CategoryItem } from './category-item/CategoryItem.tsx';
+export { CookingStepsInfo } from './cooking-steps-info/CookingStepsInfo.tsx';
 export { CustomIcon12 } from './custom-icon-12/CustomIcon12.tsx';
 export { CustomIcon16 } from './custom-icon-16/CustomIcon16.tsx';
 export { CustomIcon24 } from './custom-icon-24/CustomIcon24.tsx';
