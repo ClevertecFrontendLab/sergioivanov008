@@ -33,7 +33,7 @@ export function AuthorInfo({ data }: AuthorInfoPropsType) {
             <Stack
                 py={{ xl: '24px' }}
                 pr={{ xl: '24px' }}
-                pl={{ xl: '16px' }}
+                pl={{ xl: '0px' }}
                 spacing={{ xl: '16px' }}
                 w='100%'
             >
