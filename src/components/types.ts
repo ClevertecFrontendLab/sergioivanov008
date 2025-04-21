@@ -188,7 +188,7 @@ export type IngredientsType = {
 export type StepsType = {
     stepNumber: number;
     description: string;
-    image: string;
+    image?: string;
 };
 
 export type RecipeItemFullType = {
@@ -222,4 +222,8 @@ export type NutritionInfoPropsType = {
 export type IngredientsInfoPropsType = {
     portions: number;
     ingredients: IngredientsType[];
+};
+
+export type CookingStepsInfoPropsType = {
+    data: StepsType[];
 };
