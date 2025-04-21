@@ -10,7 +10,7 @@ import {
     Text,
 } from '@chakra-ui/react';
 
-import { Badge, RecipeStatistic, RecomendationBadge } from '~/components';
+import { CustomBadge, RecipeStatistic, RecomendationBadge } from '~/components';
 
 import { RecipeItemPropsType } from '../types';
 
@@ -73,7 +73,7 @@ export function RecipeItemLook({ data }: RecipeItemPropsType) {
                             left={{ base: '8px', lg: '0px' }}
                             top={{ base: '8px', lg: '0px' }}
                         >
-                            <Badge category={data.category} color='#d7ff94' />
+                            <CustomBadge category={data.category} color='#d7ff94' />
                         </Box>
                         <RecipeStatistic bookmarks={bookmarks} likes={likes} />
                     </Flex>

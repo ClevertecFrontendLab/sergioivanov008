@@ -4,7 +4,7 @@ import { NAV_DATA } from '~/constants';
 
 import { BadgePropsType } from '../types';
 
-export function Badge({ category, color }: BadgePropsType) {
+export function CustomBadge({ category, color }: BadgePropsType) {
     return (
         <Flex gap='8px' align='flex-start' wrap='wrap'>
             {category &&

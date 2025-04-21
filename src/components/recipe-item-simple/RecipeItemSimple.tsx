@@ -1,6 +1,6 @@
 import { Card, CardBody, Flex, Heading, Stack, Text } from '@chakra-ui/react';
 
-import { Badge, RecipeStatistic } from '~/components';
+import { CustomBadge, RecipeStatistic } from '~/components';
 
 import { RecipeItemPropsType } from '../types';
 
@@ -41,7 +41,7 @@ export function RecipeItemSimple({ data }: RecipeItemPropsType) {
                             </Text>
                         </Flex>
                         <Flex justify='space-between'>
-                            <Badge category={data.category} color='#ffffd3' />
+                            <CustomBadge category={data.category} color='#ffffd3' />
                             <RecipeStatistic bookmarks={bookmarks} likes={likes} />
                         </Flex>
                     </Flex>
