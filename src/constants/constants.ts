@@ -32,6 +32,12 @@ import recipe5Img from '~/assets/images/new_recipe_5.png';
 import recipe6Img from '~/assets/images/new_recipe_6.png';
 import recipe7Img from '~/assets/images/new_recipe_7.png';
 import recipe8Img from '~/assets/images/new_recipe_8.png';
+import step1Img from '~/assets/images/step_1.png';
+import step2Img from '~/assets/images/step_2.png';
+import step3Img from '~/assets/images/step_3.png';
+import step4Img from '~/assets/images/step_4.png';
+import step5Img from '~/assets/images/step_5.png';
+import step6Img from '~/assets/images/step_6.png';
 import vegan101Img from '~/assets/images/vegan_101.png';
 import vegan102Img from '~/assets/images/vegan_102.png';
 import vegan103Img from '~/assets/images/vegan_103.png';
@@ -1913,12 +1919,40 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
+            },
+            {
+                stepNumber: 3,
+                description: 'Смешать с заправкой и подавать.',
+                image: step3Img,
+            },
+            {
+                stepNumber: 4,
+                description: 'Смешать с заправкой и подавать.',
+                image: step4Img,
+            },
+            {
+                stepNumber: 5,
+                description: 'Смешать с заправкой и подавать.',
+            },
+            {
+                stepNumber: 6,
+                description: 'Смешать с заправкой и подавать.',
+                image: step5Img,
+            },
+            {
+                stepNumber: 7,
+                description: 'Смешать с заправкой и подавать.',
+            },
+            {
+                stepNumber: 8,
+                description: 'Смешать с заправкой и подавать.',
+                image: step6Img,
             },
         ],
     },
@@ -1937,4 +1971,9 @@ export const NUTRITION_INFO_TEXT = {
 export const INGREDIENTS_INFO_TEXT = {
     titleLeft: 'ИНГРЕДИЕНТЫ',
     titleRight: 'ПОРЦИЙ',
+};
+
+export const COOKINGSTEPS_INFO_TEXT = {
+    title: 'Шаги приготовления',
+    step: 'Шаг',
 };
