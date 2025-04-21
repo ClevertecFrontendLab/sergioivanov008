@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
 import {
+    CookingStepsInfo,
     IngredientsInfo,
     NewRecipesSection,
     NutritionInfo,
@@ -27,6 +28,7 @@ export function RecipePage() {
             <RecipeItemCard data={data} />
             <NutritionInfo data={data.nutritionValue} />
             <IngredientsInfo portions={data.portions} ingredients={data.ingredients} />
+            <CookingStepsInfo data={data.steps} />
             <NewRecipesSection />
         </PageWrapper>
     );
