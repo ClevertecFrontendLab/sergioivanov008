@@ -4,8 +4,6 @@ import { CookingStepsInfoPropsType } from '~/components/types';
 import { COOKINGSTEPS_INFO_TEXT } from '~/constants';
 
 export function CookingStepsInfo({ data }: CookingStepsInfoPropsType) {
-    console.log(data);
-
     return (
         <Flex direction='column' mx='auto' gap='20px' mb='40px' w={{ xl: '668px' }}>
             <Flex justify='flex-start'>
