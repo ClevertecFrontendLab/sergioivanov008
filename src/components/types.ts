@@ -195,10 +195,10 @@ export type RecipeItemFullType = {
     bookmarks?: number;
     likes?: number;
     date?: string;
-    time?: string;
-    portions?: number;
-    nutritionValue?: NutritionValueType;
-    ingredients?: IngredientsType[];
+    time: string;
+    portions: number;
+    nutritionValue: NutritionValueType;
+    ingredients: IngredientsType[];
     steps?: {
         stepNumber: number;
         description: string;
