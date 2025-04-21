@@ -25,10 +25,8 @@ export function RecipePage() {
     return (
         <PageWrapper>
             <RecipeItemCard data={data} />
-            {data.nutritionValue && <NutritionInfo data={data.nutritionValue} />}
-            {data.ingredients && data.portions && (
-                <IngredientsInfo portions={data.portions} ingredients={data.ingredients} />
-            )}
+            <NutritionInfo data={data.nutritionValue} />
+            <IngredientsInfo portions={data.portions} ingredients={data.ingredients} />
             <NewRecipesSection />
         </PageWrapper>
     );
