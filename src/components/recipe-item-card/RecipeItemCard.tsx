@@ -39,7 +39,12 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
                 {data.recomendation && <RecomendationBadge data={data.recomendation} />}
             </Box>
 
-            <Stack px={{ base: '8px', lg: '24px' }} spacing={{ base: '20px', lg: '24px' }} w='100%'>
+            <Stack
+                px={{ base: '8px', lg: '24px' }}
+                pr={0}
+                spacing={{ base: '20px', lg: '24px' }}
+                w='100%'
+            >
                 <CardBody p={0}>
                     <Flex
                         direction='column'
