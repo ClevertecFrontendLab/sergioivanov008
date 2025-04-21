@@ -13,7 +13,13 @@ export function CookingStepsInfo({ data }: CookingStepsInfoPropsType) {
             </Flex>
 
             {data.map((el, index) => (
-                <Card direction='row' overflow='hidden' variant='outline' borderRadius='8px'>
+                <Card
+                    direction='row'
+                    overflow='hidden'
+                    variant='outline'
+                    borderRadius='8px'
+                    maxH={{ xl: '244px' }}
+                >
                     {el.image && (
                         <Image
                             objectFit='cover'
@@ -29,7 +35,7 @@ export function CookingStepsInfo({ data }: CookingStepsInfoPropsType) {
                         spacing={{ base: '20px', lg: '24px' }}
                         w='100%'
                     >
-                        <CardBody>
+                        <CardBody px={0}>
                             <Flex direction='column' gap={{ base: '8px', md: '12px', lg: '16px' }}>
                                 <Flex justify='space-between' align='center' h='24px' p={0}>
                                     <Badge
