@@ -1,6 +1,6 @@
 import { IconProps } from '@chakra-ui/react';
 
-export type CustomIcon12Type = 'pin' | 'view' | 'like' | 'exit';
+export type CustomIcon12Type = 'pin' | 'view' | 'like' | 'exit' | 'subscribe' | 'subscribers';
 
 export type CustomIcon12PropsType = {
     iconType: CustomIcon12Type;
@@ -235,4 +235,8 @@ export type IngredientsInfoPropsType = {
 
 export type CookingStepsInfoPropsType = {
     data: StepsType[];
+};
+
+export type AuthorInfoPropsType = {
+    data: AuthorType;
 };

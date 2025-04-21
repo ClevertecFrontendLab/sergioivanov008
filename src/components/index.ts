@@ -1,6 +1,7 @@
 export { AddRecipeButton } from './add-recipe-button/AddRecipeButton.tsx';
 export { Aside } from './aside/Aside.tsx';
 export { AsideUserData } from './aside-user-data/AsideUserData.tsx';
+export { AuthorInfo } from './author-info/AuthorInfo.tsx';
 export { AvatarContent } from './avatar-content/AvatarContent.tsx';
 export { BlogsItem } from './blogs-item/BlogsItem.tsx';
 export { BlogsSection } from './blogs-section/BlogsSection.tsx';
