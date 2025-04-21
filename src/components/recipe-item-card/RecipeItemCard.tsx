@@ -30,7 +30,7 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
                     src={data?.image}
                     alt={data?.title}
                 />
-                {data?.recomendation && <RecomendationBadge data={data.recomendation} />}
+                {data.recomendation && <RecomendationBadge data={data.recomendation} />}
             </Box>
 
             <Stack px={{ base: '8px', lg: '24px' }} spacing={{ base: '20px', lg: '24px' }} w='100%'>
@@ -45,7 +45,7 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
                                 left={{ base: '8px', lg: '0px' }}
                                 top={{ base: '8px', lg: '0px' }}
                             >
-                                <Badge category={data!.category} color='#ffffd3' />
+                                <Badge category={data.category} color='#ffffd3' />
                             </Box>
                             <RecipeStatistic bookmarks={bookmarks} likes={likes} />
                         </Flex>
@@ -69,7 +69,7 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
 
                 <CardFooter p={0}>
                     <Flex w='100%' justify='space-between' align='flex-end'>
-                        {data?.time && <TimeBadge time={data.time} />}
+                        <TimeBadge time={data.time} />
                         <Flex gap={{ xl: '16px' }}>
                             <Button
                                 leftIcon={
