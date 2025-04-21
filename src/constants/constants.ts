@@ -375,6 +375,18 @@ export const JUICIEST_DATA: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '02',
@@ -400,6 +412,18 @@ export const JUICIEST_DATA: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '03',
@@ -425,6 +449,18 @@ export const JUICIEST_DATA: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '04',
@@ -445,6 +481,18 @@ export const JUICIEST_DATA: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
 ];
 
@@ -522,6 +570,18 @@ export const PAGE_DB: PageDbType = {
                     { title: 'специи', count: '0', measureUnit: 'по вкусу' },
                 ],
                 time: '25 минут',
+                steps: [
+                    {
+                        stepNumber: 1,
+                        description: 'Обжарить овощи на гриле.',
+                        image: 'url',
+                    },
+                    {
+                        stepNumber: 2,
+                        description: 'Смешать с заправкой и подавать.',
+                        image: 'url',
+                    },
+                ],
             },
             {
                 id: '02',
@@ -541,6 +601,18 @@ export const PAGE_DB: PageDbType = {
                     { title: 'специи', count: '0', measureUnit: 'по вкусу' },
                 ],
                 time: '25 минут',
+                steps: [
+                    {
+                        stepNumber: 1,
+                        description: 'Обжарить овощи на гриле.',
+                        image: 'url',
+                    },
+                    {
+                        stepNumber: 2,
+                        description: 'Смешать с заправкой и подавать.',
+                        image: 'url',
+                    },
+                ],
             },
         ],
         pinRecipes: [
@@ -560,6 +632,18 @@ export const PAGE_DB: PageDbType = {
                     { title: 'специи', count: '0', measureUnit: 'по вкусу' },
                 ],
                 time: '25 минут',
+                steps: [
+                    {
+                        stepNumber: 1,
+                        description: 'Обжарить овощи на гриле.',
+                        image: 'url',
+                    },
+                    {
+                        stepNumber: 2,
+                        description: 'Смешать с заправкой и подавать.',
+                        image: 'url',
+                    },
+                ],
             },
             {
                 id: '02',
@@ -577,6 +661,18 @@ export const PAGE_DB: PageDbType = {
                     { title: 'специи', count: '0', measureUnit: 'по вкусу' },
                 ],
                 time: '25 минут',
+                steps: [
+                    {
+                        stepNumber: 1,
+                        description: 'Обжарить овощи на гриле.',
+                        image: 'url',
+                    },
+                    {
+                        stepNumber: 2,
+                        description: 'Смешать с заправкой и подавать.',
+                        image: 'url',
+                    },
+                ],
             },
             {
                 id: '03',
@@ -594,6 +690,18 @@ export const PAGE_DB: PageDbType = {
                     { title: 'специи', count: '0', measureUnit: 'по вкусу' },
                 ],
                 time: '25 минут',
+                steps: [
+                    {
+                        stepNumber: 1,
+                        description: 'Обжарить овощи на гриле.',
+                        image: 'url',
+                    },
+                    {
+                        stepNumber: 2,
+                        description: 'Смешать с заправкой и подавать.',
+                        image: 'url',
+                    },
+                ],
             },
         ],
     },
@@ -640,6 +748,18 @@ export const PAGE_DB: PageDbType = {
                     { title: 'специи', count: '0', measureUnit: 'по вкусу' },
                 ],
                 time: '25 минут',
+                steps: [
+                    {
+                        stepNumber: 1,
+                        description: 'Обжарить овощи на гриле.',
+                        image: 'url',
+                    },
+                    {
+                        stepNumber: 2,
+                        description: 'Смешать с заправкой и подавать.',
+                        image: 'url',
+                    },
+                ],
             },
             {
                 id: '02',
@@ -659,6 +779,18 @@ export const PAGE_DB: PageDbType = {
                     { title: 'специи', count: '0', measureUnit: 'по вкусу' },
                 ],
                 time: '25 минут',
+                steps: [
+                    {
+                        stepNumber: 1,
+                        description: 'Обжарить овощи на гриле.',
+                        image: 'url',
+                    },
+                    {
+                        stepNumber: 2,
+                        description: 'Смешать с заправкой и подавать.',
+                        image: 'url',
+                    },
+                ],
             },
         ],
         pinRecipes: [
@@ -678,6 +810,18 @@ export const PAGE_DB: PageDbType = {
                     { title: 'специи', count: '0', measureUnit: 'по вкусу' },
                 ],
                 time: '25 минут',
+                steps: [
+                    {
+                        stepNumber: 1,
+                        description: 'Обжарить овощи на гриле.',
+                        image: 'url',
+                    },
+                    {
+                        stepNumber: 2,
+                        description: 'Смешать с заправкой и подавать.',
+                        image: 'url',
+                    },
+                ],
             },
             {
                 id: '02',
@@ -695,6 +839,18 @@ export const PAGE_DB: PageDbType = {
                     { title: 'специи', count: '0', measureUnit: 'по вкусу' },
                 ],
                 time: '25 минут',
+                steps: [
+                    {
+                        stepNumber: 1,
+                        description: 'Обжарить овощи на гриле.',
+                        image: 'url',
+                    },
+                    {
+                        stepNumber: 2,
+                        description: 'Смешать с заправкой и подавать.',
+                        image: 'url',
+                    },
+                ],
             },
             {
                 id: '03',
@@ -712,6 +868,18 @@ export const PAGE_DB: PageDbType = {
                     { title: 'специи', count: '0', measureUnit: 'по вкусу' },
                 ],
                 time: '25 минут',
+                steps: [
+                    {
+                        stepNumber: 1,
+                        description: 'Обжарить овощи на гриле.',
+                        image: 'url',
+                    },
+                    {
+                        stepNumber: 2,
+                        description: 'Смешать с заправкой и подавать.',
+                        image: 'url',
+                    },
+                ],
             },
         ],
     },
@@ -777,6 +945,18 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '02',
@@ -797,6 +977,18 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '03',
@@ -822,6 +1014,18 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '04',
@@ -842,6 +1046,18 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '05',
@@ -862,6 +1078,18 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '06',
@@ -882,6 +1110,18 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '07',
@@ -902,6 +1142,18 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '08',
@@ -922,6 +1174,18 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
 ];
 
@@ -945,6 +1209,18 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '02',
@@ -965,6 +1241,18 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '03',
@@ -985,6 +1273,18 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '04',
@@ -1005,6 +1305,18 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '05',
@@ -1025,6 +1337,18 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '06',
@@ -1045,6 +1369,18 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '07',
@@ -1065,6 +1401,18 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
     {
         id: '08',
@@ -1085,6 +1433,18 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             { title: 'специи', count: '0', measureUnit: 'по вкусу' },
         ],
         time: '25 минут',
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: 'url',
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: 'url',
+            },
+        ],
     },
 ];
 
