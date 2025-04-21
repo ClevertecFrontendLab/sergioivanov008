@@ -9,14 +9,14 @@ export function RecipeStatistic({ bookmarks, likes }: RecipeStatisticPropsType) 
         <Flex gap={2}>
             {bookmarks && (
                 <CustomIcon12
-                    props={{ boxSize: '12px' }}
+                    props={{ boxSize: '16px' }}
                     iconType='pin'
                     value={bookmarks.toString()}
                 />
             )}
             {likes && (
                 <CustomIcon12
-                    props={{ boxSize: '12px' }}
+                    props={{ boxSize: '16px' }}
                     iconType='like'
                     value={likes.toString()}
                 />
