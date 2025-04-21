@@ -185,6 +185,12 @@ export type IngredientsType = {
     measureUnit: string;
 };
 
+export type StepsType = {
+    stepNumber: number;
+    description: string;
+    image: string;
+};
+
 export type RecipeItemFullType = {
     id: string;
     title: string;
@@ -199,11 +205,7 @@ export type RecipeItemFullType = {
     portions: number;
     nutritionValue: NutritionValueType;
     ingredients: IngredientsType[];
-    steps?: {
-        stepNumber: number;
-        description: string;
-        image: string;
-    }[];
+    steps: StepsType[];
     meat?: string;
     side?: string;
     recomendation?: RecipeRecomendationType;
