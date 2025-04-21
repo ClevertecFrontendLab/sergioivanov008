@@ -12,6 +12,7 @@ import saladsImg from '~/assets/icons/Salads.png';
 import saucesImg from '~/assets/icons/Sauces.png';
 import veganCuisineImg from '~/assets/icons/VeganCuisine.png';
 import allRecipes7 from '~/assets/images/all_recipes_7.png';
+import avatarAuthor1Img from '~/assets/images/avatar_author_1.png';
 import avatarImg1 from '~/assets/images/avatar_image1.png';
 import avatarImg2 from '~/assets/images/avatar_image2.png';
 import avatarImg3 from '~/assets/images/avatar_image3.png';
@@ -393,6 +394,13 @@ export const JUICIEST_DATA: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '02',
@@ -430,6 +438,13 @@ export const JUICIEST_DATA: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '03',
@@ -467,6 +482,13 @@ export const JUICIEST_DATA: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '04',
@@ -499,6 +521,13 @@ export const JUICIEST_DATA: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
 ];
 
@@ -588,6 +617,13 @@ export const PAGE_DB: PageDbType = {
                         image: 'url',
                     },
                 ],
+                author: {
+                    image: avatarAuthor1Img,
+                    firstName: 'Сергей',
+                    lastName: 'Разумов',
+                    nickName: '@serge25',
+                    subscribers: 125,
+                },
             },
             {
                 id: '02',
@@ -619,6 +655,13 @@ export const PAGE_DB: PageDbType = {
                         image: 'url',
                     },
                 ],
+                author: {
+                    image: avatarAuthor1Img,
+                    firstName: 'Сергей',
+                    lastName: 'Разумов',
+                    nickName: '@serge25',
+                    subscribers: 125,
+                },
             },
         ],
         pinRecipes: [
@@ -650,6 +693,13 @@ export const PAGE_DB: PageDbType = {
                         image: 'url',
                     },
                 ],
+                author: {
+                    image: avatarAuthor1Img,
+                    firstName: 'Сергей',
+                    lastName: 'Разумов',
+                    nickName: '@serge25',
+                    subscribers: 125,
+                },
             },
             {
                 id: '02',
@@ -679,6 +729,13 @@ export const PAGE_DB: PageDbType = {
                         image: 'url',
                     },
                 ],
+                author: {
+                    image: avatarAuthor1Img,
+                    firstName: 'Сергей',
+                    lastName: 'Разумов',
+                    nickName: '@serge25',
+                    subscribers: 125,
+                },
             },
             {
                 id: '03',
@@ -708,6 +765,13 @@ export const PAGE_DB: PageDbType = {
                         image: 'url',
                     },
                 ],
+                author: {
+                    image: avatarAuthor1Img,
+                    firstName: 'Сергей',
+                    lastName: 'Разумов',
+                    nickName: '@serge25',
+                    subscribers: 125,
+                },
             },
         ],
     },
@@ -766,6 +830,13 @@ export const PAGE_DB: PageDbType = {
                         image: 'url',
                     },
                 ],
+                author: {
+                    image: avatarAuthor1Img,
+                    firstName: 'Сергей',
+                    lastName: 'Разумов',
+                    nickName: '@serge25',
+                    subscribers: 125,
+                },
             },
             {
                 id: '02',
@@ -797,6 +868,13 @@ export const PAGE_DB: PageDbType = {
                         image: 'url',
                     },
                 ],
+                author: {
+                    image: avatarAuthor1Img,
+                    firstName: 'Сергей',
+                    lastName: 'Разумов',
+                    nickName: '@serge25',
+                    subscribers: 125,
+                },
             },
         ],
         pinRecipes: [
@@ -828,6 +906,13 @@ export const PAGE_DB: PageDbType = {
                         image: 'url',
                     },
                 ],
+                author: {
+                    image: avatarAuthor1Img,
+                    firstName: 'Сергей',
+                    lastName: 'Разумов',
+                    nickName: '@serge25',
+                    subscribers: 125,
+                },
             },
             {
                 id: '02',
@@ -857,6 +942,13 @@ export const PAGE_DB: PageDbType = {
                         image: 'url',
                     },
                 ],
+                author: {
+                    image: avatarAuthor1Img,
+                    firstName: 'Сергей',
+                    lastName: 'Разумов',
+                    nickName: '@serge25',
+                    subscribers: 125,
+                },
             },
             {
                 id: '03',
@@ -886,6 +978,13 @@ export const PAGE_DB: PageDbType = {
                         image: 'url',
                     },
                 ],
+                author: {
+                    image: avatarAuthor1Img,
+                    firstName: 'Сергей',
+                    lastName: 'Разумов',
+                    nickName: '@serge25',
+                    subscribers: 125,
+                },
             },
         ],
     },
@@ -963,6 +1062,13 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '02',
@@ -995,6 +1101,13 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '03',
@@ -1032,6 +1145,13 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '04',
@@ -1064,6 +1184,13 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '05',
@@ -1096,6 +1223,13 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '06',
@@ -1128,6 +1262,13 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '07',
@@ -1160,6 +1301,13 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '08',
@@ -1192,6 +1340,13 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
 ];
 
@@ -1227,6 +1382,13 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '02',
@@ -1259,6 +1421,13 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '03',
@@ -1291,6 +1460,13 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '04',
@@ -1323,6 +1499,13 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '05',
@@ -1355,6 +1538,13 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '06',
@@ -1387,6 +1577,13 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '07',
@@ -1419,6 +1616,13 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '08',
@@ -1451,6 +1655,13 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
 ];
 
@@ -1501,6 +1712,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         ],
         meat: '',
         side: 'potatoes',
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '1',
@@ -1540,6 +1758,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             },
         ],
         side: 'potatoes',
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '2',
@@ -1578,6 +1803,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '3',
@@ -1616,6 +1848,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '4',
@@ -1655,6 +1894,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             },
         ],
         side: 'potatoes',
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '5',
@@ -1692,6 +1938,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '6',
@@ -1730,6 +1983,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '7',
@@ -1767,6 +2027,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '8',
@@ -1799,6 +2066,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '9',
@@ -1831,6 +2105,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '10',
@@ -1863,6 +2144,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '11',
@@ -1895,6 +2183,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
                 image: 'url',
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
     {
         id: '12',
@@ -1955,6 +2250,13 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
                 image: step6Img,
             },
         ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
     },
 ];
 
