@@ -191,6 +191,14 @@ export type StepsType = {
     image?: string;
 };
 
+export type AuthorType = {
+    image: string;
+    firstName: string;
+    lastName: string;
+    nickName: string;
+    subscribers: number;
+};
+
 export type RecipeItemFullType = {
     id: string;
     title: string;
@@ -209,6 +217,7 @@ export type RecipeItemFullType = {
     meat?: string;
     side?: string;
     recomendation?: RecipeRecomendationType;
+    author: AuthorType;
 };
 
 export type RecipeItemCardPropsType = {
