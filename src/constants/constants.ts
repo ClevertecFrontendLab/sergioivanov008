@@ -2279,3 +2279,8 @@ export const COOKINGSTEPS_INFO_TEXT = {
     title: 'Шаги приготовления',
     step: 'Шаг',
 };
+
+export const AUTHOR_INFO_TEXT = {
+    author: 'Автор рецепта',
+    button: 'Подписаться',
+};
