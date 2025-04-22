@@ -29,7 +29,7 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
         <Card
             mt={{ base: '16px', lg: '56px' }}
             mb={{ base: '24px', lg: '40px' }}
-            direction='row'
+            direction={{ base: 'column', md: 'row' }}
             overflow='hidden'
             variant='outline'
             border='none'
@@ -37,8 +37,9 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
             <Box position='relative'>
                 <Image
                     objectFit='cover'
-                    maxW={{ base: '158px', md: '232px', lg: '353px', xl: '553px' }}
-                    h={{ base: '128px', md: '224px', lg: '410px', xl: '410px' }}
+                    maxW={{ base: '328px', md: '232px', lg: '353px', xl: '553px' }}
+                    w={{ base: '328px', md: 'unset' }}
+                    h={{ base: '224px', md: '224px', lg: '410px', xl: '410px' }}
                     borderRadius='8px'
                     src={data?.image}
                     alt={data?.title}
@@ -47,8 +48,9 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
             </Box>
 
             <Stack
-                pl={{ base: '8px', md: '16px', lg: '24px' }}
+                pl={{ base: '0px', md: '16px', lg: '24px' }}
                 pr={0}
+                pt={{ base: '16px', md: 'unset' }}
                 spacing={{ base: '20px', lg: '24px' }}
                 w='100%'
             >
@@ -63,8 +65,8 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
                         <Flex direction='column' gap={{ base: '16px', lg: '24px' }}>
                             <Heading
                                 fontWeight={700}
-                                fontSize={{ base: '16px', md: '24px', lg: '48px' }}
-                                lineHeight={{ base: '150%', md: '133%', lg: '100%' }}
+                                fontSize={{ base: '24px', lg: '48px' }}
+                                lineHeight={{ base: '133%', lg: '100%' }}
                             >
                                 {data.title}
                             </Heading>
@@ -77,7 +79,13 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
                 </CardBody>
 
                 <CardFooter p={0}>
-                    <Flex w='100%' justify='space-between' align='flex-end'>
+                    <Flex
+                        w='100%'
+                        justify='space-between'
+                        align='flex-end'
+                        flexWrap='wrap'
+                        gap={{ base: '12px', md: '8px' }}
+                    >
                         <TimeBadge time={data.time} />
                         <Flex gap={{ base: '12px', xl: '16px' }}>
                             <Button
