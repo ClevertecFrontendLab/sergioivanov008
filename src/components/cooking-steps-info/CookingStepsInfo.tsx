@@ -10,7 +10,7 @@ export function CookingStepsInfo({ data }: CookingStepsInfoPropsType) {
             mx='auto'
             gap='20px'
             mb={{ base: '24px', lg: '40px' }}
-            w={{ md: '604px', lg: '578px', xl: '668px' }}
+            w={{ base: '328px', md: '604px', lg: '578px', xl: '668px' }}
         >
             <Flex justify='flex-start'>
                 <Text
