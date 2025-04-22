@@ -24,16 +24,16 @@ export function AuthorInfo({ data }: AuthorInfoPropsType) {
             borderRadius='8px'
             mx='auto'
             mb='56px'
-            w={{ xl: '668px' }}
+            w={{ lg: '578px', xl: '668px' }}
         >
             <CardHeader>
                 <Avatar size='xl' name={`${data.firstName} ${data.lastName}`} src={data.image} />{' '}
             </CardHeader>
 
             <Stack
-                py={{ xl: '24px' }}
-                pr={{ xl: '24px' }}
-                pl={{ xl: '0px' }}
+                py={{ base: '24px' }}
+                pr={{ base: '24px' }}
+                pl={{ base: '0px' }}
                 spacing={{ xl: '16px' }}
                 w='100%'
             >
