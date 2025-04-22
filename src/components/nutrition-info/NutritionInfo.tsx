@@ -16,7 +16,7 @@ export function NutritionInfo({ data }: NutritionInfoPropsType) {
                         border='1px solid rgba(0, 0, 0, 0.08)'
                         borderRadius='16px'
                         p='16px'
-                        w='149px'
+                        w={{ lg: '135px', xl: '149px' }}
                         h='136px'
                     >
                         <CardBody p={0}>
@@ -32,8 +32,8 @@ export function NutritionInfo({ data }: NutritionInfoPropsType) {
                                 </Text>
                                 <Text
                                     fontWeight={500}
-                                    fontSize={{ xl: '36px' }}
-                                    lineHeight={{ xl: '111%' }}
+                                    fontSize={{ lg: '36px' }}
+                                    lineHeight={{ lg: '111%' }}
                                     textAlign='center'
                                     color='#134b00'
                                 >
@@ -41,10 +41,11 @@ export function NutritionInfo({ data }: NutritionInfoPropsType) {
                                 </Text>
                                 <Text
                                     fontWeight={600}
-                                    fontSize={{ xl: '14px' }}
-                                    lineHeight={{ xl: '143%' }}
+                                    fontSize={{ lg: '14px' }}
+                                    lineHeight={{ lg: '143%' }}
                                     textAlign='center'
                                     color='rgba(0, 0, 0, 0.92)'
+                                    textTransform='uppercase'
                                 >
                                     {el.dimension}
                                 </Text>
