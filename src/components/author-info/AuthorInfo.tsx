@@ -24,7 +24,7 @@ export function AuthorInfo({ data }: AuthorInfoPropsType) {
             borderRadius='8px'
             mx='auto'
             mb='56px'
-            w={{ lg: '578px', xl: '668px' }}
+            w={{ md: '604px', lg: '578px', xl: '668px' }}
         >
             <CardHeader>
                 <Avatar size='xl' name={`${data.firstName} ${data.lastName}`} src={data.image} />{' '}
