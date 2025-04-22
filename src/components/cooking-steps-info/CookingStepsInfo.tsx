@@ -5,9 +5,20 @@ import { COOKINGSTEPS_INFO_TEXT } from '~/constants';
 
 export function CookingStepsInfo({ data }: CookingStepsInfoPropsType) {
     return (
-        <Flex direction='column' mx='auto' gap='20px' mb='40px' w={{ lg: '578px', xl: '668px' }}>
+        <Flex
+            direction='column'
+            mx='auto'
+            gap='20px'
+            mb={{ base: '24px', lg: '40px' }}
+            w={{ md: '604px', lg: '578px', xl: '668px' }}
+        >
             <Flex justify='flex-start'>
-                <Text fontWeight={500} fontSize='48px' lineHeight='100%' color='rgba(0, 0, 0, 0.8)'>
+                <Text
+                    fontWeight={500}
+                    fontSize={{ base: '24px', lg: '48px' }}
+                    lineHeight={{ base: '133%', lg: '100%' }}
+                    color='rgba(0, 0, 0, 0.8)'
+                >
                     {COOKINGSTEPS_INFO_TEXT.title}
                 </Text>
             </Flex>
