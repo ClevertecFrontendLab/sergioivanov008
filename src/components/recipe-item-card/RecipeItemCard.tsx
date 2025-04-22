@@ -30,8 +30,8 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
             <Box position='relative'>
                 <Image
                     objectFit='cover'
-                    maxW={{ base: '158px', lg: '346px', xl: '553px' }}
-                    h={{ base: '128px', lg: '244px', xl: '410px' }}
+                    maxW={{ base: '158px', lg: '353px', xl: '553px' }}
+                    h={{ base: '128px', lg: '410px', xl: '410px' }}
                     borderRadius='8px'
                     src={data?.image}
                     alt={data?.title}
@@ -40,7 +40,7 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
             </Box>
 
             <Stack
-                px={{ base: '8px', lg: '24px' }}
+                pl={{ base: '8px', lg: '24px' }}
                 pr={0}
                 spacing={{ base: '20px', lg: '24px' }}
                 w='100%'
@@ -50,30 +50,24 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
                         direction='column'
                         gap={{ base: '4px', md: '8px', lg: '24px', xl: '32px' }}
                     >
-                        <Flex justify='space-between' align='center' h='24px' p={0}>
-                            <Box
-                                position={{ base: 'absolute', lg: 'relative' }}
-                                left={{ base: '8px', lg: '0px' }}
-                                top={{ base: '8px', lg: '0px' }}
-                            >
-                                <CustomBadge category={data.category} color='#ffffd3' />
-                            </Box>
+                        <Flex justify='space-between' align='flex-start' p={0}>
+                            <CustomBadge category={data.category} color='#ffffd3' />
+
                             <RecipeStatistic bookmarks={bookmarks} likes={likes} />
                         </Flex>
 
-                        <Flex direction='column' gap={{ xl: '24px' }}>
+                        <Flex direction='column' gap={{ lg: '24px' }}>
                             <Heading
-                                fontWeight={{ base: '500', xl: '700' }}
-                                fontSize={{ base: '16px', lg: '20px', xl: '48px' }}
-                                lineHeight={{ base: '150%', lg: '140%', xl: '100%' }}
+                                fontWeight={{ base: '500', lg: '700' }}
+                                fontSize={{ base: '16px', lg: '48px' }}
+                                lineHeight={{ base: '150%', lg: '100%' }}
                             >
-                                {data?.title}
+                                {data.title}
                             </Heading>
-                            <Box display={{ base: 'none', lg: 'block' }}>
-                                <Text fontWeight={400} fontSize='14px' lineHeight='143%'>
-                                    {data?.description}
-                                </Text>
-                            </Box>
+
+                            <Text fontWeight={400} fontSize='14px' lineHeight='143%'>
+                                {data.description}
+                            </Text>
                         </Flex>
                     </Flex>
                 </CardBody>
@@ -81,26 +75,32 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
                 <CardFooter p={0}>
                     <Flex w='100%' justify='space-between' align='flex-end'>
                         <TimeBadge time={data.time} />
-                        <Flex gap={{ xl: '16px' }}>
+                        <Flex gap={{ base: '12px', xl: '16px' }}>
                             <Button
                                 leftIcon={
-                                    <CustomIcon12 iconType='like' props={{ boxSize: '16px' }} />
+                                    <CustomIcon12
+                                        iconType='like'
+                                        props={{ boxSize: { lg: '14px', xl: '16px' } }}
+                                    />
                                 }
                                 colorScheme='myBlack'
                                 variant='outline'
                                 color='black'
-                                size={{ base: 'md', xl: 'lg' }}
+                                size={{ base: 'md', lg: 'sm', xl: 'lg' }}
                             >
                                 {BTN_TEXT.rateRecipe}
                             </Button>
                             <Button
                                 leftIcon={
-                                    <CustomIcon12 iconType='pin' props={{ boxSize: '16px' }} />
+                                    <CustomIcon12
+                                        iconType='pin'
+                                        props={{ boxSize: { lg: '14px', xl: '16px' } }}
+                                    />
                                 }
                                 colorScheme='myGreen'
                                 variant='solid'
                                 color='black'
-                                size={{ base: 'md', xl: 'lg' }}
+                                size={{ base: 'md', lg: 'sm', xl: 'lg' }}
                             >
                                 {BTN_TEXT.saveToBookmarks}
                             </Button>
