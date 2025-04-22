@@ -26,12 +26,19 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
     const { bookmarks, likes } = data;
 
     return (
-        <Card mt='56px' mb='40px' direction='row' overflow='hidden' variant='outline' border='none'>
+        <Card
+            mt={{ base: '16px', lg: '56px' }}
+            mb={{ base: '24px', lg: '40px' }}
+            direction='row'
+            overflow='hidden'
+            variant='outline'
+            border='none'
+        >
             <Box position='relative'>
                 <Image
                     objectFit='cover'
-                    maxW={{ base: '158px', lg: '353px', xl: '553px' }}
-                    h={{ base: '128px', lg: '410px', xl: '410px' }}
+                    maxW={{ base: '158px', md: '232px', lg: '353px', xl: '553px' }}
+                    h={{ base: '128px', md: '224px', lg: '410px', xl: '410px' }}
                     borderRadius='8px'
                     src={data?.image}
                     alt={data?.title}
@@ -40,27 +47,24 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
             </Box>
 
             <Stack
-                pl={{ base: '8px', lg: '24px' }}
+                pl={{ base: '8px', md: '16px', lg: '24px' }}
                 pr={0}
                 spacing={{ base: '20px', lg: '24px' }}
                 w='100%'
             >
                 <CardBody p={0}>
-                    <Flex
-                        direction='column'
-                        gap={{ base: '4px', md: '8px', lg: '24px', xl: '32px' }}
-                    >
-                        <Flex justify='space-between' align='flex-start' p={0}>
+                    <Flex direction='column' gap='32px'>
+                        <Flex justify='space-between' align='flex-start' p={0} gap='8px'>
                             <CustomBadge category={data.category} color='#ffffd3' />
 
                             <RecipeStatistic bookmarks={bookmarks} likes={likes} />
                         </Flex>
 
-                        <Flex direction='column' gap={{ lg: '24px' }}>
+                        <Flex direction='column' gap={{ base: '16px', lg: '24px' }}>
                             <Heading
-                                fontWeight={{ base: '500', lg: '700' }}
-                                fontSize={{ base: '16px', lg: '48px' }}
-                                lineHeight={{ base: '150%', lg: '100%' }}
+                                fontWeight={700}
+                                fontSize={{ base: '16px', md: '24px', lg: '48px' }}
+                                lineHeight={{ base: '150%', md: '133%', lg: '100%' }}
                             >
                                 {data.title}
                             </Heading>
@@ -86,7 +90,7 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
                                 colorScheme='myBlack'
                                 variant='outline'
                                 color='black'
-                                size={{ base: 'md', lg: 'sm', xl: 'lg' }}
+                                size={{ base: 'xs', lg: 'sm', xl: 'lg' }}
                             >
                                 {BTN_TEXT.rateRecipe}
                             </Button>
@@ -100,7 +104,7 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
                                 colorScheme='myGreen'
                                 variant='solid'
                                 color='black'
-                                size={{ base: 'md', lg: 'sm', xl: 'lg' }}
+                                size={{ base: 'xs', lg: 'sm', xl: 'lg' }}
                             >
                                 {BTN_TEXT.saveToBookmarks}
                             </Button>
