@@ -2258,6 +2258,82 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             subscribers: 125,
         },
     },
+    {
+        id: '13',
+        title: 'Лапша с курицей и шафраном',
+        description:
+            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
+        category: ['second-dish', 'nacional', 'detskie'],
+        subcategory: ['warm-salads'],
+        image: recipe4Img,
+        bookmarks: 10,
+        likes: 80,
+        date: '2015-04-04T00:00:00Z',
+        time: '20 минут',
+        portions: 4,
+        nutritionValue: { calories: 358, proteins: 23, fats: 20, carbohydrates: 54 },
+        ingredients: [
+            { title: 'зелёного лука', count: '1', measureUnit: 'пучок' },
+            { title: 'репчатого лука', count: '1', measureUnit: 'шт' },
+            { title: 'чеснока', count: '1', measureUnit: 'зубчик' },
+            { title: 'куриного филе', count: '500', measureUnit: 'г' },
+            { title: 'масла или жира', count: '40', measureUnit: 'г' },
+            { title: 'спагетти', count: '250', measureUnit: 'г' },
+            { title: 'молотого шафрана', count: '1', measureUnit: 'щепотка' },
+            { title: 'молотой корицы', count: '1', measureUnit: 'щепотка' },
+            { title: 'муки', count: '1', measureUnit: 'ст л' },
+            { title: 'сливок', count: '250', measureUnit: 'мл' },
+            { title: 'куриного бульона из кубика', count: '200', measureUnit: 'мл' },
+            { title: 'нарезанной петрушки', count: '2', measureUnit: 'ст л' },
+        ],
+        steps: [
+            {
+                stepNumber: 1,
+                description: 'Обжарить овощи на гриле.',
+                image: step1Img,
+            },
+            {
+                stepNumber: 2,
+                description: 'Смешать с заправкой и подавать.',
+                image: step2Img,
+            },
+            {
+                stepNumber: 3,
+                description: 'Смешать с заправкой и подавать.',
+                image: step3Img,
+            },
+            {
+                stepNumber: 4,
+                description: 'Смешать с заправкой и подавать.',
+                image: step4Img,
+            },
+            {
+                stepNumber: 5,
+                description: 'Смешать с заправкой и подавать.',
+            },
+            {
+                stepNumber: 6,
+                description: 'Смешать с заправкой и подавать.',
+                image: step5Img,
+            },
+            {
+                stepNumber: 7,
+                description: 'Смешать с заправкой и подавать.',
+            },
+            {
+                stepNumber: 8,
+                description: 'Смешать с заправкой и подавать.',
+                image: step6Img,
+            },
+        ],
+        author: {
+            image: avatarAuthor1Img,
+            firstName: 'Сергей',
+            lastName: 'Разумов',
+            nickName: '@serge25',
+            subscribers: 125,
+        },
+    },
 ];
 
 export const NUTRITION_INFO_TEXT = {
