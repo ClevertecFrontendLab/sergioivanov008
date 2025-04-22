@@ -24,7 +24,7 @@ export function IngredientsInfo({ portions, ingredients }: IngredientsInfoPropsT
     const handleChange = (value: string) => setValue(Number(value));
 
     return (
-        <TableContainer mx='auto' w={{ xl: '668px' }} mb='40px'>
+        <TableContainer mx='auto' w={{ lg: '578px', xl: '668px' }} mb='40px'>
             <Table variant='striped' colorScheme='gray'>
                 <Thead>
                     <Tr>
@@ -37,7 +37,7 @@ export function IngredientsInfo({ portions, ingredients }: IngredientsInfoPropsT
                         >
                             {INGREDIENTS_INFO_TEXT.titleLeft}
                         </Th>
-                        <Th isNumeric>
+                        <Th isNumeric pr={0}>
                             <Flex gap='16px' align='center' justify='flex-end'>
                                 <Text
                                     fontWeight={700}
