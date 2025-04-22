@@ -1,4 +1,5 @@
 import {
+    Box,
     Flex,
     NumberDecrementStepper,
     NumberIncrementStepper,
@@ -6,7 +7,6 @@ import {
     NumberInputField,
     NumberInputStepper,
     Table,
-    TableContainer,
     Tbody,
     Td,
     Text,
@@ -24,12 +24,12 @@ export function IngredientsInfo({ portions, ingredients }: IngredientsInfoPropsT
     const handleChange = (value: string) => setValue(Number(value));
 
     return (
-        <TableContainer
+        <Box
             mx='auto'
-            w={{ md: '604px', lg: '578px', xl: '668px' }}
+            w={{ base: '328px', md: '604px', lg: '578px', xl: '668px' }}
             mb={{ base: '24px', lg: '40px' }}
         >
-            <Table variant='striped' colorScheme='gray'>
+            <Table variant='striped' colorScheme='gray' w='100%'>
                 <Thead>
                     <Tr>
                         <Th
@@ -38,10 +38,12 @@ export function IngredientsInfo({ portions, ingredients }: IngredientsInfoPropsT
                             lineHeight='133%'
                             letterSpacing='0.05em'
                             color='#2db100'
+                            px='8px'
+                            py='10px'
                         >
                             {INGREDIENTS_INFO_TEXT.titleLeft}
                         </Th>
-                        <Th isNumeric pr={0}>
+                        <Th pr={0} px='12px' py='10px'>
                             <Flex gap='16px' align='center' justify='flex-end'>
                                 <Text
                                     fontWeight={700}
@@ -70,7 +72,7 @@ export function IngredientsInfo({ portions, ingredients }: IngredientsInfoPropsT
                         </Th>
                     </Tr>
                 </Thead>
-                <Tbody>
+                <Tbody p={0}>
                     {ingredients.map((el, index) => (
                         <Tr
                             key={index}
@@ -79,14 +81,16 @@ export function IngredientsInfo({ portions, ingredients }: IngredientsInfoPropsT
                             lineHeight='143%'
                             color='rgba(0, 0, 0, 0.92)'
                         >
-                            <Td>{el.title}</Td>
-                            <Td
-                                isNumeric
-                            >{`${(Number(el.count) / Number(portions)) * value} ${el.measureUnit}`}</Td>
+                            <Td px='8px' py='10px'>
+                                {el.title}
+                            </Td>
+                            <Td isNumeric px='12px' py='10px'>
+                                {`${(Number(el.count) / Number(portions)) * value} ${el.measureUnit}`}
+                            </Td>
                         </Tr>
                     ))}
                 </Tbody>
             </Table>
-        </TableContainer>
+        </Box>
     );
 }
