@@ -6,7 +6,7 @@ import { BadgePropsType } from '../types';
 
 export function CustomBadge({ category, color }: BadgePropsType) {
     return (
-        <Flex gap='8px' align='flex-start' wrap='wrap'>
+        <Flex gap='16px' align='flex-start' wrap='wrap'>
             {category &&
                 category.map((el, index) => {
                     const curItem = NAV_DATA.find((item) => item.categoryNav === el);
