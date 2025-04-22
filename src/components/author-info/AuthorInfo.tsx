@@ -24,26 +24,42 @@ export function AuthorInfo({ data }: AuthorInfoPropsType) {
             borderRadius='8px'
             mx='auto'
             mb='56px'
-            w={{ md: '604px', lg: '578px', xl: '668px' }}
+            w={{ base: '328px', md: '604px', lg: '578px', xl: '668px' }}
         >
-            <CardHeader>
+            <CardHeader p={{ base: '12px', md: '24px' }} pr={{ base: '8px', md: '16px' }}>
                 <Avatar size='xl' name={`${data.firstName} ${data.lastName}`} src={data.image} />{' '}
             </CardHeader>
 
             <Stack
-                py={{ base: '24px' }}
-                pr={{ base: '24px' }}
+                pt={{ base: '8px', md: '24px' }}
+                pr={{ base: '8px', md: '24px' }}
                 pl={{ base: '0px' }}
+                pb={{ base: '12px', md: '24px' }}
                 spacing={{ xl: '16px' }}
                 w='100%'
+                justifyContent='space-between'
             >
-                <CardBody p={0}>
+                <CardBody p={0} flex-grow={{ base: '0', md: '1' }} flex='0 1 0%'>
                     <Flex direction='column' gap={{ xl: '4px' }}>
-                        <Flex justify='space-between' align='center' p={0}>
-                            <Text fontWeight={700} fontSize='24px' lineHeight='133%'>
+                        <Flex
+                            justify='space-between'
+                            p={0}
+                            flexWrap={{ base: 'wrap-reverse', md: 'nowrap' }}
+                        >
+                            <Text
+                                fontWeight={{ base: '600', md: '700' }}
+                                fontSize={{ base: '18px', md: '24px' }}
+                                lineHeight={{ base: '156%', md: '133%' }}
+                            >
                                 {`${data.firstName} ${data.lastName}`}
                             </Text>
-                            <Text fontWeight={400} fontSize='14px' lineHeight='143%'>
+                            <Text
+                                fontWeight={400}
+                                fontSize='14px'
+                                lineHeight='143%'
+                                textAlign='right'
+                                w={{ base: '100%', md: 'unset' }}
+                            >
                                 {AUTHOR_INFO_TEXT.author}
                             </Text>
                         </Flex>
