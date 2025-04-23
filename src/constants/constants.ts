@@ -567,8 +567,10 @@ export const BLOGS_DATA: BlogsItemType[] = [
 export const TEXT = {
     recommend: 'рекомендует',
     searchPlaceholder: 'Название или ингредиент...',
-    switchPlaceholder: 'Исключить мои аллергены',
+    switchPlaceholder: 'Исключить аллергены',
     mainPage: 'Главная',
+    allergenPlaceholder: 'Выберите из списка...',
+    inputAllergenPlaceholder: 'Другой аллерген',
 };
 
 export const PAGE_DB: PageDbType = {
@@ -2360,3 +2362,15 @@ export const AUTHOR_INFO_TEXT = {
     author: 'Автор рецепта',
     button: 'Подписаться',
 };
+
+export const ALLERGENS = [
+    { id: '01', key: 'Молочные продукты' },
+    { id: '02', key: 'Яйцо' },
+    { id: '03', key: 'Рыба' },
+    { id: '04', key: 'Моллюски' },
+    { id: '05', key: 'Орехи' },
+    { id: '06', key: 'Томат (помидор)' },
+    { id: '07', key: 'Цитрусовые' },
+    { id: '08', key: 'Клубника (ягоды)' },
+    { id: '09', key: 'Шоколад' },
+];
