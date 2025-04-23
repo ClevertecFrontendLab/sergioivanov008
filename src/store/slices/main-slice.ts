@@ -6,6 +6,7 @@ export type MainState = typeof initialState;
 
 const initialState = {
     isOpenBurger: false,
+    isExcludeAllergens: false,
 };
 
 export const mainSlice = createSlice({
@@ -14,6 +15,9 @@ export const mainSlice = createSlice({
     reducers: {
         setIsOpenBurger(state, action: PayloadAction<boolean>) {
             state.isOpenBurger = action.payload;
+        },
+        setIsExcludeAllergens(state, action: PayloadAction<boolean>) {
+            state.isExcludeAllergens = action.payload;
         },
     },
 });
