@@ -4,12 +4,12 @@ import { FilterButton, FilterSearch, FilterSelect, FilterSwitch } from '~/compon
 
 export function Filters() {
     return (
-        <Flex gap={4} direction='column'>
+        <Flex gap={4} direction='column' w='518px'>
             <Flex gap={3} justify='center'>
                 <FilterButton />
                 <FilterSearch />
             </Flex>
-            <Flex gap={4} justify='center' w='100%' display={{ base: 'none', lg: 'flex' }}>
+            <Flex gap={4} align='center' w='100%' display={{ base: 'none', lg: 'flex' }}>
                 <FilterSwitch />
                 <FilterSelect />
             </Flex>
