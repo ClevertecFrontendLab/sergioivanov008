@@ -10,10 +10,12 @@ import {
 } from '~/components';
 import { PageType } from '~/components/types';
 import { CATEGORY_LIST } from '~/constants';
+import { useFilteredPage } from '~/hooks/use-filtered-page';
 
 export function Page() {
     const { category } = useParams();
     const navigate = useNavigate();
+    const isShowFilteredPage = useFilteredPage();
     let pageHeaderData: PageType | null = null;
     let pageFooterData: PageType | null = null;
 
@@ -36,9 +38,15 @@ export function Page() {
     return pageHeaderData !== null && pageFooterData !== null ? (
         <PageWrapper>
             <PageHeaderSection page={pageHeaderData} />
-            <PageRecipesSection page={pageHeaderData} />
-            <Divider mb={{ base: '8px', lg: '24px' }} />
-            <PageFooterSection page={pageFooterData} />
+            {isShowFilteredPage ? (
+                <PageRecipesSection page='filtered' />
+            ) : (
+                <>
+                    <PageRecipesSection page={pageHeaderData} />
+                    <Divider mb={{ base: '8px', lg: '24px' }} />
+                    <PageFooterSection page={pageFooterData} />
+                </>
+            )}
         </PageWrapper>
     ) : null;
 }
