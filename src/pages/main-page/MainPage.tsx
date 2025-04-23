@@ -4,17 +4,27 @@ import {
     NewRecipesSection,
     PageFooterSection,
     PageHeaderSection,
+    PageRecipesSection,
     PageWrapper,
 } from '~/components';
+import { useFilteredPage } from '~/hooks/use-filtered-page';
 
 export function MainPage() {
+    const isShowFilteredPage = useFilteredPage();
+
     return (
         <PageWrapper>
             <PageHeaderSection page='home' />
-            <NewRecipesSection />
-            <JuiciestSection />
-            <BlogsSection />
-            <PageFooterSection page='vegan' />
+            {isShowFilteredPage ? (
+                <PageRecipesSection page='filtered' />
+            ) : (
+                <>
+                    <NewRecipesSection />
+                    <JuiciestSection />
+                    <BlogsSection />
+                    <PageFooterSection page='vegan' />
+                </>
+            )}
         </PageWrapper>
     );
 }
