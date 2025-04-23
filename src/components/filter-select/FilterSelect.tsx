@@ -19,30 +19,32 @@ import {
 import { useState } from 'react';
 
 import { ALLERGENS, TEXT } from '~/constants';
-import { useAppSelector } from '~/store/hooks';
-import { mainSelector } from '~/store/slices/main-slice';
+import { useAppDispatch, useAppSelector } from '~/store/hooks';
+import { mainActions, mainSelector } from '~/store/slices/main-slice';
 import { checkIsOdd } from '~/utils';
 
 export function FilterSelect() {
-    const { isExcludeAllergens } = useAppSelector(mainSelector);
+    const dispatch = useAppDispatch();
+    const { isExcludeAllergens, selectedAllergens } = useAppSelector(mainSelector);
     const [isAllergenMenuOpen, setIsAllergenMenuOpen] = useState(false);
-    const [selectedAllergens, setSelectedAllergens] = useState<string[]>([]);
     const [newAllergen, setNewAllergen] = useState('');
 
     const toggleMenuOpen = () => setIsAllergenMenuOpen(!isAllergenMenuOpen);
 
     const toggleAllergen = (allergen: string) => {
         if (selectedAllergens.includes(allergen)) {
-            setSelectedAllergens(selectedAllergens.filter((el) => el !== allergen));
+            dispatch(
+                mainActions.setSelectedAllergens(selectedAllergens.filter((el) => el !== allergen)),
+            );
         } else {
-            setSelectedAllergens([...selectedAllergens, allergen]);
+            dispatch(mainActions.setSelectedAllergens([...selectedAllergens, allergen]));
         }
     };
 
     const handleAddCustomAllergen = () => {
         const curAllergen = newAllergen.trim();
         if (curAllergen && !selectedAllergens.includes(curAllergen)) {
-            setSelectedAllergens([...selectedAllergens, curAllergen]);
+            dispatch(mainActions.setSelectedAllergens([...selectedAllergens, curAllergen]));
             setNewAllergen('');
         }
     };
