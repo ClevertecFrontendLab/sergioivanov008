@@ -10,3 +10,5 @@ export const getSortByDate = (arr: RecipeItemFullType[], num: number) => {
 
     return sortedArr.slice(0, num);
 };
+
+export const checkIsOdd = (num: number) => num % 2 === 0;
