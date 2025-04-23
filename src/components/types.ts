@@ -140,7 +140,7 @@ export type RecipeStatisticPropsType = {
     likes?: number;
 };
 
-export type PageType = CategoryKeyType | 'home' | 'juiciest';
+export type PageType = CategoryKeyType | 'home' | 'juiciest' | 'filtered';
 
 export type PageHeaderItemType = {
     id: string;

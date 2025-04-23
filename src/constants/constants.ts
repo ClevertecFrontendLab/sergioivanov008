@@ -584,6 +584,11 @@ export const PAGE_DB: PageDbType = {
         title: 'Самое сочное',
         desc: '',
     },
+    filtered: {
+        id: '102',
+        title: '',
+        desc: '',
+    },
     vegan: {
         id: '07',
         title: 'Веганская кухня',
