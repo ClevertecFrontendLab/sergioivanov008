@@ -13,7 +13,13 @@ export function FilterSwitch() {
     };
 
     return (
-        <FormControl display='flex' alignItems='center' w='231px' justifyContent='space-between'>
+        <FormControl
+            display='flex'
+            alignItems='center'
+            w='231px'
+            justifyContent='space-between'
+            h='36px'
+        >
             <FormLabel htmlFor='exclude-allergens' mb='0'>
                 {TEXT.switchPlaceholder}
             </FormLabel>
