@@ -73,6 +73,8 @@ export const BTN_TEXT = {
     rateRecipe: 'Оценить рецепт',
     cook: 'Готовить',
     loadMore: 'Загрузить еще',
+    clearFilter: 'Очистить фильтр',
+    findRecipe: 'Найти рецепт',
 };
 
 export const FOOTER_MENU: FooterMenuItemType[] = [
@@ -571,8 +573,6 @@ export const TEXT = {
     searchPlaceholder: 'Название или ингредиент...',
     switchPlaceholder: 'Исключить аллергены',
     mainPage: 'Главная',
-    allergenPlaceholder: 'Выберите из списка...',
-    inputAllergenPlaceholder: 'Другой аллерген',
     filterTitle: 'Фильтр',
 };
 
@@ -2371,16 +2371,16 @@ export const AUTHOR_INFO_TEXT = {
     button: 'Подписаться',
 };
 
-export const ALLERGENS = [
-    { id: '01', key: 'Молочные продукты' },
-    { id: '02', key: 'Яйцо' },
-    { id: '03', key: 'Рыба' },
-    { id: '04', key: 'Моллюски' },
-    { id: '05', key: 'Орехи' },
-    { id: '06', key: 'Томат (помидор)' },
-    { id: '07', key: 'Цитрусовые' },
-    { id: '08', key: 'Клубника (ягоды)' },
-    { id: '09', key: 'Шоколад' },
+export const ALLERGENS_FILTER = [
+    { key: 'dairy', value: 'Молочные продукты' },
+    { key: 'egg', value: 'Яйцо' },
+    { key: 'fish', value: 'Рыба' },
+    { key: 'shellfish', value: 'Моллюски' },
+    { key: 'nuts', value: 'Орехи' },
+    { key: 'tomato', value: 'Томат (помидор)' },
+    { key: 'citrus', value: 'Цитрусовые' },
+    { key: 'berries', value: 'Клубника (ягоды)' },
+    { key: 'chocolate', value: 'Шоколад' },
 ];
 
 export const CATEGORY_FILTER = [
@@ -2425,6 +2425,11 @@ export const GARNIR_FILTER = [
 ];
 
 export const FILTER_CUSTOM: Record<FilterCustomType, FilterCustomItemType> = {
+    allergens: {
+        title: 'Выберите из списка...',
+        list: ALLERGENS_FILTER,
+        addText: 'Другой аллерген',
+    },
     category: { title: 'Категория', list: CATEGORY_FILTER },
     author: { title: 'Поиск по автору', list: AUTHOR_FILTER },
     meat: { title: 'Тип мяса', list: MEAT_FILTER },

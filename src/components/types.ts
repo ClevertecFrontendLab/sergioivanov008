@@ -241,7 +241,7 @@ export type AuthorInfoPropsType = {
     data: AuthorType;
 };
 
-export type FilterCustomType = 'category' | 'author' | 'meat' | 'garnir';
+export type FilterCustomType = 'allergens' | 'category' | 'author' | 'meat' | 'garnir';
 
 export type FilterCustomItemType = {
     title: string;
@@ -249,11 +249,16 @@ export type FilterCustomItemType = {
         key: string;
         value: string;
     }[];
+    addText?: string;
+};
+
+export type FilterSelectAllergenPropsType = {
+    keyFilter: FilterCustomType;
+    isSideMenu: boolean;
 };
 
 export type FilterSelectCustomPropsType = {
     keyFilter: FilterCustomType;
-    width: string;
 };
 
 export type FilterListCustomPropsType = {
