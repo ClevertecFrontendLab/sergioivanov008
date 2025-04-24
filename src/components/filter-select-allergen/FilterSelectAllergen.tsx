@@ -18,12 +18,14 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
-import { ALLERGENS, TEXT } from '~/constants';
+import { FILTER_CUSTOM } from '~/constants';
 import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { mainActions, mainSelector } from '~/store/slices/main-slice';
 import { checkIsOdd } from '~/utils';
 
-export function FilterSelectAllergen() {
+import { FilterSelectAllergenPropsType } from '../types';
+
+export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAllergenPropsType) {
     const dispatch = useAppDispatch();
     const { isExcludeAllergens, selectedAllergens } = useAppSelector(mainSelector);
     const [isAllergenMenuOpen, setIsAllergenMenuOpen] = useState(false);
@@ -56,7 +58,7 @@ export function FilterSelectAllergen() {
     };
 
     return (
-        <Box w='269px'>
+        <Box w={isSideMenu ? { base: '308px', lg: '399px' } : '269px'}>
             <Menu
                 isOpen={isAllergenMenuOpen}
                 onOpen={toggleMenuOpen}
@@ -94,33 +96,33 @@ export function FilterSelectAllergen() {
                             lineHeight='150%'
                             color='rgba(0, 0, 0, 0.64)'
                         >
-                            {TEXT.allergenPlaceholder}
+                            {FILTER_CUSTOM[keyFilter].title}
                         </Text>
                     )}
                 </MenuButton>
 
                 <MenuList
-                    w='269px'
+                    w={isSideMenu ? { base: '308px', lg: '399px' } : '269px'}
                     borderRadius='4px'
                     padding='4px 0px'
                     boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.1)'
                     background='#fff'
                     zIndex={2}
                 >
-                    {ALLERGENS.map((el, index) => (
-                        <MenuItem key={el.id} bg={checkIsOdd(index) ? 'rgba(0, 0, 0, 0.06)' : ''}>
+                    {FILTER_CUSTOM[keyFilter].list.map((el, index) => (
+                        <MenuItem key={index} bg={checkIsOdd(index) ? 'rgba(0, 0, 0, 0.06)' : ''}>
                             <Checkbox
                                 colorScheme='myGreen'
                                 iconColor='black'
-                                isChecked={selectedAllergens.includes(el.key)}
-                                onChange={() => toggleAllergen(el.key)}
+                                isChecked={selectedAllergens.includes(el.value)}
+                                onChange={() => toggleAllergen(el.value)}
                                 sx={{
                                     '.chakra-checkbox__control': {
                                         borderColor: '#d7ff94',
                                     },
                                 }}
                             >
-                                {el.key}
+                                {el.value}
                             </Checkbox>
                         </MenuItem>
                     ))}
@@ -129,7 +131,7 @@ export function FilterSelectAllergen() {
                         <Input
                             border-radius='4px'
                             height='32px'
-                            placeholder={TEXT.inputAllergenPlaceholder}
+                            placeholder={FILTER_CUSTOM[keyFilter].addText}
                             value={newAllergen}
                             onChange={(e) => setNewAllergen(e.target.value)}
                             onKeyDown={handleInputKeyDown}
