@@ -19,6 +19,7 @@ export { ExitButton } from './exit-button/ExitButton.tsx';
 export { FilterButton } from './filter-button/FilterButton.tsx';
 export { FilterSearch } from './filter-search/FilterSearch.tsx';
 export { FilterSelect } from './filter-select/FilterSelect.tsx';
+export { FilterSelectCustom } from './filter-select-custom/FilterSelectCustom.tsx';
 export { FilterSwitch } from './filter-switch/FilterSwitch.tsx';
 export { Filters } from './filters/Filters.tsx';
 export { Footer } from './footer/Footer.tsx';
