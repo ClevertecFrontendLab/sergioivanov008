@@ -241,7 +241,7 @@ export type AuthorInfoPropsType = {
     data: AuthorType;
 };
 
-export type FilterCustomType = 'category' | 'author';
+export type FilterCustomType = 'category' | 'author' | 'meat' | 'garnir';
 
 export type FilterCustomItemType = {
     title: string;
@@ -254,4 +254,8 @@ export type FilterCustomItemType = {
 export type FilterSelectCustomPropsType = {
     keyFilter: FilterCustomType;
     width: string;
+};
+
+export type FilterListCustomPropsType = {
+    keyFilter: FilterCustomType;
 };

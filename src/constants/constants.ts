@@ -2405,7 +2405,28 @@ export const AUTHOR_FILTER = [
     { key: '@petr25', value: 'Петр Петров' },
 ];
 
+export const MEAT_FILTER = [
+    { key: 'chicken', value: 'Курица' },
+    { key: 'pork', value: 'Свинина' },
+    { key: 'beef', value: 'Говядина' },
+    { key: 'turkey', value: 'Индейка' },
+    { key: 'duck', value: 'Утка' },
+];
+
+export const GARNIR_FILTER = [
+    { key: 'potatoes', value: 'Картошка' },
+    { key: 'buckwheat', value: 'Гречка' },
+    { key: 'pasta', value: 'Паста' },
+    { key: 'spaghetti', value: 'Спагетти' },
+    { key: 'rice', value: 'Рис' },
+    { key: 'cabbage', value: 'Капуста' },
+    { key: 'beans', value: 'Фасоль' },
+    { key: 'other-vegetables', value: 'Другие овощи' },
+];
+
 export const FILTER_CUSTOM: Record<FilterCustomType, FilterCustomItemType> = {
     category: { title: 'Категория', list: CATEGORY_FILTER },
     author: { title: 'Поиск по автору', list: AUTHOR_FILTER },
+    meat: { title: 'Тип мяса', list: MEAT_FILTER },
+    garnir: { title: 'Тип гарнира', list: GARNIR_FILTER },
 };
