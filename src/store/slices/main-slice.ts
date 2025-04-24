@@ -18,6 +18,8 @@ const initialState: MainState = {
     selectedFilters: {
         author: [],
         category: [],
+        meat: [],
+        garnir: [],
     },
 };
 
