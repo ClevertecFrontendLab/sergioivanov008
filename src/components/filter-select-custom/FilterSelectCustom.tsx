@@ -42,7 +42,7 @@ export function FilterSelectCustom({ keyFilter }: FilterSelectCustomPropsType) {
     };
 
     return (
-        <Box w={{ base: '308px', lg: '399px' }}>
+        <Box w={{ base: '299px', lg: '390px' }}>
             <Menu
                 isOpen={isMenuOpen}
                 onOpen={toggleMenuOpen}
@@ -85,7 +85,7 @@ export function FilterSelectCustom({ keyFilter }: FilterSelectCustomPropsType) {
                 </MenuButton>
 
                 <MenuList
-                    w={{ base: '308px', lg: '399px' }}
+                    w={{ base: '299px', lg: '390px' }}
                     borderRadius='4px'
                     padding='4px 0px'
                     boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.1)'
