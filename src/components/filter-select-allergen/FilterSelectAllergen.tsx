@@ -58,7 +58,7 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
     };
 
     return (
-        <Box w={isSideMenu ? { base: '308px', lg: '399px' } : '269px'}>
+        <Box w={isSideMenu ? { base: '299px', lg: '390px' } : '269px'}>
             <Menu
                 isOpen={isAllergenMenuOpen}
                 onOpen={toggleMenuOpen}
@@ -102,7 +102,7 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
                 </MenuButton>
 
                 <MenuList
-                    w={isSideMenu ? { base: '308px', lg: '399px' } : '269px'}
+                    w={isSideMenu ? { base: '299px', lg: '390px' } : '269px'}
                     borderRadius='4px'
                     padding='4px 0px'
                     boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.1)'
