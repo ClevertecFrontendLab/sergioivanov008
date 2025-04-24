@@ -22,7 +22,7 @@ import { checkIsOdd } from '~/utils';
 
 import { FilterCustomType, FilterSelectCustomPropsType } from '../types';
 
-export function FilterSelectCustom({ keyFilter, width }: FilterSelectCustomPropsType) {
+export function FilterSelectCustom({ keyFilter }: FilterSelectCustomPropsType) {
     const dispatch = useAppDispatch();
     const { selectedFilters } = useAppSelector(mainSelector);
     const selectedCurFilters = selectedFilters[keyFilter];
@@ -42,7 +42,7 @@ export function FilterSelectCustom({ keyFilter, width }: FilterSelectCustomProps
     };
 
     return (
-        <Box w={width}>
+        <Box w={{ base: '308px', lg: '399px' }}>
             <Menu
                 isOpen={isMenuOpen}
                 onOpen={toggleMenuOpen}
@@ -85,7 +85,7 @@ export function FilterSelectCustom({ keyFilter, width }: FilterSelectCustomProps
                 </MenuButton>
 
                 <MenuList
-                    w={width}
+                    w={{ base: '308px', lg: '399px' }}
                     borderRadius='4px'
                     padding='4px 0px'
                     boxShadow='0 1px 2px 0 rgba(0, 0, 0, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.1)'
