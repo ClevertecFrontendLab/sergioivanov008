@@ -11,7 +11,7 @@ export function Filters() {
             </Flex>
             <Flex gap={4} align='center' w='100%' display={{ base: 'none', lg: 'flex' }}>
                 <FilterSwitch />
-                <FilterSelectAllergen />
+                <FilterSelectAllergen keyFilter='allergens' isSideMenu={false} />
             </Flex>
         </Flex>
     );
