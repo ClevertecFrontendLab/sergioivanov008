@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 
-import { FilterButton, FilterSearch, FilterSelect, FilterSwitch } from '~/components';
+import { FilterButton, FilterSearch, FilterSelectAllergen, FilterSwitch } from '~/components';
 
 export function Filters() {
     return (
@@ -11,7 +11,7 @@ export function Filters() {
             </Flex>
             <Flex gap={4} align='center' w='100%' display={{ base: 'none', lg: 'flex' }}>
                 <FilterSwitch />
-                <FilterSelect />
+                <FilterSelectAllergen />
             </Flex>
         </Flex>
     );

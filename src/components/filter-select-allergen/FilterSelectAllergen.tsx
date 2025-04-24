@@ -23,7 +23,7 @@ import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { mainActions, mainSelector } from '~/store/slices/main-slice';
 import { checkIsOdd } from '~/utils';
 
-export function FilterSelect() {
+export function FilterSelectAllergen() {
     const dispatch = useAppDispatch();
     const { isExcludeAllergens, selectedAllergens } = useAppSelector(mainSelector);
     const [isAllergenMenuOpen, setIsAllergenMenuOpen] = useState(false);
