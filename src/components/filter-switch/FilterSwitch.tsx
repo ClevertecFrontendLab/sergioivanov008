@@ -26,7 +26,7 @@ export function FilterSwitch() {
             <Switch
                 id='exclude-allergens'
                 colorScheme='myGreen'
-                checked={isExcludeAllergens}
+                isChecked={isExcludeAllergens}
                 onChange={handlerSwitch}
             />
         </FormControl>
