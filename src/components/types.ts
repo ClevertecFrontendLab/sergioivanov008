@@ -240,3 +240,18 @@ export type CookingStepsInfoPropsType = {
 export type AuthorInfoPropsType = {
     data: AuthorType;
 };
+
+export type FilterCustomType = 'category' | 'author';
+
+export type FilterCustomItemType = {
+    title: string;
+    list: {
+        key: string;
+        value: string;
+    }[];
+};
+
+export type FilterSelectCustomPropsType = {
+    keyFilter: FilterCustomType;
+    width: string;
+};

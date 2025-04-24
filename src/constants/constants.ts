@@ -50,6 +50,8 @@ import vegan108Img from '~/assets/images/vegan_108.png';
 import {
     AvatarContentType,
     BlogsItemType,
+    FilterCustomItemType,
+    FilterCustomType,
     FooterMenuItemType,
     NavDataType,
     PageDbType,
@@ -571,6 +573,7 @@ export const TEXT = {
     mainPage: 'Главная',
     allergenPlaceholder: 'Выберите из списка...',
     inputAllergenPlaceholder: 'Другой аллерген',
+    filterTitle: 'Фильтр',
 };
 
 export const PAGE_DB: PageDbType = {
@@ -2379,3 +2382,30 @@ export const ALLERGENS = [
     { id: '08', key: 'Клубника (ягоды)' },
     { id: '09', key: 'Шоколад' },
 ];
+
+export const CATEGORY_FILTER = [
+    { key: 'salads', value: 'Салаты' },
+    { key: 'snacks', value: 'Закуски' },
+    { key: 'perviebluda', value: 'Первые блюда' },
+    { key: 'second-dish', value: 'Вторые блюда' },
+    { key: 'deserty', value: 'Десерты, выпечка' },
+    { key: 'gril', value: 'Блюда на гриле' },
+    { key: 'vegan', value: 'Веганская кухня' },
+    { key: 'detskie', value: 'Детские блюда' },
+    { key: 'lechebnoe', value: 'Лечебное питание' },
+    { key: 'nacional', value: 'Национальные' },
+    { key: 'soucy', value: 'Соусы' },
+    { key: 'napitki', value: 'Напитки' },
+    { key: 'zagotovki', value: 'Заготовки' },
+];
+
+export const AUTHOR_FILTER = [
+    { key: '@serge25', value: 'Сергей Разумов' },
+    { key: '@ivan25', value: 'Иван Иванов' },
+    { key: '@petr25', value: 'Петр Петров' },
+];
+
+export const FILTER_CUSTOM: Record<FilterCustomType, FilterCustomItemType> = {
+    category: { title: 'Категория', list: CATEGORY_FILTER },
+    author: { title: 'Поиск по автору', list: AUTHOR_FILTER },
+};
