@@ -1,6 +1,6 @@
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
-import { useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 
 import { ALL_RECIPES, NAV_DATA, PAGE_DB, TEXT } from '~/constants';
 
@@ -55,7 +55,8 @@ export function BreadcrumbComponent() {
         >
             <BreadcrumbItem isCurrentPage={slot1.isCurrentPage}>
                 <BreadcrumbLink
-                    href='/'
+                    as={Link}
+                    to='/'
                     color={slot1.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
                 >
                     {TEXT.mainPage}
@@ -65,7 +66,8 @@ export function BreadcrumbComponent() {
             {slot2.isShow && (
                 <BreadcrumbItem isCurrentPage={slot2.isCurrentPage}>
                     <BreadcrumbLink
-                        href={`/${category}`}
+                        as={Link}
+                        to={`/${category}`}
                         color={slot2.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
                     >
                         {slot2.text}
@@ -76,7 +78,8 @@ export function BreadcrumbComponent() {
             {slot3.isShow && (
                 <BreadcrumbItem isCurrentPage={slot3.isCurrentPage}>
                     <BreadcrumbLink
-                        href={`/${category}`}
+                        as={Link}
+                        to={`/${category}`}
                         color={slot3.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
                     >
                         {slot3.text}
