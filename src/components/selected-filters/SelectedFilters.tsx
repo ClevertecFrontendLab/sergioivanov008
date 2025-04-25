@@ -8,7 +8,7 @@ import { FilterCustomType, FilterItemType } from '../types';
 export function SelectedFilters() {
     const dispatch = useAppDispatch();
     const { selectedFilters } = useAppSelector(mainSelector);
-    const fullFilterArray = [...selectedFilters.garnir, ...selectedFilters.meat];
+    const curFilterArray = [...selectedFilters.garnir, ...selectedFilters.meat];
 
     const handlerDeleteTag = (filter: FilterItemType) => {
         const keyFilter = filter.type;
@@ -23,8 +23,8 @@ export function SelectedFilters() {
 
     return (
         <Wrap spacing={2}>
-            {fullFilterArray.length > 0 &&
-                fullFilterArray.map((el, index) => (
+            {curFilterArray.length > 0 &&
+                curFilterArray.map((el, index) => (
                     <WrapItem key={index}>
                         <Tag
                             size='md'
