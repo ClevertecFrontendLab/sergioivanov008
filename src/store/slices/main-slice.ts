@@ -10,6 +10,7 @@ export type MainState = {
     isExcludeAllergens: boolean;
     isCanFiltered: boolean;
     selectedFilters: SelectedFiltersType;
+    searchQuery: string;
 };
 
 const initialState: MainState = {
@@ -17,6 +18,7 @@ const initialState: MainState = {
     isExcludeAllergens: false,
     isCanFiltered: false,
     selectedFilters: EMPTY_SELECTED_FILTERS,
+    searchQuery: '',
 };
 
 export const mainSlice = createSlice({
@@ -37,6 +39,9 @@ export const mainSlice = createSlice({
             action: PayloadAction<Record<FilterCustomType, FilterItemType[]>>,
         ) {
             state.selectedFilters = action.payload;
+        },
+        setSearchQuery(state, action: PayloadAction<string>) {
+            state.searchQuery = action.payload;
         },
     },
 });
