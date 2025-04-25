@@ -52,6 +52,7 @@ import {
     BlogsItemType,
     FilterCustomItemType,
     FilterCustomType,
+    FilterItemType,
     FooterMenuItemType,
     NavDataType,
     PageDbType,
@@ -2371,57 +2372,57 @@ export const AUTHOR_INFO_TEXT = {
     button: 'Подписаться',
 };
 
-export const ALLERGENS_FILTER = [
-    { key: 'dairy', value: 'Молочные продукты' },
-    { key: 'egg', value: 'Яйцо' },
-    { key: 'fish', value: 'Рыба' },
-    { key: 'shellfish', value: 'Моллюски' },
-    { key: 'nuts', value: 'Орехи' },
-    { key: 'tomato', value: 'Томат (помидор)' },
-    { key: 'citrus', value: 'Цитрусовые' },
-    { key: 'berries', value: 'Клубника (ягоды)' },
-    { key: 'chocolate', value: 'Шоколад' },
+export const ALLERGENS_FILTER: FilterItemType[] = [
+    { type: 'allergens', key: 'dairy', value: 'Молочные продукты' },
+    { type: 'allergens', key: 'egg', value: 'Яйцо' },
+    { type: 'allergens', key: 'fish', value: 'Рыба' },
+    { type: 'allergens', key: 'shellfish', value: 'Моллюски' },
+    { type: 'allergens', key: 'nuts', value: 'Орехи' },
+    { type: 'allergens', key: 'tomato', value: 'Томат (помидор)' },
+    { type: 'allergens', key: 'citrus', value: 'Цитрусовые' },
+    { type: 'allergens', key: 'berries', value: 'Клубника (ягоды)' },
+    { type: 'allergens', key: 'chocolate', value: 'Шоколад' },
 ];
 
-export const CATEGORY_FILTER = [
-    { key: 'salads', value: 'Салаты' },
-    { key: 'snacks', value: 'Закуски' },
-    { key: 'perviebluda', value: 'Первые блюда' },
-    { key: 'second-dish', value: 'Вторые блюда' },
-    { key: 'deserty', value: 'Десерты, выпечка' },
-    { key: 'gril', value: 'Блюда на гриле' },
-    { key: 'vegan', value: 'Веганская кухня' },
-    { key: 'detskie', value: 'Детские блюда' },
-    { key: 'lechebnoe', value: 'Лечебное питание' },
-    { key: 'nacional', value: 'Национальные' },
-    { key: 'soucy', value: 'Соусы' },
-    { key: 'napitki', value: 'Напитки' },
-    { key: 'zagotovki', value: 'Заготовки' },
+export const CATEGORY_FILTER: FilterItemType[] = [
+    { type: 'category', key: 'salads', value: 'Салаты' },
+    { type: 'category', key: 'snacks', value: 'Закуски' },
+    { type: 'category', key: 'perviebluda', value: 'Первые блюда' },
+    { type: 'category', key: 'second-dish', value: 'Вторые блюда' },
+    { type: 'category', key: 'deserty', value: 'Десерты, выпечка' },
+    { type: 'category', key: 'gril', value: 'Блюда на гриле' },
+    { type: 'category', key: 'vegan', value: 'Веганская кухня' },
+    { type: 'category', key: 'detskie', value: 'Детские блюда' },
+    { type: 'category', key: 'lechebnoe', value: 'Лечебное питание' },
+    { type: 'category', key: 'nacional', value: 'Национальные' },
+    { type: 'category', key: 'soucy', value: 'Соусы' },
+    { type: 'category', key: 'napitki', value: 'Напитки' },
+    { type: 'category', key: 'zagotovki', value: 'Заготовки' },
 ];
 
-export const AUTHOR_FILTER = [
-    { key: '@serge25', value: 'Сергей Разумов' },
-    { key: '@ivan25', value: 'Иван Иванов' },
-    { key: '@petr25', value: 'Петр Петров' },
+export const AUTHOR_FILTER: FilterItemType[] = [
+    { type: 'author', key: '@serge25', value: 'Сергей Разумов' },
+    { type: 'author', key: '@ivan25', value: 'Иван Иванов' },
+    { type: 'author', key: '@petr25', value: 'Петр Петров' },
 ];
 
-export const MEAT_FILTER = [
-    { key: 'chicken', value: 'Курица' },
-    { key: 'pork', value: 'Свинина' },
-    { key: 'beef', value: 'Говядина' },
-    { key: 'turkey', value: 'Индейка' },
-    { key: 'duck', value: 'Утка' },
+export const MEAT_FILTER: FilterItemType[] = [
+    { type: 'meat', key: 'chicken', value: 'Курица' },
+    { type: 'meat', key: 'pork', value: 'Свинина' },
+    { type: 'meat', key: 'beef', value: 'Говядина' },
+    { type: 'meat', key: 'turkey', value: 'Индейка' },
+    { type: 'meat', key: 'duck', value: 'Утка' },
 ];
 
-export const GARNIR_FILTER = [
-    { key: 'potatoes', value: 'Картошка' },
-    { key: 'buckwheat', value: 'Гречка' },
-    { key: 'pasta', value: 'Паста' },
-    { key: 'spaghetti', value: 'Спагетти' },
-    { key: 'rice', value: 'Рис' },
-    { key: 'cabbage', value: 'Капуста' },
-    { key: 'beans', value: 'Фасоль' },
-    { key: 'other-vegetables', value: 'Другие овощи' },
+export const GARNIR_FILTER: FilterItemType[] = [
+    { type: 'garnir', key: 'potatoes', value: 'Картошка' },
+    { type: 'garnir', key: 'buckwheat', value: 'Гречка' },
+    { type: 'garnir', key: 'pasta', value: 'Паста' },
+    { type: 'garnir', key: 'spaghetti', value: 'Спагетти' },
+    { type: 'garnir', key: 'rice', value: 'Рис' },
+    { type: 'garnir', key: 'cabbage', value: 'Капуста' },
+    { type: 'garnir', key: 'beans', value: 'Фасоль' },
+    { type: 'garnir', key: 'other-vegetables', value: 'Другие овощи' },
 ];
 
 export const FILTER_CUSTOM: Record<FilterCustomType, FilterCustomItemType> = {

@@ -243,12 +243,15 @@ export type AuthorInfoPropsType = {
 
 export type FilterCustomType = 'allergens' | 'category' | 'author' | 'meat' | 'garnir';
 
+export type FilterItemType = {
+    type: FilterCustomType;
+    key: string;
+    value: string;
+};
+
 export type FilterCustomItemType = {
     title: string;
-    list: {
-        key: string;
-        value: string;
-    }[];
+    list: FilterItemType[];
     addText?: string;
 };
 
