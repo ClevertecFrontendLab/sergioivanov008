@@ -8,12 +8,14 @@ import { ApplicationState } from '../configure-store';
 export type MainState = {
     isOpenBurger: boolean;
     isExcludeAllergens: boolean;
+    isCanFiltered: boolean;
     selectedFilters: SelectedFiltersType;
 };
 
 const initialState: MainState = {
     isOpenBurger: false,
     isExcludeAllergens: false,
+    isCanFiltered: false,
     selectedFilters: EMPTY_SELECTED_FILTERS,
 };
 
@@ -26,6 +28,9 @@ export const mainSlice = createSlice({
         },
         setIsExcludeAllergens(state, action: PayloadAction<boolean>) {
             state.isExcludeAllergens = action.payload;
+        },
+        setIsCanFiltered(state, action: PayloadAction<boolean>) {
+            state.isCanFiltered = action.payload;
         },
         setSelectedFilters(
             state,
