@@ -11,14 +11,20 @@ import {
     Stack,
     Text,
 } from '@chakra-ui/react';
+import { useNavigate } from 'react-router';
 
 import { CustomBadge, CustomIcon12, RecipeStatistic, RecomendationBadge } from '~/components';
 import { BTN_TEXT } from '~/constants';
 
-import { RecipeItemPropsType } from '../types';
+import { RecipeItemFullType, RecipeItemPropsType } from '../types';
 
 export function RecipeItem({ data }: RecipeItemPropsType) {
+    const navigate = useNavigate();
     const { bookmarks, likes } = data;
+
+    const handlerClick = (el: RecipeItemFullType) => {
+        navigate(`/${el.category[0]}/${el.subcategory[0]}/${el.id}`);
+    };
 
     return (
         <Card
@@ -105,7 +111,12 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
                         size='xs'
                         display={{ base: 'flex', lg: 'none' }}
                     />
-                    <Button colorScheme='myBlack' variant='solid' size={{ base: 'xs', lg: 'sm' }}>
+                    <Button
+                        colorScheme='myBlack'
+                        variant='solid'
+                        size={{ base: 'xs', lg: 'sm' }}
+                        onClick={() => handlerClick(data)}
+                    >
                         {BTN_TEXT.cook}
                     </Button>
                 </CardFooter>
