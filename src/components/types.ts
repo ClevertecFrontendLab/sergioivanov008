@@ -260,6 +260,10 @@ export type FilterSelectAllergenPropsType = {
     isSideMenu: boolean;
 };
 
+export type AdditionalInputPropsType = {
+    keyFilter: FilterCustomType;
+};
+
 export type FilterSelectCustomPropsType = {
     keyFilter: FilterCustomType;
 };

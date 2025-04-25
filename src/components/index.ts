@@ -1,4 +1,5 @@
 export { AddRecipeButton } from './add-recipe-button/AddRecipeButton.tsx';
+export { AdditionalInput } from './additional-input/AdditionalInput.tsx';
 export { Aside } from './aside/Aside.tsx';
 export { AsideUserData } from './aside-user-data/AsideUserData.tsx';
 export { AuthorInfo } from './author-info/AuthorInfo.tsx';
