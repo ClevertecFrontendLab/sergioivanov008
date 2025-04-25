@@ -23,30 +23,42 @@ import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { mainActions, mainSelector } from '~/store/slices/main-slice';
 import { checkIsOdd } from '~/utils';
 
-import { FilterSelectAllergenPropsType } from '../types';
+import { FilterCustomType, FilterItemType, FilterSelectAllergenPropsType } from '../types';
 
 export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAllergenPropsType) {
     const dispatch = useAppDispatch();
-    const { isExcludeAllergens, selectedAllergens } = useAppSelector(mainSelector);
+    const { isExcludeAllergens, selectedFilters } = useAppSelector(mainSelector);
+    const selectedCurFilters = selectedFilters[keyFilter];
     const [isAllergenMenuOpen, setIsAllergenMenuOpen] = useState(false);
     const [newAllergen, setNewAllergen] = useState('');
 
     const toggleMenuOpen = () => setIsAllergenMenuOpen(!isAllergenMenuOpen);
 
-    const toggleAllergen = (allergen: string) => {
-        if (selectedAllergens.includes(allergen)) {
-            dispatch(
-                mainActions.setSelectedAllergens(selectedAllergens.filter((el) => el !== allergen)),
-            );
-        } else {
-            dispatch(mainActions.setSelectedAllergens([...selectedAllergens, allergen]));
-        }
+    const toggleFilter = (filter: FilterItemType) => {
+        const updatedFilters: Record<FilterCustomType, FilterItemType[]> = {
+            ...selectedFilters,
+            [keyFilter]: selectedFilters[keyFilter].includes(filter)
+                ? selectedFilters[keyFilter].filter((el) => el !== filter)
+                : [...selectedFilters[keyFilter], filter],
+        };
+
+        dispatch(mainActions.setSelectedFilters(updatedFilters));
     };
 
     const handleAddCustomAllergen = () => {
         const curAllergen = newAllergen.trim();
-        if (curAllergen && !selectedAllergens.includes(curAllergen)) {
-            dispatch(mainActions.setSelectedAllergens([...selectedAllergens, curAllergen]));
+        const tempAllergen: FilterItemType = {
+            type: 'allergens',
+            key: curAllergen,
+            value: curAllergen,
+        };
+        if (curAllergen && !selectedCurFilters.some((elem) => elem.key === curAllergen)) {
+            dispatch(
+                mainActions.setSelectedFilters({
+                    ...selectedFilters,
+                    [keyFilter]: [...selectedFilters[keyFilter], tempAllergen],
+                }),
+            );
             setNewAllergen('');
         }
     };
@@ -79,12 +91,12 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
                     borderColor={isAllergenMenuOpen ? '#c4ff61' : 'rgba(0, 0, 0, 0.08)'}
                     isDisabled={!isExcludeAllergens}
                 >
-                    {selectedAllergens.length > 0 && isExcludeAllergens ? (
+                    {selectedCurFilters.length > 0 && isExcludeAllergens ? (
                         <Wrap spacing={2}>
-                            {selectedAllergens.map((el, index) => (
+                            {selectedCurFilters.map((el, index) => (
                                 <WrapItem key={index}>
                                     <Tag size='sm' variant='outline' colorScheme='myGreen'>
-                                        <TagLabel color='#2db100'>{el}</TagLabel>
+                                        <TagLabel color='#2db100'>{el.value}</TagLabel>
                                     </Tag>
                                 </WrapItem>
                             ))}
@@ -114,8 +126,8 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
                             <Checkbox
                                 colorScheme='myGreen'
                                 iconColor='black'
-                                isChecked={selectedAllergens.includes(el.value)}
-                                onChange={() => toggleAllergen(el.value)}
+                                isChecked={selectedCurFilters.some((elem) => elem.key === el.key)}
+                                onChange={() => toggleFilter(el)}
                                 sx={{
                                     '.chakra-checkbox__control': {
                                         borderColor: '#d7ff94',
