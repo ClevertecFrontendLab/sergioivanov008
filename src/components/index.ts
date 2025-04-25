@@ -54,4 +54,5 @@ export { RecipesTabs } from './recipes-tabs/RecipesTabs.tsx';
 export { RecomendationBadge } from './recomendation-badge/RecomendationBadge.tsx';
 export { RootLayout } from './root-layout/RootLayout.tsx';
 export { SectionTitle } from './section-title/SectionTitle.tsx';
+export { SelectedFilters } from './selected-filters/SelectedFilters.tsx';
 export { TimeBadge } from './time-badge/TimeBadge.tsx';
