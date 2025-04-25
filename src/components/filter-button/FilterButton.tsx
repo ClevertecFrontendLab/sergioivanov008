@@ -23,15 +23,40 @@ import {
     SelectedFilters,
 } from '~/components';
 import { BTN_TEXT, EMPTY_SELECTED_FILTERS, TEXT } from '~/constants';
-import { useAppDispatch } from '~/store/hooks';
-import { mainActions } from '~/store/slices/main-slice';
+import { useAppDispatch, useAppSelector } from '~/store/hooks';
+import { mainActions, mainSelector } from '~/store/slices/main-slice';
 
 export function FilterButton() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const dispatch = useAppDispatch();
+    const { selectedFilters, isExcludeAllergens } = useAppSelector(mainSelector);
+    const allFiltersArray = [
+        ...selectedFilters.category,
+        ...selectedFilters.author,
+        ...selectedFilters.garnir,
+        ...selectedFilters.meat,
+    ];
 
     const handlerClearFilter = () => {
         dispatch(mainActions.setSelectedFilters(EMPTY_SELECTED_FILTERS));
+        dispatch(mainActions.setIsExcludeAllergens(false));
+    };
+
+    const handlerOpenDrawer = () => {
+        dispatch(mainActions.setIsCanFiltered(false));
+        handlerClearFilter();
+        onOpen();
+    };
+
+    const checkIsDisabledButton = () => {
+        const isDisabled = !(isExcludeAllergens || allFiltersArray.length > 0);
+
+        return isDisabled;
+    };
+
+    const handlerFindRecipe = () => {
+        dispatch(mainActions.setIsCanFiltered(true));
+        onClose();
     };
 
     return (
@@ -45,7 +70,7 @@ export function FilterButton() {
                 variant='outline'
                 border='1px solid rgba(0, 0, 0, 0.48)'
                 borderColor='rgba(0, 0, 0, 0.48)'
-                onClick={onOpen}
+                onClick={handlerOpenDrawer}
             />
             <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
                 <DrawerOverlay />
@@ -122,6 +147,8 @@ export function FilterButton() {
                                 colorScheme='myBlack'
                                 variant='solid'
                                 size={{ base: 'sm', lg: 'lg' }}
+                                isDisabled={checkIsDisabledButton()}
+                                onClick={handlerFindRecipe}
                             >
                                 {BTN_TEXT.findRecipe}
                             </Button>
