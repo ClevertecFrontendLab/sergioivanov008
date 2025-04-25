@@ -8,7 +8,7 @@ export type MainState = {
     isOpenBurger: boolean;
     isExcludeAllergens: boolean;
     selectedAllergens: string[];
-    selectedFilters: Record<FilterCustomType, string[]>;
+    selectedFilters: Omit<Record<FilterCustomType, string[]>, 'allergens'>;
 };
 
 const initialState: MainState = {
