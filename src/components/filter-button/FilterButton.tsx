@@ -22,10 +22,17 @@ import {
     FilterSwitch,
     SelectedFilters,
 } from '~/components';
-import { BTN_TEXT, TEXT } from '~/constants';
+import { BTN_TEXT, EMPTY_SELECTED_FILTERS, TEXT } from '~/constants';
+import { useAppDispatch } from '~/store/hooks';
+import { mainActions } from '~/store/slices/main-slice';
 
 export function FilterButton() {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const dispatch = useAppDispatch();
+
+    const handlerClearFilter = () => {
+        dispatch(mainActions.setSelectedFilters(EMPTY_SELECTED_FILTERS));
+    };
 
     return (
         <>
@@ -107,6 +114,7 @@ export function FilterButton() {
                                 colorScheme='myBlack'
                                 variant='outline'
                                 size={{ base: 'sm', lg: 'lg' }}
+                                onClick={handlerClearFilter}
                             >
                                 {BTN_TEXT.clearFilter}
                             </Button>
