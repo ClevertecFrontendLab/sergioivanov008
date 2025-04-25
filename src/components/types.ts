@@ -271,3 +271,5 @@ export type FilterSelectCustomPropsType = {
 export type FilterListCustomPropsType = {
     keyFilter: FilterCustomType;
 };
+
+export type SelectedFiltersType = Record<FilterCustomType, FilterItemType[]>;

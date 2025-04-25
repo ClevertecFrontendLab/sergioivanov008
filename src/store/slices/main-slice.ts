@@ -1,25 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { FilterCustomType, FilterItemType } from '~/components/types';
+import { FilterCustomType, FilterItemType, SelectedFiltersType } from '~/components/types';
+import { EMPTY_SELECTED_FILTERS } from '~/constants';
 
 import { ApplicationState } from '../configure-store';
 
 export type MainState = {
     isOpenBurger: boolean;
     isExcludeAllergens: boolean;
-    selectedFilters: Record<FilterCustomType, FilterItemType[]>;
+    selectedFilters: SelectedFiltersType;
 };
 
 const initialState: MainState = {
     isOpenBurger: false,
     isExcludeAllergens: false,
-    selectedFilters: {
-        allergens: [],
-        author: [],
-        category: [],
-        meat: [],
-        garnir: [],
-    },
+    selectedFilters: EMPTY_SELECTED_FILTERS,
 };
 
 export const mainSlice = createSlice({

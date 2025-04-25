@@ -57,6 +57,7 @@ import {
     NavDataType,
     PageDbType,
     RecipeItemFullType,
+    SelectedFiltersType,
 } from '~/components/types';
 
 export const AVATAR_DATA: AvatarContentType = {
@@ -2435,4 +2436,12 @@ export const FILTER_CUSTOM: Record<FilterCustomType, FilterCustomItemType> = {
     author: { title: 'Поиск по автору', list: AUTHOR_FILTER },
     meat: { title: 'Тип мяса', list: MEAT_FILTER },
     garnir: { title: 'Тип гарнира', list: GARNIR_FILTER },
+};
+
+export const EMPTY_SELECTED_FILTERS: SelectedFiltersType = {
+    allergens: [],
+    author: [],
+    category: [],
+    meat: [],
+    garnir: [],
 };
