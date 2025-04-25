@@ -2,9 +2,9 @@ import { useAppSelector } from '~/store/hooks';
 import { mainSelector } from '~/store/slices/main-slice';
 
 export const useFilteredPage = () => {
-    const { isExcludeAllergens, selectedFilters } = useAppSelector(mainSelector);
+    const { isExcludeAllergens, isCanFiltered, selectedFilters } = useAppSelector(mainSelector);
     const isShowFiltered =
-        isExcludeAllergens && Object.values(selectedFilters).some((arr) => arr.length > 0);
+        (isExcludeAllergens && selectedFilters.allergens.length > 0) || isCanFiltered;
 
     return isShowFiltered;
 };
