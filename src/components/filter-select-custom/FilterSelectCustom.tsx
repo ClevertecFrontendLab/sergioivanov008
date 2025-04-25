@@ -16,30 +16,20 @@ import {
 import { useState } from 'react';
 
 import { FILTER_CUSTOM } from '~/constants';
-import { useAppDispatch, useAppSelector } from '~/store/hooks';
-import { mainActions, mainSelector } from '~/store/slices/main-slice';
+import { useFilterToggle } from '~/hooks/use-filter-toggle';
+import { useAppSelector } from '~/store/hooks';
+import { mainSelector } from '~/store/slices/main-slice';
 import { checkIsOdd } from '~/utils';
 
-import { FilterCustomType, FilterItemType, FilterSelectCustomPropsType } from '../types';
+import { FilterSelectCustomPropsType } from '../types';
 
 export function FilterSelectCustom({ keyFilter }: FilterSelectCustomPropsType) {
-    const dispatch = useAppDispatch();
+    const { selectedFilterSet, toggleFilter } = useFilterToggle(keyFilter);
     const { selectedFilters } = useAppSelector(mainSelector);
     const selectedCurFilters = selectedFilters[keyFilter];
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenuOpen = () => setIsMenuOpen(!isMenuOpen);
-
-    const toggleFilter = (filter: FilterItemType) => {
-        const updatedFilters: Record<FilterCustomType, FilterItemType[]> = {
-            ...selectedFilters,
-            [keyFilter]: selectedFilters[keyFilter].includes(filter)
-                ? selectedFilters[keyFilter].filter((el) => el !== filter)
-                : [...selectedFilters[keyFilter], filter],
-        };
-
-        dispatch(mainActions.setSelectedFilters(updatedFilters));
-    };
 
     return (
         <Box w={{ base: '299px', lg: '390px' }}>
@@ -97,7 +87,7 @@ export function FilterSelectCustom({ keyFilter }: FilterSelectCustomPropsType) {
                             <Checkbox
                                 colorScheme='myGreen'
                                 iconColor='black'
-                                isChecked={selectedCurFilters.some((elem) => elem.key === el.key)}
+                                isChecked={selectedFilterSet.has(el.key)}
                                 onChange={() => toggleFilter(el)}
                                 sx={{
                                     '.chakra-checkbox__control': {
