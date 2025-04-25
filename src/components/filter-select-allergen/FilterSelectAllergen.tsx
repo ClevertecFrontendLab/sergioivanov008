@@ -1,11 +1,8 @@
-import { AddIcon, ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import {
     Box,
     Button,
     Checkbox,
-    Flex,
-    IconButton,
-    Input,
     Menu,
     MenuButton,
     MenuItem,
@@ -18,6 +15,7 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
+import { AdditionalInput } from '~/components';
 import { FILTER_CUSTOM } from '~/constants';
 import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { mainActions, mainSelector } from '~/store/slices/main-slice';
@@ -30,7 +28,6 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
     const { isExcludeAllergens, selectedFilters } = useAppSelector(mainSelector);
     const selectedCurFilters = selectedFilters[keyFilter];
     const [isAllergenMenuOpen, setIsAllergenMenuOpen] = useState(false);
-    const [newAllergen, setNewAllergen] = useState('');
 
     const toggleMenuOpen = () => setIsAllergenMenuOpen(!isAllergenMenuOpen);
 
@@ -43,30 +40,6 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
         };
 
         dispatch(mainActions.setSelectedFilters(updatedFilters));
-    };
-
-    const handleAddCustomAllergen = () => {
-        const curAllergen = newAllergen.trim();
-        const tempAllergen: FilterItemType = {
-            type: 'allergens',
-            key: curAllergen,
-            value: curAllergen,
-        };
-        if (curAllergen && !selectedCurFilters.some((elem) => elem.key === curAllergen)) {
-            dispatch(
-                mainActions.setSelectedFilters({
-                    ...selectedFilters,
-                    [keyFilter]: [...selectedFilters[keyFilter], tempAllergen],
-                }),
-            );
-            setNewAllergen('');
-        }
-    };
-
-    const handleInputKeyDown = (e: React.KeyboardEvent) => {
-        if (e.key === 'Enter') {
-            handleAddCustomAllergen();
-        }
     };
 
     return (
@@ -139,28 +112,7 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
                         </MenuItem>
                     ))}
 
-                    <Flex align='center' py='8px' pl='24px' pr='14px'>
-                        <Input
-                            border-radius='4px'
-                            height='32px'
-                            placeholder={FILTER_CUSTOM[keyFilter].addText}
-                            value={newAllergen}
-                            onChange={(e) => setNewAllergen(e.target.value)}
-                            onKeyDown={handleInputKeyDown}
-                        />
-                        <IconButton
-                            ml='14px'
-                            minW='12px'
-                            h='12px'
-                            isRound={true}
-                            variant='solid'
-                            bgColor='myGreenButton.500'
-                            color='white'
-                            aria-label='Done'
-                            icon={<AddIcon boxSize='7px' />}
-                            onClick={handleAddCustomAllergen}
-                        />
-                    </Flex>
+                    <AdditionalInput keyFilter={keyFilter} />
                 </MenuList>
             </Menu>
         </Box>
