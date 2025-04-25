@@ -11,7 +11,6 @@ export function SelectedFilters() {
     const fullFilterArray = [...selectedFilters.garnir, ...selectedFilters.meat];
 
     const handlerDeleteTag = (filter: FilterItemType) => {
-        console.log('tut: ', filter);
         const keyFilter = filter.type;
 
         const updatedFilters: Record<FilterCustomType, FilterItemType[]> = {
