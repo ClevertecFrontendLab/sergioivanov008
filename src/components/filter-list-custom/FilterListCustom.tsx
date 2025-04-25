@@ -4,15 +4,15 @@ import { FILTER_CUSTOM } from '~/constants';
 import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { mainActions, mainSelector } from '~/store/slices/main-slice';
 
-import { FilterCustomType, FilterListCustomPropsType } from '../types';
+import { FilterCustomType, FilterItemType, FilterListCustomPropsType } from '../types';
 
 export function FilterListCustom({ keyFilter }: FilterListCustomPropsType) {
     const dispatch = useAppDispatch();
     const { selectedFilters } = useAppSelector(mainSelector);
     const selectedCurFilters = selectedFilters[keyFilter];
 
-    const toggleFilter = (filter: string) => {
-        const updatedFilters: Record<FilterCustomType, string[]> = {
+    const toggleFilter = (filter: FilterItemType) => {
+        const updatedFilters: Record<FilterCustomType, FilterItemType[]> = {
             ...selectedFilters,
             [keyFilter]: selectedFilters[keyFilter].includes(filter)
                 ? selectedFilters[keyFilter].filter((el) => el !== filter)
@@ -32,8 +32,8 @@ export function FilterListCustom({ keyFilter }: FilterListCustomPropsType) {
                     <Checkbox
                         colorScheme='myGreen'
                         iconColor='black'
-                        isChecked={selectedCurFilters.includes(el.value)}
-                        onChange={() => toggleFilter(el.value)}
+                        isChecked={selectedCurFilters.some((elem) => elem.key === el.key)}
+                        onChange={() => toggleFilter(el)}
                         sx={{
                             '.chakra-checkbox__control': {
                                 borderColor: '#d7ff94',
