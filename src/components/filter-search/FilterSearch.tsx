@@ -13,7 +13,7 @@ export function FilterSearch() {
 
     const handleSetSerchQuery = () => {
         const query = curQuery.trim();
-        if (query.length > 2) {
+        if (query.length > 2 || query === '') {
             dispatch(mainActions.setSearchQuery(query));
         }
     };
