@@ -1,26 +1,12 @@
 import { Checkbox, Flex, Heading, VStack } from '@chakra-ui/react';
 
 import { FILTER_CUSTOM } from '~/constants';
-import { useAppDispatch, useAppSelector } from '~/store/hooks';
-import { mainActions, mainSelector } from '~/store/slices/main-slice';
+import { useFilterToggle } from '~/hooks/use-filter-toggle';
 
-import { FilterCustomType, FilterItemType, FilterListCustomPropsType } from '../types';
+import { FilterListCustomPropsType } from '../types';
 
 export function FilterListCustom({ keyFilter }: FilterListCustomPropsType) {
-    const dispatch = useAppDispatch();
-    const { selectedFilters } = useAppSelector(mainSelector);
-    const selectedCurFilters = selectedFilters[keyFilter];
-
-    const toggleFilter = (filter: FilterItemType) => {
-        const updatedFilters: Record<FilterCustomType, FilterItemType[]> = {
-            ...selectedFilters,
-            [keyFilter]: selectedFilters[keyFilter].includes(filter)
-                ? selectedFilters[keyFilter].filter((el) => el !== filter)
-                : [...selectedFilters[keyFilter], filter],
-        };
-
-        dispatch(mainActions.setSelectedFilters(updatedFilters));
-    };
+    const { selectedFilterSet, toggleFilter } = useFilterToggle(keyFilter);
 
     return (
         <VStack w='100%' spacing='12px' align='flex-start'>
@@ -32,7 +18,7 @@ export function FilterListCustom({ keyFilter }: FilterListCustomPropsType) {
                     <Checkbox
                         colorScheme='myGreen'
                         iconColor='black'
-                        isChecked={selectedCurFilters.some((elem) => elem.key === el.key)}
+                        isChecked={selectedFilterSet.has(el.key)}
                         onChange={() => toggleFilter(el)}
                         sx={{
                             '.chakra-checkbox__control': {
