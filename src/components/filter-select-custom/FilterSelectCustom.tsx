@@ -20,7 +20,7 @@ import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { mainActions, mainSelector } from '~/store/slices/main-slice';
 import { checkIsOdd } from '~/utils';
 
-import { FilterCustomType, FilterSelectCustomPropsType } from '../types';
+import { FilterCustomType, FilterItemType, FilterSelectCustomPropsType } from '../types';
 
 export function FilterSelectCustom({ keyFilter }: FilterSelectCustomPropsType) {
     const dispatch = useAppDispatch();
@@ -30,8 +30,8 @@ export function FilterSelectCustom({ keyFilter }: FilterSelectCustomPropsType) {
 
     const toggleMenuOpen = () => setIsMenuOpen(!isMenuOpen);
 
-    const toggleFilter = (filter: string) => {
-        const updatedFilters: Record<FilterCustomType, string[]> = {
+    const toggleFilter = (filter: FilterItemType) => {
+        const updatedFilters: Record<FilterCustomType, FilterItemType[]> = {
             ...selectedFilters,
             [keyFilter]: selectedFilters[keyFilter].includes(filter)
                 ? selectedFilters[keyFilter].filter((el) => el !== filter)
@@ -67,7 +67,7 @@ export function FilterSelectCustom({ keyFilter }: FilterSelectCustomPropsType) {
                             {selectedCurFilters.map((el, index) => (
                                 <WrapItem key={index}>
                                     <Tag size='sm' variant='outline' colorScheme='myGreen'>
-                                        <TagLabel color='#2db100'>{el}</TagLabel>
+                                        <TagLabel color='#2db100'>{el.value}</TagLabel>
                                     </Tag>
                                 </WrapItem>
                             ))}
@@ -97,8 +97,8 @@ export function FilterSelectCustom({ keyFilter }: FilterSelectCustomPropsType) {
                             <Checkbox
                                 colorScheme='myGreen'
                                 iconColor='black'
-                                isChecked={selectedCurFilters.includes(el.value)}
-                                onChange={() => toggleFilter(el.value)}
+                                isChecked={selectedCurFilters.some((elem) => elem.key === el.key)}
+                                onChange={() => toggleFilter(el)}
                                 sx={{
                                     '.chakra-checkbox__control': {
                                         borderColor: '#d7ff94',
