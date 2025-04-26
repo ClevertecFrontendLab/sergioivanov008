@@ -1,13 +1,24 @@
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
-import { Link, useParams } from 'react-router';
+import { useEffect } from 'react';
+import { Link, useNavigate, useParams } from 'react-router';
 
-import { ALL_RECIPES, NAV_DATA, PAGE_DB, TEXT } from '~/constants';
+import { ALL_RECIPES, CATEGORY_LIST, NAV_DATA, PAGE_DB, TEXT } from '~/constants';
 
 import { BreadcrumbSlotType, PageType } from '../types';
 
 export function BreadcrumbComponent() {
     const { category, subcategory, id } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (category && !CATEGORY_LIST.includes(category)) {
+            navigate('/', { replace: true });
+        }
+    }, [category, navigate]);
+
+    if (category && !CATEGORY_LIST.includes(category)) return null;
+
     const slot1: BreadcrumbSlotType = { isShow: true, isCurrentPage: false, text: '', linkTo: '' };
     const slot2: BreadcrumbSlotType = { isShow: true, isCurrentPage: false, text: '', linkTo: '' };
     const slot3: BreadcrumbSlotType = { isShow: true, isCurrentPage: false, text: '', linkTo: '' };
