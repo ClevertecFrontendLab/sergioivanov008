@@ -66,7 +66,7 @@ export function RootLayout() {
             >
                 <Footer />
             </GridItem>
-            {isOpenBurger && <BurgerMenu />}
+            <BurgerMenu />
         </Grid>
     );
 }
