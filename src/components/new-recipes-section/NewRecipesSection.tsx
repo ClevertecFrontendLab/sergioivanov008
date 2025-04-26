@@ -28,6 +28,7 @@ export function NewRecipesSection() {
             <Box position='relative'>
                 <Box overflow={{ base: 'unset', xl: 'hidden' }}>
                     <Swiper
+                        data-test-id='carousel'
                         ref={swiperRef}
                         loop={true}
                         breakpoints={{
@@ -49,14 +50,19 @@ export function NewRecipesSection() {
                             },
                         }}
                     >
-                        {newRecipesData.map((el) => (
-                            <SwiperSlide key={el.id} onClick={() => handlerClick(el)}>
+                        {newRecipesData.map((el, index) => (
+                            <SwiperSlide
+                                data-test-id={`carousel-card-${index}`}
+                                key={el.id}
+                                onClick={() => handlerClick(el)}
+                            >
                                 <RecipeItemLook data={el} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </Box>
                 <IconButton
+                    data-test-id='carousel-back'
                     colorScheme='myBlack'
                     aria-label='new-recipes'
                     size='lg'
@@ -69,6 +75,7 @@ export function NewRecipesSection() {
                     onClick={() => swiperRef.current?.swiper.slidePrev()}
                 />
                 <IconButton
+                    data-test-id='carousel-forward'
                     colorScheme='myBlack'
                     aria-label='new-recipes'
                     size='lg'
