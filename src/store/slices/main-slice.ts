@@ -1,7 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { FilterCustomType, FilterItemType, SelectedFiltersType } from '~/components/types';
-import { EMPTY_SELECTED_FILTERS } from '~/constants';
+import {
+    FilterCustomType,
+    FilterItemType,
+    RecipeItemFullType,
+    SelectedFiltersType,
+} from '~/components/types';
+import { ALL_RECIPES, EMPTY_SELECTED_FILTERS } from '~/constants';
 
 import { ApplicationState } from '../configure-store';
 
@@ -11,6 +16,7 @@ export type MainState = {
     isCanFiltered: boolean;
     selectedFilters: SelectedFiltersType;
     searchQuery: string;
+    allRecipes: RecipeItemFullType[];
 };
 
 const initialState: MainState = {
@@ -19,6 +25,7 @@ const initialState: MainState = {
     isCanFiltered: false,
     selectedFilters: EMPTY_SELECTED_FILTERS,
     searchQuery: '',
+    allRecipes: ALL_RECIPES,
 };
 
 export const mainSlice = createSlice({
