@@ -20,14 +20,14 @@ export function Page() {
     let pageFooterData: PageType | null = null;
 
     useEffect(() => {
-        if (category && category !== 'juiciest' && !CATEGORY_LIST.includes(category)) {
+        if (category && category !== 'the-juiciest' && !CATEGORY_LIST.includes(category)) {
             navigate('/');
         }
     }, [category, navigate]);
 
     if (category) {
-        if (category === 'juiciest') {
-            pageHeaderData = 'juiciest' as PageType;
+        if (category === 'the-juiciest') {
+            pageHeaderData = 'the-juiciest' as PageType;
             pageFooterData = 'vegan' as PageType;
         } else if (CATEGORY_LIST.includes(category)) {
             pageHeaderData = 'vegan' as PageType;

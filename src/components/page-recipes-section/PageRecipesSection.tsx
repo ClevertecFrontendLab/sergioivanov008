@@ -5,7 +5,7 @@ import { PageRecipesSectionPropsType, PageType } from '~/components/types';
 import { BTN_TEXT, JUICIEST_DATA_FULL, VEGAN_DATA_FULL } from '~/constants';
 
 export function PageRecipesSection({ page }: PageRecipesSectionPropsType) {
-    const curData = page === ('juiciest' as PageType) ? JUICIEST_DATA_FULL : VEGAN_DATA_FULL;
+    const curData = page === ('the-juiciest' as PageType) ? JUICIEST_DATA_FULL : VEGAN_DATA_FULL;
 
     return (
         <Flex direction='column' mb='40px' justify='center' align='center'>

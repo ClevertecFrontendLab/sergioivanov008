@@ -584,7 +584,7 @@ export const PAGE_DB: PageDbType = {
         title: 'Приятного аппетита!',
         desc: '',
     },
-    juiciest: {
+    'the-juiciest': {
         id: '101',
         title: 'Самое сочное',
         desc: '',

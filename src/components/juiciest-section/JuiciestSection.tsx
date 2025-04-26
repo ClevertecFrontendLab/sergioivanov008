@@ -40,7 +40,7 @@ export function JuiciestSection() {
                     variant='solid'
                     color='black'
                     size={{ base: 'md', xl: 'lg' }}
-                    onClick={() => navigate('/juiciest')}
+                    onClick={() => navigate('/the-juiciest')}
                     display={{ base: 'none', lg: 'flex' }}
                     data-test-id='juiciest-link'
                 >
@@ -52,7 +52,7 @@ export function JuiciestSection() {
                     variant='solid'
                     color='black'
                     size={{ base: 'md', xl: 'lg' }}
-                    onClick={() => navigate('/juiciest')}
+                    onClick={() => navigate('/the-juiciest')}
                     display={{ base: 'flex', lg: 'none' }}
                     data-test-id='juiciest-link-mobile'
                 >
