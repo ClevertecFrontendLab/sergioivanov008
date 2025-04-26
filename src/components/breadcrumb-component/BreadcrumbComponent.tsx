@@ -44,6 +44,7 @@ export function BreadcrumbComponent() {
 
     return (
         <Breadcrumb
+            data-test-id='breadcrumbs'
             spacing='8px'
             separator={<ChevronRightIcon color='gray.500' />}
             sx={{
