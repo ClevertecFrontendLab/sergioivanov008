@@ -62,6 +62,7 @@ export function FilterButton() {
     return (
         <>
             <IconButton
+                data-test-id='filter-button'
                 colorScheme='myBlack'
                 aria-label='new-recipes'
                 size={{ base: 'sm', lg: 'lg' }}
@@ -72,7 +73,12 @@ export function FilterButton() {
                 borderColor='rgba(0, 0, 0, 0.48)'
                 onClick={handlerOpenDrawer}
             />
-            <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
+            <Drawer
+                data-test-id='filter-drawer'
+                isOpen={isOpen}
+                placement='right'
+                onClose={onClose}
+            >
                 <DrawerOverlay />
                 <DrawerContent
                     maxW={{ base: '344px', lg: '463px' }}
@@ -136,6 +142,7 @@ export function FilterButton() {
 
                         <Flex w='100%' justify='space-between'>
                             <Button
+                                data-test-id='clear-filter-button'
                                 colorScheme='myBlack'
                                 variant='outline'
                                 size={{ base: 'sm', lg: 'lg' }}
@@ -144,6 +151,7 @@ export function FilterButton() {
                                 {BTN_TEXT.clearFilter}
                             </Button>
                             <Button
+                                data-test-id='find-recipe-button'
                                 colorScheme='myBlack'
                                 variant='solid'
                                 size={{ base: 'sm', lg: 'lg' }}
