@@ -64,8 +64,8 @@ export function IngredientsInfo({ portions, ingredients }: IngredientsInfoPropsT
                                 >
                                     <NumberInputField />
                                     <NumberInputStepper>
-                                        <NumberIncrementStepper />
-                                        <NumberDecrementStepper />
+                                        <NumberIncrementStepper data-test-id='increment-stepper' />
+                                        <NumberDecrementStepper data-test-id='decrement-stepper' />
                                     </NumberInputStepper>
                                 </NumberInput>
                             </Flex>
@@ -84,7 +84,12 @@ export function IngredientsInfo({ portions, ingredients }: IngredientsInfoPropsT
                             <Td px='8px' py='10px'>
                                 {el.title}
                             </Td>
-                            <Td isNumeric px='12px' py='10px'>
+                            <Td
+                                data-test-id={`ingredient-quantity-${index}`}
+                                isNumeric
+                                px='12px'
+                                py='10px'
+                            >
                                 {`${(Number(el.count) / Number(portions)) * value} ${el.measureUnit}`}
                             </Td>
                         </Tr>
