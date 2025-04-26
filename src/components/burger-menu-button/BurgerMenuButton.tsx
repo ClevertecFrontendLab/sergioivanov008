@@ -27,9 +27,19 @@ export function BurgerMenuButton() {
     return (
         <Flex boxSize={6} align='center' justify='center'>
             {isOpenBurger ? (
-                <CloseIcon boxSize={3} cursor='pointer' onClick={handlerBurger} />
+                <CloseIcon
+                    data-test-id='close-icon'
+                    boxSize={3}
+                    cursor='pointer'
+                    onClick={handlerBurger}
+                />
             ) : (
-                <HamburgerIcon boxSize={6} cursor='pointer' onClick={handlerBurger} />
+                <HamburgerIcon
+                    data-test-id='hamburger-icon'
+                    boxSize={6}
+                    cursor='pointer'
+                    onClick={handlerBurger}
+                />
             )}
         </Flex>
     );
