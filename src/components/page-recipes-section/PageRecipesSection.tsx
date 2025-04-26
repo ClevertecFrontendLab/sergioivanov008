@@ -1,18 +1,14 @@
 import { Button, Flex } from '@chakra-ui/react';
 
 import { RecipesGrid, RecipesTabs } from '~/components';
-import { PageRecipesSectionPropsType, PageType } from '~/components/types';
-import { ALL_RECIPES, BTN_TEXT, VEGAN_DATA_FULL } from '~/constants';
-import { getSortByLikes } from '~/utils';
+import { PageRecipesSectionPropsType } from '~/components/types';
+import { BTN_TEXT } from '~/constants';
 
-export function PageRecipesSection({ page }: PageRecipesSectionPropsType) {
-    const curData =
-        page === ('the-juiciest' as PageType) ? getSortByLikes(ALL_RECIPES, 8) : VEGAN_DATA_FULL;
-
+export function PageRecipesSection({ page, data }: PageRecipesSectionPropsType) {
     return (
         <Flex direction='column' mb='40px' justify='center' align='center'>
             <RecipesTabs page={page} />
-            <RecipesGrid data={curData} />
+            <RecipesGrid data={data} />
             <Flex w='100%' justify='center' mt='16px'>
                 <Button
                     colorScheme='myGreen'
