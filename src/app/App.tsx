@@ -10,7 +10,7 @@ function App() {
                 <Route path='/' element={<RootLayout />}>
                     <Route index element={<MainPage />} />
                     <Route path='/the-juiciest' element={<JuiciestPage />} />
-                    <Route path='/:category/:subcategory?' element={<Page />} />
+                    <Route path='/:category/:subcategory' element={<Page />} />
                     <Route path='/:category/:subcategory/:id' element={<RecipePage />} />
                     <Route path='*' element={<Navigate to='/' replace />} />
                 </Route>
