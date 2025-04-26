@@ -18,7 +18,7 @@ import { BTN_TEXT } from '~/constants';
 
 import { RecipeItemFullType, RecipeItemPropsType } from '../types';
 
-export function RecipeItem({ data }: RecipeItemPropsType) {
+export function RecipeItem({ data, index }: RecipeItemPropsType) {
     const navigate = useNavigate();
     const { bookmarks, likes } = data;
 
@@ -112,6 +112,7 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
                         display={{ base: 'flex', lg: 'none' }}
                     />
                     <Button
+                        data-test-id={`card-link-${index}`}
                         colorScheme='myBlack'
                         variant='solid'
                         size={{ base: 'xs', lg: 'sm' }}
