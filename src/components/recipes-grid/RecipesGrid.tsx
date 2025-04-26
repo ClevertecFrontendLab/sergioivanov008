@@ -11,12 +11,7 @@ export function RecipesGrid({ data }: RecipesGridPropsType) {
             gap={{ base: '12px', md: '14px', xl: '24px' }}
         >
             {data.map((el, index) => (
-                <RecipeItem
-                    data-test-id={`food-card-${index}`}
-                    key={el.id}
-                    data={el}
-                    index={index}
-                />
+                <RecipeItem key={el.id} data={el} index={index} />
             ))}
         </SimpleGrid>
     );

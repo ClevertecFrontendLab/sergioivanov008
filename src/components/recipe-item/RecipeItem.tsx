@@ -28,6 +28,7 @@ export function RecipeItem({ data, index }: RecipeItemPropsType) {
 
     return (
         <Card
+            data-test-id={`food-card-${index}`}
             direction='row'
             overflow='hidden'
             variant='outline'
