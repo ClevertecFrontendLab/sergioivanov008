@@ -392,12 +392,12 @@ export const JUICIEST_DATA: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -436,12 +436,12 @@ export const JUICIEST_DATA: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -480,12 +480,12 @@ export const JUICIEST_DATA: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -519,12 +519,12 @@ export const JUICIEST_DATA: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -621,12 +621,12 @@ export const PAGE_DB: PageDbType = {
                     {
                         stepNumber: 1,
                         description: 'Обжарить овощи на гриле.',
-                        image: 'url',
+                        image: step1Img,
                     },
                     {
                         stepNumber: 2,
                         description: 'Смешать с заправкой и подавать.',
-                        image: 'url',
+                        image: step2Img,
                     },
                 ],
                 author: {
@@ -659,12 +659,12 @@ export const PAGE_DB: PageDbType = {
                     {
                         stepNumber: 1,
                         description: 'Обжарить овощи на гриле.',
-                        image: 'url',
+                        image: step1Img,
                     },
                     {
                         stepNumber: 2,
                         description: 'Смешать с заправкой и подавать.',
-                        image: 'url',
+                        image: step2Img,
                     },
                 ],
                 author: {
@@ -697,12 +697,12 @@ export const PAGE_DB: PageDbType = {
                     {
                         stepNumber: 1,
                         description: 'Обжарить овощи на гриле.',
-                        image: 'url',
+                        image: step1Img,
                     },
                     {
                         stepNumber: 2,
                         description: 'Смешать с заправкой и подавать.',
-                        image: 'url',
+                        image: step2Img,
                     },
                 ],
                 author: {
@@ -733,12 +733,12 @@ export const PAGE_DB: PageDbType = {
                     {
                         stepNumber: 1,
                         description: 'Обжарить овощи на гриле.',
-                        image: 'url',
+                        image: step1Img,
                     },
                     {
                         stepNumber: 2,
                         description: 'Смешать с заправкой и подавать.',
-                        image: 'url',
+                        image: step2Img,
                     },
                 ],
                 author: {
@@ -769,12 +769,12 @@ export const PAGE_DB: PageDbType = {
                     {
                         stepNumber: 1,
                         description: 'Обжарить овощи на гриле.',
-                        image: 'url',
+                        image: step1Img,
                     },
                     {
                         stepNumber: 2,
                         description: 'Смешать с заправкой и подавать.',
-                        image: 'url',
+                        image: step2Img,
                     },
                 ],
                 author: {
@@ -834,12 +834,12 @@ export const PAGE_DB: PageDbType = {
                     {
                         stepNumber: 1,
                         description: 'Обжарить овощи на гриле.',
-                        image: 'url',
+                        image: step1Img,
                     },
                     {
                         stepNumber: 2,
                         description: 'Смешать с заправкой и подавать.',
-                        image: 'url',
+                        image: step2Img,
                     },
                 ],
                 author: {
@@ -872,12 +872,12 @@ export const PAGE_DB: PageDbType = {
                     {
                         stepNumber: 1,
                         description: 'Обжарить овощи на гриле.',
-                        image: 'url',
+                        image: step1Img,
                     },
                     {
                         stepNumber: 2,
                         description: 'Смешать с заправкой и подавать.',
-                        image: 'url',
+                        image: step2Img,
                     },
                 ],
                 author: {
@@ -910,12 +910,12 @@ export const PAGE_DB: PageDbType = {
                     {
                         stepNumber: 1,
                         description: 'Обжарить овощи на гриле.',
-                        image: 'url',
+                        image: step1Img,
                     },
                     {
                         stepNumber: 2,
                         description: 'Смешать с заправкой и подавать.',
-                        image: 'url',
+                        image: step2Img,
                     },
                 ],
                 author: {
@@ -946,12 +946,12 @@ export const PAGE_DB: PageDbType = {
                     {
                         stepNumber: 1,
                         description: 'Обжарить овощи на гриле.',
-                        image: 'url',
+                        image: step1Img,
                     },
                     {
                         stepNumber: 2,
                         description: 'Смешать с заправкой и подавать.',
-                        image: 'url',
+                        image: step2Img,
                     },
                 ],
                 author: {
@@ -982,12 +982,12 @@ export const PAGE_DB: PageDbType = {
                     {
                         stepNumber: 1,
                         description: 'Обжарить овощи на гриле.',
-                        image: 'url',
+                        image: step1Img,
                     },
                     {
                         stepNumber: 2,
                         description: 'Смешать с заправкой и подавать.',
-                        image: 'url',
+                        image: step2Img,
                     },
                 ],
                 author: {
@@ -1066,12 +1066,12 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1105,12 +1105,12 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1149,12 +1149,12 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1188,12 +1188,12 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1227,12 +1227,12 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1266,12 +1266,12 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1305,12 +1305,12 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1344,12 +1344,12 @@ export const JUICIEST_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1386,12 +1386,12 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1425,12 +1425,12 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1464,12 +1464,12 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1503,12 +1503,12 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1542,12 +1542,12 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1581,12 +1581,12 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1620,12 +1620,12 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1659,12 +1659,12 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -1704,22 +1704,22 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Нарезать картошку и перец.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Обжарить лук до золотистого цвета.',
-                image: 'url',
+                image: step2Img,
             },
             {
                 stepNumber: 3,
                 description: 'Добавить картошку, перец и фасоль, залить соусом.',
-                image: 'url',
+                image: step3Img,
             },
             {
                 stepNumber: 4,
                 description: 'Тушить на медленном огне 30 минут.',
-                image: 'url',
+                image: step4Img,
             },
         ],
         meat: '',
@@ -1756,17 +1756,17 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Отварить картошку и сделать пюре.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Обжарить грибы до готовности.',
-                image: 'url',
+                image: step2Img,
             },
             {
                 stepNumber: 3,
                 description: 'Сформировать рулетики и обжарить.',
-                image: 'url',
+                image: step3Img,
             },
         ],
         side: 'potatoes',
@@ -1802,17 +1802,17 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Приготовить соусы.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Сложить слои лазаньи.',
-                image: 'url',
+                image: step2Img,
             },
             {
                 stepNumber: 3,
                 description: 'Запекать 30 минут.',
-                image: 'url',
+                image: step3Img,
             },
         ],
         author: {
@@ -1847,17 +1847,17 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Смешать булгур и чечевицу.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Сформировать тефтели и запечь.',
-                image: 'url',
+                image: step2Img,
             },
             {
                 stepNumber: 3,
                 description: 'Подавать с соусом.',
-                image: 'url',
+                image: step3Img,
             },
         ],
         author: {
@@ -1892,17 +1892,17 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Очистить и нарезать картошку.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Обжарить с чесноком.',
-                image: 'url',
+                image: step2Img,
             },
             {
                 stepNumber: 3,
                 description: 'Подавать горячей.',
-                image: 'url',
+                image: step3Img,
             },
         ],
         side: 'potatoes',
@@ -1937,17 +1937,17 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Нарезать капусту и отварить.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с мукой и сформировать котлеты.',
-                image: 'url',
+                image: step2Img,
             },
             {
                 stepNumber: 3,
                 description: 'Обжарить до золотистой корочки.',
-                image: 'url',
+                image: step3Img,
             },
         ],
         author: {
@@ -1982,17 +1982,17 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Нарезать все овощи.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Обжарить на сковороде.',
-                image: 'url',
+                image: step2Img,
             },
             {
                 stepNumber: 3,
                 description: 'Добавить специи и тушить до готовности.',
-                image: 'url',
+                image: step3Img,
             },
         ],
         author: {
@@ -2026,17 +2026,17 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Отварить лапшу.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Обжарить курицу с луком и шафраном.',
-                image: 'url',
+                image: step2Img,
             },
             {
                 stepNumber: 3,
                 description: 'Смешать лапшу с курицей и подавать.',
-                image: 'url',
+                image: step3Img,
             },
         ],
         author: {
@@ -2070,12 +2070,12 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -2087,6 +2087,7 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         },
     },
     {
+        // это мои пошли
         id: '9',
         title: 'Солянка с грибами',
         description: 'Салат с обжаренными на гриле овощами и легкой заправкой.',
@@ -2109,12 +2110,12 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -2148,12 +2149,12 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
@@ -2187,12 +2188,12 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             {
                 stepNumber: 1,
                 description: 'Обжарить овощи на гриле.',
-                image: 'url',
+                image: step1Img,
             },
             {
                 stepNumber: 2,
                 description: 'Смешать с заправкой и подавать.',
-                image: 'url',
+                image: step2Img,
             },
         ],
         author: {
