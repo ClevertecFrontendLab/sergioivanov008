@@ -31,8 +31,8 @@ import recipe3Img from '~/assets/images/new_recipe_3.png';
 import recipe4Img from '~/assets/images/new_recipe_4.png';
 import recipe5Img from '~/assets/images/new_recipe_5.png';
 import recipe6Img from '~/assets/images/new_recipe_6.png';
-import recipe7Img from '~/assets/images/new_recipe_7.png';
-import recipe8Img from '~/assets/images/new_recipe_8.png';
+// import recipe7Img from '~/assets/images/new_recipe_7.png';
+// import recipe8Img from '~/assets/images/new_recipe_8.png';
 import step1Img from '~/assets/images/step_1.png';
 import step2Img from '~/assets/images/step_2.png';
 import step3Img from '~/assets/images/step_3.png';
@@ -367,175 +367,6 @@ export const TITLES = {
     juiciest: 'Самое сочное ',
     blogs: 'Кулинарные блоги',
 };
-
-export const JUICIEST_DATA: RecipeItemFullType[] = [
-    {
-        id: '01',
-        image: recipe5Img,
-        title: 'Кнели со спагетти',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        category: ['second-dish'],
-        subcategory: ['snacks', 'vegetables'],
-        bookmarks: 85,
-        likes: 152,
-        portions: 2,
-        nutritionValue: { calories: 180, proteins: 4, fats: 6, carbohydrates: 28 },
-        ingredients: [
-            { title: 'картошка', count: '3', measureUnit: 'шт.' },
-            { title: 'грибы', count: '200', measureUnit: 'г' },
-            { title: 'мука', count: '100', measureUnit: 'г' },
-            { title: 'специи', count: '0', measureUnit: 'по вкусу' },
-        ],
-        time: '25 минут',
-        steps: [
-            {
-                stepNumber: 1,
-                description: 'Обжарить овощи на гриле.',
-                image: step1Img,
-            },
-            {
-                stepNumber: 2,
-                description: 'Смешать с заправкой и подавать.',
-                image: step2Img,
-            },
-        ],
-        author: {
-            image: avatarAuthor1Img,
-            firstName: 'Сергей',
-            lastName: 'Разумов',
-            nickName: '@serge25',
-            subscribers: 125,
-        },
-    },
-    {
-        id: '02',
-        image: recipe6Img,
-        title: 'Пряная ветчина по итальянски',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        category: ['second-dish'],
-        subcategory: ['snacks', 'vegetables'],
-        bookmarks: 159,
-        likes: 257,
-        recomendation: {
-            id: '01',
-            image: avatarImg2,
-            name: 'Елена Высоцкая',
-        },
-        portions: 2,
-        nutritionValue: { calories: 180, proteins: 4, fats: 6, carbohydrates: 28 },
-        ingredients: [
-            { title: 'картошка', count: '3', measureUnit: 'шт.' },
-            { title: 'грибы', count: '200', measureUnit: 'г' },
-            { title: 'мука', count: '100', measureUnit: 'г' },
-            { title: 'специи', count: '0', measureUnit: 'по вкусу' },
-        ],
-        time: '25 минут',
-        steps: [
-            {
-                stepNumber: 1,
-                description: 'Обжарить овощи на гриле.',
-                image: step1Img,
-            },
-            {
-                stepNumber: 2,
-                description: 'Смешать с заправкой и подавать.',
-                image: step2Img,
-            },
-        ],
-        author: {
-            image: avatarAuthor1Img,
-            firstName: 'Сергей',
-            lastName: 'Разумов',
-            nickName: '@serge25',
-            subscribers: 125,
-        },
-    },
-    {
-        id: '03',
-        image: recipe7Img,
-        title: 'Лапша с курицей и шафраном',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        category: ['second-dish'],
-        subcategory: ['snacks', 'vegetables'],
-        bookmarks: 258,
-        likes: 342,
-        recomendation: {
-            id: '02',
-            image: avatarImg3,
-            name: 'Alex Cook',
-        },
-        portions: 2,
-        nutritionValue: { calories: 180, proteins: 4, fats: 6, carbohydrates: 28 },
-        ingredients: [
-            { title: 'картошка', count: '3', measureUnit: 'шт.' },
-            { title: 'грибы', count: '200', measureUnit: 'г' },
-            { title: 'мука', count: '100', measureUnit: 'г' },
-            { title: 'специи', count: '0', measureUnit: 'по вкусу' },
-        ],
-        time: '25 минут',
-        steps: [
-            {
-                stepNumber: 1,
-                description: 'Обжарить овощи на гриле.',
-                image: step1Img,
-            },
-            {
-                stepNumber: 2,
-                description: 'Смешать с заправкой и подавать.',
-                image: step2Img,
-            },
-        ],
-        author: {
-            image: avatarAuthor1Img,
-            firstName: 'Сергей',
-            lastName: 'Разумов',
-            nickName: '@serge25',
-            subscribers: 125,
-        },
-    },
-    {
-        id: '04',
-        image: recipe8Img,
-        title: 'Том-ям с капустой кимчи',
-        description:
-            'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        category: ['nacional'],
-        subcategory: ['snacks', 'vegetables'],
-        bookmarks: 124,
-        likes: 324,
-        portions: 2,
-        nutritionValue: { calories: 180, proteins: 4, fats: 6, carbohydrates: 28 },
-        ingredients: [
-            { title: 'картошка', count: '3', measureUnit: 'шт.' },
-            { title: 'грибы', count: '200', measureUnit: 'г' },
-            { title: 'мука', count: '100', measureUnit: 'г' },
-            { title: 'специи', count: '0', measureUnit: 'по вкусу' },
-        ],
-        time: '25 минут',
-        steps: [
-            {
-                stepNumber: 1,
-                description: 'Обжарить овощи на гриле.',
-                image: step1Img,
-            },
-            {
-                stepNumber: 2,
-                description: 'Смешать с заправкой и подавать.',
-                image: step2Img,
-            },
-        ],
-        author: {
-            image: avatarAuthor1Img,
-            firstName: 'Сергей',
-            lastName: 'Разумов',
-            nickName: '@serge25',
-            subscribers: 125,
-        },
-    },
-];
 
 export const BLOGS_DATA: BlogsItemType[] = [
     {
@@ -2053,7 +1884,7 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         description: 'Салат с обжаренными на гриле овощами и легкой заправкой.',
         category: ['salads'],
         subcategory: ['warm-salads'],
-        image: recipe5Img,
+        image: recipe1Img,
         bookmarks: 10,
         likes: 80,
         date: '2023-03-20T00:00:00Z',
@@ -2087,13 +1918,12 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         },
     },
     {
-        // это мои пошли
         id: '9',
         title: 'Солянка с грибами',
         description: 'Салат с обжаренными на гриле овощами и легкой заправкой.',
         category: ['salads'],
         subcategory: ['warm-salads'],
-        image: recipe1Img,
+        image: recipe2Img,
         bookmarks: 10,
         likes: 80,
         date: '2015-04-01T00:00:00Z',
@@ -2132,7 +1962,7 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         description: 'Салат с обжаренными на гриле овощами и легкой заправкой.',
         category: ['salads'],
         subcategory: ['warm-salads'],
-        image: recipe2Img,
+        image: recipe3Img,
         bookmarks: 10,
         likes: 80,
         date: '2015-04-02T00:00:00Z',
@@ -2171,7 +2001,7 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         description: 'Салат с обжаренными на гриле овощами и легкой заправкой.',
         category: ['salads'],
         subcategory: ['warm-salads'],
-        image: recipe3Img,
+        image: recipe4Img,
         bookmarks: 10,
         likes: 80,
         date: '2015-04-03T00:00:00Z',
@@ -2210,7 +2040,7 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         description: 'Салат с обжаренными на гриле овощами и легкой заправкой.',
         category: ['salads'],
         subcategory: ['warm-salads'],
-        image: recipe4Img,
+        image: recipe5Img,
         bookmarks: 10,
         likes: 80,
         date: '2015-04-04T00:00:00Z',
@@ -2278,7 +2108,7 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
         category: ['second-dish', 'nacional', 'detskie'],
         subcategory: ['warm-salads'],
-        image: recipe4Img,
+        image: recipe6Img,
         bookmarks: 10,
         likes: 80,
         date: '2015-04-04T00:00:00Z',
