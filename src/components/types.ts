@@ -47,6 +47,10 @@ export type NavDataItemsType = {
     subcategoryNav: string;
 };
 
+export type NavComponentPropsType = {
+    isLeftNav: boolean;
+};
+
 export type NavDataType = {
     id: string;
     categoryView: string;
@@ -58,6 +62,7 @@ export type NavDataType = {
 
 export type CategoryPropsType = {
     data: NavDataType;
+    isLeftNav: boolean;
 };
 
 export type CategoryItemPropsType = {
@@ -105,6 +110,7 @@ export type RecipeRecomendationType = {
 
 export type RecipeItemPropsType = {
     data: RecipeItemFullType;
+    index?: number;
 };
 
 export type AvatarContentType = {
@@ -140,7 +146,7 @@ export type RecipeStatisticPropsType = {
     likes?: number;
 };
 
-export type PageType = CategoryKeyType | 'home' | 'juiciest' | 'filtered';
+export type PageType = CategoryKeyType | 'home' | 'the-juiciest' | 'filtered';
 
 export type PageHeaderItemType = {
     id: string;
