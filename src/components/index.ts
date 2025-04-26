@@ -41,6 +41,7 @@ export { NewRecipesSection } from './new-recipes-section/NewRecipesSection.tsx';
 export { NutritionInfo } from './nutrition-info/NutritionInfo.tsx';
 export { PageFooterSection } from './page-footer-section/PageFooterSection.tsx';
 export { PageHeaderSection } from './page-header-section/PageHeaderSection.tsx';
+export { PageRecipesFilteredSection } from './page-recipes-filtered-section/PageRecipesFilteredSection.tsx';
 export { PageRecipesSection } from './page-recipes-section/PageRecipesSection.tsx';
 export { PageWrapper } from './page-wrapper/PageWrapper.tsx';
 export { RecipeItem } from './recipe-item/RecipeItem.tsx';
