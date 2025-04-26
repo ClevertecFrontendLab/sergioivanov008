@@ -5,15 +5,19 @@ import { useNavigate, useParams } from 'react-router';
 import {
     PageFooterSection,
     PageHeaderSection,
+    PageRecipesFilteredSection,
     PageRecipesSection,
     PageWrapper,
 } from '~/components';
 import { PageType } from '~/components/types';
 import { CATEGORY_LIST } from '~/constants';
 import { useFilteredPage } from '~/hooks/use-filtered-page';
+import { useAppSelector } from '~/store/hooks';
+import { mainSelector } from '~/store/slices/main-slice';
 
 export function Page() {
-    const { category } = useParams();
+    const { allRecipes } = useAppSelector(mainSelector);
+    const { category, subcategory } = useParams();
     const navigate = useNavigate();
     const isShowFilteredPage = useFilteredPage();
     let pageHeaderData: PageType | null = null;
@@ -34,14 +38,18 @@ export function Page() {
         pageFooterData = 'deserty' as PageType;
     }
 
+    const curData = allRecipes
+        .filter((el) => el.category.includes(category!))
+        .filter((elem) => elem.subcategory.includes(subcategory!));
+
     return pageHeaderData !== null && pageFooterData !== null ? (
         <PageWrapper>
             <PageHeaderSection page={pageHeaderData} />
             {isShowFilteredPage ? (
-                <PageRecipesSection page='filtered' />
+                <PageRecipesFilteredSection page={subcategory as PageType} data={curData} />
             ) : (
                 <>
-                    <PageRecipesSection page={pageHeaderData} />
+                    <PageRecipesSection page={pageHeaderData} data={curData} />
                     <Divider mb={{ base: '8px', lg: '24px' }} />
                     <PageFooterSection page={pageFooterData} />
                 </>
