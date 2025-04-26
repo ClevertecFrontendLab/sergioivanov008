@@ -1,10 +1,10 @@
 import { Flex, Tab, TabIndicator, TabList, Tabs } from '@chakra-ui/react';
 import { useNavigate, useParams } from 'react-router';
 
-import { PageRecipesSectionPropsType } from '~/components/types';
+import { RecipesTabsPropsType } from '~/components/types';
 import { NAV_DATA } from '~/constants';
 
-export function RecipesTabs({ page }: PageRecipesSectionPropsType) {
+export function RecipesTabs({ page }: RecipesTabsPropsType) {
     const { category, subcategory } = useParams();
     const navigate = useNavigate();
     const data = NAV_DATA.find((el) => el.categoryNav === page)?.items;

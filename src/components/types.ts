@@ -172,6 +172,11 @@ export type RecipesGridPropsType = {
 
 export type PageRecipesSectionPropsType = {
     page: PageType;
+    data: RecipeItemFullType[];
+};
+
+export type RecipesTabsPropsType = {
+    page: PageType;
 };
 
 export type BreadcrumbSlotType = {
