@@ -11,9 +11,11 @@ export function FilterSearch() {
     const { searchQuery } = useAppSelector(mainSelector);
     const [curQuery, setCurQuery] = useState(searchQuery);
 
+    const isGoodLength = curQuery.trim().length > 2;
+
     const handleSetSerchQuery = () => {
         const query = curQuery.trim();
-        if (query.length > 2 || query === '') {
+        if (isGoodLength || query === '') {
             dispatch(mainActions.setSearchQuery(query));
         }
     };
@@ -27,6 +29,7 @@ export function FilterSearch() {
     return (
         <InputGroup w={{ base: '284px', md: '404px', lg: '458px' }}>
             <Input
+                data-test-id='search-input'
                 placeholder={TEXT.searchPlaceholder}
                 _placeholder={{ color: '#134b00' }}
                 size={{ base: 'sm', lg: 'lg' }}
@@ -37,8 +40,13 @@ export function FilterSearch() {
                 onChange={(e) => setCurQuery(e.target.value)}
                 onKeyDown={handleInputKeyDown}
             />
-            <InputRightElement boxSize={{ base: '32px', lg: '48px' }} onClick={handleSetSerchQuery}>
-                <SearchIcon boxSize={{ base: '14px', lg: '18px' }} />
+            <InputRightElement boxSize={{ base: '32px', lg: '48px' }}>
+                <SearchIcon
+                    data-test-id='search-button'
+                    boxSize={{ base: '14px', lg: '18px' }}
+                    onClick={handleSetSerchQuery}
+                    pointerEvents={isGoodLength ? 'auto' : 'none'}
+                />
             </InputRightElement>
         </InputGroup>
     );
