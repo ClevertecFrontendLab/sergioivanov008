@@ -1,13 +1,12 @@
 import { Button, Flex } from '@chakra-ui/react';
 
-import { RecipesGrid, RecipesTabs } from '~/components';
+import { RecipesGrid } from '~/components';
 import { PageRecipesSectionPropsType } from '~/components/types';
 import { BTN_TEXT } from '~/constants';
 
-export function PageRecipesSection({ page, data }: PageRecipesSectionPropsType) {
+export function PageRecipesSection({ data }: PageRecipesSectionPropsType) {
     return (
         <Flex direction='column' mb='40px' justify='center' align='center'>
-            {page && <RecipesTabs page={page} />}
             <RecipesGrid data={data} />
             <Flex w='100%' justify='center' mt='16px'>
                 <Button
