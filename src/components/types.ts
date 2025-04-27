@@ -258,6 +258,7 @@ export type FilterItemType = {
     type: FilterCustomType;
     key: string;
     value: string;
+    testId?: string;
 };
 
 export type FilterCustomItemType = {
@@ -273,10 +274,16 @@ export type FilterSelectAllergenPropsType = {
 
 export type AdditionalInputPropsType = {
     keyFilter: FilterCustomType;
+    isSideMenu: boolean;
 };
 
 export type FilterSelectCustomPropsType = {
     keyFilter: FilterCustomType;
+    dataTestId?: string;
+};
+
+export type FilterSwitchPropsType = {
+    dataTestId?: string;
 };
 
 export type FilterListCustomPropsType = {
