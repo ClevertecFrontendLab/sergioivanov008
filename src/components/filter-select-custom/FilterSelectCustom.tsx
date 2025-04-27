@@ -23,7 +23,7 @@ import { checkIsOdd } from '~/utils';
 
 import { FilterSelectCustomPropsType } from '../types';
 
-export function FilterSelectCustom({ keyFilter }: FilterSelectCustomPropsType) {
+export function FilterSelectCustom({ keyFilter, dataTestId }: FilterSelectCustomPropsType) {
     const { selectedFilterSet, toggleFilter } = useFilterToggle(keyFilter);
     const { selectedFilters } = useAppSelector(mainSelector);
     const selectedCurFilters = selectedFilters[keyFilter];
@@ -40,6 +40,7 @@ export function FilterSelectCustom({ keyFilter }: FilterSelectCustomPropsType) {
                 closeOnSelect={false}
             >
                 <MenuButton
+                    data-test-id={dataTestId}
                     as={Button}
                     rightIcon={isMenuOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
                     w='100%'
@@ -85,6 +86,7 @@ export function FilterSelectCustom({ keyFilter }: FilterSelectCustomPropsType) {
                     {FILTER_CUSTOM[keyFilter].list.map((el, index) => (
                         <MenuItem key={index} bg={checkIsOdd(index) ? 'rgba(0, 0, 0, 0.06)' : ''}>
                             <Checkbox
+                                data-test-id={`checkbox-${el.testId?.toLowerCase()}`}
                                 colorScheme='myGreen'
                                 iconColor='black'
                                 isChecked={selectedFilterSet.has(el.key)}
