@@ -16,6 +16,7 @@ export function FilterListCustom({ keyFilter }: FilterListCustomPropsType) {
             {FILTER_CUSTOM[keyFilter].list.map((el, index) => (
                 <Flex key={index} gap='8px' align='center' w='100%'>
                     <Checkbox
+                        data-test-id={`checkbox-${el.testId?.toLowerCase()}`}
                         colorScheme='myGreen'
                         iconColor='black'
                         isChecked={selectedFilterSet.has(el.key)}
