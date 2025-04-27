@@ -10,9 +10,11 @@ export function HeaderContent() {
 
     return (
         <Flex w='100%' alignItems='center' justify={{ base: 'flex-end', lg: 'space-between' }}>
-            <Box display={{ base: 'none', lg: 'block' }}>
-                <BreadcrumbComponent />
-            </Box>
+            {!isOpenBurger && (
+                <Box display={{ base: 'none', lg: 'block' }}>
+                    <BreadcrumbComponent />
+                </Box>
+            )}
             <Box display={{ base: 'none', lg: 'flex' }} w='400px'>
                 <AvatarContent data={AVATAR_DATA} />
             </Box>
