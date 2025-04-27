@@ -33,6 +33,7 @@ export function RootLayout() {
                 className={s.headerComponent}
                 w='100vw'
                 data-test-id='header'
+                zIndex={10}
             >
                 <Header />
             </GridItem>
