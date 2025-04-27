@@ -1,15 +1,14 @@
 import { Box, Flex, useMediaQuery } from '@chakra-ui/react';
-import { useDispatch } from 'react-redux';
 
 import { BreadcrumbComponent, NavComponent, NavFooter } from '~/components';
-import { useAppSelector } from '~/store/hooks';
+import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { mainActions, mainSelector } from '~/store/slices/main-slice';
 
 export function BurgerMenu() {
     const { isOpenBurger } = useAppSelector(mainSelector);
     const [isLargerThan1440] = useMediaQuery('(min-width: 1440px)');
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const nandlerMenuClose = () => {
         dispatch(mainActions.setIsOpenBurger(false));
     };
