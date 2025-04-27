@@ -26,11 +26,22 @@ import { FilterSelectAllergenPropsType } from '../types';
 
 export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAllergenPropsType) {
     const { selectedFilterSet, toggleFilter } = useFilterToggle(keyFilter);
-    const { isExcludeAllergens, selectedFilters } = useAppSelector(mainSelector);
+    const { isExcludeAllergens, selectedFilters, isOpenDrawer } = useAppSelector(mainSelector);
     const selectedCurFilters = selectedFilters[keyFilter];
     const [isAllergenMenuOpen, setIsAllergenMenuOpen] = useState(false);
 
     const toggleMenuOpen = () => setIsAllergenMenuOpen(!isAllergenMenuOpen);
+
+    const curTestId = (index: number) => {
+        const testIdFull = `allergen-${index}`;
+        let testId = '';
+        if (!isSideMenu && !isOpenDrawer) testId = testIdFull;
+        else if (!isSideMenu && isOpenDrawer) testId = '';
+        else if (isSideMenu && !isOpenDrawer) testId = '';
+        else if (isSideMenu && isOpenDrawer) testId = testIdFull;
+
+        return testId;
+    };
 
     return (
         <Box w={isSideMenu ? { base: '299px', lg: '390px' } : '269px'}>
@@ -41,6 +52,9 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
                 closeOnSelect={false}
             >
                 <MenuButton
+                    data-test-id={
+                        isSideMenu ? 'allergens-menu-button-filter' : 'allergens-menu-button'
+                    }
                     as={Button}
                     rightIcon={isAllergenMenuOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
                     w='100%'
@@ -77,6 +91,7 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
                 </MenuButton>
 
                 <MenuList
+                    data-test-id={isSideMenu ? '' : 'allergens-menu'}
                     w={isSideMenu ? { base: '299px', lg: '390px' } : '269px'}
                     borderRadius='4px'
                     padding='4px 0px'
@@ -87,6 +102,7 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
                     {FILTER_CUSTOM[keyFilter].list.map((el, index) => (
                         <MenuItem key={index} bg={checkIsOdd(index) ? 'rgba(0, 0, 0, 0.06)' : ''}>
                             <Checkbox
+                                data-test-id={curTestId(index)}
                                 colorScheme='myGreen'
                                 iconColor='black'
                                 isChecked={selectedFilterSet.has(el.key)}
@@ -102,7 +118,7 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
                         </MenuItem>
                     ))}
 
-                    <AdditionalInput keyFilter={keyFilter} />
+                    <AdditionalInput keyFilter={keyFilter} isSideMenu={isSideMenu} />
                 </MenuList>
             </Menu>
         </Box>
