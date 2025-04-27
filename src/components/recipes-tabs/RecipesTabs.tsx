@@ -40,6 +40,7 @@ export function RecipesTabs() {
                             lineHeight={{ base: '143%', lg: '150%' }}
                             _focus={{ boxShadow: 'none' }}
                             _selected={{ color: '#2db100', borderBottom: '2px solid #2db100' }}
+                            aria-selected={true}
                         >
                             {el.title}
                         </Tab>
