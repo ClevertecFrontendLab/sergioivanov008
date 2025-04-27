@@ -95,7 +95,7 @@ export function BreadcrumbComponent() {
                 <BreadcrumbItem isCurrentPage={slot3.isCurrentPage}>
                     <BreadcrumbLink
                         as={Link}
-                        to={`/${category}`}
+                        to={`/${category}/${subcategory}`}
                         color={slot3.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
                     >
                         {slot3.text}
