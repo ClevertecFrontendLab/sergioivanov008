@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { mainActions, mainSelector } from '~/store/slices/main-slice';
 
+import { BurgerMenu } from '../burger-menu/BurgerMenu';
+
 export function BurgerMenuButton() {
     const { isOpenBurger } = useAppSelector(mainSelector);
     const dispatch = useAppDispatch();
@@ -19,9 +21,13 @@ export function BurgerMenuButton() {
         isLargerThan1440 && closeBurgerMenu();
     }, [dispatch, isLargerThan1440]);
 
+    useEffect(() => {
+        if (isOpenBurger) document.body.classList.add('not-scrolled');
+        else document.body.classList.remove('not-scrolled');
+    }, [isOpenBurger]);
+
     const handlerBurger = () => {
         dispatch(mainActions.setIsOpenBurger(!isOpenBurger));
-        document.body.classList.toggle('not-scrolled');
     };
 
     return (
@@ -41,6 +47,7 @@ export function BurgerMenuButton() {
                     onClick={handlerBurger}
                 />
             )}
+            <BurgerMenu />
         </Flex>
     );
 }
