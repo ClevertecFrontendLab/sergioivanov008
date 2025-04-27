@@ -12,6 +12,7 @@ import { ApplicationState } from '../configure-store';
 
 export type MainState = {
     isOpenBurger: boolean;
+    isOpenDrawer: boolean;
     isExcludeAllergens: boolean;
     isCanFiltered: boolean;
     selectedFilters: SelectedFiltersType;
@@ -21,6 +22,7 @@ export type MainState = {
 
 const initialState: MainState = {
     isOpenBurger: false,
+    isOpenDrawer: false,
     isExcludeAllergens: false,
     isCanFiltered: false,
     selectedFilters: EMPTY_SELECTED_FILTERS,
@@ -34,6 +36,9 @@ export const mainSlice = createSlice({
     reducers: {
         setIsOpenBurger(state, action: PayloadAction<boolean>) {
             state.isOpenBurger = action.payload;
+        },
+        setIsOpenDrawer(state, action: PayloadAction<boolean>) {
+            state.isOpenDrawer = action.payload;
         },
         setIsExcludeAllergens(state, action: PayloadAction<boolean>) {
             state.isExcludeAllergens = action.payload;
