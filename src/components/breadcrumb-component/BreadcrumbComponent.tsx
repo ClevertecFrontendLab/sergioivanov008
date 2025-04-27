@@ -4,10 +4,13 @@ import { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 
 import { ALL_RECIPES, CATEGORY_LIST, NAV_DATA, PAGE_DB, TEXT } from '~/constants';
+import { useAppDispatch } from '~/store/hooks';
+import { mainActions } from '~/store/slices/main-slice';
 
 import { BreadcrumbSlotType, PageType } from '../types';
 
 export function BreadcrumbComponent() {
+    const dispatch = useAppDispatch();
     const location = useLocation();
     const navigate = useNavigate();
     const pathnameArr = location.pathname.split('/');
@@ -57,6 +60,11 @@ export function BreadcrumbComponent() {
         }
     }
 
+    const nandlerMenuClose = () => {
+        dispatch(mainActions.setIsOpenBurger(false));
+        document.body.classList.remove('not-scrolled');
+    };
+
     return (
         <Breadcrumb
             data-test-id='breadcrumbs'
@@ -74,6 +82,7 @@ export function BreadcrumbComponent() {
                     as={Link}
                     to='/'
                     color={slot1.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
+                    onClick={nandlerMenuClose}
                 >
                     {TEXT.mainPage}
                 </BreadcrumbLink>
@@ -85,6 +94,7 @@ export function BreadcrumbComponent() {
                         as={Link}
                         to={`/${category}`}
                         color={slot2.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
+                        onClick={nandlerMenuClose}
                     >
                         {slot2.text}
                     </BreadcrumbLink>
@@ -97,6 +107,7 @@ export function BreadcrumbComponent() {
                         as={Link}
                         to={`/${category}/${subcategory}`}
                         color={slot3.isCurrentPage ? '#000' : 'rgba(0, 0, 0, 0.64)'}
+                        onClick={nandlerMenuClose}
                     >
                         {slot3.text}
                     </BreadcrumbLink>
