@@ -1,12 +1,12 @@
 import { Flex } from '@chakra-ui/react';
-import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router';
 
 import { LogoIcon, LogoText } from '~/components';
+import { useAppDispatch } from '~/store/hooks';
 import { mainActions } from '~/store/slices/main-slice';
 
 export function Logotype() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const nandlerLogoClick = () => {
         dispatch(mainActions.setIsOpenBurger(false));
