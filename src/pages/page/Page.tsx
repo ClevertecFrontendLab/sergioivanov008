@@ -8,6 +8,7 @@ import {
     PageRecipesFilteredSection,
     PageRecipesSection,
     PageWrapper,
+    RecipesTabs,
 } from '~/components';
 import { PageType } from '~/components/types';
 import { CATEGORY_LIST } from '~/constants';
@@ -49,6 +50,7 @@ export function Page() {
                 <PageRecipesFilteredSection page={subcategory as PageType} data={curData} />
             ) : (
                 <>
+                    <RecipesTabs />
                     <PageRecipesSection page={pageHeaderData} data={curData} />
                     <Divider mb={{ base: '8px', lg: '24px' }} />
                     <PageFooterSection page={pageFooterData} />
