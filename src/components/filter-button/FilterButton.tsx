@@ -13,6 +13,7 @@ import {
     useDisclosure,
     VStack,
 } from '@chakra-ui/react';
+import { useEffect } from 'react';
 
 import {
     CustomIcon24,
@@ -36,6 +37,10 @@ export function FilterButton() {
         ...selectedFilters.garnir,
         ...selectedFilters.meat,
     ];
+
+    useEffect(() => {
+        dispatch(mainActions.setIsOpenDrawer(isOpen));
+    }, [dispatch, isOpen]);
 
     const handlerClearFilter = () => {
         dispatch(mainActions.setSelectedFilters(EMPTY_SELECTED_FILTERS));
@@ -73,18 +78,15 @@ export function FilterButton() {
                 borderColor='rgba(0, 0, 0, 0.48)'
                 onClick={handlerOpenDrawer}
             />
-            <Drawer
-                data-test-id='filter-drawer'
-                isOpen={isOpen}
-                placement='right'
-                onClose={onClose}
-            >
+            <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
                 <DrawerOverlay />
                 <DrawerContent
+                    data-test-id='filter-drawer'
                     maxW={{ base: '344px', lg: '463px' }}
                     p={{ base: '16px', lg: '32px' }}
                 >
                     <DrawerCloseButton
+                        data-test-id='close-filter-drawer'
                         top={{ base: '16px', md: '32px' }}
                         right={{ base: '16px', md: '32px' }}
                         borderRadius='full'
@@ -119,12 +121,15 @@ export function FilterButton() {
                         }}
                     >
                         <VStack spacing='24px' align='flex-start'>
-                            <FilterSelectCustom keyFilter='category' />
+                            <FilterSelectCustom
+                                keyFilter='category'
+                                dataTestId='filter-menu-button-категория'
+                            />
                             <FilterSelectCustom keyFilter='author' />
                             <FilterListCustom keyFilter='meat' />
                             <FilterListCustom keyFilter='garnir' />
                             <VStack spacing='8px' align='flex-start'>
-                                <FilterSwitch />
+                                <FilterSwitch dataTestId='allergens-switcher-filter' />
                                 <FilterSelectAllergen keyFilter='allergens' isSideMenu={true} />
                             </VStack>
                         </VStack>
@@ -156,6 +161,7 @@ export function FilterButton() {
                                 variant='solid'
                                 size={{ base: 'sm', lg: 'lg' }}
                                 isDisabled={checkIsDisabledButton()}
+                                pointerEvents={checkIsDisabledButton() ? 'none' : 'auto'}
                                 onClick={handlerFindRecipe}
                             >
                                 {BTN_TEXT.findRecipe}
