@@ -1881,30 +1881,30 @@ export const AUTHOR_INFO_TEXT = {
 
 export const ALLERGENS_FILTER: FilterItemType[] = [
     { type: 'allergens', key: 'dairy', value: 'Молочные продукты' },
-    { type: 'allergens', key: 'egg', value: 'Яйцо' },
+    { type: 'allergens', key: 'яйцо', value: 'Яйцо' },
     { type: 'allergens', key: 'fish', value: 'Рыба' },
     { type: 'allergens', key: 'shellfish', value: 'Моллюски' },
     { type: 'allergens', key: 'nuts', value: 'Орехи' },
-    { type: 'allergens', key: 'tomato', value: 'Томат (помидор)' },
+    { type: 'allergens', key: 'томат', value: 'Томат (помидор)' },
     { type: 'allergens', key: 'citrus', value: 'Цитрусовые' },
     { type: 'allergens', key: 'berries', value: 'Клубника (ягоды)' },
     { type: 'allergens', key: 'chocolate', value: 'Шоколад' },
 ];
 
 export const CATEGORY_FILTER: FilterItemType[] = [
-    { type: 'category', key: 'salads', value: 'Салаты' },
-    { type: 'category', key: 'snacks', value: 'Закуски' },
-    { type: 'category', key: 'perviebluda', value: 'Первые блюда' },
-    { type: 'category', key: 'second-dish', value: 'Вторые блюда' },
-    { type: 'category', key: 'deserty', value: 'Десерты, выпечка' },
-    { type: 'category', key: 'gril', value: 'Блюда на гриле' },
-    { type: 'category', key: 'vegan', value: 'Веганская кухня' },
-    { type: 'category', key: 'detskie', value: 'Детские блюда' },
-    { type: 'category', key: 'lechebnoe', value: 'Лечебное питание' },
-    { type: 'category', key: 'nacional', value: 'Национальные' },
-    { type: 'category', key: 'soucy', value: 'Соусы' },
-    { type: 'category', key: 'napitki', value: 'Напитки' },
-    { type: 'category', key: 'zagotovki', value: 'Заготовки' },
+    { type: 'category', key: 'salads', value: 'Салаты', testId: 'салаты' },
+    { type: 'category', key: 'snacks', value: 'Закуски', testId: 'закуски' },
+    { type: 'category', key: 'perviebluda', value: 'Первые блюда', testId: 'первые блюда' },
+    { type: 'category', key: 'second-dish', value: 'Вторые блюда', testId: 'вторые блюда' },
+    { type: 'category', key: 'deserty', value: 'Десерты, выпечка', testId: 'десерты, выпечка' },
+    { type: 'category', key: 'gril', value: 'Блюда на гриле', testId: 'блюда на гриле' },
+    { type: 'category', key: 'vegan', value: 'Веганская кухня', testId: 'веганская кухня' },
+    { type: 'category', key: 'detskie', value: 'Детские блюда', testId: 'детские блюда' },
+    { type: 'category', key: 'lechebnoe', value: 'Лечебное питание', testId: 'лечебное питание' },
+    { type: 'category', key: 'nacional', value: 'Национальные', testId: 'национальные' },
+    { type: 'category', key: 'soucy', value: 'Соусы', testId: 'соусы' },
+    { type: 'category', key: 'napitki', value: 'Напитки', testId: 'напитки' },
+    { type: 'category', key: 'zagotovki', value: 'Заготовки', testId: 'заготовки' },
 ];
 
 export const AUTHOR_FILTER: FilterItemType[] = [
@@ -1922,14 +1922,14 @@ export const MEAT_FILTER: FilterItemType[] = [
 ];
 
 export const GARNIR_FILTER: FilterItemType[] = [
-    { type: 'garnir', key: 'potatoes', value: 'Картошка' },
-    { type: 'garnir', key: 'buckwheat', value: 'Гречка' },
-    { type: 'garnir', key: 'pasta', value: 'Паста' },
-    { type: 'garnir', key: 'spaghetti', value: 'Спагетти' },
-    { type: 'garnir', key: 'rice', value: 'Рис' },
-    { type: 'garnir', key: 'cabbage', value: 'Капуста' },
-    { type: 'garnir', key: 'beans', value: 'Фасоль' },
-    { type: 'garnir', key: 'other-vegetables', value: 'Другие овощи' },
+    { type: 'garnir', key: 'potatoes', value: 'Картошка', testId: 'картошка' },
+    { type: 'garnir', key: 'buckwheat', value: 'Гречка', testId: 'гречка' },
+    { type: 'garnir', key: 'pasta', value: 'Паста', testId: 'паста' },
+    { type: 'garnir', key: 'spaghetti', value: 'Спагетти', testId: 'спагетти' },
+    { type: 'garnir', key: 'rice', value: 'Рис', testId: 'рис' },
+    { type: 'garnir', key: 'cabbage', value: 'Капуста', testId: 'капуста' },
+    { type: 'garnir', key: 'beans', value: 'Фасоль', testId: 'фасоль' },
+    { type: 'garnir', key: 'other-vegetables', value: 'Другие овощи', testId: 'другие овощи' },
 ];
 
 export const FILTER_CUSTOM: Record<FilterCustomType, FilterCustomItemType> = {
