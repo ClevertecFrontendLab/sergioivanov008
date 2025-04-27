@@ -1,13 +1,12 @@
 import { Flex, Tab, TabIndicator, TabList, Tabs } from '@chakra-ui/react';
 import { useNavigate, useParams } from 'react-router';
 
-import { RecipesTabsPropsType } from '~/components/types';
 import { NAV_DATA } from '~/constants';
 
-export function RecipesTabs({ page }: RecipesTabsPropsType) {
+export function RecipesTabs() {
     const { category, subcategory } = useParams();
     const navigate = useNavigate();
-    const data = NAV_DATA.find((el) => el.categoryNav === page)?.items;
+    const data = NAV_DATA.find((el) => el.categoryNav === category)?.items;
     const curIndex =
         data && subcategory ? data.findIndex((el) => el.subcategoryNav === subcategory) : 0;
 
@@ -25,8 +24,9 @@ export function RecipesTabs({ page }: RecipesTabsPropsType) {
                 onChange={(index) => handlerTabsChange(index)}
             >
                 <TabList w='max-content'>
-                    {data?.map((el) => (
+                    {data?.map((el, index) => (
                         <Tab
+                            data-test-id={`tab-${el.subcategoryNav}-${index}`}
                             key={el.id}
                             as='div'
                             flexShrink={0}

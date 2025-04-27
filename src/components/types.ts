@@ -175,10 +175,6 @@ export type PageRecipesSectionPropsType = {
     data: RecipeItemFullType[];
 };
 
-export type RecipesTabsPropsType = {
-    page: PageType;
-};
-
 export type BreadcrumbSlotType = {
     isShow: boolean;
     isCurrentPage: boolean;
