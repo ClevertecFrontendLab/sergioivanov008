@@ -4,12 +4,17 @@ import { TEXT } from '~/constants';
 import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { mainActions, mainSelector } from '~/store/slices/main-slice';
 
-export function FilterSwitch() {
+import { FilterSwitchPropsType } from '../types';
+
+export function FilterSwitch({ dataTestId }: FilterSwitchPropsType) {
     const dispatch = useAppDispatch();
-    const { isExcludeAllergens } = useAppSelector(mainSelector);
+    const { isExcludeAllergens, isOpenDrawer, isCanFiltered } = useAppSelector(mainSelector);
 
     const handlerSwitch = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(mainActions.setIsExcludeAllergens(e.target.checked));
+
+        if (!isOpenDrawer && !isCanFiltered) dispatch(mainActions.setIsCanFiltered(true));
+        else if (!isOpenDrawer && isCanFiltered) dispatch(mainActions.setIsCanFiltered(false));
     };
 
     return (
@@ -24,6 +29,7 @@ export function FilterSwitch() {
                 {TEXT.switchPlaceholder}
             </FormLabel>
             <Switch
+                data-test-id={dataTestId}
                 id='exclude-allergens'
                 colorScheme='myGreen'
                 isChecked={isExcludeAllergens}
