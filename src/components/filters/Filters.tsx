@@ -10,7 +10,7 @@ export function Filters() {
                 <FilterSearch />
             </Flex>
             <Flex gap={4} align='center' w='100%' display={{ base: 'none', lg: 'flex' }}>
-                <FilterSwitch />
+                <FilterSwitch dataTestId='allergens-switcher' />
                 <FilterSelectAllergen keyFilter='allergens' isSideMenu={false} />
             </Flex>
         </Flex>
