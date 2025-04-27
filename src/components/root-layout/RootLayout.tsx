@@ -1,7 +1,7 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import { Outlet } from 'react-router';
 
-import { Aside, BurgerMenu, Footer, Header, Navigation } from '~/components';
+import { Aside, Footer, Header, Navigation } from '~/components';
 import { useAppSelector } from '~/store/hooks';
 import { mainSelector } from '~/store/slices/main-slice';
 
@@ -25,7 +25,7 @@ export function RootLayout() {
         >
             <GridItem
                 area='header'
-                bg={isOpenBurger ? 'unset' : 'myColor.yellow'}
+                bg={isOpenBurger ? '#fff' : 'myColor.yellow'}
                 height={{ base: '64px', lg: '80px' }}
                 pl={{ base: '20px', lg: '16px' }}
                 pr='36px'
@@ -67,7 +67,6 @@ export function RootLayout() {
             >
                 <Footer />
             </GridItem>
-            <BurgerMenu />
         </Grid>
     );
 }
