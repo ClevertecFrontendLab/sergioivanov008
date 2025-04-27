@@ -8,9 +8,9 @@ import { mainActions, mainSelector } from '~/store/slices/main-slice';
 
 import { AdditionalInputPropsType, FilterItemType } from '../types';
 
-export function AdditionalInput({ keyFilter }: AdditionalInputPropsType) {
+export function AdditionalInput({ keyFilter, isSideMenu }: AdditionalInputPropsType) {
     const dispatch = useAppDispatch();
-    const { selectedFilters } = useAppSelector(mainSelector);
+    const { selectedFilters, isOpenDrawer } = useAppSelector(mainSelector);
     const selectedCurFilters = selectedFilters[keyFilter];
     const [newAllergen, setNewAllergen] = useState('');
 
@@ -38,9 +38,21 @@ export function AdditionalInput({ keyFilter }: AdditionalInputPropsType) {
         }
     };
 
+    const curTestId = () => {
+        const testIdFull = 'add-other-allergen';
+        let testId = '';
+        if (!isSideMenu && !isOpenDrawer) testId = testIdFull;
+        else if (!isSideMenu && isOpenDrawer) testId = '';
+        else if (isSideMenu && !isOpenDrawer) testId = '';
+        else if (isSideMenu && isOpenDrawer) testId = testIdFull;
+
+        return testId;
+    };
+
     return (
         <Flex align='center' py='8px' pl='24px' pr='14px'>
             <Input
+                data-test-id={curTestId()}
                 border-radius='4px'
                 height='32px'
                 placeholder={FILTER_CUSTOM[keyFilter].addText}
@@ -49,6 +61,7 @@ export function AdditionalInput({ keyFilter }: AdditionalInputPropsType) {
                 onKeyDown={handleInputKeyDown}
             />
             <IconButton
+                data-test-id={isSideMenu ? 'add-allergen-button' : ''}
                 ml='14px'
                 minW='12px'
                 h='12px'
