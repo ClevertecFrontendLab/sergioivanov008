@@ -87,8 +87,8 @@ export function FilterButton() {
                 >
                     <DrawerCloseButton
                         data-test-id='close-filter-drawer'
-                        top={{ base: '16px', md: '32px' }}
-                        right={{ base: '16px', md: '32px' }}
+                        top={{ base: '20px', lg: '36px' }}
+                        right={{ base: '28px', lg: '32px' }}
                         borderRadius='full'
                         bg='black'
                         size='sm'
