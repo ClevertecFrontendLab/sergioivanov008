@@ -1,6 +1,6 @@
 import { SearchIcon } from '@chakra-ui/icons';
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { TEXT } from '~/constants';
 import { useAppDispatch, useAppSelector } from '~/store/hooks';
@@ -8,8 +8,18 @@ import { mainActions, mainSelector } from '~/store/slices/main-slice';
 
 export function FilterSearch() {
     const dispatch = useAppDispatch();
-    const { searchQuery } = useAppSelector(mainSelector);
+    const { searchQuery, searchedDataLength } = useAppSelector(mainSelector);
     const [curQuery, setCurQuery] = useState(searchQuery);
+    const [customColor, setCustomColor] = useState('unset');
+
+    const curColor = searchQuery ? customColor : 'rgba(0, 0, 0, 0.48)';
+
+    useEffect(() => {
+        if (searchQuery) {
+            if (searchedDataLength > 0) setCustomColor('green');
+            else setCustomColor('red');
+        }
+    }, [searchQuery, searchedDataLength]);
 
     const isGoodLength = curQuery.trim().length > 2;
 
@@ -35,7 +45,10 @@ export function FilterSearch() {
                 size={{ base: 'sm', lg: 'lg' }}
                 borderRadius={{ base: '4px', lg: '6px' }}
                 border='1px solid rgba(0, 0, 0, 0.48)'
-                borderColor='rgba(0, 0, 0, 0.48)'
+                borderColor={curColor}
+                _active={{ borderColor: `${curColor}` }}
+                _hover={{ borderColor: `${curColor}` }}
+                _focus={{ borderColor: `${curColor}`, boxShadow: 'unset' }}
                 value={curQuery}
                 onChange={(e) => setCurQuery(e.target.value)}
                 onKeyDown={handleInputKeyDown}
