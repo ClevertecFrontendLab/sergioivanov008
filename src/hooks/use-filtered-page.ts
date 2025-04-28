@@ -7,7 +7,7 @@ export const useFilteredPage = () => {
     const isShowFiltered =
         (isExcludeAllergens && selectedFilters.allergens.length > 0) ||
         isCanFiltered ||
-        searchQuery;
+        !!searchQuery;
 
     return isShowFiltered;
 };
