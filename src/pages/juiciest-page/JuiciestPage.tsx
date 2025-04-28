@@ -25,7 +25,7 @@ export function JuiciestPage() {
                 <PageRecipesFilteredSection data={allRecipes} />
             ) : (
                 <>
-                    <PageRecipesSection page='the-juiciest' data={curData} />
+                    <PageRecipesSection data={curData} />
                     <Divider mb={{ base: '8px', lg: '24px' }} />
                     <PageFooterSection page='vegan' />
                 </>
