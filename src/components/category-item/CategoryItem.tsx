@@ -1,26 +1,20 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { NavLink, useLocation } from 'react-router';
 
-import { useAppDispatch } from '~/store/hooks';
-import { mainActions } from '~/store/slices/main-slice';
+import { useMenuClose } from '~/hooks/use-menu-close';
 
 import { CategoryItemPropsType } from '../types';
 import s from './CategoryItem.module.css';
 
 export function CategoryItem({ data, categoryNav }: CategoryItemPropsType) {
-    const dispatch = useAppDispatch();
     const location = useLocation();
+    const nandlerMenuClose = useMenuClose();
     const pathnameArr = location.pathname.split('/');
     const category = pathnameArr[1];
     const subcategory = pathnameArr[2];
 
     const linkTo = `/${categoryNav}/${data.subcategoryNav}`;
     const isActiveItem = categoryNav === category && data.subcategoryNav === subcategory;
-
-    const nandlerMenuClose = () => {
-        dispatch(mainActions.setIsOpenBurger(false));
-        document.body.classList.remove('not-scrolled');
-    };
 
     return (
         <NavLink
