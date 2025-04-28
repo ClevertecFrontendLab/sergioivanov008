@@ -4,7 +4,7 @@ import { FilterButton, FilterSearch, FilterSelectAllergen, FilterSwitch } from '
 
 export function Filters() {
     return (
-        <Flex gap={4} direction='column' w='518px'>
+        <Flex gap={4} direction='column' w={{ base: '328px', md: '448px', lg: '518px' }}>
             <Flex gap={3} justify='center'>
                 <FilterButton />
                 <FilterSearch />
