@@ -4,13 +4,12 @@ import { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 
 import { ALL_RECIPES, CATEGORY_LIST, NAV_DATA, PAGE_DB, TEXT } from '~/constants';
-import { useAppDispatch } from '~/store/hooks';
-import { mainActions } from '~/store/slices/main-slice';
+import { useMenuClose } from '~/hooks/use-menu-close';
 
 import { BreadcrumbSlotType, PageType } from '../types';
 
 export function BreadcrumbComponent() {
-    const dispatch = useAppDispatch();
+    const nandlerMenuClose = useMenuClose();
     const location = useLocation();
     const navigate = useNavigate();
     const pathnameArr = location.pathname.split('/');
@@ -59,11 +58,6 @@ export function BreadcrumbComponent() {
             }
         }
     }
-
-    const nandlerMenuClose = () => {
-        dispatch(mainActions.setIsOpenBurger(false));
-        document.body.classList.remove('not-scrolled');
-    };
 
     return (
         <Breadcrumb
