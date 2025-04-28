@@ -18,6 +18,7 @@ export type MainState = {
     selectedFilters: SelectedFiltersType;
     searchQuery: string;
     allRecipes: RecipeItemFullType[];
+    searchedDataLength: number;
 };
 
 const initialState: MainState = {
@@ -28,6 +29,7 @@ const initialState: MainState = {
     selectedFilters: EMPTY_SELECTED_FILTERS,
     searchQuery: '',
     allRecipes: ALL_RECIPES,
+    searchedDataLength: 0,
 };
 
 export const mainSlice = createSlice({
@@ -54,6 +56,9 @@ export const mainSlice = createSlice({
         },
         setSearchQuery(state, action: PayloadAction<string>) {
             state.searchQuery = action.payload;
+        },
+        setSearchedDataLength(state, action: PayloadAction<number>) {
+            state.searchedDataLength = action.payload;
         },
     },
 });
