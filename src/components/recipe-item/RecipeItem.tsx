@@ -43,7 +43,7 @@ export function RecipeItem({ data, index }: RecipeItemPropsType) {
                 <Image
                     objectFit='cover'
                     maxW={{ base: '158px', lg: '346px' }}
-                    h={{ base: '128px', lg: '244px' }}
+                    h='100%'
                     src={data.image}
                     alt={data.title}
                 />
@@ -59,7 +59,7 @@ export function RecipeItem({ data, index }: RecipeItemPropsType) {
             >
                 <CardBody p={0}>
                     <Flex direction='column' gap={{ base: '4px', md: '8px', lg: '24px' }}>
-                        <Flex justify='space-between' align='center' h='24px' p={0}>
+                        <Flex justify='space-between' align='flex-start' p={0}>
                             <Flex
                                 position={{ base: 'absolute', lg: 'relative' }}
                                 left={{ base: '8px', lg: '0px' }}
