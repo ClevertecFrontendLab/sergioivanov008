@@ -2,15 +2,22 @@ import { Flex } from '@chakra-ui/react';
 import { NavLink } from 'react-router';
 
 import { LogoIcon, LogoText } from '~/components';
+import { useAppDispatch } from '~/store/hooks';
+import { mainActions } from '~/store/slices/main-slice';
 
 export function Logotype() {
+    const dispatch = useAppDispatch();
+
+    const nandlerLogoClick = () => {
+        dispatch(mainActions.setIsOpenBurger(false));
+    };
+
     return (
-        <NavLink to='/'>
+        <NavLink to='/' onClick={nandlerLogoClick}>
             <Flex
                 gap={2}
                 width={{
                     base: '32px',
-                    sm: '135px',
                     md: '264px',
                 }}
                 align='flex-end'

@@ -5,7 +5,9 @@ import { useEffect, useRef, useState } from 'react';
 import { Category } from '~/components';
 import { NAV_DATA } from '~/constants';
 
-export function NavComponent() {
+import { NavComponentPropsType } from '../types';
+
+export function NavComponent({ isLeftNav }: NavComponentPropsType) {
     const containerRef = useRef<HTMLDivElement>(null);
     const dimensions = useSize(containerRef);
     const [height, setHeight] = useState(0);
@@ -55,7 +57,7 @@ export function NavComponent() {
         >
             <Accordion allowToggle ref={containerRef}>
                 {NAV_DATA.map((el) => (
-                    <Category key={el.id} data={el} />
+                    <Category key={el.id} data={el} isLeftNav={isLeftNav} />
                 ))}
             </Accordion>
         </Flex>

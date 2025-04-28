@@ -6,6 +6,7 @@ import {
     Flex,
     Image,
     Text,
+    useMediaQuery,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router';
 
@@ -13,11 +14,23 @@ import { CategoryItem } from '~/components';
 
 import { CategoryPropsType } from '../types';
 
-export function Category({ data }: CategoryPropsType) {
+export function Category({ data, isLeftNav }: CategoryPropsType) {
     const navigate = useNavigate();
+    const [isLargerThan1440] = useMediaQuery('(min-width: 1440px)');
+
+    const curDataTestId = () => {
+        let dataTestId = '';
+        if (isLeftNav) {
+            if (isLargerThan1440) dataTestId = data.testId;
+        } else {
+            if (!isLargerThan1440) dataTestId = data.testId;
+        }
+
+        return dataTestId;
+    };
 
     return (
-        <AccordionItem w='230px' border='none'>
+        <AccordionItem w={{ base: 'unset', lg: '230px' }} border='none'>
             <AccordionButton
                 py='12px'
                 px='8px'
@@ -26,8 +39,8 @@ export function Category({ data }: CategoryPropsType) {
                 _expanded={{ bg: '#eaffc7', fontWeight: 700 }}
                 _hover={{ bg: '#ffffd3' }}
                 as='span'
-                onClick={() => navigate(`/${data.categoryNav}/${data.items[2].id}`)}
-                data-test-id={data.categoryNav}
+                onClick={() => navigate(`/${data.categoryNav}/${data.items[0].subcategoryNav}`)}
+                data-test-id={curDataTestId()}
             >
                 <Flex gap='12px' align='center'>
                     <Image

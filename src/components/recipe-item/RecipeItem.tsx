@@ -11,15 +11,29 @@ import {
     Stack,
     Text,
 } from '@chakra-ui/react';
+import { useNavigate } from 'react-router';
 
-import { Badge, CustomIcon12, RecipeStatistic, RecomendationBadge } from '~/components';
+import { CustomBadge, CustomIcon12, RecipeStatistic, RecomendationBadge } from '~/components';
 import { BTN_TEXT } from '~/constants';
+import { useColorText } from '~/hooks/use-color-text';
+import { useAppSelector } from '~/store/hooks';
+import { mainSelector } from '~/store/slices/main-slice';
 
-import { RecipeItemPropsType } from '../types';
+import { RecipeItemFullType, RecipeItemPropsType } from '../types';
 
-export function RecipeItem({ data }: RecipeItemPropsType) {
+export function RecipeItem({ data, index }: RecipeItemPropsType) {
+    const { searchQuery } = useAppSelector(mainSelector);
+    const colorText = useColorText(data.title, searchQuery);
+    const navigate = useNavigate();
+    const { bookmarks, likes } = data;
+
+    const handlerClick = (el: RecipeItemFullType) => {
+        navigate(`/${el.category[0]}/${el.subcategory[0]}/${el.id}`);
+    };
+
     return (
         <Card
+            data-test-id={`food-card-${index}`}
             direction='row'
             overflow='hidden'
             variant='outline'
@@ -34,7 +48,7 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
                 <Image
                     objectFit='cover'
                     maxW={{ base: '158px', lg: '346px' }}
-                    h={{ base: '128px', lg: '244px' }}
+                    h='100%'
                     src={data.image}
                     alt={data.title}
                 />
@@ -50,15 +64,16 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
             >
                 <CardBody p={0}>
                     <Flex direction='column' gap={{ base: '4px', md: '8px', lg: '24px' }}>
-                        <Flex justify='space-between' align='center' h='24px' p={0}>
-                            <Box
+                        <Flex justify='space-between' align='flex-start' p={0}>
+                            <Flex
                                 position={{ base: 'absolute', lg: 'relative' }}
                                 left={{ base: '8px', lg: '0px' }}
                                 top={{ base: '8px', lg: '0px' }}
+                                w={{ base: '150px', lg: 'unset' }}
                             >
-                                <Badge type={data.badgeType} color='#ffffd3' />
-                            </Box>
-                            {data.recipeProps && <RecipeStatistic data={data.recipeProps} />}
+                                <CustomBadge category={data.category} color='#ffffd3' />
+                            </Flex>
+                            <RecipeStatistic bookmarks={bookmarks} likes={likes} />
                         </Flex>
 
                         <Flex direction='column' gap='8px'>
@@ -68,7 +83,7 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
                                 fontSize={{ base: '16px', lg: '20px' }}
                                 lineHeight={{ base: '150%', lg: '140%' }}
                             >
-                                {data.title}
+                                {searchQuery ? colorText : data.title}
                             </Heading>
                             <Box display={{ base: 'none', lg: 'block' }}>
                                 <Text
@@ -103,7 +118,13 @@ export function RecipeItem({ data }: RecipeItemPropsType) {
                         size='xs'
                         display={{ base: 'flex', lg: 'none' }}
                     />
-                    <Button colorScheme='myBlack' variant='solid' size={{ base: 'xs', lg: 'sm' }}>
+                    <Button
+                        data-test-id={`card-link-${index}`}
+                        colorScheme='myBlack'
+                        variant='solid'
+                        size={{ base: 'xs', lg: 'sm' }}
+                        onClick={() => handlerClick(data)}
+                    >
                         {BTN_TEXT.cook}
                     </Button>
                 </CardFooter>

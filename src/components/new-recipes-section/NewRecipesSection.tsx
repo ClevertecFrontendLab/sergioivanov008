@@ -1,40 +1,91 @@
+import 'swiper/swiper-bundle.css';
+
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import { Box, Flex, IconButton } from '@chakra-ui/react';
+import { useRef } from 'react';
+import { useNavigate } from 'react-router';
+import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
 
 import { RecipeItemLook, SectionTitle } from '~/components';
-import { NEW_RECIPES_DATA, TITLES } from '~/constants';
+import { ALL_RECIPES, TITLES } from '~/constants';
+import { getSortByDate } from '~/utils';
+
+import { RecipeItemFullType } from '../types';
 
 export function NewRecipesSection() {
+    const navigate = useNavigate();
+    const swiperRef = useRef<SwiperRef | null>(null);
+
+    const newRecipesData = getSortByDate(ALL_RECIPES, 10);
+
+    const handlerClick = (el: RecipeItemFullType) => {
+        navigate(`/${el.category[0]}/${el.subcategory[0]}/${el.id}`);
+    };
+
     return (
         <Flex direction='column' gap={{ base: '12px', xl: '24px' }} mb='40px'>
             <SectionTitle title={TITLES.newRecipes} />
             <Box position='relative'>
                 <Box overflow={{ base: 'unset', xl: 'hidden' }}>
-                    <Flex gap={{ base: '12px', xl: '24px' }}>
-                        {NEW_RECIPES_DATA.map((el) => (
-                            <RecipeItemLook key={el.id} data={el} />
+                    <Swiper
+                        data-test-id='carousel'
+                        ref={swiperRef}
+                        loop={true}
+                        breakpoints={{
+                            0: {
+                                slidesPerView: 2,
+                                spaceBetween: '12px',
+                            },
+                            768: {
+                                slidesPerView: 4,
+                                spaceBetween: '12px',
+                            },
+                            1440: {
+                                slidesPerView: 3,
+                                spaceBetween: '12px',
+                            },
+                            1920: {
+                                slidesPerView: 4,
+                                spaceBetween: '24px',
+                            },
+                        }}
+                    >
+                        {newRecipesData.map((el, index) => (
+                            <SwiperSlide
+                                data-test-id={`carousel-card-${index}`}
+                                key={el.id}
+                                onClick={() => handlerClick(el)}
+                            >
+                                <RecipeItemLook data={el} />
+                            </SwiperSlide>
                         ))}
-                    </Flex>
+                    </Swiper>
                 </Box>
                 <IconButton
+                    data-test-id='carousel-back'
                     colorScheme='myBlack'
                     aria-label='new-recipes'
                     size='lg'
                     icon={<ArrowBackIcon boxSize='32px' />}
                     position='absolute'
+                    zIndex={2}
                     top='147px'
                     left='-8px'
                     display={{ base: 'none', lg: 'block' }}
+                    onClick={() => swiperRef.current?.swiper.slidePrev()}
                 />
                 <IconButton
+                    data-test-id='carousel-forward'
                     colorScheme='myBlack'
                     aria-label='new-recipes'
                     size='lg'
                     icon={<ArrowForwardIcon boxSize='32px' />}
                     position='absolute'
+                    zIndex={2}
                     top='147px'
                     right='-8px'
                     display={{ base: 'none', lg: 'block' }}
+                    onClick={() => swiperRef.current?.swiper.slideNext()}
                 />
             </Box>
         </Flex>

@@ -3,10 +3,13 @@ import { Button, Grid, GridItem } from '@chakra-ui/react';
 import { useNavigate } from 'react-router';
 
 import { RecipesGrid, SectionTitle } from '~/components';
-import { BTN_TEXT, JUICIEST_DATA, TITLES } from '~/constants';
+import { ALL_RECIPES, BTN_TEXT, TITLES } from '~/constants';
+import { getSortByLikes } from '~/utils';
 
 export function JuiciestSection() {
     const navigate = useNavigate();
+
+    const data = getSortByLikes(ALL_RECIPES, 4);
 
     return (
         <Grid
@@ -40,7 +43,7 @@ export function JuiciestSection() {
                     variant='solid'
                     color='black'
                     size={{ base: 'md', xl: 'lg' }}
-                    onClick={() => navigate('/juiciest')}
+                    onClick={() => navigate('/the-juiciest')}
                     display={{ base: 'none', lg: 'flex' }}
                     data-test-id='juiciest-link'
                 >
@@ -52,7 +55,7 @@ export function JuiciestSection() {
                     variant='solid'
                     color='black'
                     size={{ base: 'md', xl: 'lg' }}
-                    onClick={() => navigate('/juiciest')}
+                    onClick={() => navigate('/the-juiciest')}
                     display={{ base: 'flex', lg: 'none' }}
                     data-test-id='juiciest-link-mobile'
                 >
@@ -60,7 +63,7 @@ export function JuiciestSection() {
                 </Button>
             </GridItem>
             <GridItem area='three'>
-                <RecipesGrid data={JUICIEST_DATA} />
+                <RecipesGrid data={data} />
             </GridItem>
         </Grid>
     );

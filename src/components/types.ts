@@ -1,6 +1,6 @@
 import { IconProps } from '@chakra-ui/react';
 
-export type CustomIcon12Type = 'pin' | 'view' | 'like' | 'exit';
+export type CustomIcon12Type = 'pin' | 'view' | 'like' | 'exit' | 'subscribe' | 'subscribers';
 
 export type CustomIcon12PropsType = {
     iconType: CustomIcon12Type;
@@ -19,7 +19,7 @@ export type CustomIcon24PropsType = {
     props?: IconProps;
 };
 
-export type CustomIcon16Type = 'home' | 'search' | 'addRecipe';
+export type CustomIcon16Type = 'home' | 'search' | 'addRecipe' | 'time';
 
 export type OutCustomIcon16Type = Partial<Record<CustomIcon16Type, React.JSX.Element>>;
 
@@ -44,18 +44,25 @@ export type FooterButtonPropsType = {
 export type NavDataItemsType = {
     id: string;
     title: string;
+    subcategoryNav: string;
+};
+
+export type NavComponentPropsType = {
+    isLeftNav: boolean;
 };
 
 export type NavDataType = {
     id: string;
     categoryView: string;
     categoryNav: string;
+    testId: string;
     image?: string;
     items: NavDataItemsType[];
 };
 
 export type CategoryPropsType = {
     data: NavDataType;
+    isLeftNav: boolean;
 };
 
 export type CategoryItemPropsType = {
@@ -70,24 +77,22 @@ export type CategoryDataType = {
 };
 
 export type CategoryKeyType =
-    | 'salaty'
-    | 'zakuski'
+    | 'salads'
+    | 'snacks'
     | 'perviebluda'
-    | 'vtoriebluda'
+    | 'second-dish'
     | 'deserty'
     | 'gril'
-    | 'vegan-cuisine'
+    | 'vegan'
     | 'detskie'
     | 'lechebnoe'
-    | 'nacional'
+    | 'national'
     | 'soucy'
     | 'napitki'
     | 'zagotovki';
 
-export type CategoryDbType = Record<CategoryKeyType, CategoryDataType>;
-
 export type BadgePropsType = {
-    type: CategoryKeyType;
+    category: string[];
     color: string;
 };
 
@@ -103,18 +108,9 @@ export type RecipeRecomendationType = {
     name: string;
 };
 
-export type RecipeItemType = {
-    id: string;
-    image?: string;
-    title: string;
-    description: string;
-    badgeType: CategoryKeyType;
-    recipeProps?: RecipePropsType[];
-    recomendation?: RecipeRecomendationType;
-};
-
 export type RecipeItemPropsType = {
-    data: RecipeItemType;
+    data: RecipeItemFullType;
+    index?: number;
 };
 
 export type AvatarContentType = {
@@ -146,17 +142,18 @@ export type SectionTitlePropsType = {
 };
 
 export type RecipeStatisticPropsType = {
-    data: RecipePropsType[];
+    bookmarks?: number;
+    likes?: number;
 };
 
-export type PageType = CategoryKeyType | 'home' | 'juiciest';
+export type PageType = CategoryKeyType | 'home' | 'the-juiciest' | 'filtered';
 
 export type PageHeaderItemType = {
     id: string;
     title: string;
     desc: string;
-    recipes?: RecipeItemType[];
-    pinRecipes?: RecipeItemType[];
+    recipes?: RecipeItemFullType[];
+    pinRecipes?: RecipeItemFullType[];
 };
 
 export type PageDbType = Record<PageType, PageHeaderItemType>;
@@ -170,11 +167,11 @@ export type PagePropsType = {
 };
 
 export type RecipesGridPropsType = {
-    data: RecipeItemType[];
+    data: RecipeItemFullType[];
 };
 
 export type PageRecipesSectionPropsType = {
-    page: PageType;
+    data: RecipeItemFullType[];
 };
 
 export type BreadcrumbSlotType = {
@@ -183,3 +180,109 @@ export type BreadcrumbSlotType = {
     text?: string;
     linkTo: string;
 };
+
+export type NutritionValueKeyType = 'calories' | 'proteins' | 'fats' | 'carbohydrates';
+
+export type NutritionValueType = Record<NutritionValueKeyType, number>;
+
+export type IngredientsType = {
+    title: string;
+    count: string;
+    measureUnit: string;
+};
+
+export type StepsType = {
+    stepNumber: number;
+    description: string;
+    image?: string;
+};
+
+export type AuthorType = {
+    image: string;
+    firstName: string;
+    lastName: string;
+    nickName: string;
+    subscribers: number;
+};
+
+export type RecipeItemFullType = {
+    id: string;
+    title: string;
+    description: string;
+    category: string[];
+    subcategory: string[];
+    image?: string;
+    bookmarks?: number;
+    likes?: number;
+    date?: string;
+    time: string;
+    portions: number;
+    nutritionValue: NutritionValueType;
+    ingredients: IngredientsType[];
+    steps: StepsType[];
+    meat?: string;
+    side?: string;
+    recomendation?: RecipeRecomendationType;
+    author: AuthorType;
+};
+
+export type RecipeItemCardPropsType = {
+    data: RecipeItemFullType;
+};
+
+export type NutritionInfoPropsType = {
+    data: NutritionValueType;
+};
+
+export type IngredientsInfoPropsType = {
+    portions: number;
+    ingredients: IngredientsType[];
+};
+
+export type CookingStepsInfoPropsType = {
+    data: StepsType[];
+};
+
+export type AuthorInfoPropsType = {
+    data: AuthorType;
+};
+
+export type FilterCustomType = 'allergens' | 'category' | 'author' | 'meat' | 'garnir';
+
+export type FilterItemType = {
+    type: FilterCustomType;
+    key: string;
+    value: string;
+    testId?: string;
+};
+
+export type FilterCustomItemType = {
+    title: string;
+    list: FilterItemType[];
+    addText?: string;
+};
+
+export type FilterSelectAllergenPropsType = {
+    keyFilter: FilterCustomType;
+    isSideMenu: boolean;
+};
+
+export type AdditionalInputPropsType = {
+    keyFilter: FilterCustomType;
+    isSideMenu: boolean;
+};
+
+export type FilterSelectCustomPropsType = {
+    keyFilter: FilterCustomType;
+    dataTestId?: string;
+};
+
+export type FilterSwitchPropsType = {
+    dataTestId?: string;
+};
+
+export type FilterListCustomPropsType = {
+    keyFilter: FilterCustomType;
+};
+
+export type SelectedFiltersType = Record<FilterCustomType, FilterItemType[]>;

@@ -1,22 +1,32 @@
 import { Flex, Tab, TabIndicator, TabList, Tabs } from '@chakra-ui/react';
+import { useNavigate, useParams } from 'react-router';
 
-import { PageRecipesSectionPropsType } from '~/components/types';
 import { NAV_DATA } from '~/constants';
 
-export function RecipesTabs({ page }: PageRecipesSectionPropsType) {
-    const data = NAV_DATA.find((el) => el.categoryNav === page)?.items;
+export function RecipesTabs() {
+    const { category, subcategory } = useParams();
+    const navigate = useNavigate();
+    const data = NAV_DATA.find((el) => el.categoryNav === category)?.items;
+    const curIndex =
+        data && subcategory ? data.findIndex((el) => el.subcategoryNav === subcategory) : 0;
+
+    const handlerTabsChange = (index: number) => {
+        navigate(`/${category}/${data![index].subcategoryNav}`);
+    };
 
     return (
         <Flex justify='center' flexWrap='nowrap' mb='24px' direction='column' align='center'>
             <Tabs
-                defaultIndex={2}
+                index={curIndex}
                 position='relative'
                 variant='unstyled'
                 borderBottom='1px solid rgba(0, 0, 0, 0.08)'
+                onChange={(index) => handlerTabsChange(index)}
             >
                 <TabList w='max-content'>
-                    {data?.map((el) => (
+                    {data?.map((el, index) => (
                         <Tab
+                            data-test-id={`tab-${el.subcategoryNav}-${index}`}
                             key={el.id}
                             as='div'
                             flexShrink={0}
@@ -30,6 +40,7 @@ export function RecipesTabs({ page }: PageRecipesSectionPropsType) {
                             lineHeight={{ base: '143%', lg: '150%' }}
                             _focus={{ boxShadow: 'none' }}
                             _selected={{ color: '#2db100', borderBottom: '2px solid #2db100' }}
+                            aria-selected={true}
                         >
                             {el.title}
                         </Tab>

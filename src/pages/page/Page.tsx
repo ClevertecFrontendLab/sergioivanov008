@@ -1,43 +1,59 @@
-import { Divider, Flex } from '@chakra-ui/react';
+import { Divider } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
-import { PageFooterSection, PageHeaderSection, PageRecipesSection } from '~/components';
+import {
+    PageFooterSection,
+    PageHeaderSection,
+    PageRecipesFilteredSection,
+    PageRecipesSection,
+    PageWrapper,
+    RecipesTabs,
+} from '~/components';
 import { PageType } from '~/components/types';
 import { CATEGORY_LIST } from '~/constants';
+import { useFilteredPage } from '~/hooks/use-filtered-page';
+import { useAppSelector } from '~/store/hooks';
+import { mainSelector } from '~/store/slices/main-slice';
 
 export function Page() {
-    const { categoryId } = useParams();
+    const { allRecipes } = useAppSelector(mainSelector);
+    const { category, subcategory } = useParams();
     const navigate = useNavigate();
+    const isShowFilteredPage = useFilteredPage();
     let pageHeaderData: PageType | null = null;
     let pageFooterData: PageType | null = null;
 
     useEffect(() => {
-        if (categoryId && categoryId !== 'juiciest' && !CATEGORY_LIST.includes(categoryId)) {
+        if (category === 'the-juiciest') {
+            navigate('/the-juiciest');
+        } else if (category && !CATEGORY_LIST.includes(category)) {
             navigate('/');
         }
-    }, [categoryId, navigate]);
+    }, [category, navigate]);
 
-    if (categoryId) {
-        if (categoryId === 'juiciest') {
-            pageHeaderData = 'juiciest' as PageType;
-            pageFooterData = 'vegan-cuisine' as PageType;
-        } else if (CATEGORY_LIST.includes(categoryId)) {
-            pageHeaderData = 'vegan-cuisine' as PageType;
-            pageFooterData = 'deserty' as PageType;
-        }
+    if (category && !CATEGORY_LIST.includes(category)) return null;
+
+    if (category && CATEGORY_LIST.includes(category)) {
+        pageHeaderData = category as PageType;
+        pageFooterData = 'deserty' as PageType;
     }
 
+    const curData = allRecipes
+        .filter((el) => el.category.includes(category!))
+        .filter((elem) => elem.subcategory.includes(subcategory!));
+
     return pageHeaderData !== null && pageFooterData !== null ? (
-        <Flex
-            direction='column'
-            pl={{ base: '16px', md: '20px', lg: '24px' }}
-            pr={{ base: '16px', md: '20px', lg: '24px' }}
-        >
+        <PageWrapper>
             <PageHeaderSection page={pageHeaderData} />
-            <PageRecipesSection page={pageHeaderData} />
+            <RecipesTabs />
+            {isShowFilteredPage ? (
+                <PageRecipesFilteredSection data={curData} />
+            ) : (
+                <PageRecipesSection data={curData} />
+            )}
             <Divider mb={{ base: '8px', lg: '24px' }} />
             <PageFooterSection page={pageFooterData} />
-        </Flex>
+        </PageWrapper>
     ) : null;
 }

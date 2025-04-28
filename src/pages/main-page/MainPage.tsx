@@ -1,25 +1,33 @@
-import { Flex } from '@chakra-ui/react';
-
 import {
     BlogsSection,
     JuiciestSection,
     NewRecipesSection,
     PageFooterSection,
     PageHeaderSection,
+    PageRecipesFilteredSection,
+    PageWrapper,
 } from '~/components';
+import { useFilteredPage } from '~/hooks/use-filtered-page';
+import { useAppSelector } from '~/store/hooks';
+import { mainSelector } from '~/store/slices/main-slice';
 
 export function MainPage() {
+    const { allRecipes } = useAppSelector(mainSelector);
+    const isShowFilteredPage = useFilteredPage();
+
     return (
-        <Flex
-            direction='column'
-            pl={{ base: '16px', md: '20px', lg: '24px' }}
-            pr={{ base: '16px', md: '20px', lg: '24px' }}
-        >
+        <PageWrapper>
             <PageHeaderSection page='home' />
-            <NewRecipesSection />
-            <JuiciestSection />
+            {isShowFilteredPage ? (
+                <PageRecipesFilteredSection data={allRecipes} />
+            ) : (
+                <>
+                    <NewRecipesSection />
+                    <JuiciestSection />
+                </>
+            )}
             <BlogsSection />
-            <PageFooterSection page='vegan-cuisine' />
-        </Flex>
+            <PageFooterSection page='vegan' />
+        </PageWrapper>
     );
 }
