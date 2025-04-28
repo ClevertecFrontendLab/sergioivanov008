@@ -50,12 +50,10 @@ export function Page() {
             {isShowFilteredPage ? (
                 <PageRecipesFilteredSection data={curData} />
             ) : (
-                <>
-                    <PageRecipesSection data={curData} />
-                    <Divider mb={{ base: '8px', lg: '24px' }} />
-                    <PageFooterSection page={pageFooterData} />
-                </>
+                <PageRecipesSection data={curData} />
             )}
+            <Divider mb={{ base: '8px', lg: '24px' }} />
+            <PageFooterSection page={pageFooterData} />
         </PageWrapper>
     ) : null;
 }
