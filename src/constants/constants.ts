@@ -276,8 +276,8 @@ export const NAV_DATA: NavDataType[] = [
     {
         id: '10',
         categoryView: 'Национальные',
-        categoryNav: 'nacional',
-        testId: 'nacional',
+        categoryNav: 'national',
+        testId: 'national',
         image: nationalDishesImg,
         items: [
             { id: '079', title: 'Американская кухня', subcategoryNav: 'american' },
@@ -356,7 +356,7 @@ export const CATEGORY_LIST = [
     'vegan',
     'detskie',
     'lechebnoe',
-    'nacional',
+    'national',
     'soucy',
     'napitki',
     'zagotovki',
@@ -762,7 +762,7 @@ export const PAGE_DB: PageDbType = {
                 title: 'Панкейки',
                 description:
                     'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-                category: ['nacional'],
+                category: ['national'],
                 subcategory: ['snacks', 'vegetables'],
                 portions: 2,
                 nutritionValue: { calories: 180, proteins: 4, fats: 6, carbohydrates: 28 },
@@ -846,7 +846,7 @@ export const PAGE_DB: PageDbType = {
         title: 'Лечебное питание',
         desc: '',
     },
-    nacional: {
+    national: {
         id: '10',
         title: 'Национальные',
         desc: '',
@@ -875,7 +875,7 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
         title: 'Картошка, тушенная с болгарским перцем и фасолью в томатном соусе',
         description:
             'Картошка, тушенная с болгарским перцем, фасолью, морковью и луком, -  вариант сытного блюда на каждый день. Фасоль в данном случае заменяет  мясо, делая рагу сытным и питательным. Чтобы сократить время  приготовления, возьмём консервированную фасоль. Блюдо хоть и простое, но в полной мере наполнено ароматами и имеет выразительный вкус за счёт  добавления томатной пасты.',
-        category: ['nacional'],
+        category: ['national'],
         subcategory: ['snacks', 'vegetables'],
         bookmarks: 85,
         likes: 152,
@@ -953,7 +953,7 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
         title: 'Том-ям с капустой кимчи',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        category: ['nacional'],
+        category: ['national'],
         subcategory: ['snacks', 'vegetables'],
         bookmarks: 124,
         likes: 324,
@@ -1109,7 +1109,7 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
         title: 'Чесночная картошка',
         description:
             'Такая картошечка украсит любой семейный обед! Все будут в полном  восторге, очень вкусно! Аромат чеснока, хрустящая корочка на картошечке - просто объедение! Отличная идея для обеда или ужина, готовится просто!',
-        category: ['nacional'],
+        category: ['national'],
         subcategory: ['snacks', 'vegetables'],
         bookmarks: 124,
         likes: 324,
@@ -1148,7 +1148,7 @@ export const VEGAN_DATA_FULL: RecipeItemFullType[] = [
         title: 'Пури',
         description:
             'Пури - это индийские жареные лепешки, которые готовятся из пресного  теста. Рецепт лепешек пури требует самых доступных ингредиентов, и  времени на приготовление хрустящих лепешек уйдет мало.',
-        category: ['nacional'],
+        category: ['national'],
         subcategory: ['snacks', 'vegetables'],
         bookmarks: 124,
         likes: 324,
@@ -1781,7 +1781,7 @@ export const ALL_RECIPES: RecipeItemFullType[] = [
         title: 'Лапша с курицей и шафраном',
         description:
             'Как раз после праздников, когда мясные продукты еще остались, но никто их уже не хочет, время варить солянку.',
-        category: ['second-dish', 'nacional', 'detskie'],
+        category: ['second-dish', 'national', 'detskie'],
         subcategory: ['warm-salads'],
         image: recipe6Img,
         bookmarks: 10,
@@ -1901,7 +1901,7 @@ export const CATEGORY_FILTER: FilterItemType[] = [
     { type: 'category', key: 'vegan', value: 'Веганская кухня', testId: 'веганская кухня' },
     { type: 'category', key: 'detskie', value: 'Детские блюда', testId: 'детские блюда' },
     { type: 'category', key: 'lechebnoe', value: 'Лечебное питание', testId: 'лечебное питание' },
-    { type: 'category', key: 'nacional', value: 'Национальные', testId: 'национальные' },
+    { type: 'category', key: 'national', value: 'Национальные', testId: 'национальные' },
     { type: 'category', key: 'soucy', value: 'Соусы', testId: 'соусы' },
     { type: 'category', key: 'napitki', value: 'Напитки', testId: 'напитки' },
     { type: 'category', key: 'zagotovki', value: 'Заготовки', testId: 'заготовки' },
