@@ -22,7 +22,7 @@ export function RootLayout() {
             }}
             gridTemplateRows={{ base: '64px 1fr 84px', lg: '80px 1fr' }}
             gridTemplateColumns={{ base: '1fr', lg: '256px 1fr 256px' }}
-            w='calc(100vw - 16px)'
+            w='calc(100vw - 10px)'
         >
             <GridItem
                 area='header'
