@@ -53,7 +53,7 @@ export function AdditionalInput({ keyFilter, isSideMenu }: AdditionalInputPropsT
         <Flex align='center' py='8px' pl='24px' pr='14px'>
             <Input
                 data-test-id={curTestId()}
-                border-radius='4px'
+                borderRadius='4px'
                 height='32px'
                 placeholder={FILTER_CUSTOM[keyFilter].addText}
                 value={newAllergen}
