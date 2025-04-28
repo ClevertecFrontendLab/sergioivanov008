@@ -24,12 +24,10 @@ export function JuiciestPage() {
             {isShowFilteredPage ? (
                 <PageRecipesFilteredSection data={allRecipes} />
             ) : (
-                <>
-                    <PageRecipesSection data={curData} />
-                    <Divider mb={{ base: '8px', lg: '24px' }} />
-                    <PageFooterSection page='vegan' />
-                </>
+                <PageRecipesSection data={curData} />
             )}
+            <Divider mb={{ base: '8px', lg: '24px' }} />
+            <PageFooterSection page='vegan' />
         </PageWrapper>
     );
 }
