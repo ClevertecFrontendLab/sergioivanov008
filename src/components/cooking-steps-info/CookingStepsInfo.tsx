@@ -25,6 +25,7 @@ export function CookingStepsInfo({ data }: CookingStepsInfoPropsType) {
 
             {data.map((el, index) => (
                 <Card
+                    key={index}
                     direction='row'
                     overflow='hidden'
                     variant='outline'
