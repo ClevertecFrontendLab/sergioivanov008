@@ -8,16 +8,18 @@ export function PageRecipesSection({ data }: PageRecipesSectionPropsType) {
     return (
         <Flex direction='column' mb='40px' justify='center' align='center'>
             <RecipesGrid data={data} />
-            <Flex w='100%' justify='center' mt='16px'>
-                <Button
-                    colorScheme='myGreen'
-                    variant='solid'
-                    color='black'
-                    size={{ base: 'md', xl: 'lg' }}
-                >
-                    {BTN_TEXT.loadMore}
-                </Button>
-            </Flex>
+            {data.length > 0 && (
+                <Flex w='100%' justify='center' mt='16px'>
+                    <Button
+                        colorScheme='myGreen'
+                        variant='solid'
+                        color='black'
+                        size={{ base: 'md', xl: 'lg' }}
+                    >
+                        {BTN_TEXT.loadMore}
+                    </Button>
+                </Flex>
+            )}
         </Flex>
     );
 }
