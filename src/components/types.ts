@@ -86,7 +86,7 @@ export type CategoryKeyType =
     | 'vegan'
     | 'detskie'
     | 'lechebnoe'
-    | 'nacional'
+    | 'national'
     | 'soucy'
     | 'napitki'
     | 'zagotovki';
