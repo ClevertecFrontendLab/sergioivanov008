@@ -60,13 +60,14 @@ export function RecipeItem({ data, index }: RecipeItemPropsType) {
                 <CardBody p={0}>
                     <Flex direction='column' gap={{ base: '4px', md: '8px', lg: '24px' }}>
                         <Flex justify='space-between' align='center' h='24px' p={0}>
-                            <Box
+                            <Flex
                                 position={{ base: 'absolute', lg: 'relative' }}
                                 left={{ base: '8px', lg: '0px' }}
                                 top={{ base: '8px', lg: '0px' }}
+                                w={{ base: '150px', lg: 'unset' }}
                             >
                                 <CustomBadge category={data.category} color='#ffffd3' />
-                            </Box>
+                            </Flex>
                             <RecipeStatistic bookmarks={bookmarks} likes={likes} />
                         </Flex>
 
