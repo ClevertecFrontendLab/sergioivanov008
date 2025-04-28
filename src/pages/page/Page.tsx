@@ -46,12 +46,12 @@ export function Page() {
     return pageHeaderData !== null && pageFooterData !== null ? (
         <PageWrapper>
             <PageHeaderSection page={pageHeaderData} />
+            <RecipesTabs />
             {isShowFilteredPage ? (
-                <PageRecipesFilteredSection page={subcategory as PageType} data={curData} />
+                <PageRecipesFilteredSection data={curData} />
             ) : (
                 <>
-                    <RecipesTabs />
-                    <PageRecipesSection page={pageHeaderData} data={curData} />
+                    <PageRecipesSection data={curData} />
                     <Divider mb={{ base: '8px', lg: '24px' }} />
                     <PageFooterSection page={pageFooterData} />
                 </>
