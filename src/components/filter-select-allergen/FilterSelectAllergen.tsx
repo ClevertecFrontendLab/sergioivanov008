@@ -3,9 +3,9 @@ import {
     Box,
     Button,
     Checkbox,
+    Flex,
     Menu,
     MenuButton,
-    MenuItem,
     MenuList,
     Tag,
     TagLabel,
@@ -100,7 +100,14 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
                     zIndex={2}
                 >
                     {FILTER_CUSTOM[keyFilter].list.map((el, index) => (
-                        <MenuItem key={index} bg={checkIsOdd(index) ? 'rgba(0, 0, 0, 0.06)' : ''}>
+                        <Flex
+                            key={index}
+                            h='32px'
+                            px='16px'
+                            gap='8px'
+                            justify='flex-start'
+                            bg={checkIsOdd(index) ? 'rgba(0, 0, 0, 0.06)' : ''}
+                        >
                             <Checkbox
                                 data-test-id={curTestId(index)}
                                 colorScheme='myGreen'
@@ -115,7 +122,7 @@ export function FilterSelectAllergen({ keyFilter, isSideMenu }: FilterSelectAlle
                             >
                                 {el.value}
                             </Checkbox>
-                        </MenuItem>
+                        </Flex>
                     ))}
 
                     <AdditionalInput keyFilter={keyFilter} isSideMenu={isSideMenu} />
