@@ -15,10 +15,15 @@ import { useNavigate } from 'react-router';
 
 import { CustomBadge, CustomIcon12, RecipeStatistic, RecomendationBadge } from '~/components';
 import { BTN_TEXT } from '~/constants';
+import { useColorText } from '~/hooks/use-color-text';
+import { useAppSelector } from '~/store/hooks';
+import { mainSelector } from '~/store/slices/main-slice';
 
 import { RecipeItemFullType, RecipeItemPropsType } from '../types';
 
 export function RecipeItem({ data, index }: RecipeItemPropsType) {
+    const { searchQuery } = useAppSelector(mainSelector);
+    const colorText = useColorText(data.title, searchQuery);
     const navigate = useNavigate();
     const { bookmarks, likes } = data;
 
@@ -78,7 +83,7 @@ export function RecipeItem({ data, index }: RecipeItemPropsType) {
                                 fontSize={{ base: '16px', lg: '20px' }}
                                 lineHeight={{ base: '150%', lg: '140%' }}
                             >
-                                {data.title}
+                                {searchQuery ? colorText : data.title}
                             </Heading>
                             <Box display={{ base: 'none', lg: 'block' }}>
                                 <Text
