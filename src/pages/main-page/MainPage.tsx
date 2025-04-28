@@ -24,10 +24,10 @@ export function MainPage() {
                 <>
                     <NewRecipesSection />
                     <JuiciestSection />
-                    <BlogsSection />
-                    <PageFooterSection page='vegan' />
                 </>
             )}
+            <BlogsSection />
+            <PageFooterSection page='vegan' />
         </PageWrapper>
     );
 }
