@@ -22,6 +22,7 @@ export function RootLayout() {
             }}
             gridTemplateRows={{ base: '64px 1fr 84px', lg: '80px 1fr' }}
             gridTemplateColumns={{ base: '1fr', lg: '256px 1fr 256px' }}
+            w='calc(100vw - 16px)'
         >
             <GridItem
                 area='header'
@@ -31,7 +32,7 @@ export function RootLayout() {
                 pr='36px'
                 py='16px'
                 className={s.headerComponent}
-                w='100vw'
+                w='100%'
                 data-test-id='header'
                 zIndex={10}
             >
@@ -46,7 +47,7 @@ export function RootLayout() {
             >
                 <Navigation />
             </GridItem>
-            <GridItem area='main' overflow='hidden' h='100vh'>
+            <GridItem area='main' overflow='hidden' h='100%'>
                 <Outlet />
             </GridItem>
             <GridItem
@@ -62,7 +63,7 @@ export function RootLayout() {
                 bg='myColor.yellow'
                 display={{ base: 'block', lg: 'none' }}
                 className={s.footerComponent}
-                w='100vw'
+                w='100%'
                 data-test-id='footer'
             >
                 <Footer />
