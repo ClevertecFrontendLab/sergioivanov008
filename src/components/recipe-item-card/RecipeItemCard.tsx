@@ -92,7 +92,7 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
                                 leftIcon={
                                     <CustomIcon12
                                         iconType='like'
-                                        props={{ boxSize: { lg: '14px', xl: '16px' } }}
+                                        props={{ boxSize: { base: '14px', xl: '16px' } }}
                                     />
                                 }
                                 colorScheme='myBlack'
@@ -106,7 +106,7 @@ export function RecipeItemCard({ data }: RecipeItemCardPropsType) {
                                 leftIcon={
                                     <CustomIcon12
                                         iconType='pin'
-                                        props={{ boxSize: { lg: '14px', xl: '16px' } }}
+                                        props={{ boxSize: { base: '14px', xl: '16px' } }}
                                     />
                                 }
                                 colorScheme='myGreen'
