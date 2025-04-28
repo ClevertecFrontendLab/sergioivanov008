@@ -46,7 +46,7 @@ export function RootLayout() {
             >
                 <Navigation />
             </GridItem>
-            <GridItem area='main' overflow='hidden'>
+            <GridItem area='main' overflow='hidden' h='100vh'>
                 <Outlet />
             </GridItem>
             <GridItem
