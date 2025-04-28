@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 
 import { PageRecipesSection } from '~/components';
 import { PageRecipesSectionPropsType, RecipeItemFullType } from '~/components/types';
-import { useAppSelector } from '~/store/hooks';
-import { mainSelector } from '~/store/slices/main-slice';
+import { useAppDispatch, useAppSelector } from '~/store/hooks';
+import { mainActions, mainSelector } from '~/store/slices/main-slice';
 
 export function PageRecipesFilteredSection({ data }: PageRecipesSectionPropsType) {
+    const dispatch = useAppDispatch();
     const { searchQuery, selectedFilters } = useAppSelector(mainSelector);
+    const [searchedData, setSearchedData] = useState<RecipeItemFullType[]>(data);
     const [filteredData, setFilteredData] = useState<RecipeItemFullType[]>(data);
 
     useEffect(() => {
@@ -19,6 +21,12 @@ export function PageRecipesFilteredSection({ data }: PageRecipesSectionPropsType
         } else {
             tempData = [...data];
         }
+
+        setSearchedData(tempData);
+    }, [data, searchQuery]);
+
+    useEffect(() => {
+        let tempData: RecipeItemFullType[] = [...searchedData];
 
         if (selectedFilters.category.length > 0) {
             tempData = tempData.filter((recipe) =>
@@ -47,7 +55,9 @@ export function PageRecipesFilteredSection({ data }: PageRecipesSectionPropsType
         }
 
         setFilteredData(tempData);
-    }, [data, searchQuery, selectedFilters]);
+    }, [data, searchQuery, searchedData, selectedFilters]);
+
+    dispatch(mainActions.setSearchedDataLength(searchedData.length));
 
     return <PageRecipesSection data={filteredData} />;
 }
